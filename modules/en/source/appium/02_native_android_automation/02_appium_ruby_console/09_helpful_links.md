@@ -1,0 +1,1 @@
+[1.2.8 helpful links](/appium/01_native_ios_automation/02_appium_ruby_console/08_helpful_links.md)

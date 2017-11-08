@@ -1,0 +1,1 @@
+[1.2.6 ending the session](/appium/01_native_ios_automation/02_appium_ruby_console/06_ending_the_session.md)
