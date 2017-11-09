@@ -20,7 +20,7 @@ public class GospelLibrary {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName", "AndroidTestDevice");
-        capabilities.setCapability("app", "/Users/dexterdrysdale/Documents/Builds/Android/gospel-library-alpha-43005.apk");
+        capabilities.setCapability("app", "/Users/dexterdrysdale/Documents/GitHub/GospelLibraryAppiumTestsAndroid/APK/gospel-library-alpha-43005.apk");
 
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
 
@@ -31,13 +31,40 @@ public class GospelLibrary {
         driver.quit();
     }
 
-    @Test
-    public void skipTipsAndLogin() throws InterruptedException {
+    //Enter Text to a field by ID
+    //click field, clear field, enter text
+    public void sendText(String elementID, String text) throws Exception {
+        WebElement textfield = driver.findElementById(elementID);
+        textfield.click();
+        textfield.clear();
+        textfield.sendKeys(text);
+        Thread.sleep(1000);
+    }
 
+    //Login with
+    String user = "support2";
+    String password = "ldssaldssa";
+
+
+
+    @Test
+    public void skipTips() throws InterruptedException {
         Thread.sleep(3000);
-        //click skip
-        WebElement skipTips = driver.findElement(By.id("org.lds.ldssa.dev:id/skip"));
-        skipTips.click();
+        Boolean isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
+        while ((isPresent)) {
+            System.out.println("Tips Screen is Present");
+            //click on skip
+            WebElement skipTips = driver.findElement(By.id("org.lds.ldssa.dev:id/skip"));
+            skipTips.click();
+            isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
+        }
+
+    }
+
+    @Test
+    public void skipLogin() throws InterruptedException {
+
+        skipTips();
         //click skip
         Thread.sleep(1000);
         WebElement skipLogin = driver.findElementById("org.lds.ldssa.dev:id/done");
@@ -46,19 +73,42 @@ public class GospelLibrary {
     }
 
     @Test
-    public void Bookmarks() throws InterruptedException {
+    public void allTips() throws InterruptedException {
 
         Thread.sleep(3000);
+        Boolean isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
+        while ((isPresent)) {
+            System.out.println("Element is Present");
+            WebElement tipToolbar = driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView");
+            //Expected
+            String tipToolbarTitle = "What’s New";
+            //Actual
+            String tipToolbarAsText = tipToolbar.getText();
+            Assert.assertEquals(tipToolbarTitle, tipToolbarAsText);
+            WebElement next = driver.findElementById("org.lds.ldssa.dev:id/next");
+            next.click();
+            Thread.sleep(1000);
+            isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
+        }
 
-        //click skip
-        WebElement skipTips = driver.findElement(By.id("org.lds.ldssa.dev:id/skip"));
-        skipTips.click();
+    }
 
-        //click skip
+    @Test
+    public void login() throws Exception {
+        skipTips();
+        sendText("org.lds.ldssa.dev:id/usernameEditText", user);
+        sendText("org.lds.ldssa.dev:id/passwordEditText", password);
+        WebElement signIn = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
+        signIn.click();
         Thread.sleep(1000);
-        WebElement skipLogin = driver.findElementById("org.lds.ldssa.dev:id/done");
-        skipLogin.click();
-        Thread.sleep(2000);
+
+
+    }
+
+    @Test
+    public void Bookmarks() throws Exception {
+
+        skipLogin();
 
         //click Scriptures
         WebElement Scriptures = driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout[1]/android.view.ViewGroup/android.widget.RelativeLayout/android.support.v7.widget.RecyclerView/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.TextView");
@@ -258,9 +308,7 @@ public class GospelLibrary {
         Thread.sleep(1000);
         bookmarkRename.click();
         Thread.sleep(1000);
-        newBookmarkName.click();
-        newBookmarkName.clear();
-        newBookmarkName.sendKeys("Hello World");
+        sendText("android:id/input", "Hello World");
         //add checks for name
         ok.click();
         Thread.sleep(1000);
@@ -300,9 +348,7 @@ public class GospelLibrary {
         //bookmark one rename ok
         bookmarkRename.click();
         Thread.sleep(1000);
-        newBookmarkName.click();
-        newBookmarkName.clear();
-        newBookmarkName.sendKeys("Hello World");
+        sendText("android:id/input", "Hello World");
         //add checks for name
         ok.click();
         Thread.sleep(1000);
