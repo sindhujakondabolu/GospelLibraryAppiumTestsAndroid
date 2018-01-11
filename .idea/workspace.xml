@@ -2,322 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e61195d5-5b6a-4293-81dc-73667731a79a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/Content/Content.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/functions/mainFunctions.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.gitattributes" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Gemfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/NOTICE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Rakefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_config.yml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_includes/doc_list.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_includes/footer.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_includes/head.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_includes/navbar.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/contributing.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/appium.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/custom.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/font-awesome-4.0.3/css/font-awesome.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/font-awesome-4.0.3/fonts/FontAwesome.otf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/font-awesome-4.0.3/fonts/fontawesome-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/font-awesome-4.0.3/fonts/fontawesome-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/font-awesome-4.0.3/fonts/fontawesome-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/font-awesome-4.0.3/fonts/fontawesome-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/pygments.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/template.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/module_set.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/support/helpers.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/support/helpers/custom_helpers.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/support/helpers/file_helpers.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/support/requires.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/tutorial.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/01_getting_started_with_appium/01_introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/01_getting_started_with_appium/02_installation.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/01_getting_started_with_appium/03_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/01_getting_started_with_appium/04_summary.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/02_appium_ruby_console/01_introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/02_appium_ruby_console/02_compiling_the_ios_sample_app.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/02_appium_ruby_console/03_prebuilt_ios_sample_app.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/02_appium_ruby_console/04_starting_the_console.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/02_appium_ruby_console/05_page_command.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/02_appium_ruby_console/06_ending_the_session.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/02_appium_ruby_console/07_appium.app_inspector.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/02_appium_ruby_console/08_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/02_appium_ruby_console/09_summary.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/03_writing_your_first_test/01_introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/03_writing_your_first_test/02_automating_a_simple_action.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/03_writing_your_first_test/03_page_object_pattern.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/03_writing_your_first_test/04_running_the_test_with_rake.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/03_writing_your_first_test/05_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/03_writing_your_first_test/06_summary.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/04_running_tests/01_introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/04_running_tests/02_flaky_gem.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/04_running_tests/03_running_locally.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/04_running_tests/04_running_using_jenkins_ci.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/04_running_tests/05_running_on_sauce.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/04_running_tests/06_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/04_running_tests/07_summary.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/05_conclusion/01_introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/05_conclusion/02_additional_resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/05_conclusion/03_community_support.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/05_conclusion/04_professional_support.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/05_conclusion/05_searching_the_source_code.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/05_conclusion/06_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/01_native_ios_automation/05_conclusion/07_summary.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/01_getting_started_with_appium/01_introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/01_getting_started_with_appium/02_installation.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/01_getting_started_with_appium/03_android_sdk.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/01_getting_started_with_appium/04_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/01_getting_started_with_appium/05_summary.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/02_appium_ruby_console/01_introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/02_appium_ruby_console/02_compiling_the_android_sample_app.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/02_appium_ruby_console/03_prebuilt_android_sample_app.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/02_appium_ruby_console/04_starting_the_console.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/02_appium_ruby_console/05_page_command.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/02_appium_ruby_console/06_ending_the_session.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/02_appium_ruby_console/07_appium.app_inspector.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/02_appium_ruby_console/08_uiautomatorviewer.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/02_appium_ruby_console/09_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/02_appium_ruby_console/10_summary.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/03_writing_your_first_test/01_introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/03_writing_your_first_test/02_automating_a_simple_action.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/03_writing_your_first_test/03_page_object_pattern.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/03_writing_your_first_test/04_running_the_test_with_rake.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/03_writing_your_first_test/05_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/03_writing_your_first_test/06_summary.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/04_running_tests/01_introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/04_running_tests/02_flaky_gem.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/04_running_tests/03_running_locally.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/04_running_tests/04_running_using_jenkins_ci.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/04_running_tests/05_running_on_sauce.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/04_running_tests/06_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/04_running_tests/07_summary.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/05_conclusion/01_introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/05_conclusion/02_additional_resources.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/05_conclusion/03_community_support.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/05_conclusion/04_professional_support.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/05_conclusion/05_searching_the_source_code.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/05_conclusion/06_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/appium/02_native_android_automation/05_conclusion/07_summary.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/03_helpful_links.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/android_sdk_manager.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/animation_off.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/appium.app.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/appium_doctor.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/appium_external.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/avd_settings.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/flaky_gem.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/inspector_android.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/inspector_ios.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/install.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/install_android.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/introduction.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/java_ide.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/jenkins.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/jenkins_end.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/rubymine.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/running_on_sauce.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/modules/en/source/common/uiautomatorviewer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/out/production/Gospel-Library-Appium-Tests/GospelLibrary.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/Tests/GospelLibrary.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/BUCK" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/COPYING" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/12-6AM.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/12-6PM.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/6-12AM.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/6-12PM.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/Default-568h@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/Default@2x.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/Info.plist" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/PkgInfo" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/UIButton_custom.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/UICatalog" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/blueButton.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/bookmarkImage.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/bookmarkImageHighlighted.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/divider.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/AlertsViewController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/ButtonsViewController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/ControlsViewController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/ImagesViewController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/Localizable.strings" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/MainWindow.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/PickerViewController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/SearchBarController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/SegmentViewController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/TextFieldController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/TextViewController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/ToolbarViewController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/TransitionViewController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/en.lproj/WebViewController.nib" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/orangeslide.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/scene1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/scene2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/scene3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/scene4.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/scene5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/searchBarBackground.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/segment_check.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/segment_search.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/segment_tools.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/segmentedBackground.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/slider_ball.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/toolbarBackground.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/whiteButton.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/UICatalog.app/yellowslide.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/appium.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/buck.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/java7.bucklet" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/java8.bucklet" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/java_doc.bucklet" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/java_library2.bucklet" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/java_sources.bucklet" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/local_jar.bucklet" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/maven_jar.bucklet" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/maven_package.bucklet" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/tools/BUCK" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/tools/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/tools/download_all.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/tools/download_file.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/tools/eclipse.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/tools/mvn.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/tools/pack_war.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/tools/util.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/bucklets/war.bucklet" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/java_ios_2.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/lib/BUCK" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/lib/junit/BUCK" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/lib/sauce/BUCK" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/lib/selenium/BUCK" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/buck/test/appium/Test.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__cglib_cglib_3_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__cglib_cglib_nodep_2_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__com_google_code_gson_gson_2_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__com_google_guava_guava_17_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__com_googlecode_json_simple_json_simple_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__com_saucelabs_sauce_java_common_2_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__com_saucelabs_sauce_junit_2_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__com_saucelabs_saucerest_1_0_16.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__commons_codec_commons_codec_1_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__commons_collections_commons_collections_3_2_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__dom4j_dom4j_1_6_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__io_appium_java_client_2_0_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__io_netty_netty_3_5_5_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__javassist_javassist_3_12_1_GA.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__junit_junit_4_11.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__net_java_dev_jna_jna_3_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__net_java_dev_jna_platform_3_4_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__net_sourceforge_cssparser_cssparser_0_9_14.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_2_15.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__net_sourceforge_htmlunit_htmlunit_core_js_2_15.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__net_sourceforge_nekohtml_nekohtml_1_9_21.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_apache_commons_commons_exec_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_3_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_3_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_apache_httpcomponents_httpmime_4_3_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_eclipse_jetty_jetty_http_8_1_15_v20140411.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_eclipse_jetty_jetty_io_8_1_15_v20140411.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_eclipse_jetty_jetty_util_8_1_15_v20140411.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_eclipse_jetty_jetty_websocket_8_1_15_v20140411.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_json_json_20090211.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_ow2_asm_asm_4_2.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_reflections_reflections_0_9_8.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_api_2_43_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_chrome_driver_2_43_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_firefox_driver_2_43_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_htmlunit_driver_2_43_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_ie_driver_2_43_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_java_2_43_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_remote_driver_2_43_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_safari_driver_2_43_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_seleniumhq_selenium_selenium_support_2_43_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_w3c_css_sac_1_3.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__org_webbitserver_webbit_0_4_15.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__xalan_serializer_2_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__xalan_xalan_2_7_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__xerces_xercesImpl_2_11_0.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/api.apk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/src/test/java/appium/tutorial/android/AutomatingASimpleActionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/src/test/java/appium/tutorial/android/PageObjectPatternTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/src/test/java/appium/tutorial/android/page/AccessibilityPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/src/test/java/appium/tutorial/android/page/AnimationPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/src/test/java/appium/tutorial/android/page/HomePage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/src/test/java/appium/tutorial/android/util/AppiumTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/src/test/java/appium/tutorial/android/util/Helpers.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/src/test/test.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/target/test-classes/appium/tutorial/android/AutomatingASimpleActionTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/target/test-classes/appium/tutorial/android/PageObjectPatternTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/target/test-classes/appium/tutorial/android/page/AccessibilityPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/target/test-classes/appium/tutorial/android/page/AnimationPage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/target/test-classes/appium/tutorial/android/page/HomePage.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/target/test-classes/appium/tutorial/android/util/AppiumTest$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/target/test-classes/appium/tutorial/android/util/AppiumTest.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/target/test-classes/appium/tutorial/android/util/Helpers.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_android/tutorial_android.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/UICatalog6.1.app.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/src/test/java/appium/tutorial/ios/AutomatingASimpleActionTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/src/test/java/appium/tutorial/ios/PageObjectPatternTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/src/test/java/appium/tutorial/ios/page/ButtonsPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/src/test/java/appium/tutorial/ios/page/ControlsPage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/src/test/java/appium/tutorial/ios/page/HomePage.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/src/test/java/appium/tutorial/ios/util/AppiumTest.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/src/test/java/appium/tutorial/ios/util/Helpers.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/src/test/test1.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/java_ios/tutorial_ios.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/Gemfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/Gemfile.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/LICENSE-2.0.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/Rakefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/api.apk" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/appium.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/appium/android/common.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/appium/android/pages/accessibility.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/appium/android/pages/animation.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/appium/android/pages/home.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/appium/android/requires.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/appium/android/specs/test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/appium/run.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_android/upload/upload.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/Gemfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/Gemfile.lock" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/LICENSE-2.0.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/Rakefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/UICatalog6.1.app.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/appium.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/appium/ios/common.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/appium/ios/pages/button_uses.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/appium/ios/pages/control_uses.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/appium/ios/pages/home.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/appium/ios/requires.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/appium/ios/specs/test.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/appium/run.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/projects/ruby_ios/upload/upload.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/readme.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/spec_helper.rb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/spec/tutorial_spec.rb" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/GospelLibrary.class" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/GospelLibrary.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -332,8 +19,18 @@
       <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="755" column="52" lean-forward="false" selection-start-line="755" selection-start-column="52" selection-end-line="755" selection-end-column="52" />
+            <state relative-caret-position="-4782">
+              <caret line="691" column="39" lean-forward="false" selection-start-line="691" selection-start-column="39" selection-end-line="691" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppiumDriver.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/AppiumDriver.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="54" column="56" lean-forward="false" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -342,7 +39,7 @@
       <file leaf-file-name="DefaultGenericMobileDriver.class" pinned="false" current-in-tab="false">
         <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/DefaultGenericMobileDriver.class">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
+            <state relative-caret-position="330">
               <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
               <folding>
                 <element signature="e#2084#2085#0" expanded="true" />
@@ -438,9 +135,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-309" />
     <option name="y" value="23" />
-    <option name="width" value="1223" />
+    <option name="width" value="1920" />
     <option name="height" value="1151" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -459,6 +157,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -475,10 +176,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -511,56 +209,16 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GospelLibrary.BookmarksLandingPage_NotSignedIn">
-    <configuration name="GospelLibrary.Bookmark" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GospelLibrary.login">
+    <configuration name="GospelLibrary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Gospel-Library-Appium-Tests" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="Bookmark" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.BookmarksLandingPage_NotSignedIn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="BookmarksLandingPage_NotSignedIn" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.CreateNewNoteInNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="CreateNewNoteInNotebook" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -592,14 +250,54 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.NotesLandingPage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.LibraryContentScreenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Gospel-Library-Appium-Tests" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="NotesLandingPage" />
+      <option name="METHOD_NAME" value="LibraryContentScreenTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="GospelLibrary.ScreensScreenFromLibrary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Gospel-Library-Appium-Tests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
+      <option name="METHOD_NAME" value="ScreensScreenFromLibrary" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="GospelLibrary.login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Gospel-Library-Appium-Tests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
+      <option name="METHOD_NAME" value="login" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -694,19 +392,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateNewNoteInNotebook" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.ScreensScreenFromLibrary" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.LibraryContentScreen" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.NotesLandingPage" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.Bookmark" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.BookmarksLandingPage_NotSignedIn" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.LibraryContentScreenTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.login" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.BookmarksLandingPage_NotSignedIn" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.NotesLandingPage" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.Bookmark" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.LibraryContentScreen" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateNewNoteInNotebook" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.login" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.LibraryContentScreen" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.LibraryContentScreenTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.ScreensScreenFromLibrary" />
       </list>
     </recent_temporary>
   </component>
@@ -727,55 +425,55 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GospelLibrary_BookmarksLandingPage_NotSignedIn - 2018.01.04 at 12h 02m 26s.xml">
-      <configuration name="GospelLibrary.BookmarksLandingPage_NotSignedIn" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_LibraryContentScreen - 2018.01.08 at 13h 58m 45s.xml">
+      <configuration name="GospelLibrary.LibraryContentScreen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_BookmarksLandingPage_NotSignedIn - 2018.01.04 at 12h 04m 13s.xml">
-      <configuration name="GospelLibrary.BookmarksLandingPage_NotSignedIn" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_LibraryContentScreen - 2018.01.08 at 14h 00m 35s.xml">
+      <configuration name="GospelLibrary.LibraryContentScreen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_BookmarksLandingPage_NotSignedIn - 2018.01.04 at 12h 05m 45s.xml">
-      <configuration name="GospelLibrary.BookmarksLandingPage_NotSignedIn" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_LibraryContentScreen - 2018.01.08 at 14h 10m 41s.xml">
+      <configuration name="GospelLibrary.LibraryContentScreen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_BookmarksLandingPage_NotSignedIn - 2018.01.04 at 12h 08m 06s.xml">
-      <configuration name="GospelLibrary.BookmarksLandingPage_NotSignedIn" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_LibraryContentScreen - 2018.01.08 at 14h 12m 02s.xml">
+      <configuration name="GospelLibrary.LibraryContentScreen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_BookmarksLandingPage_NotSignedIn - 2018.01.04 at 12h 13m 36s.xml">
-      <configuration name="GospelLibrary.BookmarksLandingPage_NotSignedIn" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_LibraryContentScreen - 2018.01.08 at 14h 13m 30s.xml">
+      <configuration name="GospelLibrary.LibraryContentScreen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_BookmarksLandingPage_NotSignedIn - 2018.01.04 at 12h 16m 54s.xml">
-      <configuration name="GospelLibrary.BookmarksLandingPage_NotSignedIn" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_LibraryContentScreen - 2018.01.08 at 14h 21m 33s.xml">
+      <configuration name="GospelLibrary.LibraryContentScreen" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_NotesLandingPage - 2018.01.04 at 11h 00m 26s.xml">
-      <configuration name="GospelLibrary.NotesLandingPage" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_login - 2018.01.10 at 12h 10m 58s.xml">
+      <configuration name="GospelLibrary.login" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_NotesLandingPage - 2018.01.04 at 11h 02m 29s.xml">
-      <configuration name="GospelLibrary.NotesLandingPage" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_login - 2018.01.10 at 12h 12m 47s.xml">
+      <configuration name="GospelLibrary.login" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_NotesLandingPage - 2018.01.04 at 11h 16m 44s.xml">
-      <configuration name="GospelLibrary.NotesLandingPage" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_login - 2018.01.10 at 12h 15m 37s.xml">
+      <configuration name="GospelLibrary.login" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_NotesLandingPage - 2018.01.04 at 11h 25m 27s.xml">
-      <configuration name="GospelLibrary.NotesLandingPage" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_login - 2018.01.10 at 12h 24m 52s.xml">
+      <configuration name="GospelLibrary.login" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1223" height="1151" extended-state="0" />
+    <frame x="0" y="23" width="1920" height="1151" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22985469" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22916667" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34375" sideWeight="0.5085197" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23579545" sideWeight="0.4914803" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24621212" sideWeight="0.4914803" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297975" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297975" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17527519" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.018104367" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -800,14 +498,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableMap.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="51" column="80" lean-forward="true" selection-start-line="51" selection-start-column="80" selection-end-line="51" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1157,7 +847,7 @@
     </entry>
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/DefaultGenericMobileDriver.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
+        <state relative-caret-position="330">
           <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
           <folding>
             <element signature="e#2084#2085#0" expanded="true" />
@@ -1165,10 +855,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/AppiumDriver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="54" column="56" lean-forward="false" selection-start-line="54" selection-start-column="37" selection-end-line="54" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="755" column="52" lean-forward="false" selection-start-line="755" selection-start-column="52" selection-end-line="755" selection-end-column="52" />
+        <state relative-caret-position="-4782">
+          <caret line="691" column="39" lean-forward="false" selection-start-line="691" selection-start-column="39" selection-end-line="691" selection-end-column="39" />
           <folding />
         </state>
       </provider>

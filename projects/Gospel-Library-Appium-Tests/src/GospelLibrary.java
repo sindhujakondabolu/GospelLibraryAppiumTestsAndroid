@@ -49,7 +49,7 @@ public class GospelLibrary {
     String password = "ldssaldssa";
     String wrongPassword = "ldssaldssaa";
 
-    public int milliseconds_1 = 2100;
+    public int milliseconds_1 = 1100;
     public int milliseconds_2 = milliseconds_1 * 2;
     public int milliseconds_3 = milliseconds_1 * 3;
     public int milliseconds_4 = milliseconds_1 * 4;
@@ -366,6 +366,12 @@ public class GospelLibrary {
         return tempElement;
     }
 
+    //Create WebElement by AccessibilityId
+    public WebElement WebElementByAccessibilityId(String text) throws Exception{
+        WebElement tempElement = driver.findElementByAccessibilityId(text);
+        return tempElement;
+    }
+
     //Click Element by Text
     public void ClickUIElementByText (String text) throws Exception{
         String xPathofText = "//android.widget.TextView[@text='"+text+"']";
@@ -500,6 +506,26 @@ public class GospelLibrary {
 
     }
 
+    //Scroll to by
+    public void scrollToBy(WebElement TempElement){
+        System.out.println(TempElement);
+        int screenHeight = driver.manage().window().getSize().getHeight();
+        int upperY = TempElement.getLocation().getY();
+        System.out.println("Screen Height is "+screenHeight+"");
+        System.out.println("upper Y is "+upperY+"");
+        while (upperY >= screenHeight / 2){
+            System.out.println("scrolling down y '"+upperY+"' is >= "+ screenHeight / 2 +"");
+            scrollDown();
+            upperY = TempElement.getLocation().getY();
+        }
+        while (upperY <= screenHeight / 8){
+            System.out.println("scrolling up y '"+upperY+"' is <= "+ screenHeight / 8+"");
+            scrollUp();
+            upperY = TempElement.getLocation().getY();
+        }
+
+    }
+
 
 
     //Verify Text
@@ -510,21 +536,31 @@ public class GospelLibrary {
 
     }
 
-    //Verify Object Exists by text
-    public void assertElementExistsByText(String text){
-        String xPathofText = "//android.widget.TextView[@text='"+text+"']";
-        //System.out.println("Xpath of current item is: "+xPathofText+"");
-        Boolean tempElement = driver.findElements(By.xpath(xPathofText)).size() > 0;
-        System.out.println(""+text+" "+tempElement+"");
-        assert tempElement == true;
-    }
-
     //Verify Object Exists Using WebElementsBy
-    public void assertElementExistsBy(List webElementsBy ){
+    public void assertElementExistsBy(List webElementsBy){
         Boolean tempElement = webElementsBy.size() > 0;
         System.out.println(""+webElementsBy.toString()+" "+tempElement+"");
         assert tempElement == true;
     }
+
+
+//    //Verify Object Exists and scroll to it
+//    public void assertAndScrollToElementExistsBy(List webElementsBy, WebElement webElementBy){
+//        scrollToBy(webElementBy);
+//        Boolean tempElement = webElementsBy.size() > 0;
+//        System.out.println(""+webElementsBy.toString()+" "+tempElement+"");
+//        assert tempElement == true;
+//
+//    }
+
+
+
+
+
+
+
+
+
 
     //Verify Object Does Not Exist Using WebElementsBy
     public void assertElementNotPresentBy(List webElementsBy ){
@@ -615,6 +651,127 @@ public class GospelLibrary {
 
 
     //*************************************************************** Tests ***************************************************************
+
+    //********** Tips Screen **********
+    @Test
+    public void skipTips() throws InterruptedException {
+        Thread.sleep(milliseconds_3);
+        Boolean isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
+        while ((isPresent)) {
+            System.out.println("Tips Screen is Present... Skipping");
+            //click on skip
+            WebElement skipTips = driver.findElement(By.id("org.lds.ldssa.dev:id/skip"));
+            skipTips.click();
+            isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
+        }
+
+    }
+
+
+    @Test
+    public void allTips() throws InterruptedException {
+
+        Thread.sleep(milliseconds_3);
+        Boolean isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
+        while ((isPresent)) {
+            System.out.println("Tips Screen is Present... Next Tip");
+            WebElement tipToolbar = driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView");
+            //Expected
+            String tipToolbarTitle = "What’s New";
+            //Actual
+            String tipToolbarAsText = tipToolbar.getText();
+            Assert.assertEquals(tipToolbarTitle, tipToolbarAsText);
+            WebElement next = driver.findElementById("org.lds.ldssa.dev:id/next");
+            next.click();
+            Thread.sleep(milliseconds_1);
+            isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
+        }
+
+    }
+
+    //********** Login Screen *********
+
+    @Test
+    public void skipLogin() throws InterruptedException {
+
+        skipTips();
+        //click skip
+        Thread.sleep(milliseconds_2);
+        WebElement skipLogin = driver.findElementById("org.lds.ldssa.dev:id/done");
+        skipLogin.click();
+        Thread.sleep(milliseconds_3);
+    }
+
+    @Test
+    public void login() throws Exception {
+        //This test checks valid login
+        skipTips();
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/signInToolbar"));
+        verifyText("Sign In", WebElementByText("Sign In"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/signInMessageTextView"));
+        verifyText("An LDS Account is used to back up and synchronize your annotations across devices and on LDS.org.",WebElementById("org.lds.ldssa.dev:id/signInMessageTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/usernameEditText"));
+        //appium can't validate ! if Username not entered and SignIn clicked
+        sendText("org.lds.ldssa.dev:id/usernameEditText", user);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/passwordEditText"));
+        sendText("org.lds.ldssa.dev:id/passwordEditText", password);
+        assertElementExistsBy(WebElementsByAccessibilityId("Toggle password visibility"));
+        boolean passwordVisibility = Boolean.parseBoolean((WebElementByAccessibilityId("Toggle password visibility").getAttribute("checked")));
+        System.out.println(passwordVisibility);
+        assert (passwordVisibility == false);
+        verifyText("",WebElementById("org.lds.ldssa.dev:id/passwordEditText"));
+        ClickUIElementByAccessibilityID("Toggle password visibility");
+        Thread.sleep(milliseconds_1);
+        passwordVisibility = Boolean.parseBoolean((WebElementByAccessibilityId("Toggle password visibility").getAttribute("checked")));
+        System.out.println(passwordVisibility);
+        assert (passwordVisibility == true);
+        verifyText(password, WebElementById("org.lds.ldssa.dev:id/passwordEditText"));
+        WebElement signInButton = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
+        signInButton.click();
+        Thread.sleep(milliseconds_1);
+        verifyText("Library", WebElementByText("Library"));
+
+    }
+
+    @Test
+    public void invalidLogin() throws Exception {
+        skipTips();
+        verifyText("Sign In", WebElementByText("Sign In"));
+        sendText("org.lds.ldssa.dev:id/usernameEditText", user);
+        sendText("org.lds.ldssa.dev:id/passwordEditText", wrongPassword);
+        WebElement signInButton = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
+        signInButton.click();
+        Thread.sleep(milliseconds_1);
+        verifyText("Error", WebElementByText("Error"));
+        ClickUIElementByText("OK");
+        sendText("org.lds.ldssa.dev:id/passwordEditText", password);
+        signInButton.click();
+        Thread.sleep(milliseconds_1);
+        verifyText("Library", WebElementByText("Library"));
+
+    }
+
+    @Test
+    public void troubleSigningIn() throws Exception {
+        skipTips();
+        verifyText("Sign In", WebElementByText("Sign In"));
+        ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginForgotCredentialsButton");
+        Thread.sleep(milliseconds_5);
+        verifyText("https://ldsaccount.lds.org/recovery", WebElementById("com.android.chrome:id/url_bar"));
+    }
+
+    @Test
+    public void signInCreateAccount() throws Exception {
+        skipTips();
+        verifyText("Sign In", WebElementByText("Sign In"));
+        verifyText("Create LDS Account", WebElementById("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton"));
+        ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton");
+        Thread.sleep(milliseconds_5);
+        verifyText("https://ldsaccount.lds.org/register", WebElementById("com.android.chrome:id/url_bar"));
+    }
+
+
+    //*********** Library Screen ***********
     @Test
     public void LibraryContentScreen() throws Exception {
         //Skip Login
@@ -630,10 +787,10 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Jesus Christ"));
         scrollTo("General Conference");
         assertElementExistsBy(WebElementsByText("General Conference"));
-        scrollTo("Notes");
-        assertElementExistsBy(WebElementsByText("Notes"));
         scrollTo("Teachings of Presidents");
         assertElementExistsBy(WebElementsByText("Teachings of Presidents"));
+        scrollTo("Notes");
+        assertElementExistsBy(WebElementsByText("Notes"));
         scrollTo("Lessons");
         assertElementExistsBy(WebElementsByText("Lessons"));
         scrollTo("Magazines");
@@ -667,6 +824,7 @@ public class GospelLibrary {
         scrollTo("Tips");
         assertElementExistsBy(WebElementsByText("Tips"));
 
+
         ClickUIElementByAccessibilityID("More options");
         Thread.sleep(milliseconds_1);
         assertElementExistsBy(WebElementsByText("New Screen…"));
@@ -676,6 +834,8 @@ public class GospelLibrary {
 
     }
 
+
+    //********** Notes Landing Page **********
     @Test
     public void NotesLandingPage_NotSignedIn() throws Exception {
         //Skip Login
@@ -733,7 +893,158 @@ public class GospelLibrary {
     }
 
     @Test
-    public void BookmarksLandingPage_NotSignedIn() throws Exception {
+    public void SignInCheckNotebookAndNote() throws Exception {
+
+        //Login
+        login();
+
+        //Verify "Notes item exists by text"
+        verifyText("Notes", WebElementByText("Notes"));
+        //Click "Notes"
+        ClickUIElementByText("Notes");
+        Thread.sleep(milliseconds_1);
+        //Verify Tabs in the notes section
+        verifyText("All",WebElementByText("All"));
+        verifyText("Tags", WebElementByText("Tags"));
+        verifyText("Notebooks", WebElementByText("Notebooks"));
+        //Click Notebooks
+        ClickUIElementByText("Notebooks");
+        Thread.sleep(milliseconds_1);
+        //Check notebook title and click on it
+        verifyText("Spiritual Thoughts", WebElementById("org.lds.ldssa.dev:id/titleView"));
+        ClickUIElementByText("Spiritual Thoughts");
+        Thread.sleep(milliseconds_1);
+        //Verify note title and text preview then click on it
+        verifyText("Spiritual Thought", WebElementByText("Spiritual Thought"));
+        verifyText("Spiritual content", WebElementByText("Spiritual content"));
+        ClickUIElementByText("Spiritual Thought");
+        Thread.sleep(milliseconds_1);
+        //Verify note title and content
+        verifyText("Spiritual Thought", WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"));
+        verifyText("Spiritual content", WebElementById("org.lds.ldssa.dev:id/markdownEditText"));
+        //Verify buttons are visible
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/note_menu_tag"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/note_menu_add_to_notebook"));
+        //Click Tag
+        ClickUIElementByID("org.lds.ldssa.dev:id/note_menu_tag");
+        Thread.sleep(milliseconds_3);
+        //Verify Tags element exists
+        verifyText("Tags", WebElementByText("Tags"));
+        //Verify tag sorting and navigation exists
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/menu_item_tag_sort"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        sendText("org.lds.ldssa.dev:id/tagNameEditText","Spirit");
+        Thread.sleep(milliseconds_1);
+        ClickUIElementByAccessibilityID("Navigate up");
+        Thread.sleep(milliseconds_1);
+        ClickUIElementByID("org.lds.ldssa.dev:id/note_menu_tag");
+        Thread.sleep(milliseconds_1);
+        //Tag check
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/tag_text"));
+        verifyText("Spirit", WebElementById("org.lds.ldssa.dev:id/tag_text"));
+        Thread.sleep(milliseconds_1);
+        ClickUIElementByID("org.lds.ldssa.dev:id/tag_delete");
+
+
+
+
+    }
+
+    @Test
+    public void CreateNewNotebook() throws Exception {
+
+        //Login
+        skipLogin();
+        //Verify "Notes item exists by text"
+        verifyText("Notes", WebElementByText("Notes"));
+        //Click "Notes"
+        ClickUIElementByText("Notes");
+        Thread.sleep(milliseconds_1);
+        //Verify Tabs in the notes section
+        verifyText("All", WebElementByText("All"));
+        verifyText("Tags", WebElementByText("Tags"));
+        verifyText("Notebooks", WebElementByText("Notebooks"));
+        //Click Notebooks
+        ClickUIElementByText("Notebooks");
+        Thread.sleep(milliseconds_1);
+        ClickUIElementByID("org.lds.ldssa.dev:id/notesFloatingActionButton");
+        Thread.sleep(milliseconds_1);
+        verifyText("Create Notebook", WebElementByText("Create Notebook"));
+        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+        verifyText("Add", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+        sendText("android:id/input", NotebookName1);
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        Thread.sleep(milliseconds_5);
+        verifyText(NotebookName1, WebElementByText(NotebookName1));
+    }
+
+    @Test
+    public void CreateNewNoteInNewNotebook() throws Exception {
+        CreateNewNotebook();
+        ClickUIElementByText(NotebookName1);
+        verifyText("No Notes in This Notebook",WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        verifyText(NotebookName1, WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/dropArrowImageView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/newFloatingActionButton"));
+        ClickUIElementByID("org.lds.ldssa.dev:id/newFloatingActionButton");
+        Thread.sleep(milliseconds_1);
+        //Verify controls present
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_bold"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_italic"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_unordered_list"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_ordered_list"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Add to Notebook"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Tag"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        //Type Note Text
+        String NoteTitle = "Test Note Title";
+        String NoteBody = "Test Note Body";
+        sendText("org.lds.ldssa.dev:id/noteTitleEditText", NoteTitle);
+        sendText("org.lds.ldssa.dev:id/markdownEditText", NoteBody);
+
+        ClickUIElementByAccessibilityID("Navigate up");
+        Thread.sleep(milliseconds_1);
+
+        //Back Up Annotations?
+        verifyText("Back Up Annotations", WebElementByText("Back Up Annotations"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNeutral"));
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
+        Thread.sleep(milliseconds_1);
+
+        //Check Note
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"));
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"));
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"));
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/markdownEditText"));
+        Thread.sleep(milliseconds_1);
+
+    }
+
+    //********** Bookmarks Landing Page **********
+    @Test
+    public void BookmarksLandingPageFromLibrary_NotSignedIn() throws Exception {
+        //Skip Login
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        ClickUIElementByAccessibilityID("Bookmark");
+        assertElementExistsBy(WebElementsByText("Bookmarks"));
+        assertElementExistsBy(WebElementsByText("Screens"));
+        assertElementExistsBy(WebElementsByText("History"));
+        assertElementExistsBy(WebElementsByText("No Bookmarks"));
+        assertElementExistsBy(WebElementsByText("Add a bookmark to quickly return to where you left off."));
+    }
+
+    @Test
+    public void BookmarksLandingPageFromNotes_NotSignedIn() throws Exception {
     // Skip Login
         skipLogin();
         ClickUIElementByText("Notes");
@@ -797,162 +1108,41 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         verifyText("Notes", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
-
-
-
-
-
-
-
-
-
-
-    }
-
-
-
-    @Test
-    public void SignInCheckNotebookAndNote() throws Exception {
-
-    //Login
-        login();
-
-    //Verify "Notes item exists by text"
-        verifyText("Notes", WebElementByText("Notes"));
-    //Click "Notes"
-        ClickUIElementByText("Notes");
-        Thread.sleep(milliseconds_1);
-    //Verify Tabs in the notes section
-        verifyText("All",WebElementByText("All"));
-        verifyText("Tags", WebElementByText("Tags"));
-        verifyText("Notebooks", WebElementByText("Notebooks"));
-    //Click Notebooks
-        ClickUIElementByText("Notebooks");
-        Thread.sleep(milliseconds_1);
-    //Check notebook title and click on it
-        verifyText("Spiritual Thoughts", WebElementById("org.lds.ldssa.dev:id/titleView"));
-        ClickUIElementByText("Spiritual Thoughts");
-        Thread.sleep(milliseconds_1);
-    //Verify note title and text preview then click on it
-        verifyText("Spiritual Thought", WebElementByText("Spiritual Thought"));
-        verifyText("Spiritual content", WebElementByText("Spiritual content"));
-        ClickUIElementByText("Spiritual Thought");
-        Thread.sleep(milliseconds_1);
-    //Verify note title and content
-        verifyText("Spiritual Thought", WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"));
-        verifyText("Spiritual content", WebElementById("org.lds.ldssa.dev:id/markdownEditText"));
-    //Verify buttons are visible
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/note_menu_tag"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/note_menu_add_to_notebook"));
-    //Click Tag
-        ClickUIElementByID("org.lds.ldssa.dev:id/note_menu_tag");
-        Thread.sleep(milliseconds_3);
-    //Verify Tags element exists
-        verifyText("Tags", WebElementByText("Tags"));
-    //Verify tag sorting and navigation exists
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/menu_item_tag_sort"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
-        sendText("org.lds.ldssa.dev:id/tagNameEditText","Spirit");
-        Thread.sleep(milliseconds_1);
-        ClickUIElementByAccessibilityID("Navigate up");
-        Thread.sleep(milliseconds_1);
-        ClickUIElementByID("org.lds.ldssa.dev:id/note_menu_tag");
-        Thread.sleep(milliseconds_1);
-    //Tag check
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/tag_text"));
-        verifyText("Spirit", WebElementById("org.lds.ldssa.dev:id/tag_text"));
-        Thread.sleep(milliseconds_1);
-        ClickUIElementByID("org.lds.ldssa.dev:id/tag_delete");
-
-
-
-
     }
 
     @Test
-    public void CreateNewNotebook() throws Exception {
-
-        //Login
+    public void ScreensScreenFromLibrary() throws Exception {
+        //Skip Login
         skipLogin();
-        //Verify "Notes item exists by text"
-        verifyText("Notes", WebElementByText("Notes"));
-        //Click "Notes"
-        ClickUIElementByText("Notes");
-        Thread.sleep(milliseconds_1);
-        //Verify Tabs in the notes section
-        verifyText("All", WebElementByText("All"));
-        verifyText("Tags", WebElementByText("Tags"));
-        verifyText("Notebooks", WebElementByText("Notebooks"));
-        //Click Notebooks
-        ClickUIElementByText("Notebooks");
-        Thread.sleep(milliseconds_1);
-        ClickUIElementByID("org.lds.ldssa.dev:id/notesFloatingActionButton");
-        Thread.sleep(milliseconds_1);
-        verifyText("Create Notebook", WebElementByText("Create Notebook"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        verifyText("Add", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
-        sendText("android:id/input", NotebookName1);
-        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
-        Thread.sleep(milliseconds_5);
-        verifyText(NotebookName1, WebElementByText(NotebookName1));
-    }
-
-    @Test
-    public void CreateNewNoteInNotebook() throws Exception {
-        CreateNewNotebook();
-        ClickUIElementByText(NotebookName1);
-        verifyText("No Notes in This Notebook",WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
-        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
-        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
-        verifyText(NotebookName1, WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/dropArrowImageView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/newFloatingActionButton"));
-        ClickUIElementByID("org.lds.ldssa.dev:id/newFloatingActionButton");
+        ClickUIElementByAccessibilityID("Bookmark");
         Thread.sleep(milliseconds_1);
-        //Verify controls present
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_bold"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_italic"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_unordered_list"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_ordered_list"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Add to Notebook"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Tag"));
+        assertElementExistsBy(WebElementsByText("Screens"));
+        ClickUIElementByText("Screens");
+        Thread.sleep(milliseconds_1);
+        assertElementExistsBy(WebElementsByAccessibilityId("Library"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/screenImageView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/screenTitleTextView"));
+        verifyText("Library", WebElementById("org.lds.ldssa.dev:id/screenTitleTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/screen_menu"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/locationsFab"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Show Screens as Separate Windows"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/menu_item_tabs_in_overview"));
+        ClickUIElementByID("org.lds.ldssa.dev:id/menu_item_tabs_in_overview");
+        assertElementExistsBy(WebElementsById("android:id/title"));
+        verifyText("Show Screens as Separate Windows", WebElementById("android:id/title"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/switchWidget"));
+        verifyText("ON", WebElementById("org.lds.ldssa.dev:id/switchWidget"));
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
-        //Type Note Text
-        String NoteTitle = "Test Note Title";
-        String NoteBody = "Test Note Body";
-        sendText("org.lds.ldssa.dev:id/noteTitleEditText", NoteTitle);
-        sendText("org.lds.ldssa.dev:id/markdownEditText", NoteBody);
-
-        ClickUIElementByAccessibilityID("Navigate up");
+        assertElementExistsBy(WebElementsByText("Screen Settings"));
+        verifyText("Screen Settings", WebElementByText("Screen Settings"));
+        ClickUIElementByID("org.lds.ldssa.dev:id/switchWidget");
         Thread.sleep(milliseconds_1);
-
-        //Back Up Annotations?
-        verifyText("Back Up Annotations", WebElementByText("Back Up Annotations"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNeutral"));
-        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
-        Thread.sleep(milliseconds_1);
-
-        //Check Note
-        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"));
-        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"));
-        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
-        Thread.sleep(milliseconds_1);
-        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"));
-        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/markdownEditText"));
-        Thread.sleep(milliseconds_1);
-
-
-
-
-
-
+        verifyText("OFF",WebElementById("org.lds.ldssa.dev:id/switchWidget"));
+        Thread.sleep(milliseconds_4);
 
     }
+
 
     @Test
     public void Bookmark() throws Exception {
@@ -1046,103 +1236,6 @@ public class GospelLibrary {
         driver.tap(1, driver.findElementById("p15"),1000);
 
     }
-
-
-    @Test
-    public void skipTips() throws InterruptedException {
-        Thread.sleep(milliseconds_3);
-        Boolean isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
-        while ((isPresent)) {
-            System.out.println("Tips Screen is Present... Skipping");
-            //click on skip
-            WebElement skipTips = driver.findElement(By.id("org.lds.ldssa.dev:id/skip"));
-            skipTips.click();
-            isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
-        }
-
-    }
-
-    @Test
-    public void skipLogin() throws InterruptedException {
-
-        skipTips();
-        //click skip
-        Thread.sleep(milliseconds_2);
-        WebElement skipLogin = driver.findElementById("org.lds.ldssa.dev:id/done");
-        skipLogin.click();
-        Thread.sleep(milliseconds_3);
-    }
-
-    @Test
-    public void allTips() throws InterruptedException {
-
-        Thread.sleep(milliseconds_3);
-        Boolean isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
-        while ((isPresent)) {
-            System.out.println("Tips Screen is Present... Next Tip");
-            WebElement tipToolbar = driver.findElementByXPath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.support.v4.view.ViewPager/android.widget.LinearLayout/android.view.ViewGroup/android.widget.TextView");
-            //Expected
-            String tipToolbarTitle = "What’s New";
-            //Actual
-            String tipToolbarAsText = tipToolbar.getText();
-            Assert.assertEquals(tipToolbarTitle, tipToolbarAsText);
-            WebElement next = driver.findElementById("org.lds.ldssa.dev:id/next");
-            next.click();
-            Thread.sleep(milliseconds_1);
-            isPresent = driver.findElements(By.id("org.lds.ldssa.dev:id/tipToolbar")).size() > 0;
-        }
-
-    }
-
-    @Test
-    public void login() throws Exception {
-        skipTips();
-        verifyText("Sign In", WebElementByText("Sign In"));
-        sendText("org.lds.ldssa.dev:id/usernameEditText", user);
-        sendText("org.lds.ldssa.dev:id/passwordEditText", password);
-        WebElement signInButton = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
-        signInButton.click();
-        Thread.sleep(milliseconds_1);
-        verifyText("Library", WebElementByText("Library"));
-
-    }
-
-    @Test
-    public void invalidLogin() throws Exception {
-        skipTips();
-        verifyText("Sign In", WebElementByText("Sign In"));
-        sendText("org.lds.ldssa.dev:id/usernameEditText", user);
-        sendText("org.lds.ldssa.dev:id/passwordEditText", wrongPassword);
-        WebElement signInButton = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
-        signInButton.click();
-        Thread.sleep(milliseconds_1);
-        verifyText("Error", WebElementByText("Error"));
-        ClickUIElementByText("OK");
-        sendText("org.lds.ldssa.dev:id/passwordEditText", password);
-        signInButton.click();
-        Thread.sleep(milliseconds_1);
-        verifyText("Library", WebElementByText("Library"));
-
-    }
-
-    @Test
-    public void troubleSigningIn() throws Exception {
-        skipTips();
-        verifyText("Sign In", WebElementByText("Sign In"));
-        ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginForgotCredentialsButton");
-        Thread.sleep(milliseconds_5);
-        verifyText("https://ldsaccount.lds.org/recovery", WebElementById("com.android.chrome:id/url_bar"));
-    }
-
-    @Test
-    public void signInCreateAccount() throws Exception {
-        skipTips();
-        verifyText("Sign In", WebElementByText("Sign In"));
-        ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton");
-        Thread.sleep(milliseconds_5);
-        verifyText("https://ldsaccount.lds.org/register", WebElementById("com.android.chrome:id/url_bar"));
-    }
-
 
     @Test
     public void allBooksInTheOldTestiment() throws Exception {
