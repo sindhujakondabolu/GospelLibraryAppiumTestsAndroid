@@ -1,4 +1,5 @@
 
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.AppiumDriver;
 import javafx.util.Pair;
@@ -8,6 +9,8 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -21,6 +24,7 @@ import static java.lang.Integer.valueOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
+
 
 
 public class GospelLibrary {
@@ -340,9 +344,25 @@ public class GospelLibrary {
         return tempElement;
     }
 
+    //Create WebElement by text
+    public WebElement WebElementByCheckedText(String text) throws Exception{
+        String xPathofText = "//android.widget.CheckedTextView[@text='"+text+"']";
+        //System.out.println("Xpath of current item is: "+xPathofText+"");
+        WebElement tempElement = driver.findElement(By.xpath(xPathofText));
+        return tempElement;
+    }
+
     //Create WebElements by text (List)
     public List WebElementsByText(String text) throws Exception{
         String xPathofText = "//android.widget.TextView[@text='"+text+"']";
+        //System.out.println("Xpath of current item is: "+xPathofText+"");
+        List tempElement = driver.findElements(By.xpath(xPathofText));
+        return tempElement;
+    }
+
+    //Create WebElements by Checked text (List)
+    public List WebElementsByCheckedText(String text) throws Exception{
+        String xPathofText = "//android.widget.CheckedTextView[@text='"+text+"']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         List tempElement = driver.findElements(By.xpath(xPathofText));
         return tempElement;
@@ -380,6 +400,22 @@ public class GospelLibrary {
         itemToClick.click();
         System.out.println("Clicking: '"+text+"' using text by xPath");
         Thread.sleep(milliseconds_2);
+    }
+
+    //Click Element by Checked Text
+    public void ClickUIElementByCheckedText (String text) throws Exception{
+        String xPathofText = "//android.widget.CheckedTextView[@text='"+text+"']";
+        //System.out.println("Xpath of current item is: "+xPathofText+"");
+        WebElement itemToClick = driver.findElement(By.xpath(xPathofText));
+        itemToClick.click();
+        System.out.println("Clicking: '"+text+"' using text by xPath");
+        Thread.sleep(milliseconds_2);
+    }
+
+    //Create WebElement by xPath
+    public WebElement WebElementByXpath(String text) throws Exception{
+        WebElement tempElement = driver.findElementByXPath(text);
+        return tempElement;
     }
 
     //Click Element by 2 text items
@@ -1226,17 +1262,541 @@ public class GospelLibrary {
 //    }
 
 
+    //********** Settings Screen **********
     @Test
-    public void annotationsMenu() throws Exception {
+    public void settingsScreenLandingPageNotSignedIn() throws Exception {
         skipLogin();
-        OpenScripture("Book of Mormon", "Helaman", "5","26");
-        Thread.sleep(milliseconds_1);
-        scrollToById("p15");
-        Thread.sleep(milliseconds_1);
-        driver.tap(1, driver.findElementById("p15"),1000);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("LDS Account"));
+        assertElementExistsBy(WebElementsByText("Sign In"));
+        assertElementExistsBy(WebElementsByText("An LDS Account is used to back up and synchronize your annotations across devices and on LDS.org."));
+        assertElementExistsBy(WebElementsByText("Create LDS Account"));
+        assertElementExistsBy(WebElementsByText("Content"));
+        assertElementExistsBy(WebElementsByText("Downloaded Media"));
+        assertElementExistsBy(WebElementsByText("None"));
+        assertElementExistsBy(WebElementsByText("Limit Mobile Network Use"));
+        assertElementExistsBy(WebElementsByText("Only Download and Stream on Wi-Fi"));
+
+        // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
+        // toggle verification is currently by xpath because no other identifier is available
+        String limitMobileNetworkUseXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[4]/android.widget.LinearLayout/android.widget.Switch";
+        verifyText("OFF", WebElementByXpath(limitMobileNetworkUseXpath));
+        Boolean limitMobileNetworkUseBool = Boolean.parseBoolean(WebElementByXpath(limitMobileNetworkUseXpath).getAttribute("checked"));
+        assert limitMobileNetworkUseBool == false;
+        ClickUIElementByXpath(limitMobileNetworkUseXpath);
+        verifyText("ON", WebElementByXpath(limitMobileNetworkUseXpath));
+        limitMobileNetworkUseBool = Boolean.parseBoolean(WebElementByXpath(limitMobileNetworkUseXpath).getAttribute("checked"));
+        assert limitMobileNetworkUseBool == true;
+
+
+        assertElementExistsBy(WebElementsByText("Display"));
+        assertElementExistsBy(WebElementsByText("Theme"));
+        assertElementExistsBy(WebElementsByText("Default"));
+        assertElementExistsBy(WebElementsByText("Text Size"));
+
+
+        assertElementExistsBy(WebElementsByText("List Mode"));
+        // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
+        // toggle verification is currently by xpath because no other identifier is available
+        String listModeXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[7]/android.widget.LinearLayout/android.widget.Switch";
+        verifyText("OFF", WebElementByXpath(listModeXpath));
+        Boolean listModeBool = Boolean.parseBoolean(WebElementByXpath(listModeXpath).getAttribute("checked"));
+        assert listModeBool == false;
+        ClickUIElementByXpath(listModeXpath);
+        verifyText("ON", WebElementByXpath(listModeXpath));
+        listModeBool = Boolean.parseBoolean(WebElementByXpath(listModeXpath).getAttribute("checked"));
+        assert listModeBool == true;
+
+        scrollTo("Hide Footnotes");
+        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
+        // toggle verification is currently by xpath because no other identifier is available
+        String hideFootnotesXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[4]/android.widget.LinearLayout/android.widget.Switch";
+        verifyText("OFF", WebElementByXpath(hideFootnotesXpath));
+        Boolean hideFootnotesBool = Boolean.parseBoolean(WebElementByXpath(hideFootnotesXpath).getAttribute("checked"));
+        assert hideFootnotesBool == false;
+        ClickUIElementByXpath(hideFootnotesXpath);
+        verifyText("ON", WebElementByXpath(hideFootnotesXpath));
+        hideFootnotesBool = Boolean.parseBoolean(WebElementByXpath(hideFootnotesXpath).getAttribute("checked"));
+        assert hideFootnotesBool == true;
+
+        scrollTo("Show Screens as Separate Windows");
+        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows"));
+        // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
+        // toggle verification is currently by xpath because no other identifier is available
+        String ShowScreensAsSeparateWindowsXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[5]/android.widget.LinearLayout/android.widget.Switch";
+        verifyText("ON", WebElementByXpath(ShowScreensAsSeparateWindowsXpath));
+        Boolean ShowScreensAsSeparateWindowsBool = Boolean.parseBoolean(WebElementByXpath(ShowScreensAsSeparateWindowsXpath).getAttribute("checked"));
+        assert ShowScreensAsSeparateWindowsBool == true;
+        ClickUIElementByXpath(ShowScreensAsSeparateWindowsXpath);
+        verifyText("OFF", WebElementByXpath(ShowScreensAsSeparateWindowsXpath));
+        ShowScreensAsSeparateWindowsBool = Boolean.parseBoolean(WebElementByXpath(ShowScreensAsSeparateWindowsXpath).getAttribute("checked"));
+        assert ShowScreensAsSeparateWindowsBool == false;
+
+        scrollTo("Show Obsolete Content");
+        assertElementExistsBy(WebElementsByText("Show Obsolete Content"));
+        // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
+        // toggle verification is currently by xpath because no other identifier is available
+        String ShowObsoleteContentXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[6]/android.widget.LinearLayout/android.widget.Switch";
+        verifyText("OFF", WebElementByXpath(ShowObsoleteContentXpath));
+        Boolean ShowObsoleteContentBool = Boolean.parseBoolean(WebElementByXpath(ShowObsoleteContentXpath).getAttribute("checked"));
+        assert ShowObsoleteContentBool == false;
+        ClickUIElementByXpath(ShowObsoleteContentXpath);
+        verifyText("ON", WebElementByXpath(ShowObsoleteContentXpath));
+        ShowObsoleteContentBool = Boolean.parseBoolean(WebElementByXpath(ShowObsoleteContentXpath).getAttribute("checked"));
+        assert ShowObsoleteContentBool == true;
+
+        scrollTo("Allow In-App Notifications");
+        assertElementExistsBy(WebElementsByText("Allow In-App Notifications"));
+        // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
+        // toggle verification is currently by xpath because no other identifier is available
+        String AllowInAppNotificationsXpath = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.support.v7.widget.RecyclerView/android.widget.LinearLayout[7]/android.widget.LinearLayout/android.widget.Switch";
+        verifyText("ON", WebElementByXpath(AllowInAppNotificationsXpath));
+        Boolean AllowInAppNotificationsBool = Boolean.parseBoolean(WebElementByXpath(AllowInAppNotificationsXpath).getAttribute("checked"));
+        assert AllowInAppNotificationsBool == true;
+        ClickUIElementByXpath(AllowInAppNotificationsXpath);
+        verifyText("OFF", WebElementByXpath(AllowInAppNotificationsXpath));
+        AllowInAppNotificationsBool = Boolean.parseBoolean(WebElementByXpath(AllowInAppNotificationsXpath).getAttribute("checked"));
+        assert AllowInAppNotificationsBool == false;
+
+        scrollTo("Additional Settings");
+        assertElementExistsBy(WebElementsByText("Additional Settings"));
+        scrollTo("Featured Apps");
+        assertElementExistsBy(WebElementsByText("Featured Apps"));
+        scrollTo("Send Feedback");
+        assertElementExistsBy(WebElementsByText("Send Feedback"));
+        scrollTo("About");
+        assertElementExistsBy(WebElementsByText("About"));
 
     }
 
+    @Test
+    public void settingsScreenLoginCorrectUserNameAndPassword() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Sign In"));
+        ClickUIElementByText("Sign In");
+
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/usernameEditText"));
+        //appium can't validate ! if Username not entered and SignIn clicked
+        sendText("org.lds.ldssa.dev:id/usernameEditText", user);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/passwordEditText"));
+        sendText("org.lds.ldssa.dev:id/passwordEditText", password);
+        assertElementExistsBy(WebElementsByAccessibilityId("Toggle password visibility"));
+        boolean passwordVisibility = Boolean.parseBoolean((WebElementByAccessibilityId("Toggle password visibility").getAttribute("checked")));
+        System.out.println(passwordVisibility);
+        assert passwordVisibility == false;
+        verifyText("",WebElementById("org.lds.ldssa.dev:id/passwordEditText"));
+        ClickUIElementByAccessibilityID("Toggle password visibility");
+        Thread.sleep(milliseconds_1);
+        passwordVisibility = Boolean.parseBoolean((WebElementByAccessibilityId("Toggle password visibility").getAttribute("checked")));
+        System.out.println(passwordVisibility);
+        assert passwordVisibility == true;
+        verifyText(password, WebElementById("org.lds.ldssa.dev:id/passwordEditText"));
+        WebElement signInButton = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
+        signInButton.click();
+        Thread.sleep(milliseconds_5);
+        assertElementExistsBy(WebElementsByText("LDS Account"));
+        assertElementExistsBy(WebElementsByText(user));
+    }
+
+    @Test
+    public void settingsScreenLoginInvalidLogin() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Sign In"));
+        ClickUIElementByText("Sign In");
+
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/usernameEditText"));
+        //appium can't validate ! if Username not entered and SignIn clicked
+        sendText("org.lds.ldssa.dev:id/usernameEditText", user);
+        sendText("org.lds.ldssa.dev:id/passwordEditText", wrongPassword);
+        WebElement signInButton = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
+        signInButton.click();
+        Thread.sleep(milliseconds_1);
+        verifyText("Error", WebElementByText("Error"));
+        ClickUIElementByText("OK");
+        sendText("org.lds.ldssa.dev:id/passwordEditText", password);
+        signInButton.click();
+        Thread.sleep(milliseconds_5);
+        assertElementExistsBy(WebElementsByText("LDS Account"));
+        assertElementExistsBy(WebElementsByText(user));
+    }
+
+    @Test
+    public void settingsScreenLoginTroubleSigningIn() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Sign In"));
+        ClickUIElementByText("Sign In");
+
+        ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginForgotCredentialsButton");
+        Thread.sleep(milliseconds_5);
+        verifyText("https://ldsaccount.lds.org/recovery", WebElementById("com.android.chrome:id/url_bar"));
+    }
+
+    @Test
+    public void settingsScreenLoginCreateLDSAccount() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Sign In"));
+        ClickUIElementByText("Sign In");
+        verifyText("Create LDS Account", WebElementById("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton"));
+        ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton");
+        Thread.sleep(milliseconds_5);
+        verifyText("https://ldsaccount.lds.org/register", WebElementById("com.android.chrome:id/url_bar"));
+    }
+
+    @Test
+    public void settingsScreenCreateLDSAccount() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Create LDS Account"));
+        ClickUIElementByText("Create LDS Account");
+        Thread.sleep(milliseconds_5);
+        verifyText("https://ldsaccount.lds.org/register", WebElementById("com.android.chrome:id/url_bar"));
+    }
+
+    @Test
+    public void settingsScreenDownloadedMediaLandingPage_Empty() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Downloaded Media"));
+        assertElementExistsBy(WebElementsByText("None"));
+        ClickUIElementByText("Downloaded Media");
+        Thread.sleep(milliseconds_1);
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        verifyText("Downloaded Media",WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateImageView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+        verifyText("No Downloaded Media",WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+        verifyText("Download audio or video for offline access.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+    }
+
+    @Test
+    public void settingsScreenDownloadedMediaLandingPage_Empty_MoreOptionsMenu() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Downloaded Media"));
+        ClickUIElementByText("Downloaded Media");
+        Thread.sleep(milliseconds_1);
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        //Sort by Size
+        assertElementExistsBy(WebElementsByText("Sort by Size"));
+        ClickUIElementByText("Sort by Size");
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        verifyText("Downloaded Media",WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateImageView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+        verifyText("No Downloaded Media",WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+        verifyText("Download audio or video for offline access.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+        //Current Downloads
+        ClickUIElementByAccessibilityID("More options");
+        ClickUIElementByText("Current Downloads");
+        assertElementExistsBy(WebElementsByText("Current Downloads"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        verifyText("Current Downloads", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateImageView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+        verifyText("No Downloads in Progress",WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+        verifyText("Content and media currently being downloaded.",WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+        ClickUIElementByAccessibilityID("Navigate up");
+        Thread.sleep(milliseconds_1);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        verifyText("Downloaded Media",WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        ClickUIElementByAccessibilityID("Navigate up");
+        Thread.sleep(milliseconds_3);
+        assertElementExistsBy(WebElementsByText("LDS Account"));
+        Thread.sleep(milliseconds_1);
+    }
+
+    @Test
+    public void settingsScreenLimitMobileNetworkUseSwitch() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Limit Mobile Network Use"));
+        WebElement Parent = driver.findElement(By.xpath("//android.widget.TextView[@text='Limit Mobile Network Use']/../.."));
+        WebElement ParentsChild = Parent.findElement(MobileBy.className("android.widget.LinearLayout"));
+        WebElement ParentsChildsSwitch = ParentsChild.findElement(MobileBy.className("android.widget.Switch"));
+        List SwitchList = ParentsChild.findElements(MobileBy.className("android.widget.Switch"));
+        assertElementExistsBy(SwitchList);
+        verifyText("OFF", ParentsChildsSwitch);
+        Boolean SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert !SwitchBool;
+        ClickUIElementByText("Limit Mobile Network Use");
+        verifyText("ON", ParentsChildsSwitch);
+        SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert SwitchBool;
+        Thread.sleep(milliseconds_2);
+    }
+
+    @Test
+    public void settingsScreenTheme() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Theme"));
+        assertElementExistsBy(WebElementsByText("Default"));
+        ClickUIElementByText("Theme");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/alertTitle"));
+        verifyText("Theme",WebElementById("org.lds.ldssa.dev:id/alertTitle"));
+        assertElementExistsBy(WebElementsByCheckedText("Default"));
+        Boolean ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
+        Boolean ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
+        Boolean ThemeNight = Boolean.parseBoolean(WebElementByCheckedText("Night").getAttribute("checked"));
+        Boolean ThemeDarkBlue = Boolean.parseBoolean(WebElementByCheckedText("Dark Blue").getAttribute("checked"));
+        Boolean ThemeMagenta = Boolean.parseBoolean(WebElementByCheckedText("Magenta").getAttribute("checked"));
+        assert ThemeDefault;
+        assert !ThemeSepia;
+        assert !ThemeNight;
+        assert !ThemeDarkBlue;
+        assert !ThemeMagenta;
+        ClickUIElementByCheckedText("Sepia");
+        assertElementExistsBy(WebElementsByText("LDS Account"));
+        Thread.sleep(milliseconds_1);
+        ClickUIElementByText("Theme");
+        ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
+        ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
+        ThemeNight = Boolean.parseBoolean(WebElementByCheckedText("Night").getAttribute("checked"));
+        ThemeDarkBlue = Boolean.parseBoolean(WebElementByCheckedText("Dark Blue").getAttribute("checked"));
+        ThemeMagenta = Boolean.parseBoolean(WebElementByCheckedText("Magenta").getAttribute("checked"));
+        assert !ThemeDefault;
+        assert ThemeSepia;
+        assert !ThemeNight;
+        assert !ThemeDarkBlue;
+        assert !ThemeMagenta;
+        ClickUIElementByCheckedText("Night");
+        assertElementExistsBy(WebElementsByText("LDS Account"));
+        Thread.sleep(milliseconds_1);
+        ClickUIElementByText("Theme");
+        ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
+        ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
+        ThemeNight = Boolean.parseBoolean(WebElementByCheckedText("Night").getAttribute("checked"));
+        ThemeDarkBlue = Boolean.parseBoolean(WebElementByCheckedText("Dark Blue").getAttribute("checked"));
+        ThemeMagenta = Boolean.parseBoolean(WebElementByCheckedText("Magenta").getAttribute("checked"));
+        assert !ThemeDefault;
+        assert !ThemeSepia;
+        assert ThemeNight;
+        assert !ThemeDarkBlue;
+        assert !ThemeMagenta;
+        ClickUIElementByCheckedText("Dark Blue");
+        assertElementExistsBy(WebElementsByText("LDS Account"));
+        Thread.sleep(milliseconds_1);
+        ClickUIElementByText("Theme");
+        ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
+        ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
+        ThemeNight = Boolean.parseBoolean(WebElementByCheckedText("Night").getAttribute("checked"));
+        ThemeDarkBlue = Boolean.parseBoolean(WebElementByCheckedText("Dark Blue").getAttribute("checked"));
+        ThemeMagenta = Boolean.parseBoolean(WebElementByCheckedText("Magenta").getAttribute("checked"));
+        assert !ThemeDefault;
+        assert !ThemeSepia;
+        assert !ThemeNight;
+        assert ThemeDarkBlue;
+        assert !ThemeMagenta;
+        ClickUIElementByCheckedText("Magenta");
+        assertElementExistsBy(WebElementsByText("LDS Account"));
+        Thread.sleep(milliseconds_1);
+        ClickUIElementByText("Theme");
+        ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
+        ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
+        ThemeNight = Boolean.parseBoolean(WebElementByCheckedText("Night").getAttribute("checked"));
+        ThemeDarkBlue = Boolean.parseBoolean(WebElementByCheckedText("Dark Blue").getAttribute("checked"));
+        ThemeMagenta = Boolean.parseBoolean(WebElementByCheckedText("Magenta").getAttribute("checked"));
+        assert !ThemeDefault;
+        assert !ThemeSepia;
+        assert !ThemeNight;
+        assert !ThemeDarkBlue;
+        assert ThemeMagenta;
+        Thread.sleep(milliseconds_1);
+        verifyText("Cancel",WebElementById("android:id/button2"));
+        ClickUIElementByID("android:id/button2");
+        assertElementExistsBy(WebElementsByText("LDS Account"));
+        Thread.sleep(milliseconds_1);
+
+    }
+
+    @Test
+    public void settingsScreenTextSize() throws Exception {
+        //write me
+    }
+
+    @Test
+    public void settingsScreenListModeSwitch() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("List Mode"));
+        WebElement Parent = driver.findElement(By.xpath("//android.widget.TextView[@text='List Mode']/../.."));
+        WebElement ParentsChild = Parent.findElement(MobileBy.className("android.widget.LinearLayout"));
+        WebElement ParentsChildsSwitch = ParentsChild.findElement(MobileBy.className("android.widget.Switch"));
+        List SwitchList = ParentsChild.findElements(MobileBy.className("android.widget.Switch"));
+        assertElementExistsBy(SwitchList);
+        verifyText("OFF", ParentsChildsSwitch);
+        Boolean SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert !SwitchBool;
+        ClickUIElementByText("List Mode");
+        verifyText("ON", ParentsChildsSwitch);
+        SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert SwitchBool;
+        Thread.sleep(milliseconds_2);
+    }
+
+    @Test
+    public void settingsScreenHideFootnotesSwitch() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        scrollTo("Hide Footnotes");
+        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        WebElement Parent = driver.findElement(By.xpath("//android.widget.TextView[@text='Hide Footnotes']/../.."));
+        WebElement ParentsChild = Parent.findElement(MobileBy.className("android.widget.LinearLayout"));
+        WebElement ParentsChildsSwitch = ParentsChild.findElement(MobileBy.className("android.widget.Switch"));
+        List SwitchList = ParentsChild.findElements(MobileBy.className("android.widget.Switch"));
+        assertElementExistsBy(SwitchList);
+        verifyText("OFF", ParentsChildsSwitch);
+        Boolean SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert !SwitchBool;
+        ClickUIElementByText("Hide Footnotes");
+        verifyText("ON", ParentsChildsSwitch);
+        SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert SwitchBool;
+        Thread.sleep(milliseconds_2);
+    }
+
+    @Test
+    public void settingsScreenShowScreensAsSeparateWindowsSwitch() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        scrollTo("Show Screens as Separate Windows");
+        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows"));
+        WebElement Parent = driver.findElement(By.xpath("//android.widget.TextView[@text='Show Screens as Separate Windows']/../.."));
+        WebElement ParentsChild = Parent.findElement(MobileBy.className("android.widget.LinearLayout"));
+        WebElement ParentsChildsSwitch = ParentsChild.findElement(MobileBy.className("android.widget.Switch"));
+        List SwitchList = ParentsChild.findElements(MobileBy.className("android.widget.Switch"));
+        assertElementExistsBy(SwitchList);
+        verifyText("ON", ParentsChildsSwitch);
+        Boolean SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert SwitchBool;
+        ClickUIElementByText("Show Screens as Separate Windows");
+        verifyText("OFF", ParentsChildsSwitch);
+        SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert !SwitchBool;
+        Thread.sleep(milliseconds_2);
+    }
+
+    @Test
+    public void settingsScreenShowObsoleteContentSwitch() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        scrollTo("Show Obsolete Content");
+        assertElementExistsBy(WebElementsByText("Show Obsolete Content"));
+        WebElement Parent = driver.findElement(By.xpath("//android.widget.TextView[@text='Show Obsolete Content']/../.."));
+        WebElement ParentsChild = Parent.findElement(MobileBy.className("android.widget.LinearLayout"));
+        WebElement ParentsChildsSwitch = ParentsChild.findElement(MobileBy.className("android.widget.Switch"));
+        List SwitchList = ParentsChild.findElements(MobileBy.className("android.widget.Switch"));
+        assertElementExistsBy(SwitchList);
+        verifyText("OFF", ParentsChildsSwitch);
+        Boolean SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert !SwitchBool;
+        ClickUIElementByText("Show Obsolete Content");
+        verifyText("ON", ParentsChildsSwitch);
+        SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert SwitchBool;
+        Thread.sleep(milliseconds_2);
+    }
+
+    @Test
+    public void settingsScreenAllowInAppNotificationsSwitch() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Settings"));
+        ClickUIElementByText("Settings");
+        scrollTo("Allow In-App Notifications");
+        assertElementExistsBy(WebElementsByText("Allow In-App Notifications"));
+        WebElement Parent = driver.findElement(By.xpath("//android.widget.TextView[@text='Allow In-App Notifications']/../.."));
+        WebElement ParentsChild = Parent.findElement(MobileBy.className("android.widget.LinearLayout"));
+        WebElement ParentsChildsSwitch = ParentsChild.findElement(MobileBy.className("android.widget.Switch"));
+        List SwitchList = ParentsChild.findElements(MobileBy.className("android.widget.Switch"));
+        assertElementExistsBy(SwitchList);
+        verifyText("ON", ParentsChildsSwitch);
+        Boolean SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert SwitchBool;
+        ClickUIElementByText("Allow In-App Notifications");
+        verifyText("OFF", ParentsChildsSwitch);
+        SwitchBool = Boolean.parseBoolean(ParentsChildsSwitch.getAttribute("checked"));
+        assert !SwitchBool;
+        Thread.sleep(milliseconds_2);
+    }
+
+    @Test
+    public void FeaturedAppsScreen() throws Exception {
+        //Write Me
+    }
+
+    @Test
+    public void SendFeedbackScreen() throws Exception {
+        //Write Me
+    }
+
+    @Test
+    public void AboutScreen() throws Exception {
+        //Write Me
+    }
+
+
+
+
+    //********** Standard Works Nav and Content **********
     @Test
     public void allBooksInTheOldTestiment() throws Exception {
         skipLogin();
@@ -1297,6 +1857,21 @@ public class GospelLibrary {
         verifyNavBookTitle(BooksInPearlOfGreatPrice);
 
 
+    }
+
+
+
+    //********** Content Interaction **********
+
+    // Doesn't Verify Anything, but opens the annotations menu
+    @Test
+    public void annotationsMenu() throws Exception {
+        skipLogin();
+        OpenScripture("Book of Mormon", "Helaman", "5","26");
+        Thread.sleep(milliseconds_1);
+        scrollToById("p15");
+        Thread.sleep(milliseconds_1);
+        driver.tap(1, driver.findElementById("p15"),1000);
     }
 
 
@@ -1541,25 +2116,6 @@ public class GospelLibrary {
         ok.click();
         //add check for delete
         Thread.sleep(milliseconds_5);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 
 }
