@@ -54,7 +54,7 @@ public class GospelLibrary {
     String user = "support2";
     String password = "ldssaldssa";
     String wrongPassword = "ldssaldssaa";
-
+    int AndroidVersion = 7;
     public int milliseconds_1 = 2600;
     public int milliseconds_2 = milliseconds_1 * 2;
     public int milliseconds_3 = milliseconds_1 * 3;
@@ -78,84 +78,84 @@ public class GospelLibrary {
 
     //Scripture Lists
 
-    public ArrayList<Pair<String, Integer>> BooksInOldTestiment = new ArrayList<>();
-    public ArrayList<Pair<String, Integer>> BooksInNewTestiment = new ArrayList<>();
+    public ArrayList<Pair<String, Integer>> BooksInOldTestament = new ArrayList<>();
+    public ArrayList<Pair<String, Integer>> BooksInNewTestament = new ArrayList<>();
     public ArrayList<Pair<String, Integer>> BooksInBom = new ArrayList<>();
     public ArrayList<Pair<String, Integer>> BooksInDAndC = new ArrayList<>();
     public ArrayList<Pair<String, Integer>> BooksInPearlOfGreatPrice = new ArrayList<>();
 
     public void setBooks() throws Exception {
-        //Books in the Old Testiment
-        BooksInOldTestiment.add(new Pair<>("Title Page", 0));
-        BooksInOldTestiment.add(new Pair<>("Epistle Dedicatory", 0));
-        BooksInOldTestiment.add(new Pair<>("Genesis", 50));
-        BooksInOldTestiment.add(new Pair<>("Exodus", 40));
-        BooksInOldTestiment.add(new Pair<>("Leviticus", 27));
-        BooksInOldTestiment.add(new Pair<>("Numbers", 36));
-        BooksInOldTestiment.add(new Pair<>("Deuteronomy", 34));
-        BooksInOldTestiment.add(new Pair<>("Joshua", 24));
-        BooksInOldTestiment.add(new Pair<>("Judges", 21));
-        BooksInOldTestiment.add(new Pair<>("Ruth", 4));
-        BooksInOldTestiment.add(new Pair<>("1 Samuel", 31));
-        BooksInOldTestiment.add(new Pair<>("2 Samuel", 24));
-        BooksInOldTestiment.add(new Pair<>("1 Kings", 22));
-        BooksInOldTestiment.add(new Pair<>("2 Kings", 25));
-        BooksInOldTestiment.add(new Pair<>("1 Chronicles", 29));
-        BooksInOldTestiment.add(new Pair<>("2 Chronicles", 36));
-        BooksInOldTestiment.add(new Pair<>("Ezra", 10));
-        BooksInOldTestiment.add(new Pair<>("Nehemiah", 13));
-        BooksInOldTestiment.add(new Pair<>("Esther", 10));
-        BooksInOldTestiment.add(new Pair<>("Job", 42));
-        BooksInOldTestiment.add(new Pair<>("Psalms", 150));
-        BooksInOldTestiment.add(new Pair<>("Proverbs", 31));
-        BooksInOldTestiment.add(new Pair<>("Ecclesiastes", 12));
-        BooksInOldTestiment.add(new Pair<>("Song of Solomon", 8));
-        BooksInOldTestiment.add(new Pair<>("Isaiah", 66));
-        BooksInOldTestiment.add(new Pair<>("Jeremiah", 52));
-        BooksInOldTestiment.add(new Pair<>("Lamentations", 5));
-        BooksInOldTestiment.add(new Pair<>("Ezekiel", 48));
-        BooksInOldTestiment.add(new Pair<>("Daniel", 12));
-        BooksInOldTestiment.add(new Pair<>("Hosea", 14));
-        BooksInOldTestiment.add(new Pair<>("Joel", 3));
-        BooksInOldTestiment.add(new Pair<>("Amos", 9));
-        BooksInOldTestiment.add(new Pair<>("Obadiah", 1));
-        BooksInOldTestiment.add(new Pair<>("Jonah", 4));
-        BooksInOldTestiment.add(new Pair<>("Micah", 7));
-        BooksInOldTestiment.add(new Pair<>("Nahum", 3));
-        BooksInOldTestiment.add(new Pair<>("Habakkuk", 3));
-        BooksInOldTestiment.add(new Pair<>("Zephaniah", 3));
-        BooksInOldTestiment.add(new Pair<>("Haggai", 2));
-        BooksInOldTestiment.add(new Pair<>("Zechariah", 14));
-        BooksInOldTestiment.add(new Pair<>("Malachi", 4));
-        //Books in the New Testiment
-        BooksInNewTestiment.add(new Pair<>("Title Page", 0));
-        BooksInNewTestiment.add(new Pair<>("Matthew", 28));
-        BooksInNewTestiment.add(new Pair<>("Mark", 16));
-        BooksInNewTestiment.add(new Pair<>("Luke", 24));
-        BooksInNewTestiment.add(new Pair<>("John", 21));
-        BooksInNewTestiment.add(new Pair<>("Acts", 28));
-        BooksInNewTestiment.add(new Pair<>("Romans", 16));
-        BooksInNewTestiment.add(new Pair<>("1 Corinthians", 16));
-        BooksInNewTestiment.add(new Pair<>("2 Corinthians", 13));
-        BooksInNewTestiment.add(new Pair<>("Galatians", 6));
-        BooksInNewTestiment.add(new Pair<>("Ephesians", 6));
-        BooksInNewTestiment.add(new Pair<>("Philippians", 4));
-        BooksInNewTestiment.add(new Pair<>("Colossians", 4));
-        BooksInNewTestiment.add(new Pair<>("1 Thessalonians", 5));
-        BooksInNewTestiment.add(new Pair<>("2 Thessalonians", 3));
-        BooksInNewTestiment.add(new Pair<>("1 Timothy", 6));
-        BooksInNewTestiment.add(new Pair<>("2 Timothy", 4));
-        BooksInNewTestiment.add(new Pair<>("Titus", 3));
-        BooksInNewTestiment.add(new Pair<>("Philemon", 1));
-        BooksInNewTestiment.add(new Pair<>("Hebrews", 13));
-        BooksInNewTestiment.add(new Pair<>("James", 5));
-        BooksInNewTestiment.add(new Pair<>("1 Peter", 5));
-        BooksInNewTestiment.add(new Pair<>("2 Peter", 3));
-        BooksInNewTestiment.add(new Pair<>("1 John", 5));
-        BooksInNewTestiment.add(new Pair<>("2 John", 1));
-        BooksInNewTestiment.add(new Pair<>("3 John", 1));
-        BooksInNewTestiment.add(new Pair<>("Jude", 1));
-        BooksInNewTestiment.add(new Pair<>("Revelation", 22));
+        //Books in the Old Testament
+        BooksInOldTestament.add(new Pair<>("Title Page", 0));
+        BooksInOldTestament.add(new Pair<>("Epistle Dedicatory", 0));
+        BooksInOldTestament.add(new Pair<>("Genesis", 50));
+        BooksInOldTestament.add(new Pair<>("Exodus", 40));
+        BooksInOldTestament.add(new Pair<>("Leviticus", 27));
+        BooksInOldTestament.add(new Pair<>("Numbers", 36));
+        BooksInOldTestament.add(new Pair<>("Deuteronomy", 34));
+        BooksInOldTestament.add(new Pair<>("Joshua", 24));
+        BooksInOldTestament.add(new Pair<>("Judges", 21));
+        BooksInOldTestament.add(new Pair<>("Ruth", 4));
+        BooksInOldTestament.add(new Pair<>("1 Samuel", 31));
+        BooksInOldTestament.add(new Pair<>("2 Samuel", 24));
+        BooksInOldTestament.add(new Pair<>("1 Kings", 22));
+        BooksInOldTestament.add(new Pair<>("2 Kings", 25));
+        BooksInOldTestament.add(new Pair<>("1 Chronicles", 29));
+        BooksInOldTestament.add(new Pair<>("2 Chronicles", 36));
+        BooksInOldTestament.add(new Pair<>("Ezra", 10));
+        BooksInOldTestament.add(new Pair<>("Nehemiah", 13));
+        BooksInOldTestament.add(new Pair<>("Esther", 10));
+        BooksInOldTestament.add(new Pair<>("Job", 42));
+        BooksInOldTestament.add(new Pair<>("Psalms", 150));
+        BooksInOldTestament.add(new Pair<>("Proverbs", 31));
+        BooksInOldTestament.add(new Pair<>("Ecclesiastes", 12));
+        BooksInOldTestament.add(new Pair<>("Song of Solomon", 8));
+        BooksInOldTestament.add(new Pair<>("Isaiah", 66));
+        BooksInOldTestament.add(new Pair<>("Jeremiah", 52));
+        BooksInOldTestament.add(new Pair<>("Lamentations", 5));
+        BooksInOldTestament.add(new Pair<>("Ezekiel", 48));
+        BooksInOldTestament.add(new Pair<>("Daniel", 12));
+        BooksInOldTestament.add(new Pair<>("Hosea", 14));
+        BooksInOldTestament.add(new Pair<>("Joel", 3));
+        BooksInOldTestament.add(new Pair<>("Amos", 9));
+        BooksInOldTestament.add(new Pair<>("Obadiah", 1));
+        BooksInOldTestament.add(new Pair<>("Jonah", 4));
+        BooksInOldTestament.add(new Pair<>("Micah", 7));
+        BooksInOldTestament.add(new Pair<>("Nahum", 3));
+        BooksInOldTestament.add(new Pair<>("Habakkuk", 3));
+        BooksInOldTestament.add(new Pair<>("Zephaniah", 3));
+        BooksInOldTestament.add(new Pair<>("Haggai", 2));
+        BooksInOldTestament.add(new Pair<>("Zechariah", 14));
+        BooksInOldTestament.add(new Pair<>("Malachi", 4));
+        //Books in the New Testament
+        BooksInNewTestament.add(new Pair<>("Title Page", 0));
+        BooksInNewTestament.add(new Pair<>("Matthew", 28));
+        BooksInNewTestament.add(new Pair<>("Mark", 16));
+        BooksInNewTestament.add(new Pair<>("Luke", 24));
+        BooksInNewTestament.add(new Pair<>("John", 21));
+        BooksInNewTestament.add(new Pair<>("Acts", 28));
+        BooksInNewTestament.add(new Pair<>("Romans", 16));
+        BooksInNewTestament.add(new Pair<>("1 Corinthians", 16));
+        BooksInNewTestament.add(new Pair<>("2 Corinthians", 13));
+        BooksInNewTestament.add(new Pair<>("Galatians", 6));
+        BooksInNewTestament.add(new Pair<>("Ephesians", 6));
+        BooksInNewTestament.add(new Pair<>("Philippians", 4));
+        BooksInNewTestament.add(new Pair<>("Colossians", 4));
+        BooksInNewTestament.add(new Pair<>("1 Thessalonians", 5));
+        BooksInNewTestament.add(new Pair<>("2 Thessalonians", 3));
+        BooksInNewTestament.add(new Pair<>("1 Timothy", 6));
+        BooksInNewTestament.add(new Pair<>("2 Timothy", 4));
+        BooksInNewTestament.add(new Pair<>("Titus", 3));
+        BooksInNewTestament.add(new Pair<>("Philemon", 1));
+        BooksInNewTestament.add(new Pair<>("Hebrews", 13));
+        BooksInNewTestament.add(new Pair<>("James", 5));
+        BooksInNewTestament.add(new Pair<>("1 Peter", 5));
+        BooksInNewTestament.add(new Pair<>("2 Peter", 3));
+        BooksInNewTestament.add(new Pair<>("1 John", 5));
+        BooksInNewTestament.add(new Pair<>("2 John", 1));
+        BooksInNewTestament.add(new Pair<>("3 John", 1));
+        BooksInNewTestament.add(new Pair<>("Jude", 1));
+        BooksInNewTestament.add(new Pair<>("Revelation", 22));
         //Books in the Book of Mormon
         BooksInBom.add(new Pair<>("Introduction and Witnesses", 0));//has 8 subsections, but they aren't numbered like chapters
         BooksInBom.add(new Pair<>("1 Nephi", 22));
@@ -333,10 +333,12 @@ public class GospelLibrary {
 
     //Get Element by text
     public String hidePassword(String password) throws Exception {
-        int passwordLength = password.length();
         String passwordDotted = "";
-        for (int i = 0; i < passwordLength; i++) {
-            passwordDotted = passwordDotted.concat("•");
+        if (AndroidVersion > 6) {
+            int passwordLength = password.length();
+            for (int i = 0; i < passwordLength; i++) {
+                passwordDotted = passwordDotted.concat("•");
+            }
         }
         return passwordDotted;
     }
@@ -2105,15 +2107,7 @@ public class GospelLibrary {
     @Test
     public void settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu() throws Exception {
         skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
-        scrollDownTo("October 2017");
-        assertElementExistsBy(WebElementsByText("October 2017"));
-        ClickUIElementByText("October 2017");
-        ClickUIElementByText("October 2017");
-        Thread.sleep(milliseconds_1);
-        assertElementExistsBy(WebElementsByText("General Women’s Session"));
-        ClickUIElementByText("General Women’s Session");
+        OpenConference("October", "2017","General Women’s Session");
         ClickUIElementByXpath("//android.webkit.WebView[@text='General Women’s Session']/android.view.View/android.view.View/android.view.View/android.widget.Image[2]");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Download Video",WebElementById("org.lds.ldssa.dev:id/md_title"));
@@ -2129,16 +2123,11 @@ public class GospelLibrary {
         //verifyText("Downloading video for General Women's Session",WebElementById("org.lds.ldssa.dev:id/snackbar_text"));
         //assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/snackbar_action"));
         //verifyText("VIEW",WebElementById("org.lds.ldssa.dev:id/snackbar_action"));
-        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertMoreOptionsMenu("Content Menu",false);
         ClickUIElementByText("Settings");
         assertElementExistsBy(WebElementsByText("Downloaded Media"));
         ClickUIElementByText("Downloaded Media");
-        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Sort by Size"));
-        assertElementExistsBy(WebElementsByText("Current Downloads"));
+        assertMoreOptionsMenu("DownloadsByItem",false);
         ClickUIElementByText("Current Downloads");
         // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         verifyText("Current Downloads (1)", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
@@ -2149,111 +2138,111 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/downloadCancelImageView"));
         assertElementExistsBy(WebElementsByAccessibilityId("Cancel All"));
 
-
-
-
     }
 
-    @Test
-    public void settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughSnackBar() throws Exception {
-        skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
-        scrollDownTo("October 2017");
-        assertElementExistsBy(WebElementsByText("October 2017"));
-        ClickUIElementByText("October 2017");
-        ClickUIElementByText("October 2017");
-        Thread.sleep(milliseconds_1);
-        assertElementExistsBy(WebElementsByText("General Women’s Session"));
-        ClickUIElementByText("General Women’s Session");
-        ClickUIElementByXpath("//android.webkit.WebView[@text='General Women’s Session']/android.view.View/android.view.View/android.view.View/android.widget.Image[2]");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
+    //Commented out while figuring out snack bar
+    //    @Test
+//    public void settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughSnackBar() throws Exception {
+//        skipLogin();
+//        assertElementExistsBy(WebElementsByText("General Conference"));
+//        ClickUIElementByText("General Conference");
+//        scrollDownTo("October 2017");
+//        assertElementExistsBy(WebElementsByText("October 2017"));
+//        ClickUIElementByText("October 2017");
+//        ClickUIElementByText("October 2017");
+//        Thread.sleep(milliseconds_1);
+//        assertElementExistsBy(WebElementsByText("General Women’s Session"));
+//        ClickUIElementByText("General Women’s Session");
+//        ClickUIElementByXpath("//android.webkit.WebView[@text='General Women’s Session']/android.view.View/android.view.View/android.view.View/android.widget.Image[2]");
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
+//
+//        verifyText("Download Video",WebElementById("org.lds.ldssa.dev:id/md_title"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleView"));
+//        verifyText("General Women's Session",WebElementById("org.lds.ldssa.dev:id/titleView"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/typeIcon"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+//        verifyText("CANCEL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+//        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+//        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/snackbar_text"));
+//        verifyText("Downloading video for General Women's Session",WebElementById("org.lds.ldssa.dev:id/snackbar_text"));
+//        // assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/snackbar_action"));
+//        // verifyText("VIEW",WebElementById("org.lds.ldssa.dev:id/snackbar_action"));
+//        ClickUIElementByID("org.lds.ldssa.dev:id/snackbar_action");
+//        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+//        verifyText("Current Downloads (1)", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+//        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleTextView"));
+//        verifyText("General Women's Session", WebElementById("org.lds.ldssa.dev:id/titleTextView"));
+//        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/installStatusTextView"));
+//        verifyText("Downloading…",WebElementById("org.lds.ldssa.dev:id/installStatusTextView"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/downloadCancelImageView"));
+//        assertElementExistsBy(WebElementsByAccessibilityId("Cancel All"));
+//
+//    }
 
-        verifyText("Download Video",WebElementById("org.lds.ldssa.dev:id/md_title"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleView"));
-        verifyText("General Women's Session",WebElementById("org.lds.ldssa.dev:id/titleView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/typeIcon"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
-        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
-        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/snackbar_text"));
-        verifyText("Downloading video for General Women's Session",WebElementById("org.lds.ldssa.dev:id/snackbar_text"));
-        // assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/snackbar_action"));
-        // verifyText("VIEW",WebElementById("org.lds.ldssa.dev:id/snackbar_action"));
-        ClickUIElementByID("org.lds.ldssa.dev:id/snackbar_action");
-        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
-        verifyText("Current Downloads (1)", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
-        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleTextView"));
-        verifyText("General Women's Session", WebElementById("org.lds.ldssa.dev:id/titleTextView"));
-        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/installStatusTextView"));
-        verifyText("Downloading…",WebElementById("org.lds.ldssa.dev:id/installStatusTextView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/downloadCancelImageView"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Cancel All"));
-
-    }
-
-    @Test
-    public void settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughSnackBar_CancelWithIDdownloadCancelImageView() throws Exception {
-        skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
-        scrollDownTo("October 2017");
-        assertElementExistsBy(WebElementsByText("October 2017"));
-        ClickUIElementByText("October 2017");
-        ClickUIElementByText("October 2017");
-        Thread.sleep(milliseconds_1);
-        assertElementExistsBy(WebElementsByText("General Women’s Session"));
-        ClickUIElementByText("General Women’s Session");
-        ClickUIElementByXpath("//android.webkit.WebView[@text='General Women’s Session']/android.view.View/android.view.View/android.view.View/android.widget.Image[2]");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
-
-        verifyText("Download Video",WebElementById("org.lds.ldssa.dev:id/md_title"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleView"));
-        verifyText("General Women's Session",WebElementById("org.lds.ldssa.dev:id/titleView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/typeIcon"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
-        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
-        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/snackbar_text"));
-        verifyText("Downloading video for General Women's Session",WebElementById("org.lds.ldssa.dev:id/snackbar_text"));
-        // assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/snackbar_action"));
-        // verifyText("VIEW",WebElementById("org.lds.ldssa.dev:id/snackbar_action"));
-        ClickUIElementByID("org.lds.ldssa.dev:id/snackbar_action");
-        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
-        verifyText("Current Downloads (1)", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
-        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleTextView"));
-        verifyText("General Women's Session", WebElementById("org.lds.ldssa.dev:id/titleTextView"));
-        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/installStatusTextView"));
-        verifyText("Downloading…",WebElementById("org.lds.ldssa.dev:id/installStatusTextView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/downloadCancelImageView"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Cancel All"));
-        ClickUIElementByID("org.lds.ldssa.dev:id/downloadCancelImageView");
-        assertElementNotPresentBy(WebElementsById("org.lds.ldssa.dev:id/downloadCancelImageView"));
-        assertElementNotPresentBy(WebElementsById("Cancel All"));
-        assertElementNotPresentBy(WebElementsById("org.lds.ldssa.dev:id/installStatusTextView"));
-        assertElementNotPresentBy(WebElementsById("org.lds.ldssa.dev:id/titleTextView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateImageView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
-        verifyText("No Downloads in Progress", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
-        verifyText("Content and media currently being downloaded.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
-        ClickUIElementByAccessibilityID("Navigate up");
-        ClickUIElementByAccessibilityID("More options");
-        ClickUIElementByText("Settings");
-        ClickUIElementByText("Downloaded Media");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
-        verifyText("Downloaded Media", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateImageView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
-        verifyText("No Downloaded Media", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
-        verifyText("Download audio or video for offline access.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
-
-    }
+    //Snackbar almost always fails because the test isn't fast enough to catch it before the snackbar goes away
+//    @Test
+//    public void settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughSnackBar_CancelWithIDdownloadCancelImageView() throws Exception {
+//        skipLogin();
+//        assertElementExistsBy(WebElementsByText("General Conference"));
+//        ClickUIElementByText("General Conference");
+//        scrollDownTo("October 2017");
+//        assertElementExistsBy(WebElementsByText("October 2017"));
+//        ClickUIElementByText("October 2017");
+//        ClickUIElementByText("October 2017");
+//        Thread.sleep(milliseconds_1);
+//        assertElementExistsBy(WebElementsByText("General Women’s Session"));
+//        ClickUIElementByText("General Women’s Session");
+//        ClickUIElementByXpath("//android.webkit.WebView[@text='General Women’s Session']/android.view.View/android.view.View/android.view.View/android.widget.Image[2]");
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
+//
+//        verifyText("Download Video",WebElementById("org.lds.ldssa.dev:id/md_title"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleView"));
+//        verifyText("General Women's Session",WebElementById("org.lds.ldssa.dev:id/titleView"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/typeIcon"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+//        verifyText("CANCEL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+//        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+//        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+//        //snackbar almost always times out
+//        //assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/snackbar_text"));
+//        //verifyText("Downloading video for General Women's Session",WebElementById("org.lds.ldssa.dev:id/snackbar_text"));
+//        // assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/snackbar_action"));
+//        // verifyText("VIEW",WebElementById("org.lds.ldssa.dev:id/snackbar_action"));
+//        ClickUIElementByID("org.lds.ldssa.dev:id/snackbar_action");
+//        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+//        verifyText("Current Downloads (1)", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+//        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleTextView"));
+//        verifyText("General Women's Session", WebElementById("org.lds.ldssa.dev:id/titleTextView"));
+//        // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/installStatusTextView"));
+//        verifyText("Downloading…",WebElementById("org.lds.ldssa.dev:id/installStatusTextView"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/downloadCancelImageView"));
+//        assertElementExistsBy(WebElementsByAccessibilityId("Cancel All"));
+//        ClickUIElementByID("org.lds.ldssa.dev:id/downloadCancelImageView");
+//        assertElementNotPresentBy(WebElementsById("org.lds.ldssa.dev:id/downloadCancelImageView"));
+//        assertElementNotPresentBy(WebElementsById("Cancel All"));
+//        assertElementNotPresentBy(WebElementsById("org.lds.ldssa.dev:id/installStatusTextView"));
+//        assertElementNotPresentBy(WebElementsById("org.lds.ldssa.dev:id/titleTextView"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateImageView"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+//        verifyText("No Downloads in Progress", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+//        verifyText("Content and media currently being downloaded.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+//        ClickUIElementByAccessibilityID("Navigate up");
+//        ClickUIElementByAccessibilityID("More options");
+//        ClickUIElementByText("Settings");
+//        ClickUIElementByText("Downloaded Media");
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+//        verifyText("Downloaded Media", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateImageView"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+//        verifyText("No Downloaded Media", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+//        verifyText("Download audio or video for offline access.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+//
+//    }
 
 
     @Test
@@ -4633,7 +4622,7 @@ public class GospelLibrary {
 //
 //
 //        //Calls verifyNavBookTitle and passes in the books in the Old Testiment
-//        verifyNavBookTitle(BooksInOldTestiment);
+//        verifyNavBookTitle(BooksInOldTestament);
 //
 //    }
 //
@@ -4644,7 +4633,7 @@ public class GospelLibrary {
 //        ClickUIElementByText("Scriptures");
 //        ClickUIElementByText("New Testament");
 //        //Calls verifyNavBookTitle and passes in the books in the New Testiment
-//        verifyNavBookTitle(BooksInNewTestiment);
+//        verifyNavBookTitle(BooksInNewTestament);
 //
 //    }
 //
