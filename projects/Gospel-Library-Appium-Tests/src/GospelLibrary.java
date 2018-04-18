@@ -331,7 +331,7 @@ public class GospelLibrary {
     //*************************************************************** Functions ***************************************************************
 
 
-    //Get Element by text
+    //Replaces letters with dots
     public String hidePassword(String password) throws Exception {
         int passwordLength = password.length();
         String passwordDotted = "";
@@ -354,14 +354,6 @@ public class GospelLibrary {
         String xPathofText = "//android.widget.TextView[contains(@text, '" + text + "')]";
         //System.out.println("Xpath is: '"+xPathofText+"'");
         return xPathofText;
-    }
-
-    //Create WebElement by text contains
-    public WebElement WebElementByTextContains(String text) throws Exception {
-        String xPathofText = "//android.widget.TextView[contains(@text, '" + text + "')]";
-        //System.out.println("Xpath of current item is: "+xPathofText+"");
-        WebElement tempElement = driver.findElement(By.xpath(xPathofText));
-        return tempElement;
     }
 
     //Create WebElement by text
@@ -906,7 +898,7 @@ public class GospelLibrary {
         }
 
         if (close) {
-            //Dismis the toolbar
+            //Dismiss the toolbar
             ClickUIElementByID("org.lds.ldssa.dev:id/mainToolbarTitleTextView");
             Thread.sleep(milliseconds_1);
         }
@@ -5005,6 +4997,24 @@ public class GospelLibrary {
 
 
     }
+
+
+
+    //********** Search Section **********
+
+    @Test
+    public void ElementsOnSearchScreen() throws Exception {
+        skipLogin();
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        ClickUIElementByAccessibilityID("Search");
+        // Back button on search screen
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/backImageView"));
+        // Search box
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/searchEditText"));
+        // Placeholder text
+        verifyText("Search All Content", WebElementById("org.lds.ldssa.dev:id/searchEditText"));
+    }
+
 }
 
 
