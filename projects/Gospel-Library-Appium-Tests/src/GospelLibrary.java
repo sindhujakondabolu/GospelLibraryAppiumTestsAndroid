@@ -343,8 +343,30 @@ public class GospelLibrary {
         return passwordDotted;
     }
 
+    //Converts string to capital case
+
+    public static String upperCaseAllFirst(String value) {
+        value = value.toLowerCase();
+        char[] array = value.toCharArray();
+            // Uppercase first letter.
+        array[0] = Character.toUpperCase(array[0]);
+
+            // Uppercase all letters that follow a whitespace character.
+        for (int i = 1; i < array.length; i++) {
+            if (Character.isWhitespace(array[i - 1])) {
+                array[i] = Character.toUpperCase(array[i]);
+            }
+        }
+
+            // Result.
+        return new String(array);
+    }
+
     //Get Element by text
     public String FindElementByText(String text) throws Exception {
+        if (AndroidVersion < 7){
+            text = upperCaseAllFirst(text);
+        }
         String xPathofText = "//android.widget.TextView[@text='" + text + "']";
         //System.out.println("Xpath is: '"+xPathofText+"");
         return xPathofText;
@@ -353,6 +375,9 @@ public class GospelLibrary {
 
     //Get Element by text contains
     public String FindElementByContainsText(String text) throws Exception {
+        if (AndroidVersion < 7){
+            text = upperCaseAllFirst(text);
+        }
         String xPathofText = "//android.widget.TextView[contains(@text, '" + text + "')]";
         //System.out.println("Xpath is: '"+xPathofText+"'");
         return xPathofText;
@@ -360,6 +385,9 @@ public class GospelLibrary {
 
     //Create WebElement by text
     public WebElement WebElementByText(String text) throws Exception {
+        if (AndroidVersion < 7){
+            text = upperCaseAllFirst(text);
+        }
         String xPathofText = "//android.widget.TextView[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         WebElement tempElement = driver.findElement(By.xpath(xPathofText));
@@ -368,6 +396,9 @@ public class GospelLibrary {
 
     //Create WebElement by text view.View
     public WebElement WebElementByTextViewView(String text) throws Exception {
+        if (AndroidVersion < 7){
+            text = upperCaseAllFirst(text);
+        }
         String xPathofText = "//android.view.View[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         WebElement tempElement = driver.findElement(By.xpath(xPathofText));
@@ -384,6 +415,9 @@ public class GospelLibrary {
 
     //Create WebElements by text (List)
     public List WebElementsByText(String text) throws Exception {
+        if (AndroidVersion < 7){
+            text = upperCaseAllFirst(text);
+        }
         String xPathofText = "//android.widget.TextView[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         List tempElement = driver.findElements(By.xpath(xPathofText));
@@ -392,6 +426,9 @@ public class GospelLibrary {
 
     //Create WebElements by text contains (List)
     public List WebElementsByTextContains(String text) throws Exception {
+        if (AndroidVersion < 7){
+            text = upperCaseAllFirst(text);
+        }
         String xPathofText = "//android.widget.TextView[contains(@text, '" + text + "')]";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         List tempElement = driver.findElements(By.xpath(xPathofText));
@@ -446,12 +483,18 @@ public class GospelLibrary {
 
     //Create WebElement for settings Switch by text
     public WebElement WebElementSettingSwitchByText(String text) throws Exception {
+        if (AndroidVersion < 7){
+            text = upperCaseAllFirst(text);
+        }
         WebElement tempElement = driver.findElementByXPath("//android.widget.TextView[@text='" + text + "']/../../android.widget.LinearLayout/android.widget.Switch");
         return tempElement;
     }
 
     //Click Element by Text
     public void ClickUIElementByText(String text) throws Exception {
+        if (AndroidVersion < 7){
+            text = upperCaseAllFirst(text);
+        }
         String xPathofText = "//android.widget.TextView[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         WebElement itemToClick = driver.findElement(By.xpath(xPathofText));
@@ -462,6 +505,9 @@ public class GospelLibrary {
 
     //Click Element by Text
     public void ClickUIElementByTextContains(String text) throws Exception {
+        if (AndroidVersion < 7){
+            text = upperCaseAllFirst(text);
+        }
         String xPathofText = "//android.widget.TextView[contains(@text, '" + text + "')]";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         WebElement itemToClick = driver.findElement(By.xpath(xPathofText));
@@ -472,6 +518,9 @@ public class GospelLibrary {
 
     //Click Element by Text view.View
     public void ClickUIElementByTextViewView(String text) throws Exception {
+        if (AndroidVersion < 7){
+            text = upperCaseAllFirst(text);
+        }
         String xPathofText = "//android.view.View[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         WebElement itemToClick = driver.findElement(By.xpath(xPathofText));
