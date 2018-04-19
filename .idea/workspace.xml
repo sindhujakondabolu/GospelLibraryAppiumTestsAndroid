@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e61195d5-5b6a-4293-81dc-73667731a79a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/GospelLibrary.class" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/GospelLibrary.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/GospelLibrary.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" />
     </list>
@@ -25,13 +25,16 @@
     <option name="OPEN_IN_BROWSER" value="true" />
     <option name="OUTPUT_DIRECTORY" value="$PROJECT_DIR$/exportToHTML" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="GospelLibraryAppiumTestsAndroid" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3754">
-              <caret line="522" column="9" lean-forward="false" selection-start-line="522" selection-start-column="9" selection-end-line="522" selection-end-column="9" />
+            <state relative-caret-position="328">
+              <caret line="2731" column="0" lean-forward="false" selection-start-line="2731" selection-start-column="0" selection-end-line="2731" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,9 +73,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>screen</find>
-      <find>background</find>
-      <find>background-color</find>
       <find>&quot;Walt Disney&quot;</find>
       <find>&quot;sendto:&quot;+ email</find>
       <find>webelementsById</find>
@@ -95,11 +95,14 @@
       <find>ClickUIElementByText(</find>
       <find>&quot;&quot;</find>
       <find>verifytext(&quot;&quot;</find>
-      <find>resource</find>
       <find>by.id</find>
       <find>t</find>
       <find>assertBookmark</find>
       <find>toggle password visibility</find>
+      <find>upper</find>
+      <find>resource</find>
+      <find>ok</find>
+      <find>&quot;ok&quot;</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot; + idString + &quot;</replace>
@@ -132,7 +135,6 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
     <option name="y" value="23" />
     <option name="width" value="2560" />
     <option name="height" value="1417" />
@@ -153,6 +155,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -174,9 +179,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -209,206 +211,75 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GospelLibrary.LaunchTest">
-    <configuration name="GospelLibrary.LaunchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.GospelLibrary">
+    <configuration name="GospelLibrary" type="JUnit" factoryName="JUnit">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
+      <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="LaunchTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.SignInCheckNotebookAndNote" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="SignInCheckNotebookAndNote" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
+        <value defaultName="wholeProject" />
       </option>
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.login" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="login" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <module name="" />
+      <option name="DEPLOY" value="true" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
     </configuration>
-    <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughSnackBar_CancelWithIDdownloadCancelImageView" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughSnackBar_CancelWithIDdownloadCancelImageView" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.settingsScreenLimitMobileNetworkUseSwitch" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="settingsScreenLimitMobileNetworkUseSwitch" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.settingsScreenListModeSwitch" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="settingsScreenListModeSwitch" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.settingsScreenShowObsoleteContentSwitch" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="settingsScreenShowObsoleteContentSwitch" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.settingsScreenShowScreensAsSeparateWindowsSwitch" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="settingsScreenShowScreensAsSeparateWindowsSwitch" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
+      <option name="EXTRA_OPTIONS" value="" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <Java />
+      <Profilers>
+        <option name="ENABLE_ADVANCED_PROFILING" value="false" />
+        <option name="SUPPORT_LIB_ENABLED" value="true" />
+        <option name="INSTRUMENTATION_ENABLED" value="true" />
+      </Profilers>
     </configuration>
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="HTML_USED" value="false" />
@@ -491,27 +362,6 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="10">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.SignInCheckNotebookAndNote" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenLimitMobileNetworkUseSwitch" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenListModeSwitch" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenShowObsoleteContentSwitch" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenShowScreensAsSeparateWindowsSwitch" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" />
-      <item index="6" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughSnackBar_CancelWithIDdownloadCancelImageView" />
-      <item index="7" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload" />
-      <item index="8" class="java.lang.String" itemvalue="JUnit.GospelLibrary.login" />
-      <item index="9" class="java.lang.String" itemvalue="JUnit.GospelLibrary.LaunchTest" />
-    </list>
-    <recent_temporary>
-      <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.LaunchTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.login" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughSnackBar_CancelWithIDdownloadCancelImageView" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -530,35 +380,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GospelLibrary_LaunchTest - 2018.04.18 at 12h 47m 59s.xml">
-      <configuration name="GospelLibrary.LaunchTest" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.04.19 at 09h 43m 04s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_login - 2018.04.18 at 11h 57m 44s.xml">
-      <configuration name="GospelLibrary.login" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.04.19 at 09h 44m 05s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_login - 2018.04.18 at 11h 59m 20s.xml">
-      <configuration name="GospelLibrary.login" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.04.19 at 09h 45m 39s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu - 2018.04.17 at 15h 11m 01s.xml">
-      <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.04.19 at 09h 51m 37s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu - 2018.04.17 at 15h 11m 31s.xml">
-      <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.04.19 at 09h 55m 45s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu - 2018.04.17 at 15h 14m 14s.xml">
-      <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.04.19 at 10h 27m 30s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu - 2018.04.17 at 15h 22m 02s.xml">
-      <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.04.19 at 10h 28m 53s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu - 2018.04.17 at 15h 31m 20s.xml">
-      <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.04.19 at 10h 32m 45s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughSnackBar_CancelWithIDdownloadCancelImageView - 2018.04.17 at 14h 03m 09s.xml">
-      <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughSnackBar_CancelWithIDdownloadCancelImageView" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.04.19 at 10h 34m 41s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload - 2018.04.17 at 14h 11m 39s.xml">
-      <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.04.19 at 10h 44m 17s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -571,8 +421,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="23" width="2560" height="1417" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="2560" height="1417" extended-state="0" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285985" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -582,19 +431,19 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.4074367" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19515885" sideWeight="0.5925633" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19515885" sideWeight="0.5925633" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32829046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285985" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.053216837" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.053216837" sideWeight="0.49585062" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973376" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39814815" sideWeight="0.49574015" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19023034" sideWeight="0.5041494" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -997,8 +846,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3754">
-          <caret line="522" column="9" lean-forward="false" selection-start-line="522" selection-start-column="9" selection-end-line="522" selection-end-column="9" />
+        <state relative-caret-position="328">
+          <caret line="2731" column="0" lean-forward="false" selection-start-line="2731" selection-start-column="0" selection-end-line="2731" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

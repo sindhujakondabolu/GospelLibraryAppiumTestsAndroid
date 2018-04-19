@@ -1,9 +1,7 @@
 
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.android.AndroidDriver;
 import javafx.util.Pair;
-
-
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static java.lang.Integer.*;
+import static java.lang.Integer.parseInt;
 import static org.junit.Assert.*;
 
 
@@ -343,29 +341,19 @@ public class GospelLibrary {
         return passwordDotted;
     }
 
-    //Converts string to capital case
-
-    public static String upperCaseAllFirst(String value) {
-        value = value.toLowerCase();
-        char[] array = value.toCharArray();
-            // Uppercase first letter.
-        array[0] = Character.toUpperCase(array[0]);
-
-            // Uppercase all letters that follow a whitespace character.
-        for (int i = 1; i < array.length; i++) {
-            if (Character.isWhitespace(array[i - 1])) {
-                array[i] = Character.toUpperCase(array[i]);
-            }
+    //Changes text to caps if on android 7 or higher
+    public String isAllCaps(String text) throws Exception{
+        if (AndroidVersion > 6) {
+            text = text.toUpperCase();
         }
-
-            // Result.
-        return new String(array);
-    }
+        System.out.println(text);
+        return text;
+    };
 
     //Get Element by text
-    public String FindElementByText(String text) throws Exception {
-        if (AndroidVersion < 7){
-            text = upperCaseAllFirst(text);
+    public String FindElementByText(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            text = isAllCaps(text);
         }
         String xPathofText = "//android.widget.TextView[@text='" + text + "']";
         //System.out.println("Xpath is: '"+xPathofText+"");
@@ -375,18 +363,15 @@ public class GospelLibrary {
 
     //Get Element by text contains
     public String FindElementByContainsText(String text) throws Exception {
-        if (AndroidVersion < 7){
-            text = upperCaseAllFirst(text);
-        }
         String xPathofText = "//android.widget.TextView[contains(@text, '" + text + "')]";
         //System.out.println("Xpath is: '"+xPathofText+"'");
         return xPathofText;
     }
 
     //Create WebElement by text
-    public WebElement WebElementByText(String text) throws Exception {
-        if (AndroidVersion < 7){
-            text = upperCaseAllFirst(text);
+    public WebElement WebElementByText(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            text = isAllCaps(text);
         }
         String xPathofText = "//android.widget.TextView[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
@@ -395,9 +380,9 @@ public class GospelLibrary {
     }
 
     //Create WebElement by text view.View
-    public WebElement WebElementByTextViewView(String text) throws Exception {
-        if (AndroidVersion < 7){
-            text = upperCaseAllFirst(text);
+    public WebElement WebElementByTextViewView(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            text = isAllCaps(text);
         }
         String xPathofText = "//android.view.View[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
@@ -414,9 +399,9 @@ public class GospelLibrary {
     }
 
     //Create WebElements by text (List)
-    public List WebElementsByText(String text) throws Exception {
-        if (AndroidVersion < 7){
-            text = upperCaseAllFirst(text);
+    public List WebElementsByText(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            text = isAllCaps(text);
         }
         String xPathofText = "//android.widget.TextView[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
@@ -426,9 +411,6 @@ public class GospelLibrary {
 
     //Create WebElements by text contains (List)
     public List WebElementsByTextContains(String text) throws Exception {
-        if (AndroidVersion < 7){
-            text = upperCaseAllFirst(text);
-        }
         String xPathofText = "//android.widget.TextView[contains(@text, '" + text + "')]";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         List tempElement = driver.findElements(By.xpath(xPathofText));
@@ -436,7 +418,10 @@ public class GospelLibrary {
     }
 
     //Create WebElements by Checked text (List)
-    public List WebElementsByCheckedText(String CheckedText) throws Exception {
+    public List WebElementsByCheckedText(String CheckedText, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            CheckedText = isAllCaps(CheckedText);
+        }
         String xPathofText = "//android.widget.CheckedTextView[@text='" + CheckedText + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         List tempElement = driver.findElements(By.xpath(xPathofText));
@@ -449,6 +434,12 @@ public class GospelLibrary {
         return tempElement;
     }
 
+    //Create WebElements by resource-id
+    public List WebElementsByResourceId(String id) throws Exception {
+        List tempElement = WebElementsByXpath("//*[@resource-id=\""+id+"\"]");
+        return tempElement;
+    }
+
     //Create WebElements by accessibility id
     public List WebElementsByAccessibilityId(String id) throws Exception {
         List tempElement = driver.findElementsByAccessibilityId(id);
@@ -458,7 +449,7 @@ public class GospelLibrary {
     //Create WebElements by xpath (list)
     public List WebElementsByXpath(String xpath) throws Exception {
         String xPathofText = xpath;
-        //System.out.println("Xpath of current item is: "+xPathofText+"");
+        System.out.println("Xpath of current item is: "+xPathofText+"");
         List tempElement = driver.findElements(By.xpath(xPathofText));
         return tempElement;
     }
@@ -482,18 +473,18 @@ public class GospelLibrary {
     }
 
     //Create WebElement for settings Switch by text
-    public WebElement WebElementSettingSwitchByText(String text) throws Exception {
-        if (AndroidVersion < 7){
-            text = upperCaseAllFirst(text);
+    public WebElement WebElementSettingSwitchByText(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            text = isAllCaps(text);
         }
         WebElement tempElement = driver.findElementByXPath("//android.widget.TextView[@text='" + text + "']/../../android.widget.LinearLayout/android.widget.Switch");
         return tempElement;
     }
 
     //Click Element by Text
-    public void ClickUIElementByText(String text) throws Exception {
-        if (AndroidVersion < 7){
-            text = upperCaseAllFirst(text);
+    public void ClickUIElementByText(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            text = isAllCaps(text);
         }
         String xPathofText = "//android.widget.TextView[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
@@ -504,9 +495,9 @@ public class GospelLibrary {
     }
 
     //Click Element by Text
-    public void ClickUIElementByTextContains(String text) throws Exception {
-        if (AndroidVersion < 7){
-            text = upperCaseAllFirst(text);
+    public void ClickUIElementByTextContains(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            text = isAllCaps(text);
         }
         String xPathofText = "//android.widget.TextView[contains(@text, '" + text + "')]";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
@@ -517,9 +508,9 @@ public class GospelLibrary {
     }
 
     //Click Element by Text view.View
-    public void ClickUIElementByTextViewView(String text) throws Exception {
-        if (AndroidVersion < 7){
-            text = upperCaseAllFirst(text);
+    public void ClickUIElementByTextViewView(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            text = isAllCaps(text);
         }
         String xPathofText = "//android.view.View[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
@@ -530,7 +521,10 @@ public class GospelLibrary {
     }
 
     //Click Element by Checked Text
-    public void ClickUIElementByCheckedText(String text) throws Exception {
+    public void ClickUIElementByCheckedText(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            text = isAllCaps(text);
+        }
         String xPathofText = "//android.widget.CheckedTextView[@text='" + text + "']";
         //System.out.println("Xpath of current item is: "+xPathofText+"");
         WebElement itemToClick = driver.findElement(By.xpath(xPathofText));
@@ -798,13 +792,13 @@ public class GospelLibrary {
     //assert Tabs
     public void assertTabs (String screen) throws Exception {
         if (screen == "Notes") {
-            assertElementExistsBy(WebElementsByText("ALL"));
-            assertElementExistsBy(WebElementsByText("TAGS"));
-            assertElementExistsBy(WebElementsByText("NOTEBOOKS"));
+            assertElementExistsBy(WebElementsByText("All",true));
+            assertElementExistsBy(WebElementsByText("Tags", true));
+            assertElementExistsBy(WebElementsByText("Notebooks",true));
         } else if (screen == "Bookmarks"){
-            assertElementExistsBy(WebElementsByText("BOOKMARKS"));
-            assertElementExistsBy(WebElementsByText("SCREENS"));
-            assertElementExistsBy(WebElementsByText("HISTORY"));
+            assertElementExistsBy(WebElementsByText("Bookmarks", true));
+            assertElementExistsBy(WebElementsByText("Screens", true));
+            assertElementExistsBy(WebElementsByText("History", true));
         } else {
             fail(screen + " is not a valid option for assertTabs." +
                     "Available screens are:" +
@@ -819,48 +813,48 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         if (screen == "Library") {
-            assertElementExistsBy(WebElementsByText("New Screen…"));
-            assertElementExistsBy(WebElementsByText("Custom Collections"));
-            assertElementExistsBy(WebElementsByText("Language…"));
-            assertElementExistsBy(WebElementsByText("Settings"));
+            assertElementExistsBy(WebElementsByText("New Screen…", false));
+            assertElementExistsBy(WebElementsByText("Custom Collections", false));
+            assertElementExistsBy(WebElementsByText("Language…", false));
+            assertElementExistsBy(WebElementsByText("Settings", false));
         } else if (screen == "Collection Menu") {
-            assertElementExistsBy(WebElementsByText("New Screen…"));
-            assertElementExistsBy(WebElementsByText("Download All"));
-            assertElementExistsBy(WebElementsByText("Remove All"));
-            assertElementExistsBy(WebElementsByText("Language…"));
-            assertElementExistsBy(WebElementsByText("Settings"));
+            assertElementExistsBy(WebElementsByText("New Screen…", false));
+            assertElementExistsBy(WebElementsByText("Download All", false));
+            assertElementExistsBy(WebElementsByText("Remove All", false));
+            assertElementExistsBy(WebElementsByText("Language…", false));
+            assertElementExistsBy(WebElementsByText("Settings", false));
         } else if (screen == "Book Menu") {
-            assertElementExistsBy(WebElementsByText("New Screen…"));
-            assertElementExistsBy(WebElementsByText("Download Audio"));
-            assertElementExistsBy(WebElementsByText("Language…"));
-            assertElementExistsBy(WebElementsByText("Settings"));
+            assertElementExistsBy(WebElementsByText("New Screen…", false));
+            assertElementExistsBy(WebElementsByText("Download Audio", false));
+            assertElementExistsBy(WebElementsByText("Language…", false));
+            assertElementExistsBy(WebElementsByText("Settings", false));
         } else if (screen == "Content Menu") {
-            assertElementExistsBy(WebElementsByText("New Screen…"));
-            assertElementExistsBy(WebElementsByText("Related Content"));
-            assertElementExistsBy(WebElementsByText("Share"));
-            assertElementExistsBy(WebElementsByText("Play Audio"));
-            assertElementExistsBy(WebElementsByText("Language…"));
-            assertElementExistsBy(WebElementsByText("Settings"));
+            assertElementExistsBy(WebElementsByText("New Screen…", false));
+            assertElementExistsBy(WebElementsByText("Related Content", false));
+            assertElementExistsBy(WebElementsByText("Share", false));
+            assertElementExistsBy(WebElementsByText("Play Audio", false));
+            assertElementExistsBy(WebElementsByText("Language…", false));
+            assertElementExistsBy(WebElementsByText("Settings", false));
         } else if (screen == "Notes") {
-            assertElementExistsBy(WebElementsByText("New Screen…"));
-            assertElementExistsBy(WebElementsByText("Restore Journal"));
-            assertElementExistsBy(WebElementsByText("Language…"));
-            assertElementExistsBy(WebElementsByText("Settings"));
+            assertElementExistsBy(WebElementsByText("New Screen…", false));
+            assertElementExistsBy(WebElementsByText("Restore Journal", false));
+            assertElementExistsBy(WebElementsByText("Language…", false));
+            assertElementExistsBy(WebElementsByText("Settings", false));
         } else if (screen == "Notebooks") {
-            assertElementExistsBy(WebElementsByText("New Screen…"));
-            assertElementExistsBy(WebElementsByText("Language…"));
-            assertElementExistsBy(WebElementsByText("Settings"));
+            assertElementExistsBy(WebElementsByText("New Screen…", false));
+            assertElementExistsBy(WebElementsByText("Language…", false));
+            assertElementExistsBy(WebElementsByText("Settings", false));
         } else if (screen == "Screens") {
-            assertElementExistsBy(WebElementsByText("Screen Settings"));
-            assertElementExistsBy(WebElementsByText("Close All Screens"));
+            assertElementExistsBy(WebElementsByText("Screen Settings", false));
+            assertElementExistsBy(WebElementsByText("Close All Screens", false));
         } else if (screen == "History") {
-            assertElementExistsBy(WebElementsByText("Clear History"));
+            assertElementExistsBy(WebElementsByText("Clear History", false));
         } else if (screen == "DownloadsByItem") {
-            assertElementExistsBy(WebElementsByText("Sort by Size"));
-            assertElementExistsBy(WebElementsByText("Current Downloads"));
+            assertElementExistsBy(WebElementsByText("Sort by Size", false));
+            assertElementExistsBy(WebElementsByText("Current Downloads", false));
         } else if (screen == "DownloadsBySize") {
-            assertElementExistsBy(WebElementsByText("Sort by Item"));
-            assertElementExistsBy(WebElementsByText("Current Downloads"));
+            assertElementExistsBy(WebElementsByText("Sort by Item", false));
+            assertElementExistsBy(WebElementsByText("Current Downloads", false));
         } else {
             fail(screen + " is not a valid option for assertMoreOptionsMenu." +
                     "Available screens are:" +
@@ -877,23 +871,23 @@ public class GospelLibrary {
         }
         if (close) {
             dismissDialog(WebElementByXpath("*//android.widget.FrameLayout"));
-            assertElementNotPresentBy(WebElementsByText("New Screen…"));
-            assertElementNotPresentBy(WebElementsByText("Cutsom Collections"));
-            assertElementNotPresentBy(WebElementsByText("Download All"));
-            assertElementNotPresentBy(WebElementsByText("Remove All"));
-            assertElementNotPresentBy(WebElementsByText("Download Audio"));
-            assertElementNotPresentBy(WebElementsByText("Related Content"));
-            assertElementNotPresentBy(WebElementsByText("Share"));
-            assertElementNotPresentBy(WebElementsByText("Play Audio"));
-            assertElementNotPresentBy(WebElementsByText("Restore Journal"));
-            assertElementNotPresentBy(WebElementsByText("Language…"));
-            assertElementNotPresentBy(WebElementsByText("Settings"));
-            assertElementNotPresentBy(WebElementsByText("Screen Settings"));
-            assertElementNotPresentBy(WebElementsByText("Close All Screens"));
-            assertElementNotPresentBy(WebElementsByText("Clear History"));
-            assertElementNotPresentBy(WebElementsByText("Sort by Size"));
-            assertElementNotPresentBy(WebElementsByText("Sort by Item"));
-            assertElementNotPresentBy(WebElementsByText("Current Downloads"));
+            assertElementNotPresentBy(WebElementsByText("New Screen…", false));
+            assertElementNotPresentBy(WebElementsByText("Cutsom Collections", false));
+            assertElementNotPresentBy(WebElementsByText("Download All", false));
+            assertElementNotPresentBy(WebElementsByText("Remove All", false));
+            assertElementNotPresentBy(WebElementsByText("Download Audio", false));
+            assertElementNotPresentBy(WebElementsByText("Related Content", false));
+            assertElementNotPresentBy(WebElementsByText("Share", false));
+            assertElementNotPresentBy(WebElementsByText("Play Audio", false));
+            assertElementNotPresentBy(WebElementsByText("Restore Journal", false));
+            assertElementNotPresentBy(WebElementsByText("Language…", false));
+            assertElementNotPresentBy(WebElementsByText("Settings", false));
+            assertElementNotPresentBy(WebElementsByText("Screen Settings", false));
+            assertElementNotPresentBy(WebElementsByText("Close All Screens", false));
+            assertElementNotPresentBy(WebElementsByText("Clear History", false));
+            assertElementNotPresentBy(WebElementsByText("Sort by Size", false));
+            assertElementNotPresentBy(WebElementsByText("Sort by Item", false));
+            assertElementNotPresentBy(WebElementsByText("Current Downloads", false));
         }
     }
 
@@ -914,9 +908,9 @@ public class GospelLibrary {
     //assert screen item options
     public void assertScreenItemOptions(String title, Boolean close) throws Exception {
         ClickUIElementByXpath("//android.widget.TextView[@text=\""+ title +"\"]/../../android.widget.ImageButton");
-        assertElementExistsBy(WebElementsByText("Rename"));
-        assertElementExistsBy(WebElementsByText("Duplicate"));
-        assertElementExistsBy(WebElementsByText("Delete"));
+        assertElementExistsBy(WebElementsByText("Rename", false));
+        assertElementExistsBy(WebElementsByText("Duplicate", false));
+        assertElementExistsBy(WebElementsByText("Delete", false));
         if (close) {
             dismissDialog(WebElementByXpath("*//android.widget.FrameLayout"));
         }
@@ -928,19 +922,19 @@ public class GospelLibrary {
         //Click Main Toolbar
         ClickUIElementByID("org.lds.ldssa.dev:id/mainToolbarTitleTextView");
         Thread.sleep(milliseconds_1);
-        assertElementExistsBy(WebElementsByText("Library"));
+        assertElementExistsBy(WebElementsByText("Library", false));
         if (title1 != ""){
-            assertElementExistsBy(WebElementsByText(title1));
+            assertElementExistsBy(WebElementsByText(title1, false));
             if (title2 != ""){
-                assertElementExistsBy(WebElementsByText(title2));
+                assertElementExistsBy(WebElementsByText(title2, false));
                 if (title3 != ""){
-                    assertElementExistsBy(WebElementsByText(title3));
+                    assertElementExistsBy(WebElementsByText(title3, false));
                     if (title4 != ""){
-                        assertElementExistsBy(WebElementsByText(title4));
+                        assertElementExistsBy(WebElementsByText(title4, false));
                         if (title5 != ""){
-                            assertElementExistsBy(WebElementsByText(title5));
+                            assertElementExistsBy(WebElementsByText(title5, false));
                             if (title6 != ""){
-                                assertElementExistsBy(WebElementsByText(title6));
+                                assertElementExistsBy(WebElementsByText(title6, false));
                             }
                         }
                     }
@@ -959,7 +953,7 @@ public class GospelLibrary {
     public void CreateNotebookandAssert(String title, boolean add) throws Exception{
         ClickUIElementByID("org.lds.ldssa.dev:id/notesFloatingActionButton");
         Thread.sleep(milliseconds_1);
-        verifyText("Create Notebook", WebElementByText("Create Notebook"));
+        verifyText("Create Notebook", WebElementByText("Create Notebook", false));
         verifyText("0/256",WebElementByResourceId("org.lds.ldssa.dev:id/md_minMax"));
         verifyText("CANCEL", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
         verifyText("ADD", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
@@ -968,11 +962,11 @@ public class GospelLibrary {
         if (add){
             ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
             Thread.sleep(milliseconds_2);
-            verifyText(title, WebElementByText(title));
+            verifyText(title, WebElementByText(title, false));
         } else {
             ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
             Thread.sleep(milliseconds_2);
-            assertElementNotPresentBy(WebElementsByText(title));
+            assertElementNotPresentBy(WebElementsByText(title, false));
         }
     }
 
@@ -999,7 +993,7 @@ public class GospelLibrary {
     //Backup
     public void Backup(Boolean signIn) throws Exception{
         //Back Up Annotations?
-        verifyText("Back Up Annotations", WebElementByText("Back Up Annotations"));
+        verifyText("Back Up Annotations", WebElementByText("Back Up Annotations", false));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         verifyText("SIGN IN",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
@@ -1018,11 +1012,11 @@ public class GospelLibrary {
     public void ChangeTextSize(int sizeOneThroughSeven) throws Exception {
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Text Size");
-        assertElementExistsBy(WebElementsByText("Text Size"));
-        ClickUIElementByText("Text Size");
+        assertElementExistsBy(WebElementsByText("Text Size", false));
+        ClickUIElementByText("Text Size", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Text Size", WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/text"));
@@ -1043,16 +1037,16 @@ public class GospelLibrary {
     public void ChangeTheme(String Theme) throws Exception {
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Theme");
-        assertElementExistsBy(WebElementsByText("Theme"));
-        ClickUIElementByText("Theme");
+        assertElementExistsBy(WebElementsByText("Theme", false));
+        ClickUIElementByText("Theme", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/alertTitle"));
         verifyText("Theme", WebElementById("org.lds.ldssa.dev:id/alertTitle"));
-        assertElementExistsBy(WebElementsByCheckedText(Theme));
-        ClickUIElementByCheckedText(Theme);
-        ClickUIElementByText("Theme");
+        assertElementExistsBy(WebElementsByCheckedText(Theme, false));
+        ClickUIElementByCheckedText(Theme, false);
+        ClickUIElementByText("Theme", false);
 
         Boolean ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
         Boolean ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
@@ -1097,7 +1091,7 @@ public class GospelLibrary {
                 break;
         }
 
-        ClickUIElementByCheckedText(Theme);
+        ClickUIElementByCheckedText(Theme, false);
         ClickUIElementByAccessibilityID("Navigate up");
 
     }
@@ -1214,10 +1208,10 @@ public class GospelLibrary {
     //Assert Settings Switch and toggle
     public void assertSettingsSwitchExpectedStateAndToggle(String SwitchTitle, Boolean ExpectedState) throws Exception {
         scrollDownTo(SwitchTitle);
-        assertElementExistsBy(WebElementsByText(SwitchTitle));
+        assertElementExistsBy(WebElementsByText(SwitchTitle, false));
         // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
         // toggle verification is currently by xpath because no other identifier is available
-        WebElement CurrentSettingsSwitch = WebElementSettingSwitchByText(SwitchTitle);
+        WebElement CurrentSettingsSwitch = WebElementSettingSwitchByText(SwitchTitle, false);
         Boolean CurrentSettingSwitchBool = Boolean.parseBoolean(CurrentSettingsSwitch.getAttribute("checked"));
         if (ExpectedState) {
             verifyText("ON", CurrentSettingsSwitch);
@@ -1241,23 +1235,23 @@ public class GospelLibrary {
     public void assertSettingsSwitchExpectedStateAndTogglePersists(String SwitchTitle, Boolean ExpectedState) throws Exception {
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         if (ExpectedState) {
             assertSettingsSwitchExpectedStateAndToggle(SwitchTitle, true);
             ClickUIElementByAccessibilityID("Navigate up");
             assertElementExistsBy(WebElementsByAccessibilityId("More options"));
             ClickUIElementByAccessibilityID("More options");
-            assertElementExistsBy(WebElementsByText("Settings"));
-            ClickUIElementByText("Settings");
+            assertElementExistsBy(WebElementsByText("Settings", false));
+            ClickUIElementByText("Settings", false);
             assertSettingsSwitchExpectedStateAndToggle(SwitchTitle, false);
         } else {
             assertSettingsSwitchExpectedStateAndToggle(SwitchTitle, false);
             ClickUIElementByAccessibilityID("Navigate up");
             assertElementExistsBy(WebElementsByAccessibilityId("More options"));
             ClickUIElementByAccessibilityID("More options");
-            assertElementExistsBy(WebElementsByText("Settings"));
-            ClickUIElementByText("Settings");
+            assertElementExistsBy(WebElementsByText("Settings", false));
+            ClickUIElementByText("Settings", false);
             assertSettingsSwitchExpectedStateAndToggle(SwitchTitle, true);
         }
     }
@@ -1286,7 +1280,7 @@ public class GospelLibrary {
             scrollDownTo(bookTitle);
 
             System.out.println("" + bookTitle + " is on the screen");
-            ClickUIElementByText(bookTitle);
+            ClickUIElementByText(bookTitle, false);
             verifyText(titlebarBookTitle, driver.findElementByXPath(FindElementByContainsText(bookTitle)));
             if (numberOfChapters > 1) {
                 //Check Title bar when Chapter is displayed
@@ -1309,7 +1303,7 @@ public class GospelLibrary {
                     String chapterNumberString = String.valueOf(j);
                     scrollDownTo(chapterNumberString);
 
-                    WebElement chapterNumber = driver.findElement(By.xpath(FindElementByText(chapterNumberString)));
+                    WebElement chapterNumber = driver.findElement(By.xpath(FindElementByText(chapterNumberString, false)));
                     verifyText(chapterNumberString, chapterNumber);
 
                 }
@@ -1327,20 +1321,20 @@ public class GospelLibrary {
     }
 
     public void OpenScripture(String work, String book, String chapter, String verse) throws Exception {
-        assertElementExistsBy(WebElementsByText("Scriptures"));
-        ClickUIElementByText("Scriptures");
+        assertElementExistsBy(WebElementsByText("Scriptures", false));
+        ClickUIElementByText("Scriptures", false);
         Thread.sleep(milliseconds_1);
 
 
-        ClickUIElementByText(work);
+        ClickUIElementByText(work, false);
         Thread.sleep(milliseconds_1);
         if (book != "") {
             scrollDownTo(book);
-            ClickUIElementByText(book);
+            ClickUIElementByText(book, false);
             Thread.sleep(milliseconds_2);
             if (chapter != "") {
                 scrollDownTo(chapter);
-                ClickUIElementByText(chapter);
+                ClickUIElementByText(chapter, false);
                 Thread.sleep(milliseconds_1);
             }
             if (verse != "") {
@@ -1353,19 +1347,19 @@ public class GospelLibrary {
     }
 
     public void OpenConference(String month, String year, String talkTitle) throws Exception {
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
+        assertElementExistsBy(WebElementsByText("General Conference", false));
+        ClickUIElementByText("General Conference", false);
         Thread.sleep(milliseconds_1);
 
         if (month != "") {
             scrollDownTo(month + " " + year);
-            assertElementExistsBy(WebElementsByText(month + " " + year));
-            ClickUIElementByText(month + " " + year);
+            assertElementExistsBy(WebElementsByText(month + " " + year, false));
+            ClickUIElementByText(month + " " + year, false);
             Thread.sleep(milliseconds_1);
-            ClickUIElementByText(month + " " + year);
+            ClickUIElementByText(month + " " + year, false);
             if (talkTitle != "") {
                 scrollDownTo(talkTitle);
-                ClickUIElementByText(talkTitle);
+                ClickUIElementByText(talkTitle, false);
             }
         }
     }
@@ -1412,13 +1406,13 @@ public class GospelLibrary {
 
     public void appCheck(String appTitle) throws Exception{
         scrollDownTo(appTitle);
-        assertElementExistsBy(WebElementsByText(appTitle));
-        ClickUIElementByText(appTitle);
+        assertElementExistsBy(WebElementsByText(appTitle, false));
+        ClickUIElementByText(appTitle, false);
         assertElementExistsBy(WebElementsByAccessibilityId("Search Google Play"));
         assertElementExistsBy(WebElementsByTextContains(appTitle));
         driver.navigate().back();
         Thread.sleep(milliseconds_1);
-        assertElementExistsBy(WebElementsByText("Featured Apps"));
+        assertElementExistsBy(WebElementsByText("Featured Apps", false));
     }
 
     public String getComputedCssUsingXpath(String xPath, String cssAttribute) throws Exception{
@@ -1507,7 +1501,7 @@ public class GospelLibrary {
         //This test checks valid login
         skipTips();
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/signInToolbar"));
-        verifyText("Sign In", WebElementByText("Sign In"));
+        verifyText("Sign In", WebElementByText("Sign In", false));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/signInMessageTextView"));
         verifyText("An LDS Account is used to back up and synchronize your annotations across devices and on LDS.org.",WebElementById("org.lds.ldssa.dev:id/signInMessageTextView"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/usernameEditText"));
@@ -1529,32 +1523,32 @@ public class GospelLibrary {
         WebElement signInButton = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
         signInButton.click();
         Thread.sleep(milliseconds_3);
-        verifyText("Library", WebElementByText("Library"));
+        verifyText("Library", WebElementByText("Library", false));
 
     }
 
     @Test
     public void invalidLogin() throws Exception {
         skipTips();
-        verifyText("Sign In", WebElementByText("Sign In"));
+        verifyText("Sign In", WebElementByText("Sign In", false));
         sendText("org.lds.ldssa.dev:id/usernameEditText", user);
         sendText("org.lds.ldssa.dev:id/passwordEditText", wrongPassword);
         WebElement signInButton = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
         signInButton.click();
         Thread.sleep(milliseconds_1);
-        verifyText("Error", WebElementByText("Error"));
-        ClickUIElementByText("OK");
+        verifyText("Error", WebElementByText("Error", false));
+        ClickUIElementByText("OK", false);
         sendText("org.lds.ldssa.dev:id/passwordEditText", password);
         signInButton.click();
         Thread.sleep(milliseconds_3);
-        verifyText("Library", WebElementByText("Library"));
+        verifyText("Library", WebElementByText("Library", false));
 
     }
 
     @Test
     public void troubleSigningIn() throws Exception {
         skipTips();
-        verifyText("Sign In", WebElementByText("Sign In"));
+        verifyText("Sign In", WebElementByText("Sign In", false));
         verifyText("HAVING TROUBLE SIGNING IN?",WebElementById("org.lds.ldssa.dev:id/ldsAccountLoginForgotCredentialsButton"));
         ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginForgotCredentialsButton");
         Thread.sleep(milliseconds_5);
@@ -1564,7 +1558,7 @@ public class GospelLibrary {
     @Test
     public void signInCreateAccount() throws Exception {
         skipTips();
-        verifyText("Sign In", WebElementByText("Sign In"));
+        verifyText("Sign In", WebElementByText("Sign In", false));
         verifyText("CREATE LDS ACCOUNT", WebElementById("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton"));
         ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton");
         Thread.sleep(milliseconds_5);
@@ -1583,47 +1577,47 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         scrollDownTo("Scriptures");
-        assertElementExistsBy(WebElementsByText("Scriptures"));
+        assertElementExistsBy(WebElementsByText("Scriptures", false));
         scrollDownTo("Jesus Christ");
-        assertElementExistsBy(WebElementsByText("Jesus Christ"));
+        assertElementExistsBy(WebElementsByText("Jesus Christ", false));
         scrollDownTo("General Conference");
-        assertElementExistsBy(WebElementsByText("General Conference"));
+        assertElementExistsBy(WebElementsByText("General Conference", false));
         scrollDownTo("Teachings of Presidents");
-        assertElementExistsBy(WebElementsByText("Teachings of Presidents"));
+        assertElementExistsBy(WebElementsByText("Teachings of Presidents", false));
         scrollDownTo("Notes");
-        assertElementExistsBy(WebElementsByText("Notes"));
+        assertElementExistsBy(WebElementsByText("Notes", false));
         scrollDownTo("Lessons");
-        assertElementExistsBy(WebElementsByText("Lessons"));
+        assertElementExistsBy(WebElementsByText("Lessons", false));
         scrollDownTo("Magazines");
-        assertElementExistsBy(WebElementsByText("Magazines"));
+        assertElementExistsBy(WebElementsByText("Magazines", false));
         scrollDownTo("Music");
-        assertElementExistsBy(WebElementsByText("Music"));
+        assertElementExistsBy(WebElementsByText("Music", false));
         scrollDownTo("Videos");
-        assertElementExistsBy(WebElementsByText("Videos"));
+        assertElementExistsBy(WebElementsByText("Videos", false));
         scrollDownTo("Missionary");
-        assertElementExistsBy(WebElementsByText("Missionary"));
+        assertElementExistsBy(WebElementsByText("Missionary", false));
         scrollDownTo("Temple and Family History");
-        assertElementExistsBy(WebElementsByText("Temple and Family History"));
+        assertElementExistsBy(WebElementsByText("Temple and Family History", false));
         scrollDownTo("Individuals and Families");
-        assertElementExistsBy(WebElementsByText("Individuals and Families"));
+        assertElementExistsBy(WebElementsByText("Individuals and Families", false));
         scrollDownTo("Young Adults");
-        assertElementExistsBy(WebElementsByText("Young Adults"));
+        assertElementExistsBy(WebElementsByText("Young Adults", false));
         scrollDownTo("Youth");
-        assertElementExistsBy(WebElementsByText("Youth"));
+        assertElementExistsBy(WebElementsByText("Youth", false));
         scrollDownTo("Children");
-        assertElementExistsBy(WebElementsByText("Children"));
+        assertElementExistsBy(WebElementsByText("Children", false));
         scrollDownTo("Leaders");
-        assertElementExistsBy(WebElementsByText("Leaders"));
+        assertElementExistsBy(WebElementsByText("Leaders", false));
         scrollDownTo("Self-Reliance");
-        assertElementExistsBy(WebElementsByText("Self-Reliance"));
+        assertElementExistsBy(WebElementsByText("Self-Reliance", false));
         scrollDownTo("Religious Freedom");
-        assertElementExistsBy(WebElementsByText("Religious Freedom"));
+        assertElementExistsBy(WebElementsByText("Religious Freedom", false));
         scrollDownTo("Church History");
-        assertElementExistsBy(WebElementsByText("Church History"));
+        assertElementExistsBy(WebElementsByText("Church History", false));
         scrollDownTo("Seminaries and Institutes");
-        assertElementExistsBy(WebElementsByText("Seminaries and Institutes"));
+        assertElementExistsBy(WebElementsByText("Seminaries and Institutes", false));
         scrollDownTo("Tips");
-        assertElementExistsBy(WebElementsByText("Tips"));
+        assertElementExistsBy(WebElementsByText("Tips", false));
         assertMoreOptionsMenu("Library",true);
 
     }
@@ -1634,7 +1628,7 @@ public class GospelLibrary {
     public void NotesLandingPage_NotSignedIn() throws Exception {
         //Skip Login
         skipLogin();
-        ClickUIElementByText("Notes");
+        ClickUIElementByText("Notes", false);
         Thread.sleep(milliseconds_1);
 
         //Verify all elements present
@@ -1642,9 +1636,9 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         assertTabs("Notes");
-        assertElementExistsBy(WebElementsByText("No Notes"));
-        assertElementExistsBy(WebElementsByText("Record notes to preserve your thoughts."));
-        assertElementExistsBy(WebElementsByText("Notes"));
+        assertElementExistsBy(WebElementsByText("No Notes", false));
+        assertElementExistsBy(WebElementsByText("Record notes to preserve your thoughts.", false));
+        assertElementExistsBy(WebElementsByText("Notes", false));
 
         assertMoreOptionsMenu("Notes",true);
 
@@ -1718,15 +1712,15 @@ public class GospelLibrary {
         //Login
         skipLogin();
         //Verify "Notes item exists by text"
-        verifyText("Notes", WebElementByText("Notes"));
+        verifyText("Notes", WebElementByText("Notes", false));
         //Click "Notes"
-        ClickUIElementByText("Notes");
+        ClickUIElementByText("Notes", false);
         Thread.sleep(milliseconds_1);
         //Verify Tabs in the notes section
         assertTabs("Notes");
         assertMoreOptionsMenu("Notes",true);
         //Click Notebooks
-        ClickUIElementByText("NOTEBOOKS");
+        ClickUIElementByText("Notebooks",true);
         Thread.sleep(milliseconds_1);
         CreateNotebookandAssert("Spiritual Impressions 1",true);
 
@@ -1735,14 +1729,14 @@ public class GospelLibrary {
     @Test
     public void CreateNewNoteInNewNotebook() throws Exception {
         skipLogin();
-        verifyText("Notes",WebElementByText("Notes"));
-        ClickUIElementByText("Notes");
+        verifyText("Notes",WebElementByText("Notes", false));
+        ClickUIElementByText("Notes", false);
         assertTabs("Notes");
         assertMoreOptionsMenu("Notes",true);
-        ClickUIElementByText("NOTEBOOKS");
+        ClickUIElementByText("Notebooks", true);
         String notebookTitle = "Spiritual Impressions 1";
         CreateNotebookandAssert(notebookTitle, true);
-        ClickUIElementByText(notebookTitle);
+        ClickUIElementByText(notebookTitle,false);
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
@@ -1778,15 +1772,15 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
         ClickUIElementByAccessibilityID("Bookmark");
         assertTabs("Bookmarks");
-        assertElementExistsBy(WebElementsByText("No Bookmarks"));
-        assertElementExistsBy(WebElementsByText("Add a bookmark to quickly return to where you left off."));
+        assertElementExistsBy(WebElementsByText("No Bookmarks", false));
+        assertElementExistsBy(WebElementsByText("Add a bookmark to quickly return to where you left off.", false));
     }
 
     @Test
     public void BookmarksLandingPageFromNotes_NotSignedIn() throws Exception {
         // Skip Login
         skipLogin();
-        ClickUIElementByText("Notes");
+        ClickUIElementByText("Notes", false);
         Thread.sleep(milliseconds_1);
         assertMoreOptionsMenu("Notes",true);
         assertTabs("Notes");
@@ -1795,17 +1789,17 @@ public class GospelLibrary {
 
         //verify all elements present on bookmarks screen
         assertTabs("Bookmarks");
-        assertElementExistsBy(WebElementsByText("No Bookmarks"));
-        assertElementExistsBy(WebElementsByText("Add a bookmark to quickly return to where you left off."));
+        assertElementExistsBy(WebElementsByText("No Bookmarks", false));
+        assertElementExistsBy(WebElementsByText("Add a bookmark to quickly return to where you left off.", false));
         //click Screens
         Thread.sleep(milliseconds_1);
-        ClickUIElementByText("SCREENS");
+        ClickUIElementByText("Screens",true);
         Thread.sleep(milliseconds_1);
         assertTabs("Bookmarks");
         assertMoreOptionsMenu("Screens",false);
-        ClickUIElementByText("Screen Settings");
+        ClickUIElementByText("Screen Settings", false);
         //assert elements present on screens settings screen
-        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows"));
+        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows", false));
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertSettingsSwitchExpectedStateAndToggle("Show Screens as Separate Windows", true);
         ClickUIElementByAccessibilityID("Navigate up");
@@ -1816,26 +1810,26 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/locationsFab"));
         //
         assertMoreOptionsMenu("Screens",false);
-        ClickUIElementByText("Close All Screens");
+        ClickUIElementByText("Close All Screens", false);
 
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/screenTitleTextView"));
         verifyText("Notes",WebElementById("org.lds.ldssa.dev:id/screenTitleTextView"));
         //verify add screen fab
         ClickUIElementByID("org.lds.ldssa.dev:id/locationsFab");
         ClickUIElementByAccessibilityID("Bookmark");
-        assertElementExistsBy(WebElementsByText("Library"));
-        assertElementExistsBy(WebElementsByText("Notes"));
+        assertElementExistsBy(WebElementsByText("Library", false));
+        assertElementExistsBy(WebElementsByText("Notes", false));
         assertMoreOptionsMenu("Screens",false);
-        ClickUIElementByText("Close All Screens");
+        ClickUIElementByText("Close All Screens", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/screenTitleTextView"));
         verifyText("Library", WebElementById("org.lds.ldssa.dev:id/screenTitleTextView"));
-        assertElementNotPresentBy(WebElementsByText("Notes"));
+        assertElementNotPresentBy(WebElementsByText("Notes", false));
         Thread.sleep(milliseconds_2);
 
         Thread.sleep(milliseconds_1);
 
         //Click History tab
-        ClickUIElementByText("HISTORY");
+        ClickUIElementByText("History",true);
         Thread.sleep(milliseconds_1);
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/emptyStateImageView"));
@@ -1853,18 +1847,18 @@ public class GospelLibrary {
     @Test
     public void ScreensScreenFromNotesScreenItemOptions() throws Exception {
         skipLogin();
-        ClickUIElementByText("Notes");
+        ClickUIElementByText("Notes", false);
         Thread.sleep(milliseconds_1);
         ClickUIElementByAccessibilityID("Bookmark");
         Thread.sleep(milliseconds_1);
 
         //verify all elements present on bookmarks screen
         assertTabs("Bookmarks");
-        assertElementExistsBy(WebElementsByText("No Bookmarks"));
-        assertElementExistsBy(WebElementsByText("Add a bookmark to quickly return to where you left off."));
+        assertElementExistsBy(WebElementsByText("No Bookmarks", false));
+        assertElementExistsBy(WebElementsByText("Add a bookmark to quickly return to where you left off.", false));
         //click Screens
         Thread.sleep(milliseconds_1);
-        ClickUIElementByText("SCREENS");
+        ClickUIElementByText("Screens",true);
         assertScreenItemOptions("Notes",true);
 
 
@@ -1878,7 +1872,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Bookmark");
         Thread.sleep(milliseconds_1);
         assertTabs("Bookmarks");
-        ClickUIElementByText("SCREENS");
+        ClickUIElementByText("Screens",true);
         Thread.sleep(milliseconds_1);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/screenTitleTextView"));
         verifyText("Library", WebElementById("org.lds.ldssa.dev:id/screenTitleTextView"));
@@ -1886,9 +1880,9 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/screenTitleTextView"));
         verifyText("Library", WebElementById("org.lds.ldssa.dev:id/screenTitleTextView"));
         assertMoreOptionsMenu("Screens",false);
-        ClickUIElementByText("Screen Settings");
+        ClickUIElementByText("Screen Settings", false);
         //assert elements present on screens settings screen
-        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows"));
+        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows", false));
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertSettingsSwitchExpectedStateAndToggle("Show Screens as Separate Windows", true);
         ClickUIElementByAccessibilityID("Navigate up");
@@ -1900,7 +1894,7 @@ public class GospelLibrary {
 
         assertTabs("Bookmarks");
         //Click History tab
-        ClickUIElementByText("HISTORY");
+        ClickUIElementByText("History",true);
         assertMoreOptionsMenu("History",true);
         Thread.sleep(milliseconds_1);
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
@@ -1935,60 +1929,60 @@ public class GospelLibrary {
     public void settingsScreenLandingPageNotSignedIn() throws Exception {
         skipLogin();
         assertMoreOptionsMenu("Library",false);
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("LDS Account"));
-        assertElementExistsBy(WebElementsByText("Sign In"));
-        assertElementExistsBy(WebElementsByText("An LDS Account is used to back up and synchronize your annotations across devices and on LDS.org."));
-        assertElementExistsBy(WebElementsByText("Create LDS Account"));
-        assertElementExistsBy(WebElementsByText("Content"));
-        assertElementExistsBy(WebElementsByText("Downloaded Media"));
-        assertElementExistsBy(WebElementsByText("None"));
-        assertElementExistsBy(WebElementsByText("Limit Mobile Network Use"));
-        assertElementExistsBy(WebElementsByText("Only Download and Stream on Wi-Fi"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("LDS Account", false));
+        assertElementExistsBy(WebElementsByText("Sign In", false));
+        assertElementExistsBy(WebElementsByText("An LDS Account is used to back up and synchronize your annotations across devices and on LDS.org.", false));
+        assertElementExistsBy(WebElementsByText("Create LDS Account", false));
+        assertElementExistsBy(WebElementsByText("Content", false));
+        assertElementExistsBy(WebElementsByText("Downloaded Media", false));
+        assertElementExistsBy(WebElementsByText("None", false));
+        assertElementExistsBy(WebElementsByText("Limit Mobile Network Use", false));
+        assertElementExistsBy(WebElementsByText("Only Download and Stream on Wi-Fi", false));
 
         // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
         // toggle verification is currently by xpath because no other identifier is available
         assertSettingsSwitchExpectedStateAndToggle("Limit Mobile Network Use", false);
-        assertElementExistsBy(WebElementsByText("Display"));
-        assertElementExistsBy(WebElementsByText("Theme"));
-        assertElementExistsBy(WebElementsByText("Default"));
-        assertElementExistsBy(WebElementsByText("Text Size"));
+        assertElementExistsBy(WebElementsByText("Display", false));
+        assertElementExistsBy(WebElementsByText("Theme", false));
+        assertElementExistsBy(WebElementsByText("Default", false));
+        assertElementExistsBy(WebElementsByText("Text Size", false));
 
         scrollDownTo("List Mode");
-        assertElementExistsBy(WebElementsByText("List Mode"));
+        assertElementExistsBy(WebElementsByText("List Mode", false));
         // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
         // toggle verification is currently by xpath because no other identifier is available
         assertSettingsSwitchExpectedStateAndToggle("List Mode", false);
         scrollDownTo("Hide Footnotes");
-        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        assertElementExistsBy(WebElementsByText("Hide Footnotes", false));
         // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
         // toggle verification is currently by xpath because no other identifier is available
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", false);
         scrollDownTo("Audio Settings");
-        assertElementExistsBy(WebElementsByText("Audio Settings"));
+        assertElementExistsBy(WebElementsByText("Audio Settings", false));
         scrollDownTo("Screen Settings");
-        assertElementExistsBy(WebElementsByText("Screen Settings"));
+        assertElementExistsBy(WebElementsByText("Screen Settings", false));
         // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
         // toggle verification is currently by xpath because no other identifier is available
         scrollDownTo("Allow In-App Notifications");
-        assertElementExistsBy(WebElementsByText("Allow In-App Notifications"));
+        assertElementExistsBy(WebElementsByText("Allow In-App Notifications", false));
         // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
         // toggle verification is currently by xpath because no other identifier is available
         scrollDownTo("Show Obsolete Content");
-        assertElementExistsBy(WebElementsByText("Show Obsolete Content"));
+        assertElementExistsBy(WebElementsByText("Show Obsolete Content", false));
         // Toggle on and off verification (doesn't check that the settings work, just checks that the toggle works
         // toggle verification is currently by xpath because no other identifier is available
         assertSettingsSwitchExpectedStateAndToggle("Show Obsolete Content", false);
         assertSettingsSwitchExpectedStateAndToggle("Allow In-App Notifications", true);
         scrollDownTo("Additional Settings");
-        assertElementExistsBy(WebElementsByText("Additional Settings"));
+        assertElementExistsBy(WebElementsByText("Additional Settings", false));
         scrollDownTo("Featured Apps");
-        assertElementExistsBy(WebElementsByText("Featured Apps"));
+        assertElementExistsBy(WebElementsByText("Featured Apps", false));
         scrollDownTo("Send Feedback");
-        assertElementExistsBy(WebElementsByText("Send Feedback"));
+        assertElementExistsBy(WebElementsByText("Send Feedback", false));
         scrollDownTo("About");
-        assertElementExistsBy(WebElementsByText("About"));
+        assertElementExistsBy(WebElementsByText("About", false));
 
     }
 
@@ -1996,10 +1990,10 @@ public class GospelLibrary {
     public void settingsScreenLoginCorrectUserNameAndPassword() throws Exception {
         skipLogin();
         assertMoreOptionsMenu("Library",false);
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Sign In"));
-        ClickUIElementByText("Sign In");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Sign In", false));
+        ClickUIElementByText("Sign In", false);
 
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/usernameEditText"));
         //appium can't validate ! if Username not entered and SignIn clicked
@@ -2020,18 +2014,18 @@ public class GospelLibrary {
         WebElement signInButton = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
         signInButton.click();
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("LDS Account"));
-        assertElementExistsBy(WebElementsByText(user));
+        assertElementExistsBy(WebElementsByText("LDS Account", false));
+        assertElementExistsBy(WebElementsByText(user, false));
     }
 
     @Test
     public void settingsScreenLoginInvalidLogin() throws Exception {
         skipLogin();
         assertMoreOptionsMenu("Library",false);
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Sign In"));
-        ClickUIElementByText("Sign In");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Sign In", false));
+        ClickUIElementByText("Sign In", false);
 
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/usernameEditText"));
         //appium can't validate ! if Username not entered and SignIn clicked
@@ -2040,23 +2034,23 @@ public class GospelLibrary {
         WebElement signInButton = driver.findElementById("org.lds.ldssa.dev:id/ldsAccountSignInButton");
         signInButton.click();
         Thread.sleep(milliseconds_1);
-        verifyText("Error", WebElementByText("Error"));
-        ClickUIElementByText("OK");
+        verifyText("Error", WebElementByText("Error", false));
+        ClickUIElementByText("OK", false);
         sendText("org.lds.ldssa.dev:id/passwordEditText", password);
         signInButton.click();
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("LDS Account"));
-        assertElementExistsBy(WebElementsByText(user));
+        assertElementExistsBy(WebElementsByText("LDS Account", false));
+        assertElementExistsBy(WebElementsByText(user, false));
     }
 
     @Test
     public void settingsScreenLoginTroubleSigningIn() throws Exception {
         skipLogin();
         assertMoreOptionsMenu("Library", false);
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Sign In"));
-        ClickUIElementByText("Sign In");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Sign In", false));
+        ClickUIElementByText("Sign In", false);
 
         ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginForgotCredentialsButton");
         Thread.sleep(milliseconds_5);
@@ -2067,10 +2061,10 @@ public class GospelLibrary {
     public void settingsScreenLoginCreateLDSAccount() throws Exception {
         skipLogin();
         assertMoreOptionsMenu("Library", false);
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Sign In"));
-        ClickUIElementByText("Sign In");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Sign In", false));
+        ClickUIElementByText("Sign In", false);
         verifyText("CREATE LDS ACCOUNT", WebElementById("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton"));
         ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton");
         Thread.sleep(milliseconds_5);
@@ -2081,10 +2075,10 @@ public class GospelLibrary {
     public void settingsScreenCreateLDSAccount() throws Exception {
         skipLogin();
         assertMoreOptionsMenu("Library", false);
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Create LDS Account"));
-        ClickUIElementByText("Create LDS Account");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Create LDS Account", false));
+        ClickUIElementByText("Create LDS Account", false);
         Thread.sleep(milliseconds_5);
         verifyText("https://ldsaccount.lds.org/register", WebElementById("com.android.chrome:id/url_bar"));
     }
@@ -2093,16 +2087,16 @@ public class GospelLibrary {
     public void settingsScreenDownloadedMediaLandingPage_Empty() throws Exception {
         skipLogin();
         assertMoreOptionsMenu("Library", false);
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Downloaded Media"));
-        assertElementExistsBy(WebElementsByText("None"));
-        ClickUIElementByText("Downloaded Media");
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Downloaded Media", false));
+        assertElementExistsBy(WebElementsByText("None", false));
+        ClickUIElementByText("Downloaded Media", false);
         Thread.sleep(milliseconds_1);
         //when the empty state bug is fixed, change the following line to true
         assertMoreOptionsMenu("DownloadsByItem",true);
         assertDownloadScreen(false);
         ClickUIElementByAccessibilityID("More options");
-        ClickUIElementByText("Sort by Size");
+        ClickUIElementByText("Sort by Size", false);
         assertMoreOptionsMenu("DownloadsBySize",true);
         //when the empty state bug is fixed, change the following line to true
         assertDownloadScreen(false);
@@ -2112,21 +2106,21 @@ public class GospelLibrary {
     public void settingsScreenDownloadedMediaLandingPage_Empty_MoreOptionsMenu() throws Exception {
         skipLogin();
         assertMoreOptionsMenu("Library", false);
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Downloaded Media"));
-        ClickUIElementByText("Downloaded Media");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Downloaded Media", false));
+        ClickUIElementByText("Downloaded Media", false);
         Thread.sleep(milliseconds_1);
         assertMoreOptionsMenu("DownloadsByItem",true);
         //when the empty state bug is fixed, change the following line to true
         assertDownloadScreen(false);
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertMoreOptionsMenu("DownloadsByItem",false);
-        ClickUIElementByText("Sort by Size");
+        ClickUIElementByText("Sort by Size", false);
         //Current Downloads
         assertMoreOptionsMenu("DownloadsBySize",false);
-        ClickUIElementByText("Current Downloads");
-        assertElementExistsBy(WebElementsByText("Current Downloads"));
+        ClickUIElementByText("Current Downloads", false);
+        assertElementExistsBy(WebElementsByText("Current Downloads", false));
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         verifyText("Current Downloads", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
@@ -2141,7 +2135,7 @@ public class GospelLibrary {
         verifyText("Downloaded Media", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_3);
-        assertElementExistsBy(WebElementsByText("LDS Account"));
+        assertElementExistsBy(WebElementsByText("LDS Account", false));
         Thread.sleep(milliseconds_1);
     }
 
@@ -2165,11 +2159,11 @@ public class GospelLibrary {
         //assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/snackbar_action"));
         //verifyText("VIEW",WebElementById("org.lds.ldssa.dev:id/snackbar_action"));
         assertMoreOptionsMenu("Content Menu",false);
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Downloaded Media"));
-        ClickUIElementByText("Downloaded Media");
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Downloaded Media", false));
+        ClickUIElementByText("Downloaded Media", false);
         assertMoreOptionsMenu("DownloadsByItem",false);
-        ClickUIElementByText("Current Downloads");
+        ClickUIElementByText("Current Downloads", false);
         // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         verifyText("Current Downloads (1)", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleTextView"));
@@ -2289,15 +2283,15 @@ public class GospelLibrary {
     @Test
     public void settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload() throws Exception {
         skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
+        assertElementExistsBy(WebElementsByText("General Conference", false));
+        ClickUIElementByText("General Conference", false);
         scrollDownTo("October 2017");
-        assertElementExistsBy(WebElementsByText("October 2017"));
-        ClickUIElementByText("October 2017");
-        ClickUIElementByText("October 2017");
+        assertElementExistsBy(WebElementsByText("October 2017", false));
+        ClickUIElementByText("October 2017", false);
+        ClickUIElementByText("October 2017", false);
         Thread.sleep(milliseconds_1);
-        assertElementExistsBy(WebElementsByText("General Women’s Session"));
-        ClickUIElementByText("General Women’s Session");
+        assertElementExistsBy(WebElementsByText("General Women’s Session", false));
+        ClickUIElementByText("General Women’s Session", false);
         ClickUIElementByXpath("//android.webkit.WebView[@text='General Women’s Session']/android.view.View/android.view.View/android.view.View/android.widget.Image[2]");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Download Video",WebElementById("org.lds.ldssa.dev:id/md_title"));
@@ -2311,15 +2305,15 @@ public class GospelLibrary {
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Downloaded Media"));
-        ClickUIElementByText("Downloaded Media");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Downloaded Media", false));
+        ClickUIElementByText("Downloaded Media", false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Sort by Size"));
-        assertElementExistsBy(WebElementsByText("Current Downloads"));
-        ClickUIElementByText("Current Downloads");
+        assertElementExistsBy(WebElementsByText("Sort by Size", false));
+        assertElementExistsBy(WebElementsByText("Current Downloads", false));
+        ClickUIElementByText("Current Downloads", false);
         // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         verifyText("Current Downloads (1)", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         // Commented out because the download would complete before all assertions ran. assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleTextView"));
@@ -2367,8 +2361,8 @@ public class GospelLibrary {
         OpenScripture("Old Testament","","","");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Download Audio"));
-        ClickUIElementByText("Download Audio");
+        assertElementExistsBy(WebElementsByText("Download Audio", false));
+        ClickUIElementByText("Download Audio", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Download Audio",WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/titleView"));
@@ -2381,15 +2375,15 @@ public class GospelLibrary {
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Downloaded Media"));
-        ClickUIElementByText("Downloaded Media");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Downloaded Media", false));
+        ClickUIElementByText("Downloaded Media", false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Sort by Size"));
-        assertElementExistsBy(WebElementsByText("Current Downloads"));
-        ClickUIElementByText("Current Downloads");
+        assertElementExistsBy(WebElementsByText("Sort by Size", false));
+        assertElementExistsBy(WebElementsByText("Current Downloads", false));
+        ClickUIElementByText("Current Downloads", false);
         assertElementExistsBy(WebElementsByAccessibilityId("Cancel All"));
         ClickUIElementByAccessibilityID("Cancel All");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
@@ -2431,10 +2425,10 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Limit Mobile Network Use");
-        assertElementExistsBy(WebElementsByText("Limit Mobile Network Use"));
+        assertElementExistsBy(WebElementsByText("Limit Mobile Network Use", false));
         assertSettingsSwitchExpectedStateAndToggle("Limit Mobile Network Use", false);
     }
 
@@ -2461,14 +2455,14 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
-        assertElementExistsBy(WebElementsByText("Theme"));
-        assertElementExistsBy(WebElementsByText("Default"));
-        ClickUIElementByText("Theme");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        assertElementExistsBy(WebElementsByText("Theme", false));
+        assertElementExistsBy(WebElementsByText("Default", false));
+        ClickUIElementByText("Theme", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/alertTitle"));
         verifyText("Theme", WebElementById("org.lds.ldssa.dev:id/alertTitle"));
-        assertElementExistsBy(WebElementsByCheckedText("Default"));
+        assertElementExistsBy(WebElementsByCheckedText("Default",false));
         Boolean ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
         Boolean ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
         Boolean ThemeNight = Boolean.parseBoolean(WebElementByCheckedText("Night").getAttribute("checked"));
@@ -2479,10 +2473,10 @@ public class GospelLibrary {
         assert !ThemeNight;
         assert !ThemeDarkBlue;
         assert !ThemeMagenta;
-        ClickUIElementByCheckedText("Sepia");
-        assertElementExistsBy(WebElementsByText("LDS Account"));
+        ClickUIElementByCheckedText("Sepia", false);
+        assertElementExistsBy(WebElementsByText("LDS Account", false));
         Thread.sleep(milliseconds_1);
-        ClickUIElementByText("Theme");
+        ClickUIElementByText("Theme", false);
         ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
         ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
         ThemeNight = Boolean.parseBoolean(WebElementByCheckedText("Night").getAttribute("checked"));
@@ -2493,10 +2487,10 @@ public class GospelLibrary {
         assert !ThemeNight;
         assert !ThemeDarkBlue;
         assert !ThemeMagenta;
-        ClickUIElementByCheckedText("Night");
-        assertElementExistsBy(WebElementsByText("LDS Account"));
+        ClickUIElementByCheckedText("Night", false);
+        assertElementExistsBy(WebElementsByText("LDS Account", false));
         Thread.sleep(milliseconds_1);
-        ClickUIElementByText("Theme");
+        ClickUIElementByText("Theme", false);
         ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
         ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
         ThemeNight = Boolean.parseBoolean(WebElementByCheckedText("Night").getAttribute("checked"));
@@ -2507,10 +2501,10 @@ public class GospelLibrary {
         assert ThemeNight;
         assert !ThemeDarkBlue;
         assert !ThemeMagenta;
-        ClickUIElementByCheckedText("Dark Blue");
-        assertElementExistsBy(WebElementsByText("LDS Account"));
+        ClickUIElementByCheckedText("Dark Blue", false);
+        assertElementExistsBy(WebElementsByText("LDS Account", false));
         Thread.sleep(milliseconds_1);
-        ClickUIElementByText("Theme");
+        ClickUIElementByText("Theme", false);
         ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
         ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
         ThemeNight = Boolean.parseBoolean(WebElementByCheckedText("Night").getAttribute("checked"));
@@ -2521,10 +2515,10 @@ public class GospelLibrary {
         assert !ThemeNight;
         assert ThemeDarkBlue;
         assert !ThemeMagenta;
-        ClickUIElementByCheckedText("Magenta");
-        assertElementExistsBy(WebElementsByText("LDS Account"));
+        ClickUIElementByCheckedText("Magenta", false);
+        assertElementExistsBy(WebElementsByText("LDS Account", false));
         Thread.sleep(milliseconds_1);
-        ClickUIElementByText("Theme");
+        ClickUIElementByText("Theme", false);
         ThemeDefault = Boolean.parseBoolean(WebElementByCheckedText("Default").getAttribute("checked"));
         ThemeSepia = Boolean.parseBoolean(WebElementByCheckedText("Sepia").getAttribute("checked"));
         ThemeNight = Boolean.parseBoolean(WebElementByCheckedText("Night").getAttribute("checked"));
@@ -2538,7 +2532,7 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
         verifyText("Cancel", WebElementById("android:id/button2"));
         ClickUIElementByID("android:id/button2");
-        assertElementExistsBy(WebElementsByText("LDS Account"));
+        assertElementExistsBy(WebElementsByText("LDS Account", false));
         Thread.sleep(milliseconds_1);
     }
 
@@ -2606,11 +2600,11 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Text Size");
-        assertElementExistsBy(WebElementsByText("Text Size"));
-        ClickUIElementByText("Text Size");
+        assertElementExistsBy(WebElementsByText("Text Size", false));
+        ClickUIElementByText("Text Size", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Text Size", WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/text"));
@@ -2639,10 +2633,10 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        ClickUIElementByText("Settings");
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Text Size");
-        assertElementExistsBy(WebElementsByText("Text Size"));
-        ClickUIElementByText("Text Size");
+        assertElementExistsBy(WebElementsByText("Text Size", false));
+        ClickUIElementByText("Text Size", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Text Size", WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/text"));
@@ -2668,10 +2662,10 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        ClickUIElementByText("Settings");
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Text Size");
-        assertElementExistsBy(WebElementsByText("Text Size"));
-        ClickUIElementByText("Text Size");
+        assertElementExistsBy(WebElementsByText("Text Size", false));
+        ClickUIElementByText("Text Size", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Text Size", WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/text"));
@@ -2742,10 +2736,10 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content"));
-        ClickUIElementByText("Related Content");
-        assertElementExistsBy(WebElementsByText("1a"));
-        ClickUIElementByText("1a");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
         Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
@@ -2755,10 +2749,10 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content"));
-        ClickUIElementByText("Related Content");
-        assertElementExistsBy(WebElementsByText("1a"));
-        ClickUIElementByText("1a");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
         Assert.assertEquals("12px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
@@ -2769,10 +2763,10 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content"));
-        ClickUIElementByText("Related Content");
-        assertElementExistsBy(WebElementsByText("1a"));
-        ClickUIElementByText("1a");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
         Assert.assertEquals("15px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
@@ -2783,10 +2777,10 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content"));
-        ClickUIElementByText("Related Content");
-        assertElementExistsBy(WebElementsByText("1a"));
-        ClickUIElementByText("1a");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
         Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
@@ -2797,10 +2791,10 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content"));
-        ClickUIElementByText("Related Content");
-        assertElementExistsBy(WebElementsByText("1a"));
-        ClickUIElementByText("1a");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
         Assert.assertEquals("21px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
@@ -2811,10 +2805,10 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content"));
-        ClickUIElementByText("Related Content");
-        assertElementExistsBy(WebElementsByText("1a"));
-        ClickUIElementByText("1a");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
         Assert.assertEquals("26px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
@@ -2825,10 +2819,10 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content"));
-        ClickUIElementByText("Related Content");
-        assertElementExistsBy(WebElementsByText("1a"));
-        ClickUIElementByText("1a");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
         System.out.println(getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
@@ -2839,10 +2833,10 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content"));
-        ClickUIElementByText("Related Content");
-        assertElementExistsBy(WebElementsByText("1a"));
-        ClickUIElementByText("1a");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
         Assert.assertEquals("60px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
@@ -3021,10 +3015,10 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("List Mode");
-        assertElementExistsBy(WebElementsByText("List Mode"));
+        assertElementExistsBy(WebElementsByText("List Mode", false));
         assertSettingsSwitchExpectedStateAndToggle("List Mode", false);
     }
 
@@ -3043,10 +3037,10 @@ public class GospelLibrary {
         System.out.println("Screen width is: " + screenWidth + " Element width is: " + scriptureParent.getSize().getWidth());
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("List Mode");
-        assertElementExistsBy(WebElementsByText("List Mode"));
+        assertElementExistsBy(WebElementsByText("List Mode", false));
         assertSettingsSwitchExpectedStateAndToggle("List Mode", false);
         ClickUIElementByAccessibilityID("Navigate up");
         screenWidth = driver.manage().window().getSize().getWidth();
@@ -3061,10 +3055,10 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("List Mode");
-        assertElementExistsBy(WebElementsByText("List Mode"));
+        assertElementExistsBy(WebElementsByText("List Mode", false));
         assertSettingsSwitchExpectedStateAndToggle("List Mode", false);
         ClickUIElementByAccessibilityID("Navigate up");
 
@@ -3080,69 +3074,69 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/.."));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/..").getSize().getWidth());
         scrollDownTo("Jesus Christ");
-        assertElementExistsBy(WebElementsByText("Jesus Christ"));
+        assertElementExistsBy(WebElementsByText("Jesus Christ", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Jesus Christ'])/..").getSize().getWidth());
         scrollDownTo("General Conference");
-        assertElementExistsBy(WebElementsByText("General Conference"));
+        assertElementExistsBy(WebElementsByText("General Conference", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='General Conference'])/..").getSize().getWidth());
         scrollDownTo("Teachings of Presidents");
-        assertElementExistsBy(WebElementsByText("Teachings of Presidents"));
+        assertElementExistsBy(WebElementsByText("Teachings of Presidents", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Teachings of Presidents'])/..").getSize().getWidth());
         scrollDownTo("Notes");
-        assertElementExistsBy(WebElementsByText("My Collections"));
+        assertElementExistsBy(WebElementsByText("My Collections", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='My Collections'])/../..").getSize().getWidth());
-        assertElementExistsBy(WebElementsByText("Notes"));
+        assertElementExistsBy(WebElementsByText("Notes", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Notes'])/..").getSize().getWidth());
         scrollDownTo("Lessons");
-        assertElementExistsBy(WebElementsByText("Inspiration"));
+        assertElementExistsBy(WebElementsByText("Inspiration", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Inspiration'])/../..").getSize().getWidth());
-        assertElementExistsBy(WebElementsByText("Lessons"));
+        assertElementExistsBy(WebElementsByText("Lessons", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Lessons'])/..").getSize().getWidth());
         scrollDownTo("Magazines");
-        assertElementExistsBy(WebElementsByText("Magazines"));
+        assertElementExistsBy(WebElementsByText("Magazines", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Magazines'])/..").getSize().getWidth());
         scrollDownTo("Music");
-        assertElementExistsBy(WebElementsByText("Music"));
+        assertElementExistsBy(WebElementsByText("Music", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Music'])/..").getSize().getWidth());
         scrollDownTo("Videos");
-        assertElementExistsBy(WebElementsByText("Videos"));
+        assertElementExistsBy(WebElementsByText("Videos", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Videos'])/..").getSize().getWidth());
         scrollDownTo("Missionary");
-        assertElementExistsBy(WebElementsByText("Missionary"));
+        assertElementExistsBy(WebElementsByText("Missionary", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Missionary'])/..").getSize().getWidth());
         scrollDownTo("Temple and Family History");
-        assertElementExistsBy(WebElementsByText("Temple and Family History"));
+        assertElementExistsBy(WebElementsByText("Temple and Family History", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Temple and Family History'])/..").getSize().getWidth());
         scrollDownTo("Individuals and Families");
-        assertElementExistsBy(WebElementsByText("Audiences"));
+        assertElementExistsBy(WebElementsByText("Audiences", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Audiences'])/../..").getSize().getWidth());
-        assertElementExistsBy(WebElementsByText("Individuals and Families"));
+        assertElementExistsBy(WebElementsByText("Individuals and Families", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Individuals and Families'])/..").getSize().getWidth());
         scrollDownTo("Young Adults");
-        assertElementExistsBy(WebElementsByText("Young Adults"));
+        assertElementExistsBy(WebElementsByText("Young Adults", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Young Adults'])/..").getSize().getWidth());
         scrollDownTo("Youth");
-        assertElementExistsBy(WebElementsByText("Youth"));
+        assertElementExistsBy(WebElementsByText("Youth", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Youth'])/..").getSize().getWidth());
         scrollDownTo("Children");
-        assertElementExistsBy(WebElementsByText("Children"));
+        assertElementExistsBy(WebElementsByText("Children", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Children'])/..").getSize().getWidth());
         scrollDownTo("Leaders");
-        assertElementExistsBy(WebElementsByText("Leaders"));
+        assertElementExistsBy(WebElementsByText("Leaders", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Leaders'])/..").getSize().getWidth());
         scrollDownTo("Self-Reliance");
-        assertElementExistsBy(WebElementsByText("Self-Reliance"));
+        assertElementExistsBy(WebElementsByText("Self-Reliance", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Self-Reliance'])/..").getSize().getWidth());
         scrollDownTo("Religious Freedom");
-        assertElementExistsBy(WebElementsByText("Religious Freedom"));
+        assertElementExistsBy(WebElementsByText("Religious Freedom", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Religious Freedom'])/..").getSize().getWidth());
         scrollDownTo("Church History");
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Other'])/../..").getSize().getWidth());
-        assertElementExistsBy(WebElementsByText("Other"));
-        assertElementExistsBy(WebElementsByText("Church History"));
+        assertElementExistsBy(WebElementsByText("Other", false));
+        assertElementExistsBy(WebElementsByText("Church History", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Church History'])/..").getSize().getWidth());
         scrollDownTo("Seminaries and Institutes");
-        assertElementExistsBy(WebElementsByText("Seminaries and Institutes"));
+        assertElementExistsBy(WebElementsByText("Seminaries and Institutes", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Seminaries and Institutes'])/..").getSize().getWidth());
         scrollDownTo("Tips");
         assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Tips'])[1]"));
@@ -3153,10 +3147,10 @@ public class GospelLibrary {
 
         ClickUIElementByAccessibilityID("More options");
         Thread.sleep(milliseconds_1);
-        assertElementExistsBy(WebElementsByText("New Screen…"));
-        assertElementExistsBy(WebElementsByText("Custom Collections"));
-        assertElementExistsBy(WebElementsByText("Language…"));
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("New Screen…", false));
+        assertElementExistsBy(WebElementsByText("Custom Collections", false));
+        assertElementExistsBy(WebElementsByText("Language…", false));
+        assertElementExistsBy(WebElementsByText("Settings", false));
     }
 
     @Test
@@ -3165,10 +3159,10 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("List Mode");
-        assertElementExistsBy(WebElementsByText("List Mode"));
+        assertElementExistsBy(WebElementsByText("List Mode", false));
         assertSettingsSwitchExpectedStateAndToggle("List Mode", false);
         ClickUIElementByAccessibilityID("Navigate up");
 
@@ -3188,61 +3182,61 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[2]"));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/../..").getSize().getWidth());
         scrollDownTo("Old Testament");
-        assertElementExistsBy(WebElementsByText("Old Testament"));
+        assertElementExistsBy(WebElementsByText("Old Testament", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Old Testament'])/..").getSize().getWidth());
         scrollDownTo("New Testament");
-        assertElementExistsBy(WebElementsByText("New Testament"));
+        assertElementExistsBy(WebElementsByText("New Testament", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='New Testament'])/..").getSize().getWidth());
         scrollDownTo("Book of Mormon");
-        assertElementExistsBy(WebElementsByText("Book of Mormon"));
+        assertElementExistsBy(WebElementsByText("Book of Mormon", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Book of Mormon'])/..").getSize().getWidth());
         scrollDownTo("Doctrine and Covenants");
-        assertElementExistsBy(WebElementsByText("Doctrine and Covenants"));
+        assertElementExistsBy(WebElementsByText("Doctrine and Covenants", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Doctrine and Covenants'])/..").getSize().getWidth());
         scrollDownTo("Pearl of Great Price");
-        assertElementExistsBy(WebElementsByText("Pearl of Great Price"));
+        assertElementExistsBy(WebElementsByText("Pearl of Great Price", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Pearl of Great Price'])/..").getSize().getWidth());
         scrollDownTo("Study Helps");
-        assertElementExistsBy(WebElementsByText("Study Helps"));
+        assertElementExistsBy(WebElementsByText("Study Helps", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Study Helps'])/../..").getSize().getWidth());
         scrollDownTo("Guide to the Scriptures");
-        assertElementExistsBy(WebElementsByText("Guide to the Scriptures"));
+        assertElementExistsBy(WebElementsByText("Guide to the Scriptures", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Guide to the Scriptures'])/..").getSize().getWidth());
         scrollDownTo("Topical Guide");
-        assertElementExistsBy(WebElementsByText("Topical Guide"));
+        assertElementExistsBy(WebElementsByText("Topical Guide", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Topical Guide'])/..").getSize().getWidth());
         scrollDownTo("Bible Dictionary");
-        assertElementExistsBy(WebElementsByText("Bible Dictionary"));
+        assertElementExistsBy(WebElementsByText("Bible Dictionary", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Bible Dictionary'])/..").getSize().getWidth());
         scrollDownTo("Bible Chronology");
-        assertElementExistsBy(WebElementsByText("Bible Chronology"));
+        assertElementExistsBy(WebElementsByText("Bible Chronology", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Bible Chronology'])/..").getSize().getWidth());
         scrollDownTo("Harmony of the Gospels");
-        assertElementExistsBy(WebElementsByText("Harmony of the Gospels"));
+        assertElementExistsBy(WebElementsByText("Harmony of the Gospels", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Harmony of the Gospels'])/..").getSize().getWidth());
         scrollDownTo("Joseph Smith Translation Appendix");
-        assertElementExistsBy(WebElementsByText("Joseph Smith Translation Appendix"));
+        assertElementExistsBy(WebElementsByText("Joseph Smith Translation Appendix", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Joseph Smith Translation Appendix'])/..").getSize().getWidth());
         scrollDownTo("Bible Maps");
-        assertElementExistsBy(WebElementsByText("Bible Maps"));
+        assertElementExistsBy(WebElementsByText("Bible Maps", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Bible Maps'])/..").getSize().getWidth());
         scrollDownTo("Bible Photographs");
-        assertElementExistsBy(WebElementsByText("Bible Photographs"));
+        assertElementExistsBy(WebElementsByText("Bible Photographs", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Bible Photographs'])/..").getSize().getWidth());
         scrollDownTo("Index to the Triple Combination");
-        assertElementExistsBy(WebElementsByText("Index to the Triple Combination"));
+        assertElementExistsBy(WebElementsByText("Index to the Triple Combination", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Index to the Triple Combination'])/..").getSize().getWidth());
         scrollDownTo("Church History Maps");
-        assertElementExistsBy(WebElementsByText("Church History Maps"));
+        assertElementExistsBy(WebElementsByText("Church History Maps", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Church History Maps'])/..").getSize().getWidth());
         scrollDownTo("Church History Photographs");
-        assertElementExistsBy(WebElementsByText("Church History Photographs"));
+        assertElementExistsBy(WebElementsByText("Church History Photographs", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Church History Photographs'])/..").getSize().getWidth());
         scrollDownTo("Abbreviations");
-        assertElementExistsBy(WebElementsByText("Abbreviations"));
+        assertElementExistsBy(WebElementsByText("Abbreviations", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Abbreviations'])/..").getSize().getWidth());
         scrollDownTo("About the Scriptures");
-        assertElementExistsBy(WebElementsByText("About the Scriptures"));
+        assertElementExistsBy(WebElementsByText("About the Scriptures", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='About the Scriptures'])/..").getSize().getWidth());
     }
 
@@ -3252,10 +3246,10 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("List Mode");
-        assertElementExistsBy(WebElementsByText("List Mode"));
+        assertElementExistsBy(WebElementsByText("List Mode", false));
         assertSettingsSwitchExpectedStateAndToggle("List Mode", false);
         ClickUIElementByAccessibilityID("Navigate up");
 
@@ -3275,61 +3269,61 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[2]"));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/../..").getSize().getWidth());
         scrollDownTo("Old Testament");
-        assertElementExistsBy(WebElementsByText("Old Testament"));
+        assertElementExistsBy(WebElementsByText("Old Testament", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Old Testament'])/..").getSize().getWidth());
         scrollDownTo("New Testament");
-        assertElementExistsBy(WebElementsByText("New Testament"));
+        assertElementExistsBy(WebElementsByText("New Testament", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='New Testament'])/..").getSize().getWidth());
         scrollDownTo("Book of Mormon");
-        assertElementExistsBy(WebElementsByText("Book of Mormon"));
+        assertElementExistsBy(WebElementsByText("Book of Mormon", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Book of Mormon'])/..").getSize().getWidth());
         scrollDownTo("Doctrine and Covenants");
-        assertElementExistsBy(WebElementsByText("Doctrine and Covenants"));
+        assertElementExistsBy(WebElementsByText("Doctrine and Covenants", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Doctrine and Covenants'])/..").getSize().getWidth());
         scrollDownTo("Pearl of Great Price");
-        assertElementExistsBy(WebElementsByText("Pearl of Great Price"));
+        assertElementExistsBy(WebElementsByText("Pearl of Great Price", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Pearl of Great Price'])/..").getSize().getWidth());
         scrollDownTo("Study Helps");
-        assertElementExistsBy(WebElementsByText("Study Helps"));
+        assertElementExistsBy(WebElementsByText("Study Helps", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Study Helps'])/../..").getSize().getWidth());
         scrollDownTo("Guide to the Scriptures");
-        assertElementExistsBy(WebElementsByText("Guide to the Scriptures"));
+        assertElementExistsBy(WebElementsByText("Guide to the Scriptures", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Guide to the Scriptures'])/..").getSize().getWidth());
         scrollDownTo("Topical Guide");
-        assertElementExistsBy(WebElementsByText("Topical Guide"));
+        assertElementExistsBy(WebElementsByText("Topical Guide", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Topical Guide'])/..").getSize().getWidth());
         scrollDownTo("Bible Dictionary");
-        assertElementExistsBy(WebElementsByText("Bible Dictionary"));
+        assertElementExistsBy(WebElementsByText("Bible Dictionary", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Bible Dictionary'])/..").getSize().getWidth());
         scrollDownTo("Bible Chronology");
-        assertElementExistsBy(WebElementsByText("Bible Chronology"));
+        assertElementExistsBy(WebElementsByText("Bible Chronology", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Bible Chronology'])/..").getSize().getWidth());
         scrollDownTo("Harmony of the Gospels");
-        assertElementExistsBy(WebElementsByText("Harmony of the Gospels"));
+        assertElementExistsBy(WebElementsByText("Harmony of the Gospels", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Harmony of the Gospels'])/..").getSize().getWidth());
         scrollDownTo("Joseph Smith Translation Appendix");
-        assertElementExistsBy(WebElementsByText("Joseph Smith Translation Appendix"));
+        assertElementExistsBy(WebElementsByText("Joseph Smith Translation Appendix", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Joseph Smith Translation Appendix'])/..").getSize().getWidth());
         scrollDownTo("Bible Maps");
-        assertElementExistsBy(WebElementsByText("Bible Maps"));
+        assertElementExistsBy(WebElementsByText("Bible Maps", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Bible Maps'])/..").getSize().getWidth());
         scrollDownTo("Bible Photographs");
-        assertElementExistsBy(WebElementsByText("Bible Photographs"));
+        assertElementExistsBy(WebElementsByText("Bible Photographs", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Bible Photographs'])/..").getSize().getWidth());
         scrollDownTo("Index to the Triple Combination");
-        assertElementExistsBy(WebElementsByText("Index to the Triple Combination"));
+        assertElementExistsBy(WebElementsByText("Index to the Triple Combination", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Index to the Triple Combination'])/..").getSize().getWidth());
         scrollDownTo("Church History Maps");
-        assertElementExistsBy(WebElementsByText("Church History Maps"));
+        assertElementExistsBy(WebElementsByText("Church History Maps", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Church History Maps'])/..").getSize().getWidth());
         scrollDownTo("Church History Photographs");
-        assertElementExistsBy(WebElementsByText("Church History Photographs"));
+        assertElementExistsBy(WebElementsByText("Church History Photographs", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Church History Photographs'])/..").getSize().getWidth());
         scrollDownTo("Abbreviations");
-        assertElementExistsBy(WebElementsByText("Abbreviations"));
+        assertElementExistsBy(WebElementsByText("Abbreviations", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Abbreviations'])/..").getSize().getWidth());
         scrollDownTo("About the Scriptures");
-        assertElementExistsBy(WebElementsByText("About the Scriptures"));
+        assertElementExistsBy(WebElementsByText("About the Scriptures", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='About the Scriptures'])/..").getSize().getWidth());
     }
 
@@ -3339,10 +3333,10 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Hide Footnotes");
-        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        assertElementExistsBy(WebElementsByText("Hide Footnotes", false));
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", false);
     }
 
@@ -3359,10 +3353,10 @@ public class GospelLibrary {
         assertEquals("inline", getComputedCssUsingXpath("//*[@id='p1']/span/sup", "display"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Hide Footnotes");
-        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        assertElementExistsBy(WebElementsByText("Hide Footnotes", false));
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", false);
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_1);
@@ -3376,10 +3370,10 @@ public class GospelLibrary {
         assertEquals("rgb(23, 124, 156)", getComputedCssUsingXpath("//*[@class='study-note-ref']", "color"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Hide Footnotes");
-        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        assertElementExistsBy(WebElementsByText("Hide Footnotes", false));
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", false);
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_1);
@@ -3393,20 +3387,20 @@ public class GospelLibrary {
         assertEquals("rgb(23, 124, 156)", getComputedCssUsingXpath("//*[@class='study-note-ref']", "color"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Hide Footnotes");
-        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        assertElementExistsBy(WebElementsByText("Hide Footnotes", false));
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", false);
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_1);
         assertEquals("rgb(33, 34, 37)", getComputedCssUsingXpath("//*[@class='study-note-ref']", "color"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Hide Footnotes");
-        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        assertElementExistsBy(WebElementsByText("Hide Footnotes", false));
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", true);
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_1);
@@ -3421,20 +3415,20 @@ public class GospelLibrary {
         assertEquals("inline", getComputedCssUsingXpath("//*[@id='p1']/span/sup", "display"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Hide Footnotes");
-        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        assertElementExistsBy(WebElementsByText("Hide Footnotes", false));
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", false);
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_1);
         assertEquals("none", getComputedCssUsingXpath("//*[@id='p1']/span/sup", "display"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Hide Footnotes");
-        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        assertElementExistsBy(WebElementsByText("Hide Footnotes", false));
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", true);
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_1);
@@ -3448,10 +3442,10 @@ public class GospelLibrary {
         assertEquals("inline", getComputedCssUsingXpath("//*[@id='p1']/span/sup", "display"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Hide Footnotes");
-        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        assertElementExistsBy(WebElementsByText("Hide Footnotes", false));
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", false);
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_1);
@@ -3465,10 +3459,10 @@ public class GospelLibrary {
         assertEquals("rgb(23, 124, 156)", getComputedCssUsingXpath("//*[@class='study-note-ref']", "color"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Hide Footnotes");
-        assertElementExistsBy(WebElementsByText("Hide Footnotes"));
+        assertElementExistsBy(WebElementsByText("Hide Footnotes", false));
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", false);
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_1);
@@ -3481,11 +3475,11 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Screen Settings");
-        ClickUIElementByText("Screen Settings");
-        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows"));
+        ClickUIElementByText("Screen Settings", false);
+        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows", false));
         assertSettingsSwitchExpectedStateAndToggle("Show Screens as Separate Windows", true);
     }
 
@@ -3494,19 +3488,19 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Screen Settings");
-        ClickUIElementByText("Screen Settings");
+        ClickUIElementByText("Screen Settings", false);
         assertSettingsSwitchExpectedStateAndToggle("Show Screens as Separate Windows", true);
         ClickUIElementByAccessibilityID("Navigate up");
         ClickUIElementByAccessibilityID("Navigate up");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Screen Settings");
-        ClickUIElementByText("Screen Settings");
+        ClickUIElementByText("Screen Settings", false);
         assertSettingsSwitchExpectedStateAndToggle("Show Screens as Separate Windows", false);
     }
 
@@ -3515,31 +3509,31 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("New Screen…"));
-        ClickUIElementByText("New Screen…");
-        ClickUIElementByText("Scriptures");
+        assertElementExistsBy(WebElementsByText("New Screen…", false));
+        ClickUIElementByText("New Screen…", false);
+        ClickUIElementByText("Scriptures", false);
         ((AndroidDriver) driver).pressKeyCode(187);
         Thread.sleep(milliseconds_1);
         driver.getPageSource();
-        assertElementExistsBy(WebElementsByText("Library"));
-        assertElementExistsBy(WebElementsByText("Scriptures"));
-        ClickUIElementByText("Library");
+        assertElementExistsBy(WebElementsByText("Library", false));
+        assertElementExistsBy(WebElementsByText("Scriptures", false));
+        ClickUIElementByText("Library", false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Screen Settings");
-        ClickUIElementByText("Screen Settings");
-        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows"));
+        ClickUIElementByText("Screen Settings", false);
+        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows", false));
         assertSettingsSwitchExpectedStateAndToggle("Show Screens as Separate Windows", true);
         ClickUIElementByAccessibilityID("Navigate up");
         ClickUIElementByAccessibilityID("Navigate up");
         ((AndroidDriver) driver).pressKeyCode(187);
         Thread.sleep(milliseconds_1);
         driver.getPageSource();
-        assertElementExistsBy(WebElementsByText("Gospel Library"));
-        assertElementNotPresentBy(WebElementsByText("Library"));
-        assertElementNotPresentBy(WebElementsByText("Scriptures"));
+        assertElementExistsBy(WebElementsByText("Gospel Library", false));
+        assertElementNotPresentBy(WebElementsByText("Library", false));
+        assertElementNotPresentBy(WebElementsByText("Scriptures", false));
         Thread.sleep(milliseconds_2);
     }
 
@@ -3548,31 +3542,31 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("New Screen…"));
-        ClickUIElementByText("New Screen…");
-        ClickUIElementByText("Scriptures");
+        assertElementExistsBy(WebElementsByText("New Screen…", false));
+        ClickUIElementByText("New Screen…", false);
+        ClickUIElementByText("Scriptures", false);
         ((AndroidDriver) driver).pressKeyCode(187);
         Thread.sleep(milliseconds_1);
         driver.getPageSource();
-        assertElementExistsBy(WebElementsByText("Library"));
-        assertElementExistsBy(WebElementsByText("Scriptures"));
-        ClickUIElementByText("Scriptures");
+        assertElementExistsBy(WebElementsByText("Library", false));
+        assertElementExistsBy(WebElementsByText("Scriptures", false));
+        ClickUIElementByText("Scriptures", false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Screen Settings");
-        ClickUIElementByText("Screen Settings");
-        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows"));
+        ClickUIElementByText("Screen Settings", false);
+        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows", false));
         assertSettingsSwitchExpectedStateAndToggle("Show Screens as Separate Windows", true);
         ClickUIElementByAccessibilityID("Navigate up");
         ClickUIElementByAccessibilityID("Navigate up");
         ((AndroidDriver) driver).pressKeyCode(187);
         Thread.sleep(milliseconds_1);
         driver.getPageSource();
-        assertElementExistsBy(WebElementsByText("Library"));
-        assertElementNotPresentBy(WebElementsByText("Gospel Library"));
-        assertElementNotPresentBy(WebElementsByText("Scriptures"));
+        assertElementExistsBy(WebElementsByText("Library", false));
+        assertElementNotPresentBy(WebElementsByText("Gospel Library", false));
+        assertElementNotPresentBy(WebElementsByText("Scriptures", false));
         Thread.sleep(milliseconds_2);
     }
 
@@ -3581,51 +3575,51 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("New Screen…"));
-        ClickUIElementByText("New Screen…");
-        ClickUIElementByText("Scriptures");
+        assertElementExistsBy(WebElementsByText("New Screen…", false));
+        ClickUIElementByText("New Screen…", false);
+        ClickUIElementByText("Scriptures", false);
         ((AndroidDriver) driver).pressKeyCode(187);
         Thread.sleep(milliseconds_1);
         driver.getPageSource();
-        assertElementExistsBy(WebElementsByText("Library"));
-        assertElementExistsBy(WebElementsByText("Scriptures"));
-        ClickUIElementByText("Library");
+        assertElementExistsBy(WebElementsByText("Library", false));
+        assertElementExistsBy(WebElementsByText("Scriptures", false));
+        ClickUIElementByText("Library", false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Screen Settings");
-        ClickUIElementByText("Screen Settings");
-        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows"));
+        ClickUIElementByText("Screen Settings", false);
+        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows", false));
         assertSettingsSwitchExpectedStateAndToggle("Show Screens as Separate Windows", true);
         ClickUIElementByAccessibilityID("Navigate up");
         ClickUIElementByAccessibilityID("Navigate up");
         ((AndroidDriver) driver).pressKeyCode(187);
         Thread.sleep(milliseconds_1);
         driver.getPageSource();
-        assertElementExistsBy(WebElementsByText("Gospel Library"));
-        assertElementNotPresentBy(WebElementsByText("Library"));
-        assertElementNotPresentBy(WebElementsByText("Scriptures"));
+        assertElementExistsBy(WebElementsByText("Gospel Library", false));
+        assertElementNotPresentBy(WebElementsByText("Library", false));
+        assertElementNotPresentBy(WebElementsByText("Scriptures", false));
         Thread.sleep(milliseconds_2);
-        ClickUIElementByText("Gospel Library");
+        ClickUIElementByText("Gospel Library", false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Screen Settings");
-        ClickUIElementByText("Screen Settings");
-        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows"));
+        ClickUIElementByText("Screen Settings", false);
+        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows", false));
         assertSettingsSwitchExpectedStateAndToggle("Show Screens as Separate Windows", false);
         ClickUIElementByAccessibilityID("Navigate up");
         ClickUIElementByAccessibilityID("Navigate up");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("New Screen…"));
-        ClickUIElementByText("New Screen…");
-        ClickUIElementByText("General Conference");
+        assertElementExistsBy(WebElementsByText("New Screen…", false));
+        ClickUIElementByText("New Screen…", false);
+        ClickUIElementByText("General Conference", false);
         ((AndroidDriver) driver).pressKeyCode(187);
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        assertElementExistsBy(WebElementsByText("Library"));
+        assertElementExistsBy(WebElementsByText("General Conference", false));
+        assertElementExistsBy(WebElementsByText("Library", false));
 
     }
 
@@ -3634,45 +3628,45 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("New Screen…"));
-        ClickUIElementByText("New Screen…");
-        ClickUIElementByText("Scriptures");
+        assertElementExistsBy(WebElementsByText("New Screen…", false));
+        ClickUIElementByText("New Screen…", false);
+        ClickUIElementByText("Scriptures", false);
         ((AndroidDriver) driver).pressKeyCode(187);
         Thread.sleep(milliseconds_1);
         driver.getPageSource();
-        assertElementExistsBy(WebElementsByText("Library"));
-        assertElementExistsBy(WebElementsByText("Scriptures"));
-        ClickUIElementByText("Library");
+        assertElementExistsBy(WebElementsByText("Library", false));
+        assertElementExistsBy(WebElementsByText("Scriptures", false));
+        ClickUIElementByText("Library", false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Screen Settings");
-        ClickUIElementByText("Screen Settings");
-        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows"));
+        ClickUIElementByText("Screen Settings", false);
+        assertElementExistsBy(WebElementsByText("Show Screens as Separate Windows", false));
         assertSettingsSwitchExpectedStateAndToggle("Show Screens as Separate Windows", true);
         ClickUIElementByAccessibilityID("Navigate up");
         ClickUIElementByAccessibilityID("Navigate up");
         ((AndroidDriver) driver).pressKeyCode(187);
         Thread.sleep(milliseconds_1);
         driver.getPageSource();
-        assertElementExistsBy(WebElementsByText("Gospel Library"));
-        assertElementNotPresentBy(WebElementsByText("Library"));
-        assertElementNotPresentBy(WebElementsByText("Scriptures"));
+        assertElementExistsBy(WebElementsByText("Gospel Library", false));
+        assertElementNotPresentBy(WebElementsByText("Library", false));
+        assertElementNotPresentBy(WebElementsByText("Scriptures", false));
         Thread.sleep(milliseconds_2);
-        ClickUIElementByText("Gospel Library");
+        ClickUIElementByText("Gospel Library", false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("New Screen…"));
-        ClickUIElementByText("New Screen…");
-        ClickUIElementByText("Lessons");
+        assertElementExistsBy(WebElementsByText("New Screen…", false));
+        ClickUIElementByText("New Screen…", false);
+        ClickUIElementByText("Lessons", false);
         verifyText("Lessons", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         ((AndroidDriver) driver).pressKeyCode(187);
         Thread.sleep(milliseconds_1);
-        assertElementExistsBy(WebElementsByText("Gospel Library"));
-        assertElementNotPresentBy(WebElementsByText("Lessons"));
-        assertElementNotPresentBy(WebElementsByText("Library"));
-        assertElementNotPresentBy(WebElementsByText("Scriptures"));
+        assertElementExistsBy(WebElementsByText("Gospel Library", false));
+        assertElementNotPresentBy(WebElementsByText("Lessons", false));
+        assertElementNotPresentBy(WebElementsByText("Library", false));
+        assertElementNotPresentBy(WebElementsByText("Scriptures", false));
     }
     //Show Obsolete Content
     @Test
@@ -3680,10 +3674,10 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Show Obsolete Content");
-        assertElementExistsBy(WebElementsByText("Show Obsolete Content"));
+        assertElementExistsBy(WebElementsByText("Show Obsolete Content", false));
         assertSettingsSwitchExpectedStateAndToggle("Show Obsolete Content", false);
     }
 
@@ -3698,23 +3692,23 @@ public class GospelLibrary {
         //Checks against Primary Sharing Time Manuals from previous years
         skipLogin();
         scrollDownTo("Lessons");
-        ClickUIElementByText("Lessons");
+        ClickUIElementByText("Lessons", false);
         scrollDownTo("Primary");
-        ClickUIElementByText("Primary");
-        assertElementNotPresentBy(WebElementsByText("2017 Outline for Sharing Time"));
-        assertElementNotPresentBy(WebElementsByText("2016 Outline for Sharing Time"));
+        ClickUIElementByText("Primary", false);
+        assertElementNotPresentBy(WebElementsByText("2017 Outline for Sharing Time", false));
+        assertElementNotPresentBy(WebElementsByText("2016 Outline for Sharing Time", false));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Show Obsolete Content");
-        assertElementExistsBy(WebElementsByText("Show Obsolete Content"));
+        assertElementExistsBy(WebElementsByText("Show Obsolete Content", false));
         assertSettingsSwitchExpectedStateAndToggle("Show Obsolete Content", false);
         ClickUIElementByAccessibilityID("Navigate up");
         scrollDownTo("2016 Outline for Sharing Time");
-        assertElementExistsBy(WebElementsByText("2016 Outline for Sharing Time"));
+        assertElementExistsBy(WebElementsByText("2016 Outline for Sharing Time", false));
         scrollDownTo("2017 Outline for Sharing Time");
-        assertElementExistsBy(WebElementsByText("2017 Outline for Sharing Time"));
+        assertElementExistsBy(WebElementsByText("2017 Outline for Sharing Time", false));
 
     }
 
@@ -3724,10 +3718,10 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Allow In-App Notifications");
-        assertElementExistsBy(WebElementsByText("Allow In-App Notifications"));
+        assertElementExistsBy(WebElementsByText("Allow In-App Notifications", false));
         assertSettingsSwitchExpectedStateAndToggle("Allow In-App Notifications", true);
 
     }
@@ -3745,11 +3739,11 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Featured Apps");
-        assertElementExistsBy(WebElementsByText("Featured Apps"));
-        ClickUIElementByText("Featured Apps");
+        assertElementExistsBy(WebElementsByText("Featured Apps", false));
+        ClickUIElementByText("Featured Apps", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbar"));
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
@@ -3766,7 +3760,7 @@ public class GospelLibrary {
         appCheck("Mormon Channel");
         appCheck("Mormon Tabernacle Choir");
         ClickUIElementByAccessibilityID("Navigate up");
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
 
@@ -3775,12 +3769,12 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Send Feedback");
         //Verify Send Feedback Option
-        assertElementExistsBy(WebElementsByText("Send Feedback"));
-        ClickUIElementByText("Send Feedback");
+        assertElementExistsBy(WebElementsByText("Send Feedback", false));
+        ClickUIElementByText("Send Feedback", false);
         //Verify Exit Button
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         //Verify Page Title
@@ -3827,8 +3821,8 @@ public class GospelLibrary {
 
         for (int x = 0; x < category.size(); x++){
             ClickUIElementByID("org.lds.ldssa.dev:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x)));
-            ClickUIElementByCheckedText((String) category.get(x));
+            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+            ClickUIElementByCheckedText((String) category.get(x), false);
             assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
             verifyText((String) category.get(x), WebElementById("android:id/text1"));
             Thread.sleep(milliseconds_1);
@@ -3846,7 +3840,7 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
         ClickUIElementByAccessibilityID("Submit");
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
 
@@ -3855,12 +3849,12 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Send Feedback");
         //Verify Send Feedback Option
-        assertElementExistsBy(WebElementsByText("Send Feedback"));
-        ClickUIElementByText("Send Feedback");
+        assertElementExistsBy(WebElementsByText("Send Feedback", false));
+        ClickUIElementByText("Send Feedback", false);
         //Verify Exit Button
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         //Verify Page Title
@@ -3900,8 +3894,8 @@ public class GospelLibrary {
 
         for (int x = 0; x < category.size(); x++){
             ClickUIElementByID("org.lds.ldssa.dev:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x)));
-            ClickUIElementByCheckedText((String) category.get(x));
+            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+            ClickUIElementByCheckedText((String) category.get(x), false);
             assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
             verifyText((String) category.get(x), WebElementById("android:id/text1"));
             Thread.sleep(milliseconds_1);
@@ -3919,7 +3913,7 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
         ClickUIElementByAccessibilityID("Submit");
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
 
@@ -3928,12 +3922,12 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Send Feedback");
         //Verify Send Feedback Option
-        assertElementExistsBy(WebElementsByText("Send Feedback"));
-        ClickUIElementByText("Send Feedback");
+        assertElementExistsBy(WebElementsByText("Send Feedback", false));
+        ClickUIElementByText("Send Feedback", false);
         //Verify Exit Button
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         //Verify Page Title
@@ -3974,8 +3968,8 @@ public class GospelLibrary {
 
         for (int x = 0; x < category.size(); x++){
             ClickUIElementByID("org.lds.ldssa.dev:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x)));
-            ClickUIElementByCheckedText((String) category.get(x));
+            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+            ClickUIElementByCheckedText((String) category.get(x), false);
             assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
             verifyText((String) category.get(x), WebElementById("android:id/text1"));
             Thread.sleep(milliseconds_1);
@@ -3990,8 +3984,8 @@ public class GospelLibrary {
         verifyText("" + description.length() + " / 1000", WebElementById("org.lds.ldssa.dev:id/textinput_counter"));
         ClickUIElementByAccessibilityID("Attach Image");
         ClickUIElementByAccessibilityID("More options");
-        if (WebElementsByText("List view").size() > 0){
-            ClickUIElementByText("List view");
+        if (WebElementsByText("List view", false).size() > 0){
+            ClickUIElementByText("List view", false);
         } else {
             TapCenterScreen();
         }
@@ -4005,7 +3999,7 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
         ClickUIElementByAccessibilityID("Submit");
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
 
@@ -4124,12 +4118,12 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Send Feedback");
         //Verify Send Feedback Option
-        assertElementExistsBy(WebElementsByText("Send Feedback"));
-        ClickUIElementByText("Send Feedback");
+        assertElementExistsBy(WebElementsByText("Send Feedback", false));
+        ClickUIElementByText("Send Feedback", false);
         //Verify Exit Button
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         //Verify Page Title
@@ -4170,8 +4164,8 @@ public class GospelLibrary {
 
         for (int x = 0; x < category.size(); x++){
             ClickUIElementByID("org.lds.ldssa.dev:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x)));
-            ClickUIElementByCheckedText((String) category.get(x));
+            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+            ClickUIElementByCheckedText((String) category.get(x), false);
             assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
             verifyText((String) category.get(x), WebElementById("android:id/text1"));
             Thread.sleep(milliseconds_1);
@@ -4186,8 +4180,8 @@ public class GospelLibrary {
         verifyText("" + description.length() + " / 1000", WebElementById("org.lds.ldssa.dev:id/textinput_counter"));
         ClickUIElementByAccessibilityID("Attach Image");
         ClickUIElementByAccessibilityID("More options");
-        if (WebElementsByText("List view").size() > 0){
-            ClickUIElementByText("List view");
+        if (WebElementsByText("List view", false).size() > 0){
+            ClickUIElementByText("List view", false);
         } else {
             TapCenterScreen();
         }
@@ -4203,7 +4197,7 @@ public class GospelLibrary {
         assertElementNotPresentBy(WebElementsById("org.lds.ldssa.dev:id/bubbleLayout"));
         ClickUIElementByAccessibilityID("Submit");
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
 
@@ -4212,12 +4206,12 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Send Feedback");
         //Verify Send Feedback Option
-        assertElementExistsBy(WebElementsByText("Send Feedback"));
-        ClickUIElementByText("Send Feedback");
+        assertElementExistsBy(WebElementsByText("Send Feedback", false));
+        ClickUIElementByText("Send Feedback", false);
         //Verify Exit Button
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         //Verify Page Title
@@ -4259,8 +4253,8 @@ public class GospelLibrary {
 
         for (int x = 0; x < category.size(); x++){
             ClickUIElementByID("org.lds.ldssa.dev:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x)));
-            ClickUIElementByCheckedText((String) category.get(x));
+            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+            ClickUIElementByCheckedText((String) category.get(x), false);
             assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
             verifyText((String) category.get(x), WebElementById("android:id/text1"));
             Thread.sleep(milliseconds_1);
@@ -4283,7 +4277,7 @@ public class GospelLibrary {
         sendText("org.lds.ldssa.dev:id/feedbackEmailTextInputEditText", email);
         ClickUIElementByAccessibilityID("Submit");
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
 
@@ -4292,12 +4286,12 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Send Feedback");
         //Verify Send Feedback Option
-        assertElementExistsBy(WebElementsByText("Send Feedback"));
-        ClickUIElementByText("Send Feedback");
+        assertElementExistsBy(WebElementsByText("Send Feedback", false));
+        ClickUIElementByText("Send Feedback", false);
         //Verify Exit Button
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         //Verify Page Title
@@ -4337,8 +4331,8 @@ public class GospelLibrary {
 
         for (int x = 0; x < category.size(); x++){
             ClickUIElementByID("org.lds.ldssa.dev:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x)));
-            ClickUIElementByCheckedText((String) category.get(x));
+            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+            ClickUIElementByCheckedText((String) category.get(x), false);
             assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
             verifyText((String) category.get(x), WebElementById("android:id/text1"));
             Thread.sleep(milliseconds_1);
@@ -4361,7 +4355,7 @@ public class GospelLibrary {
         sendText("org.lds.ldssa.dev:id/feedbackEmailTextInputEditText", email);
         ClickUIElementByAccessibilityID("Submit");
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
 
@@ -4370,12 +4364,12 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Send Feedback");
         //Verify Send Feedback Option
-        assertElementExistsBy(WebElementsByText("Send Feedback"));
-        ClickUIElementByText("Send Feedback");
+        assertElementExistsBy(WebElementsByText("Send Feedback", false));
+        ClickUIElementByText("Send Feedback", false);
         //Verify Exit Button
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         //Verify Page Title
@@ -4429,8 +4423,8 @@ public class GospelLibrary {
         verifyText("Send Feedback", WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         for (int x = 0; x < category.size(); x++){
             ClickUIElementByID("org.lds.ldssa.dev:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x)));
-            ClickUIElementByCheckedText((String) category.get(x));
+            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+            ClickUIElementByCheckedText((String) category.get(x), false);
             assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
             verifyText((String) category.get(x), WebElementById("android:id/text1"));
             Thread.sleep(milliseconds_1);
@@ -4438,7 +4432,7 @@ public class GospelLibrary {
         }
         ClickUIElementByAccessibilityID("Submit");
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
 
     }
@@ -4448,12 +4442,12 @@ public class GospelLibrary {
         skipLogin();
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         scrollDownTo("Send Feedback");
         //Verify Send Feedback Option
-        assertElementExistsBy(WebElementsByText("Send Feedback"));
-        ClickUIElementByText("Send Feedback");
+        assertElementExistsBy(WebElementsByText("Send Feedback", false));
+        ClickUIElementByText("Send Feedback", false);
         //Verify Exit Button
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         //Verify Page Title
@@ -4493,8 +4487,8 @@ public class GospelLibrary {
         category.add("How do I…?");
         for (int x = 0; x < category.size(); x++){
             ClickUIElementByID("org.lds.ldssa.dev:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x)));
-            ClickUIElementByCheckedText((String) category.get(x));
+            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+            ClickUIElementByCheckedText((String) category.get(x), false);
             assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
             verifyText((String) category.get(x), WebElementById("android:id/text1"));
             Thread.sleep(milliseconds_1);
@@ -4516,7 +4510,7 @@ public class GospelLibrary {
         verifyText("" + description.length() + " / 1000", WebElementById("org.lds.ldssa.dev:id/textinput_counter"));
         ClickUIElementByAccessibilityID("Submit");
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
 
     }
@@ -4526,8 +4520,8 @@ public class GospelLibrary {
         SendFeedbackScreenSendFeedbackWithphoto();
         scrollDownTo("Send Feedback");
         //Verify Send Feedback Option
-        assertElementExistsBy(WebElementsByText("Send Feedback"));
-        ClickUIElementByText("Send Feedback");
+        assertElementExistsBy(WebElementsByText("Send Feedback", false));
+        ClickUIElementByText("Send Feedback", false);
         verifyText(name, WebElementById("org.lds.ldssa.dev:id/feedbackNameTextInputEditText"));
         verifyText(email, WebElementById("org.lds.ldssa.dev:id/feedbackEmailTextInputEditText"));
         verifyText("Category", WebElementById("org.lds.ldssa.dev:id/feedbackCategorySpinnerTextView"));
@@ -4539,8 +4533,8 @@ public class GospelLibrary {
 
         for (int x = 0; x < category.size(); x++){
             ClickUIElementByID("org.lds.ldssa.dev:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x)));
-            ClickUIElementByCheckedText((String) category.get(x));
+            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+            ClickUIElementByCheckedText((String) category.get(x), false);
             assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
             verifyText((String) category.get(x), WebElementById("android:id/text1"));
             Thread.sleep(milliseconds_1);
@@ -4558,7 +4552,7 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
         ClickUIElementByAccessibilityID("Submit");
         Thread.sleep(milliseconds_5);
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
 
@@ -4572,23 +4566,23 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         //Click Settings
-        assertElementExistsBy(WebElementsByText("Settings"));
-        ClickUIElementByText("Settings");
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
         //Click "About"
         scrollDownTo("About");
-        ClickUIElementByText("About");
+        ClickUIElementByText("About", false);
         //Check that all elements are present
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         verifyText("About",WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
-        assertElementExistsBy(WebElementsByText("Rights and Use Information"));
-        assertElementExistsBy(WebElementsByText("Privacy Policy"));
-        assertElementExistsBy(WebElementsByText("Acknowledgements"));
+        assertElementExistsBy(WebElementsByText("Rights and Use Information", false));
+        assertElementExistsBy(WebElementsByText("Privacy Policy", false));
+        assertElementExistsBy(WebElementsByText("Acknowledgements", false));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/aboutLogo"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/aboutCopyright"));
 
         //Verify Rights and Use Date
-        ClickUIElementByText("Rights and Use Information");
+        ClickUIElementByText("Rights and Use Information", false);
         verifyText("https://www.lds.org/legal/terms?lang=eng", WebElementById("com.android.chrome:id/url_bar"));
         String RightsAndUse = WebElementByXpath("//android.view.View[contains(@text, 'Updated')]").getText();
         System.out.println(RightsAndUse);
@@ -4609,7 +4603,7 @@ public class GospelLibrary {
         verifyText(RightsAndUse,WebElementByXpath("//android.widget.TextView[@text='Rights and Use Information']/../android.widget.TextView[contains(@text, 'Updated')]"));
 
         //Verify Privacy Policy Date
-        ClickUIElementByText("Privacy Policy");
+        ClickUIElementByText("Privacy Policy", false);
         verifyText("https://www.lds.org/legal/privacy?lang=eng", WebElementById("com.android.chrome:id/url_bar"));
         String PrivacyPolicy = WebElementByXpath("//android.view.View[contains(@text, 'Updated')]").getText();
         System.out.println(PrivacyPolicy);
@@ -4631,12 +4625,12 @@ public class GospelLibrary {
         verifyText(PrivacyPolicy,WebElementByXpath("//android.widget.TextView[@text='Privacy Policy']/../android.widget.TextView[contains(@text, 'Updated')]"));
 
         //verify Acknowledgements
-        ClickUIElementByText("Acknowledgements");
-        assertElementExistsBy(WebElementsByText("Acknowledgements"));
+        ClickUIElementByText("Acknowledgements", false);
+        assertElementExistsBy(WebElementsByText("Acknowledgements", false));
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/aboutLibrariesRecyclerView"));
         ClickUIElementByAccessibilityID("Navigate up");
-        verifyText("Gospel Library",WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        verifyText("About",WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
 
 
         //verify year in copyright
@@ -4646,7 +4640,7 @@ public class GospelLibrary {
         verifyText(Copyright,WebElementById("org.lds.ldssa.dev:id/aboutCopyright"));
 
         driver.navigate().back();
-        assertElementExistsBy(WebElementsByText("Settings"));
+        assertElementExistsBy(WebElementsByText("Settings", false));
 
 
 
@@ -4736,34 +4730,34 @@ public class GospelLibrary {
     @Test
     public void generalConferenceVerifyAll() throws Exception {
         skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
+        assertElementExistsBy(WebElementsByText("General Conference", false));
+        ClickUIElementByText("General Conference", false);
         int cYear = parseInt(getLatestConferenceYear());
         String cMonth = getLatestConferenceMonth();
         if (cMonth == "April"){
             scrollDownTo( "April " + cYear);
-            assertElementExistsBy(WebElementsByText("April " + cYear));
+            assertElementExistsBy(WebElementsByText("April " + cYear, false));
             ClickUIElementByXpath("//*[@text=\"April "+cYear+"\"]/../../android.widget.ImageView[2]");
-            assertElementExistsBy(WebElementsByText("Download"));
-            assertElementExistsBy(WebElementsByText("Add to…"));
-            ClickUIElementByText("Download");
+            assertElementExistsBy(WebElementsByText("Download", false));
+            assertElementExistsBy(WebElementsByText("Add to…", false));
+            ClickUIElementByText("Download", false);
             cYear = cYear - 1;
         }
         while (cYear >= 1971){
             scrollDownTo( "October " + cYear);
-            assertElementExistsBy(WebElementsByText("October " + cYear));
+            assertElementExistsBy(WebElementsByText("October " + cYear, false));
             assertElementExistsBy(WebElementsByXpath("//*[@text=\"October "+cYear+"\"]/../../android.widget.ImageView[2]"));
             ClickUIElementByXpath("//*[@text=\"October "+cYear+"\"]/../../android.widget.ImageView[2]");
-            assertElementExistsBy(WebElementsByText("Download"));
-            assertElementExistsBy(WebElementsByText("Add to…"));
-            ClickUIElementByText("Download");
+            assertElementExistsBy(WebElementsByText("Download", false));
+            assertElementExistsBy(WebElementsByText("Add to…", false));
+            ClickUIElementByText("Download", false);
             scrollDownTo( "April " + cYear);
-            assertElementExistsBy(WebElementsByText("April " + cYear));
+            assertElementExistsBy(WebElementsByText("April " + cYear, false));
             assertElementExistsBy(WebElementsByXpath("//*[@text=\"April "+cYear+"\"]/../../android.widget.ImageView[2]"));
             ClickUIElementByXpath("//*[@text=\"April "+cYear+"\"]/../../android.widget.ImageView[2]");
-            assertElementExistsBy(WebElementsByText("Download"));
-            assertElementExistsBy(WebElementsByText("Add to…"));
-            ClickUIElementByText("Download");
+            assertElementExistsBy(WebElementsByText("Download", false));
+            assertElementExistsBy(WebElementsByText("Add to…", false));
+            ClickUIElementByText("Download", false);
             cYear = cYear - 1;
         }
 
@@ -4773,12 +4767,12 @@ public class GospelLibrary {
     public void generalConferenceDownloadAllFromMoreOptionsMenu() throws Exception{
         // Just checks 1 download to save time
         skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
+        assertElementExistsBy(WebElementsByText("General Conference", false));
+        ClickUIElementByText("General Conference", false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Download All"));
-        ClickUIElementByText("Download All");
+        assertElementExistsBy(WebElementsByText("Download All", false));
+        ClickUIElementByText("Download All", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Download All",WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
@@ -4795,10 +4789,10 @@ public class GospelLibrary {
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
         scrollDownTo( latestConference);
-        assertElementExistsBy(WebElementsByText(latestConference));
+        assertElementExistsBy(WebElementsByText(latestConference, false));
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Remove"));
-        assertElementExistsBy(WebElementsByText("Add to…"));
+        assertElementExistsBy(WebElementsByText("Remove", false));
+        assertElementExistsBy(WebElementsByText("Add to…", false));
         dismissDialog(WebElementByXpath("/hierarchy/android.widget.FrameLayout"));
 
     }
@@ -4808,12 +4802,12 @@ public class GospelLibrary {
     public void generalConferenceRemoveAllFromMoreOptionsMenu() throws Exception{
         // Just checks 1 download to save time
         skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
+        assertElementExistsBy(WebElementsByText("General Conference", false));
+        ClickUIElementByText("General Conference", false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Download All"));
-        ClickUIElementByText("Download All");
+        assertElementExistsBy(WebElementsByText("Download All", false));
+        ClickUIElementByText("Download All", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Download All",WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
@@ -4830,15 +4824,15 @@ public class GospelLibrary {
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
         scrollDownTo( latestConference);
-        assertElementExistsBy(WebElementsByText(latestConference));
+        assertElementExistsBy(WebElementsByText(latestConference, false));
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Remove"));
-        assertElementExistsBy(WebElementsByText("Add to…"));
+        assertElementExistsBy(WebElementsByText("Remove", false));
+        assertElementExistsBy(WebElementsByText("Add to…", false));
         dismissDialog(WebElementByXpath("/hierarchy/android.widget.FrameLayout"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Remove All"));
-        ClickUIElementByText("Remove All");
+        assertElementExistsBy(WebElementsByText("Remove All", false));
+        ClickUIElementByText("Remove All", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Remove All",WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
@@ -4852,10 +4846,10 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         scrollDownTo( latestConference);
-        assertElementExistsBy(WebElementsByText(latestConference));
+        assertElementExistsBy(WebElementsByText(latestConference, false));
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Download"));
-        assertElementExistsBy(WebElementsByText("Add to…"));
+        assertElementExistsBy(WebElementsByText("Download", false));
+        assertElementExistsBy(WebElementsByText("Add to…", false));
 
 
     }
@@ -4865,12 +4859,12 @@ public class GospelLibrary {
     public void generalConferenceDownloadAllFromLibraryContextMenu() throws Exception{
         // Just checks 1 download to save time
         skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
+        assertElementExistsBy(WebElementsByText("General Conference", false));
         assertElementExistsBy(WebElementsByXpath("//*[@text='General Conference']/../../android.widget.ImageView[2]"));
         ClickUIElementByXpath("//*[@text='General Conference']/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Download All"));
-        assertElementExistsBy(WebElementsByText("Remove All"));
-        ClickUIElementByText("Download All");
+        assertElementExistsBy(WebElementsByText("Download All", false));
+        assertElementExistsBy(WebElementsByText("Remove All", false));
+        ClickUIElementByText("Download All", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Download All",WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
@@ -4880,17 +4874,17 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
-        ClickUIElementByText("General Conference");
+        ClickUIElementByText("General Conference", false);
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
         scrollDownTo( latestConference);
-        assertElementExistsBy(WebElementsByText(latestConference));
+        assertElementExistsBy(WebElementsByText(latestConference, false));
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Remove"));
-        assertElementExistsBy(WebElementsByText("Add to…"));
+        assertElementExistsBy(WebElementsByText("Remove", false));
+        assertElementExistsBy(WebElementsByText("Add to…", false));
         dismissDialog(WebElementByXpath("/hierarchy/android.widget.FrameLayout"));
 
     }
@@ -4900,12 +4894,12 @@ public class GospelLibrary {
     public void generalConferenceRemoveAllFromLibraryContextMenu() throws Exception{
         //Just checks 1 removal to save time
         skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
+        assertElementExistsBy(WebElementsByText("General Conference", false));
         assertElementExistsBy(WebElementsByXpath("//*[@text='General Conference']/../../android.widget.ImageView[2]"));
         ClickUIElementByXpath("//*[@text='General Conference']/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Download All"));
-        assertElementExistsBy(WebElementsByText("Remove All"));
-        ClickUIElementByText("Download All");
+        assertElementExistsBy(WebElementsByText("Download All", false));
+        assertElementExistsBy(WebElementsByText("Remove All", false));
+        ClickUIElementByText("Download All", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Download All",WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
@@ -4915,26 +4909,26 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
-        ClickUIElementByText("General Conference");
+        ClickUIElementByText("General Conference", false);
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
         scrollDownTo( latestConference);
-        assertElementExistsBy(WebElementsByText(latestConference));
+        assertElementExistsBy(WebElementsByText(latestConference, false));
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Remove"));
-        assertElementExistsBy(WebElementsByText("Add to…"));
+        assertElementExistsBy(WebElementsByText("Remove", false));
+        assertElementExistsBy(WebElementsByText("Add to…", false));
         dismissDialog(WebElementByXpath("/hierarchy/android.widget.FrameLayout"));
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         ClickUIElementByAccessibilityID("Navigate up");
-        assertElementExistsBy(WebElementsByText("General Conference"));
+        assertElementExistsBy(WebElementsByText("General Conference", false));
         assertElementExistsBy(WebElementsByXpath("//*[@text='General Conference']/../../android.widget.ImageView[2]"));
         ClickUIElementByXpath("//*[@text='General Conference']/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Download All"));
-        assertElementExistsBy(WebElementsByText("Remove All"));
-        ClickUIElementByText("Remove All");
+        assertElementExistsBy(WebElementsByText("Download All", false));
+        assertElementExistsBy(WebElementsByText("Remove All", false));
+        ClickUIElementByText("Remove All", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Remove All",WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
@@ -4944,16 +4938,16 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         verifyText("REMOVE ALL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
+        assertElementExistsBy(WebElementsByText("General Conference", false));
+        ClickUIElementByText("General Conference", false);
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         scrollDownTo( latestConference);
-        assertElementExistsBy(WebElementsByText(latestConference));
+        assertElementExistsBy(WebElementsByText(latestConference, false));
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Download"));
-        assertElementExistsBy(WebElementsByText("Add to…"));
+        assertElementExistsBy(WebElementsByText("Download", false));
+        assertElementExistsBy(WebElementsByText("Add to…", false));
 
 
 
@@ -4964,18 +4958,18 @@ public class GospelLibrary {
     @Test
     public void generalConferenceDownloadLatestConferenceViaContextMenu() throws Exception {
         skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
+        assertElementExistsBy(WebElementsByText("General Conference", false));
+        ClickUIElementByText("General Conference", false);
         String latestConference = getLatestConference();
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Download"));
-        assertElementExistsBy(WebElementsByText("Add to…"));
-        ClickUIElementByText("Download");
+        assertElementExistsBy(WebElementsByText("Download", false));
+        assertElementExistsBy(WebElementsByText("Add to…", false));
+        ClickUIElementByText("Download", false);
         Thread.sleep(milliseconds_5);
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Remove"));
-        assertElementExistsBy(WebElementsByText("Add to…"));
-        ClickUIElementByText("Remove");
+        assertElementExistsBy(WebElementsByText("Remove", false));
+        assertElementExistsBy(WebElementsByText("Add to…", false));
+        ClickUIElementByText("Remove", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Remove",WebElementById("org.lds.ldssa.dev:id/md_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
@@ -4984,11 +4978,11 @@ public class GospelLibrary {
         verifyText("CANCEL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         verifyText("REMOVE",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
-        ClickUIElementByText("REMOVE");
+        ClickUIElementByText("REMOVE", false);
         Thread.sleep(milliseconds_1);
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
-        assertElementExistsBy(WebElementsByText("Download"));
-        assertElementExistsBy(WebElementsByText("Add to…"));
+        assertElementExistsBy(WebElementsByText("Download", false));
+        assertElementExistsBy(WebElementsByText("Add to…", false));
         dismissDialog(WebElementByXpath("/hierarchy/android.widget.FrameLayout"));
 
     }
@@ -4996,15 +4990,15 @@ public class GospelLibrary {
     @Test
         public void generalConferenceListenToAudioSessionAutoProgress() throws Exception {
         skipLogin();
-        assertElementExistsBy(WebElementsByText("General Conference"));
-        ClickUIElementByText("General Conference");
+        assertElementExistsBy(WebElementsByText("General Conference", false));
+        ClickUIElementByText("General Conference", false);
         scrollDownTo("October 2017");
-        assertElementExistsBy(WebElementsByText("October 2017"));
-        ClickUIElementByText("October 2017");
+        assertElementExistsBy(WebElementsByText("October 2017", false));
+        ClickUIElementByText("October 2017", false);
         Thread.sleep(milliseconds_2);
-        ClickUIElementByText("October 2017");
-        assertElementExistsBy(WebElementsByText("General Women’s Session"));
-        ClickUIElementByText("General Women’s Session");
+        ClickUIElementByText("October 2017", false);
+        assertElementExistsBy(WebElementsByText("General Women’s Session", false));
+        ClickUIElementByText("General Women’s Session", false);
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTextLayout"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
