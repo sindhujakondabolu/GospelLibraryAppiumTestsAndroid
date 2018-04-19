@@ -350,6 +350,13 @@ public class GospelLibrary {
         return text;
     };
 
+    public String isAndroidVersion(String androidSixAndBelow, String androidSevenAndUp){
+        if (AndroidVersion > 6){
+        return androidSevenAndUp;
+        }else{
+            return androidSixAndBelow;
+        }
+    }
     //Get Element by text
     public String FindElementByText(String text, Boolean isCapitalized) throws Exception {
         if (isCapitalized){
@@ -2533,7 +2540,7 @@ public class GospelLibrary {
         assert !ThemeDarkBlue;
         assert ThemeMagenta;
         Thread.sleep(milliseconds_1);
-        verifyText("Cancel", WebElementById("android:id/button2"),false);
+        verifyText("Cancel", WebElementById("android:id/button2"),true);
         ClickUIElementByID("android:id/button2");
         assertElementExistsBy(WebElementsByText("LDS Account", false));
         Thread.sleep(milliseconds_1);
@@ -3047,7 +3054,7 @@ public class GospelLibrary {
         assertSettingsSwitchExpectedStateAndToggle("List Mode", false);
         ClickUIElementByAccessibilityID("Navigate up");
         screenWidth = driver.manage().window().getSize().getWidth();
-        scriptureParent = WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/..");
+        scriptureParent = WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])"+isAndroidVersion("[2]","[1]")+"/..");
         System.out.println("Screen width is: " + screenWidth + " Element width is: " + scriptureParent.getSize().getWidth());
         assertEquals(screenWidth,scriptureParent.getSize().getWidth());
     }
@@ -3072,10 +3079,10 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         int screenWidth = driver.manage().window().getSize().getWidth();
         scrollDownTo("Scriptures");
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[1]/.."));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[1]/../..").getSize().getWidth());
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/.."));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Scriptures")+"\"])[1]/.."));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Scriptures")+"\"])[1]/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text=\"Scriptures\"])"+isAndroidVersion("[2]","[1]")+"/.."));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])"+isAndroidVersion("[2]","[1]")+"/..").getSize().getWidth());
         scrollDownTo("Jesus Christ");
         assertElementExistsBy(WebElementsByText("Jesus Christ", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Jesus Christ'])/..").getSize().getWidth());
@@ -3086,13 +3093,13 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Teachings of Presidents", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Teachings of Presidents'])/..").getSize().getWidth());
         scrollDownTo("Notes");
-        assertElementExistsBy(WebElementsByText("My Collections", false));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='My Collections'])/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByText("My Collections", true));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("My Collections")+"\"])/../..").getSize().getWidth());
         assertElementExistsBy(WebElementsByText("Notes", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Notes'])/..").getSize().getWidth());
         scrollDownTo("Lessons");
-        assertElementExistsBy(WebElementsByText("Inspiration", false));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Inspiration'])/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByText("Inspiration", true));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Inspiration")+"\"])/../..").getSize().getWidth());
         assertElementExistsBy(WebElementsByText("Lessons", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Lessons'])/..").getSize().getWidth());
         scrollDownTo("Magazines");
@@ -3111,8 +3118,8 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Temple and Family History", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Temple and Family History'])/..").getSize().getWidth());
         scrollDownTo("Individuals and Families");
-        assertElementExistsBy(WebElementsByText("Audiences", false));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Audiences'])/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByText("Audiences", true));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Audiences")+"\"])/../..").getSize().getWidth());
         assertElementExistsBy(WebElementsByText("Individuals and Families", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Individuals and Families'])/..").getSize().getWidth());
         scrollDownTo("Young Adults");
@@ -3134,18 +3141,18 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Religious Freedom", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Religious Freedom'])/..").getSize().getWidth());
         scrollDownTo("Church History");
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Other'])/../..").getSize().getWidth());
-        assertElementExistsBy(WebElementsByText("Other", false));
+        assertElementExistsBy(WebElementsByText("Other", true));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Other")+"\"])/../..").getSize().getWidth());
         assertElementExistsBy(WebElementsByText("Church History", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Church History'])/..").getSize().getWidth());
         scrollDownTo("Seminaries and Institutes");
         assertElementExistsBy(WebElementsByText("Seminaries and Institutes", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Seminaries and Institutes'])/..").getSize().getWidth());
         scrollDownTo("Tips");
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Tips'])[1]"));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Tips'])[1]/../..").getSize().getWidth());
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Tips'])[2]"));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Tips'])[2]/..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Tips")+"\"])[1]"));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Tips")+"\"])[1]/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Tips'])"+isAndroidVersion("[2]","[1]")));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Tips'])"+isAndroidVersion("[2]","[1]")+"/..").getSize().getWidth());
 
 
         ClickUIElementByAccessibilityID("More options");
@@ -3176,14 +3183,13 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         int screenWidth = driver.manage().window().getSize().getWidth();
         scrollDownTo("Scriptures");
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[1]/.."));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[1]/../..").getSize().getWidth());
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/.."));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/..").getSize().getWidth());
-        WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/..").click();
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Scriptures")+"\"])[1]/.."));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Scriptures")+"\"])[1]/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])"+isAndroidVersion("[2]","[1]")+"/.."));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])"+isAndroidVersion("[2]","[1]")+"/..").getSize().getWidth());
+        WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])"+isAndroidVersion("[2]","[1]")+"/..").click();
         assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[1]"));
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[2]"));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])"+isAndroidVersion("[2]","[1]")));
         scrollDownTo("Old Testament");
         assertElementExistsBy(WebElementsByText("Old Testament", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Old Testament'])/..").getSize().getWidth());
@@ -3199,9 +3205,9 @@ public class GospelLibrary {
         scrollDownTo("Pearl of Great Price");
         assertElementExistsBy(WebElementsByText("Pearl of Great Price", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Pearl of Great Price'])/..").getSize().getWidth());
-        scrollDownTo("Study Helps");
-        assertElementExistsBy(WebElementsByText("Study Helps", false));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Study Helps'])/../..").getSize().getWidth());
+        scrollDownTo(isAllCaps("Study Helps"));
+        assertElementExistsBy(WebElementsByText("Study Helps", true));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Study Helps")+"\"])/../..").getSize().getWidth());
         scrollDownTo("Guide to the Scriptures");
         assertElementExistsBy(WebElementsByText("Guide to the Scriptures", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Guide to the Scriptures'])/..").getSize().getWidth());
@@ -3263,14 +3269,14 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         int screenWidth = driver.manage().window().getSize().getWidth();
         scrollDownTo("Scriptures");
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[1]/.."));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[1]/../..").getSize().getWidth());
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/.."));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/..").getSize().getWidth());
-        WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/..").click();
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Scriptures")+"\"])[1]/.."));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Scriptures")+"\"])[1]/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])"+isAndroidVersion("[2]","[1]")+"/.."));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])"+isAndroidVersion("[2]","[1]")+"/..").getSize().getWidth());
+        WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])"+isAndroidVersion("[2]","[1]")+"/..").click();
         assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[1]"));
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Scriptures'])[2]"));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Scriptures'])[2]/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Scriptures")+"\"])"+isAndroidVersion("[2]","[1]")));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Scriptures")+"\"])"+isAndroidVersion("[2]","[1]")+"/../..").getSize().getWidth());
         scrollDownTo("Old Testament");
         assertElementExistsBy(WebElementsByText("Old Testament", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Old Testament'])/..").getSize().getWidth());
@@ -3286,9 +3292,9 @@ public class GospelLibrary {
         scrollDownTo("Pearl of Great Price");
         assertElementExistsBy(WebElementsByText("Pearl of Great Price", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Pearl of Great Price'])/..").getSize().getWidth());
-        scrollDownTo("Study Helps");
-        assertElementExistsBy(WebElementsByText("Study Helps", false));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Study Helps'])/../..").getSize().getWidth());
+        scrollDownTo(isAllCaps("Study Helps"));
+        assertElementExistsBy(WebElementsByText("Study Helps", true));
+        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Study Helps")+"\"])/../..").getSize().getWidth());
         scrollDownTo("Guide to the Scriptures");
         assertElementExistsBy(WebElementsByText("Guide to the Scriptures", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Guide to the Scriptures'])/..").getSize().getWidth());
@@ -4723,7 +4729,7 @@ public class GospelLibrary {
         skipLogin();
         OpenScripture("Book of Mormon", "Helaman", "5", "26");
         Thread.sleep(milliseconds_1);
-        scrollToById("p15");
+        scrollToByResourceId("p15");
         Thread.sleep(milliseconds_1);
         driver.tap(1, driver.findElementById("p15"), 1000);
     }
