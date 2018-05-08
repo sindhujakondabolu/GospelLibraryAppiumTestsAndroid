@@ -1,4 +1,3 @@
-
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import javafx.util.Pair;
@@ -14,9 +13,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import static java.lang.Integer.parseInt;
 import static org.junit.Assert.*;
@@ -630,7 +627,7 @@ public class GospelLibrary {
         int screenHeight = driver.manage().window().getSize().getHeight();
         int screenWidth = driver.manage().window().getSize().getWidth();
         driver.swipe(screenWidth / 20 * 3, screenHeight / 2, screenWidth / 20 * 19, screenHeight / 2, 300);
-        System.out.println("Swing left...");
+        System.out.println("Swiping left...");
         Thread.sleep(milliseconds_1);
     }
 
@@ -1026,18 +1023,23 @@ public class GospelLibrary {
         ClickUIElementByText("Text Size", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Text Size", WebElementById("org.lds.ldssa.dev:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/text"));
-        verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementById("org.lds.ldssa.dev:id/text"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/seekbar"));
-        ClickSeekBarAt(WebElementById("org.lds.ldssa.dev:id/seekbar"), sizeOneThroughSeven);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/sampleTextView"));
+        verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementByResourceId("org.lds.ldssa.dev:id/sampleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/textSizeSeekbar"));
+        ClickSeekBarAt(WebElementByResourceId("org.lds.ldssa.dev:id/textSizeSeekbar"), sizeOneThroughSeven);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),true);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         verifyText("OK", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),false);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         ClickUIElementByAccessibilityID("Navigate up");
-        Thread.sleep(milliseconds_4);
+        Thread.sleep(milliseconds_1);
+        swipeRight();
+        swipeLeft();
+        System.out.println("Waited … Getting page source");
+        Thread.sleep(milliseconds_2);
         driver.getPageSource();
+        System.out.println("Page Source Recieved");
     }
 
     //Change Theme
@@ -1373,6 +1375,111 @@ public class GospelLibrary {
             }
         }
     }
+
+    public void OpenAnnotationMenu(WebElement element, String annotationType) throws Exception{
+        driver.tap(1, element, 1000);
+        Thread.sleep(milliseconds_2);
+        int windowHeight = driver.manage().window().getSize().height;
+        int windowWidth = driver.manage().window().getSize().width;
+        int elementWidth = element.getSize().width;
+        int elementHeight = element.getSize().height;
+        int elementUpperX = element.getLocation().getX();
+        int elementUpperY = element.getLocation().getY();
+        int elementTapPointX = (elementUpperX + (elementWidth / 2));
+        int elementTapPointY = (elementUpperY + (elementHeight / 2));
+        int annotationMenuWidth = 1184;
+        int annotationMenuHeight = 560;
+        int buttonWidth = 224;
+        int buttonHeight = 224;
+        int margin = 32;
+        int headerFooter = 40;
+        int menuBottomY = elementTapPointY - 140 ;
+        if ((windowHeight/elementTapPointY) > 2.8){
+            menuBottomY = elementTapPointY + 140 + annotationMenuHeight;
+            System.out.println("elementTapPoint is above 28% of the screen");
+        }
+        int menuBottomX = ((windowWidth / 2) - (annotationMenuWidth / 2));
+        int bottomRowY = (menuBottomY - headerFooter - (buttonHeight/2));
+        int topRowY = (menuBottomY - headerFooter - buttonHeight - margin - (buttonHeight/2));
+        int markX = (menuBottomX + margin + (buttonWidth/2));
+        int noteX = (menuBottomX + margin + buttonWidth + (buttonWidth/2));
+        int tagX = (menuBottomX + margin + (buttonWidth * 2) + (buttonWidth/2));
+        int addToX = (menuBottomX + margin + (buttonWidth * 3) + (buttonWidth/2));
+        int linkX = (menuBottomX + margin + (buttonWidth * 4) + (buttonWidth/2));
+        int copyX = (menuBottomX + margin + (buttonWidth/2));
+        int shareX = (menuBottomX + margin + buttonWidth + (buttonWidth/2));
+        int searchX = (menuBottomX + margin + (buttonWidth * 2) + (buttonWidth/2));
+        int defineX = (menuBottomX + margin + (buttonWidth * 3) + (buttonWidth/2));
+        int removeX = (menuBottomX + margin + (buttonWidth * 4) + (buttonWidth/2));
+
+        System.out.println("Width: " + elementWidth);
+        System.out.println("Height: " + elementHeight);
+        System.out.println("UpperX: " + elementUpperX);
+        System.out.println("UpperY: " + elementUpperY);
+        System.out.println("elementTapX: " + elementTapPointX);
+        System.out.println("elementTapY: " + elementTapPointY);
+
+        if (annotationType == "Mark"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, markX, topRowY,1000);
+            System.out.println("markX is: " + markX);
+        } else if (annotationType == "Note"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, noteX, topRowY,10);
+        } else if (annotationType == "Tag"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, tagX, topRowY,10);
+        } else if (annotationType == "Add to"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, addToX, topRowY,10);
+        } else if (annotationType == "Link"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, linkX, topRowY,10);
+        } else if (annotationType == "Copy"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, copyX, bottomRowY,10);
+        } else if (annotationType == "Share"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, shareX, bottomRowY,10);
+        } else if (annotationType == "Search"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, searchX, bottomRowY,10);
+        } else if (annotationType == "Define"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, defineX, bottomRowY,10);
+        } else if (annotationType == "Remove"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, removeX, bottomRowY,10);
+        } else {
+            fail(annotationType + " is not a valid annotation menu item. Valid annotation items are: " +
+                    "Mark" +
+                    "Note" +
+                    "Tag" +
+                    "Add to" +
+                    "Link" +
+                    "Copy" +
+                    "Share" +
+                    "Search" +
+                    "Define" +
+                    "Remove");
+        }
+
+
+
+
+    }
+    @Test
+    public void test() throws Exception{
+        skipLogin();
+        ClickUIElementByText("Jesus Christ",false);
+        ClickUIElementByText("Jesus the Christ",false);
+        ClickUIElementByText("Chapter 1:Introduction",false);
+        scrollToByResourceId("p2");
+
+        OpenAnnotationMenu(WebElementByResourceId("p2"),"tag");
+        Thread.sleep(milliseconds_5);
+    }
+
 
     public String getLatestConferenceMonth() throws Exception {
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -2617,12 +2724,12 @@ public class GospelLibrary {
         ClickUIElementByText("Text Size", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Text Size", WebElementById("org.lds.ldssa.dev:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/text"));
-        verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementById("org.lds.ldssa.dev:id/text"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/seekbar"));
-        ClickSeekBarAt(WebElementById("org.lds.ldssa.dev:id/seekbar"), 4);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/sampleTextView"));
+        verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementByResourceId("org.lds.ldssa.dev:id/sampleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/textSizeSeekbar"));
+        ClickSeekBarAt(WebElementByResourceId("org.lds.ldssa.dev:id/textSizeSeekbar"), 4);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),false);
+        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),true);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         verifyText("OK", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),false);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
@@ -2649,11 +2756,11 @@ public class GospelLibrary {
         ClickUIElementByText("Text Size", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Text Size", WebElementById("org.lds.ldssa.dev:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/text"));
-        verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementById("org.lds.ldssa.dev:id/text"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/seekbar"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/sampleTextView"));
+        verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementByResourceId("org.lds.ldssa.dev:id/sampleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/textSizeSeekbar"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),false);
+        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),true);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
         ClickUIElementByAccessibilityID("Navigate up");
         driver.getPageSource();
@@ -2678,12 +2785,12 @@ public class GospelLibrary {
         ClickUIElementByText("Text Size", false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Text Size", WebElementById("org.lds.ldssa.dev:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/text"));
-        verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementById("org.lds.ldssa.dev:id/text"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/seekbar"));
-        ClickSeekBarAt(WebElementById("org.lds.ldssa.dev:id/seekbar"), 7);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/sampleTextView"));
+        verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementByResourceId("org.lds.ldssa.dev:id/sampleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/textSizeSeekbar"));
+        ClickSeekBarAt(WebElementByResourceId("org.lds.ldssa.dev:id/textSizeSeekbar"), 7);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),false);
+        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),true);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
         ClickUIElementByAccessibilityID("Navigate up");
         driver.getPageSource();
@@ -2703,37 +2810,37 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         ChangeTextSize(1);
         driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("12px", WebElementById("p1").getCssValue("font-size"));
+        Assert.assertEquals("12px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(2);
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("15px", WebElementById("p1").getCssValue("font-size"));
+        Assert.assertEquals("15px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(3);
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("18px", WebElementById("p1").getCssValue("font-size"));
+        Assert.assertEquals("18px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(4);
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("21px", WebElementById("p1").getCssValue("font-size"));
+        Assert.assertEquals("21px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(5);
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("26px", WebElementById("p1").getCssValue("font-size"));
+        Assert.assertEquals("26px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(6);
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("40px", WebElementById("p1").getCssValue("font-size"));
+        Assert.assertEquals("40px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(7);
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("60px", WebElementById("p1").getCssValue("font-size"));
+        Assert.assertEquals("60px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
         driver.context("NATIVE_APP");
     }
 
@@ -2763,6 +2870,7 @@ public class GospelLibrary {
         ClickUIElementByText("Related Content", false);
         assertElementExistsBy(WebElementsByText("1a", false));
         ClickUIElementByText("1a", false);
+        driver.getPageSource();
         Assert.assertEquals("12px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
@@ -2861,159 +2969,166 @@ public class GospelLibrary {
 //        driver.context("WEBVIEW_org.lds.ldssa.dev");
 //        System.out.println("Title: " + driver.findElementByClassName("dominant").getCssValue("font-size"));
 //        driver.context("NATIVE_APP");
-        scrollToById("title_number1");
+        scrollToByResourceId("title_number1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
         Assert.assertEquals("19.8px",WebElementById("title_number1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("study_summary1");
+        scrollToByResourceId("study_summary1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
         Assert.assertEquals("18px",WebElementById("study_summary1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("p1");
+        scrollToByResourceId("p1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
         Assert.assertEquals("18px",WebElementById("p1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(1);
-        scrollToById("title1");
+        scrollToByResourceId("title1");
 //        driver.context("WEBVIEW_org.lds.ldssa.dev");
 //        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
 //        driver.context("NATIVE_APP");
-        scrollToById("title_number1");
+        scrollToByResourceId("title_number1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
+        driver.getPageSource();
         System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
         Assert.assertEquals("13.2px",WebElementById("title_number1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("study_summary1");
+        scrollToByResourceId("study_summary1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
         Assert.assertEquals("12px",WebElementById("study_summary1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("p1");
+        scrollToByResourceId("p1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
         Assert.assertEquals("12px",WebElementById("p1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(2);
-        scrollToById("title1");
+        scrollToByResourceId("title1");
 //        driver.context("WEBVIEW_org.lds.ldssa.dev");
 //        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
 //        driver.context("NATIVE_APP");
-        scrollToById("title_number1");
+        scrollToByResourceId("title_number1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
+        driver.getPageSource();
         System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
         Assert.assertEquals("16.5px",WebElementById("title_number1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("study_summary1");
+        scrollToByResourceId("study_summary1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
         Assert.assertEquals("15px",WebElementById("study_summary1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("p1");
+        scrollToByResourceId("p1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
         Assert.assertEquals("15px",WebElementById("ps").getCssValue("font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(3);
-        scrollToById("title1");
+        scrollToByResourceId("title1");
 //        driver.context("WEBVIEW_org.lds.ldssa.dev");
 //        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
 //        driver.context("NATIVE_APP");
-        scrollToById("title_number1");
+        scrollToByResourceId("title_number1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
+        driver.getPageSource();
         System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
         Assert.assertEquals("19.8px",WebElementById("title_number1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("study_summary1");
+        scrollToByResourceId("study_summary1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
         Assert.assertEquals("18px",WebElementById("study_summary1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("p1");
+        scrollToByResourceId("p1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
         Assert.assertEquals("18px",WebElementById("p1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(4);
-        scrollToById("title1");
+        scrollToByResourceId("title1");
 //        driver.context("WEBVIEW_org.lds.ldssa.dev");
 //        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
 //        driver.context("NATIVE_APP");
-        scrollToById("title_number1");
+        scrollToByResourceId("title_number1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
+        driver.getPageSource();
         System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
         Assert.assertEquals("23.1px",WebElementById("title_number1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("study_summary1");
+        scrollToByResourceId("study_summary1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
         Assert.assertEquals("21px",WebElementById("study_summary1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("p1");
+        scrollToByResourceId("p1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
         Assert.assertEquals("21px",WebElementById("p1").getCssValue("font-size"));
 
         driver.context("NATIVE_APP");
         ChangeTextSize(5);
-        scrollToById("title1");
+        scrollToByResourceId("title1");
 //        driver.context("WEBVIEW_org.lds.ldssa.dev");
 //        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
 //        driver.context("NATIVE_APP");
-        scrollToById("title_number1");
+        scrollToByResourceId("title_number1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
+        driver.getPageSource();
         System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
         Assert.assertEquals("28.6px",WebElementById("title_number1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("study_summary1");
+        scrollToByResourceId("study_summary1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
         Assert.assertEquals("26px",WebElementById("study_summary1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("p1");
+        scrollToByResourceId("p1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
         Assert.assertEquals("26px",WebElementById("p1").getCssValue("font-size"));
 
         driver.context("NATIVE_APP");
         ChangeTextSize(6);
-        scrollToById("title1");
+        scrollToByResourceId("title1");
 //        driver.context("WEBVIEW_org.lds.ldssa.dev");
 //        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
 //        driver.context("NATIVE_APP");
-        scrollToById("title_number1");
+        scrollToByResourceId("title_number1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
+        driver.getPageSource();
         System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
         Assert.assertEquals("44px",WebElementById("title_number1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("study_summary1");
+        scrollToByResourceId("study_summary1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
         Assert.assertEquals("40px",WebElementById("study_summary1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("p1");
+        scrollToByResourceId("p1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
         Assert.assertEquals("40px",WebElementById("p1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
         ChangeTextSize(7);
-        scrollToById("title1");
+        scrollToByResourceId("title1");
 //        driver.context("WEBVIEW_org.lds.ldssa.dev");
 //        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
 //        driver.context("NATIVE_APP");
-        scrollToById("title_number1");
+        scrollToByResourceId("title_number1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
+        driver.getPageSource();
         System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
         Assert.assertEquals("66px",WebElementById("title_number1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("study_summary1");
+        scrollToByResourceId("study_summary1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
         Assert.assertEquals("60px",WebElementById("study_summary1").getCssValue("font-size"));
         driver.context("NATIVE_APP");
-        scrollToById("p1");
+        scrollToByResourceId("p1");
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
         Assert.assertEquals("60px",WebElementById("p1").getCssValue("font-size"));
@@ -3475,6 +3590,8 @@ public class GospelLibrary {
         assertSettingsSwitchExpectedStateAndToggle("Hide Footnotes", false);
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_1);
+        swipeLeft();
+        swipeRight();
         assertEquals("rgb(33, 34, 37)", getComputedCssUsingXpath("//*[@class='study-note-ref']", "color"));
     }
 
@@ -4727,18 +4844,103 @@ public class GospelLibrary {
     @Test
     public void annotationsMenu() throws Exception {
         skipLogin();
-        OpenScripture("Book of Mormon", "Helaman", "5", "26");
+        OpenScripture("Book of Mormon", "Helaman", "5", "");
         Thread.sleep(milliseconds_1);
-        scrollToByResourceId("p15");
         Thread.sleep(milliseconds_1);
-        driver.tap(1, driver.findElementById("p15"), 1000);
+        driver.tap(1, WebElementByResourceId("p1"), 1000);
+        Thread.sleep(milliseconds_2);
+
+        driver.context("WEBVIEW_org.lds.ldssa.dev");
+
+
+        List handles = new ArrayList();
+        handles.add("NATIVE_APP");
+        handles.add("WEBVIEW_org.lds.ldssa.dev");
+        handles.add("WEBVIEW_chrome");
+        handles.add("WEBVIEW_Terrace");
+        List wHandles = new ArrayList();
+
+
+        int i = 1;
+        System.out.println(driver.getContextHandles());
+        System.out.println("Context is: "+handles.get(i));
+        driver.context(handles.get(i).toString());
+
+
+        String parentWindowHandle = driver.getWindowHandle(); // save the current window handle
+        handles.add(parentWindowHandle);
+
+        System.out.println("Context handles: " + driver.getContextHandles());
+        System.out.println("Window Handles: " + driver.getWindowHandles());
+
+
+        Set<String> windowids = driver.getWindowHandles();
+
+        Iterator<String> iter= windowids.iterator();
+        while(iter.hasNext()){
+            String windowHandle = iter.next();
+            wHandles.add(windowHandle);
+        }
+
+        int k = 2;
+
+
+        System.out.println("Window is: "+wHandles.get(k));
+        driver.switchTo().window(wHandles.get(k).toString());
+        List elements = driver.findElementsByXPath("//*");
+        for (int j = 0; j < elements.size(); j++) {
+            WebElement temp = (WebElement) elements.get(j);
+            System.out.println("Text:     "+ temp.getText());
+            System.out.println("Class:    "+ temp.getClass());
+            System.out.println("Tag Name: "+ temp.getTagName());
+        }
+
+        System.out.println(driver.getContextHandles());
+//        for (int i = 0; i < Webhandles.size(); i++) {
+//            System.out.println("Window is: "+Webhandles.get(i));
+//            driver.switchTo().window(Webhandles.get(i).toString());
+//            List elements = driver.findElementsByXPath("//*");
+//            for (int j = 0; j < elements.size(); j++) {
+//                WebElement temp = (WebElement) elements.get(i);
+//                System.out.println("Text:     "+ temp.getText());
+//                System.out.println("Class:    "+ temp.getClass());
+//                System.out.println("Tag Name: "+ temp.getTagName());
+//            }
+//
+//        }
+
+
+
+
+
+//        Set<String> windowids = driver.getWindowHandles();
+//
+//        Iterator<String> iter= windowids.iterator();
+//        while(iter.hasNext()){
+//            System.out.println(iter.next());
+//        }
+//        windowids = driver.getWindowHandles();
+//        iter= windowids.iterator();
+//        String mainWindowId=iter.next();
+//        String popupwindowid=iter.next();
+//        driver.switchTo().window(popupwindowid);
+//        List elements = driver.findElementsByXPath("//*");
+//        for (int i = 0; i < elements.size(); i++) {
+//            WebElement temp = (WebElement) elements.get(i);
+//            System.out.println("Text:     "+ temp.getText());
+//            System.out.println("Class:    "+ temp.getClass());
+//            System.out.println("Tag Name: "+ temp.getTagName());
+//        }
+        //driver.switchTo().window(mainWindowId);
+        Thread.sleep(milliseconds_2);
+
     }
 
     //********** General Conference Section **********
 
     @Test
     public void generalConferenceVerifyAll() throws Exception {
-        skipLogin();
+
         assertElementExistsBy(WebElementsByText("General Conference", false));
         ClickUIElementByText("General Conference", false);
         int cYear = parseInt(getLatestConferenceYear());
@@ -5030,7 +5232,7 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
         verifyText("1:25:25",WebElementById("org.lds.ldssa.dev:id/currentPositionTextView"),false);
         WebElementById("org.lds.ldssa.dev:id/playPauseButton").click();
-        Thread.sleep(200);
+        Thread.sleep(500);
         WebElementById("org.lds.ldssa.dev:id/playPauseButton").click();
         assertAudioPlayerUI("Saturday Morning Session","October 2017",WebElementById("org.lds.ldssa.dev:id/currentPositionTextView").getText(),"2:01:59",false,false);
 
