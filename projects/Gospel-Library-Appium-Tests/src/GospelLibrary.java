@@ -1,6 +1,7 @@
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import javafx.util.Pair;
+import org.apache.xpath.operations.Bool;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -8,7 +9,9 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.tukaani.xz.check.Check;
 
 import java.net.URL;
 import java.text.DateFormat;
@@ -16,7 +19,9 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import static java.lang.Integer.parseInt;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 
 public class GospelLibrary {
@@ -37,6 +42,7 @@ public class GospelLibrary {
 
 
 
+
     }
 
     @After
@@ -50,7 +56,7 @@ public class GospelLibrary {
     String password = "ldssaldssa";
     String wrongPassword = "ldssaldssaa";
     int AndroidVersion = 7;
-    public int milliseconds_1 = 2600;
+    public int milliseconds_1 = 3600;
     public int milliseconds_2 = milliseconds_1 * 2;
     public int milliseconds_3 = milliseconds_1 * 3;
     public int milliseconds_4 = milliseconds_1 * 4;
@@ -569,6 +575,14 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_2);
     }
 
+    //Click Element by ResourceID
+    public void ClickUIElementByResourceID(String elementID) throws Exception {
+        WebElement itemToClick = WebElementByResourceId(elementID);
+        itemToClick.click();
+        System.out.println("Clicking: '" + elementID + "' by ResourceID");
+        Thread.sleep(milliseconds_2);
+    }
+
     //Click Element by Xpath
     public void ClickUIElementByXpath(String xpath) throws Exception {
         WebElement itemToClick = driver.findElementByXPath(xpath);
@@ -650,7 +664,11 @@ public class GospelLibrary {
         } else if (dialogXLocation + dialogWidth +10 < screenWidth){
             xTapPoint = ((screenWidth - (dialogXLocation + dialogWidth)) / 2 + (dialogXLocation + dialogWidth));
         }
-        driver.tap(1,xTapPoint,yTapPoint,1);
+        System.out.println("Screen Height is: " + screenHeight);
+        System.out.println("Y Tap Point is:   " + yTapPoint);
+        System.out.println("Screen Width is: " + screenWidth);
+        System.out.println("X Tap Point is:  " + xTapPoint);
+        driver.tap(1,xTapPoint,yTapPoint,100);
     }
 
 
@@ -1116,7 +1134,7 @@ public class GospelLibrary {
         }
     }
 
-    //Scroll to by id
+    //Scroll to by Resource id
     public void scrollToByResourceId(String id) throws Exception {
         System.out.println("Scrolling to: " + id);
         WebElement idIsPresent = WebElementByResourceId(id);
@@ -1129,7 +1147,7 @@ public class GospelLibrary {
             scrollDown();
             upperY = idIsPresent.getLocation().getY();
         }
-        while (upperY <= screenHeight / 8) {
+        while (upperY <= screenHeight / 7) {
             System.out.println("scrolling up y '" + upperY + "' is <= " + screenHeight / 8 + "");
             scrollUp();
             upperY = idIsPresent.getLocation().getY();
@@ -1151,7 +1169,7 @@ public class GospelLibrary {
             scrollDown();
             upperY = idIsPresent.getLocation().getY();
         }
-        while (upperY <= screenHeight / 8) {
+        while (upperY <= screenHeight / 7) {
             System.out.println("scrolling up y '" + upperY + "' is <= " + screenHeight / 8 + "");
             scrollUp();
             upperY = idIsPresent.getLocation().getY();
@@ -1197,6 +1215,23 @@ public class GospelLibrary {
         Boolean tempElement = webElementsBy.size() > 0;
         System.out.println("assert element is present. Expected: true [] Actual: " + tempElement + " Element: " + webElementsBy.toString() + "");
         assert tempElement == true;
+    }
+
+    public void assertElementInWebviewExistsBy(String xPath) throws Exception{
+        driver.context("WEBVIEW_org.lds.ldssa.dev");
+        Set <java.lang.String> windowHandles = driver.getWindowHandles();
+        windowHandles.size();
+        for (String window: windowHandles) {
+            driver.switchTo().window(window);
+            System.out.println("Window handle is now: "+ window);
+        }
+
+        Boolean tempElement = WebElementsByXpath(xPath).size() > 0;
+        System.out.println("assert element is present. Expected: true [] Actual: " + tempElement + " Element: " + xPath.toString() + "");
+        assert tempElement;
+        driver.context("NATIVE_APP");
+
+
     }
 
 
@@ -1376,8 +1411,235 @@ public class GospelLibrary {
         }
     }
 
-    public void OpenAnnotationMenu(WebElement element, String annotationType) throws Exception{
-        driver.tap(1, element, 1000);
+    public void signInPage(String LoginUserName, String LoginPassword, String button, Boolean validLogin)throws Exception{
+        //Username field
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/ldsaccount_login_username_layout"));
+        verifyText("Username",WebElementByResourceId("org.lds.ldssa.dev:id/ldsaccount_login_username_layout"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/usernameEditText"));
+        //Password field
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/ldsaccount_login_password_layout"));
+        verifyText("Password",WebElementByResourceId("org.lds.ldssa.dev:id/ldsaccount_login_password_layout"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/passwordEditText"));
+        //Password visibility
+        assertElementExistsBy(WebElementsByAccessibilityId("Toggle password visibility"));
+        //Sign in Button
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/ldsAccountSignInButton"));
+        verifyText("Sign In",WebElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/ldsAccountSignInButton\"]/android.widget.TextView"),true);
+        //Having Trouble Signing In
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/ldsAccountLoginForgotCredentialsButton"));
+        verifyText("Having Trouble Signing In?",WebElementByResourceId("org.lds.ldssa.dev:id/ldsAccountLoginForgotCredentialsButton"),true);
+        //Create LDS Account
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton"));
+        verifyText("Create LDS Account", WebElementByResourceId("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton"),true);
+
+
+
+        sendText("org.lds.ldssa.dev:id/usernameEditText", LoginUserName);
+        sendText("org.lds.ldssa.dev:id/passwordEditText", LoginPassword);
+        boolean passwordVisibility = Boolean.parseBoolean((WebElementByAccessibilityId("Toggle password visibility").getAttribute("checked")));
+        System.out.println(passwordVisibility);
+        assert !passwordVisibility;
+        verifyText(hidePassword(LoginPassword), WebElementById("org.lds.ldssa.dev:id/passwordEditText"),false);
+        ClickUIElementByAccessibilityID("Toggle password visibility");
+        Thread.sleep(milliseconds_1);
+        passwordVisibility = Boolean.parseBoolean((WebElementByAccessibilityId("Toggle password visibility").getAttribute("checked")));
+        System.out.println(passwordVisibility);
+        assert passwordVisibility;
+        verifyText(LoginPassword, WebElementById("org.lds.ldssa.dev:id/passwordEditText"),false);
+        if (button == "Sign In"){
+            if (validLogin){
+                ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountSignInButton");
+            } else {
+                sendText("org.lds.ldssa.dev:id/passwordEditText", "MabelWasHere");
+                ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountSignInButton");
+                //appium can't validate ! if Username not entered and SignIn clicked
+                Thread.sleep(milliseconds_1);
+                verifyText("Error", WebElementByText("Error", false),false);
+                ClickUIElementByText("OK", false);
+                sendText("org.lds.ldssa.dev:id/passwordEditText", LoginPassword);
+                ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountSignInButton");
+            }
+        } else if (button == "Having Trouble Signing In") {
+            //Having Trouble Signing in
+            ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginForgotCredentialsButton");
+            Thread.sleep(milliseconds_5);
+            verifyText("https://ldsaccount.lds.org/recovery", WebElementById("com.android.chrome:id/url_bar"),false);
+        } else if (button.toLowerCase() == "Create LDS Account"){
+            //Create LDS Account
+            ClickUIElementByText("Create LDS Account", false);
+            Thread.sleep(milliseconds_5);
+            verifyText("https://ldsaccount.lds.org/register", WebElementById("com.android.chrome:id/url_bar"),false);
+        } else {
+            fail("\"" + button + "\" is not a valid button for the Sign In Page. Valid entries are \"Sign In\", \"Having Trouble Signing In\", and \"Create LDS Account\"");
+        }
+
+
+    }
+
+
+    public void AnnotationsSyncCheck(String buttonToPress) throws Exception {
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_title"));
+        verifyText("Back Up Annotations",WebElementByResourceId("org.lds.ldssa.dev:id/md_title"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_content"));
+        verifyText("Signing in with an LDS Account backs up all your highlights, notes, and bookmarks, keeping them safe and making them available on the web or any mobile device.",WebElementByResourceId("org.lds.ldssa.dev:id/md_content"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+        verifyText("Sign In",WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),true);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+        verifyText("No Thanks",WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),true);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultNeutral"));
+        verifyText("Create LDS Account", WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultNeutral"), true);
+        if (buttonToPress == "Sign In"){
+            ClickUIElementByResourceID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+            signInPage(user,password,"Sign In",true);
+        } else if (buttonToPress == "No Thanks"){
+            ClickUIElementByResourceID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
+        } else if (buttonToPress == "Create LDS Account"){
+            ClickUIElementByResourceID("org.lds.ldssa.dev:id/md_buttonDefaultNeutral");
+            Thread.sleep(milliseconds_5);
+            verifyText("https://ldsaccount.lds.org/register", WebElementById("com.android.chrome:id/url_bar"),false);
+        } else {
+            fail("\""+buttonToPress +"\" is not a valid selection. valid buttons are \"Sign In\", \"No Thanks\", and \"Create LDS Account\"");
+        }
+
+    }
+
+    public List TapParagraph (String id, int duration) throws Exception{
+
+        WebElement element = WebElementByResourceId(id);
+        int eHeight = element.getSize().getHeight();
+        int eWidth = element.getSize().getWidth();
+        int eUpperX = element.getLocation().x;
+        int eUpperY = element.getLocation().y;
+        driver.context("WEBVIEW_org.lds.ldssa.dev");
+        WebElement wElement = WebElementById(id);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+
+        String script = "var s = getComputedStyle(arguments[0],null).getPropertyValue(arguments[1]);" +
+                "return s;";
+
+        String scriptReturnLineHeight = executor.executeScript(script, wElement, "line-height").toString();
+        scriptReturnLineHeight = scriptReturnLineHeight.substring(0,(scriptReturnLineHeight.length()-2));
+        double LineHeight = Double.parseDouble(scriptReturnLineHeight);
+        int scriptReturnLineHeightAsInt = (int) LineHeight;
+        System.out.println(scriptReturnLineHeightAsInt);
+        String scriptReturnFontHeight = executor.executeScript(script, wElement, "font-size").toString();
+        scriptReturnFontHeight = scriptReturnFontHeight.substring(0,(scriptReturnFontHeight.length()-2));
+        double FontHeight = Double.parseDouble(scriptReturnFontHeight);
+        int scriptReturnFontHeightAsInt = (int) FontHeight;
+        System.out.println(scriptReturnFontHeightAsInt);
+        driver.context("NATIVE_APP");
+        int tapX = eUpperX + (eWidth / 5);
+        int tapY = eUpperY + scriptReturnFontHeightAsInt + scriptReturnLineHeightAsInt;
+        driver.tap(1,tapX,tapY,1000);
+        List TapXYList = new ArrayList();
+        TapXYList.add(tapX);
+        TapXYList.add(tapY);
+        return TapXYList;
+    }
+
+    //******************************** Empty State assertions ***********************************
+    public void assertEmptyNoteText() throws Exception{
+        verifyText("Note Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        String placeHolderText = WebElementByResourceId("org.lds.ldssa.dev:id/markdownEditText").getText();
+        List defaultPlaceHolderText = new ArrayList();
+        defaultPlaceHolderText.add("And it came to pass…");
+        defaultPlaceHolderText.add("And thus we see…");
+        defaultPlaceHolderText.add("And now, behold…");
+        Boolean placeHolder;
+        if (placeHolderText.contentEquals(defaultPlaceHolderText.get(0).toString()) || placeHolderText.contentEquals(defaultPlaceHolderText.get(1).toString()) || placeHolderText.contentEquals(defaultPlaceHolderText.get(2).toString())){
+            placeHolder = true;
+            System.out.println("Placeholder text was one of the preset values");
+        } else {
+            placeHolder = false;
+            System.out.println("Placeholder text was not one of the three preset values");
+        }
+        assert placeHolder;
+    }
+
+    public void assertEmptyStateTagScreen() throws Exception{
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/emptyStateImageView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+        verifyText("No Tags",WebElementByResourceId("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+        verifyText("Create a tag to group content from anywhere in the app.",WebElementByResourceId("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+    }
+
+    public void assertEmptyStateAddToNotebookScreen() throws Exception{
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/emptyStateImageView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/emptyStateTitleTextView"));
+        verifyText("No Notebooks",WebElementByResourceId("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
+        verifyText("Create notebooks to collect and organize your notes for talks, lessons, and personal study.",WebElementByResourceId("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        }
+
+    //******************************** Annotation screen assertions ***********************************
+
+    public void assertNoteScreen(Boolean CheckEmptyState) throws Exception{
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Tag"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Link"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Add to Notebook"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/markdownEditText"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/markdown_controls_bold"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/markdown_controls_italic"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/markdown_controls_unordered_list"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/markdown_controls_ordered_list"));
+        if (CheckEmptyState){
+            assertEmptyNoteText();
+        }
+    }
+
+    public void assertTagScreen(Boolean CheckEmptyState) throws Exception{
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsByText("Tags",false));
+        assertElementExistsBy(WebElementsByAccessibilityId("Sort"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/tagNameEditText"));
+        verifyText("Add tag",WebElementByResourceId("org.lds.ldssa.dev:id/tagNameEditText"),false);
+        if (CheckEmptyState){
+            assertEmptyStateTagScreen();
+        }
+    }
+
+    public void assertAddToNotebookScreen(Boolean CheckEmptyState) throws Exception{
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsByText("Add to Notebook",false));
+        assertElementExistsBy(WebElementsByAccessibilityId("Sort"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/textFilterLayout"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/filterEditText"));
+        verifyText("Find by name",WebElementByResourceId("org.lds.ldssa.dev:id/filterEditText"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/notebookSelectionFloatingActionButton"));
+        if (CheckEmptyState){
+            assertEmptyStateAddToNotebookScreen();
+        }
+
+    }
+
+    public void assertLinksScreen() throws Exception{
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsByText("Links",false));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/searchEditText"));
+        verifyText("Search for keywords, verses, or titles.",WebElementByResourceId("org.lds.ldssa.dev:id/searchEditText"),false);
+    }
+
+    public void assertShareScreen() throws Exception{
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        verifyText("Share",WebElementByResourceId("org.lds.ldssa.dev:id/mainToolbarTitleTextView"), false);
+    }
+
+    public void assertSearchScreen() throws Exception{
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/backImageView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/searchEditText"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/searchClearTextImageView"));
+    }
+
+    //************************ Open Annotation Menu *********************************
+
+    public void OpenAnnotationMenu(String id, String annotationType) throws Exception{
+        driver.getPageSource();
+        List TapXY = TapParagraph(id, 1000);
+        WebElement element = WebElementByResourceId(id);
         Thread.sleep(milliseconds_2);
         int windowHeight = driver.manage().window().getSize().height;
         int windowWidth = driver.manage().window().getSize().width;
@@ -1385,8 +1647,8 @@ public class GospelLibrary {
         int elementHeight = element.getSize().height;
         int elementUpperX = element.getLocation().getX();
         int elementUpperY = element.getLocation().getY();
-        int elementTapPointX = (elementUpperX + (elementWidth / 2));
-        int elementTapPointY = (elementUpperY + (elementHeight / 2));
+        int elementTapPointX = (int) TapXY.get(0);
+        int elementTapPointY = (int) TapXY.get(1);
         int annotationMenuWidth = 1184;
         int annotationMenuHeight = 560;
         int buttonWidth = 224;
@@ -1426,24 +1688,36 @@ public class GospelLibrary {
         } else if (annotationType == "Note"){
             System.out.println("Clicking " + annotationType);
             driver.tap(1, noteX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertNoteScreen(false);
         } else if (annotationType == "Tag"){
             System.out.println("Clicking " + annotationType);
             driver.tap(1, tagX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertTagScreen(false);
         } else if (annotationType == "Add to"){
             System.out.println("Clicking " + annotationType);
             driver.tap(1, addToX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertAddToNotebookScreen(false);
         } else if (annotationType == "Link"){
             System.out.println("Clicking " + annotationType);
             driver.tap(1, linkX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertLinksScreen();
         } else if (annotationType == "Copy"){
             System.out.println("Clicking " + annotationType);
             driver.tap(1, copyX, bottomRowY,10);
         } else if (annotationType == "Share"){
             System.out.println("Clicking " + annotationType);
             driver.tap(1, shareX, bottomRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertShareScreen();
         } else if (annotationType == "Search"){
             System.out.println("Clicking " + annotationType);
             driver.tap(1, searchX, bottomRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertSearchScreen();
         } else if (annotationType == "Define"){
             System.out.println("Clicking " + annotationType);
             driver.tap(1, defineX, bottomRowY,10);
@@ -1452,32 +1726,21 @@ public class GospelLibrary {
             driver.tap(1, removeX, bottomRowY,10);
         } else {
             fail(annotationType + " is not a valid annotation menu item. Valid annotation items are: " +
-                    "Mark" +
-                    "Note" +
-                    "Tag" +
-                    "Add to" +
-                    "Link" +
-                    "Copy" +
-                    "Share" +
-                    "Search" +
-                    "Define" +
+                    "Mark, " +
+                    "Note, " +
+                    "Tag, " +
+                    "Add to, " +
+                    "Link, " +
+                    "Copy, " +
+                    "Share, " +
+                    "Search, " +
+                    "Define, " +
                     "Remove");
         }
 
 
 
 
-    }
-    @Test
-    public void test() throws Exception{
-        skipLogin();
-        ClickUIElementByText("Jesus Christ",false);
-        ClickUIElementByText("Jesus the Christ",false);
-        ClickUIElementByText("Chapter 1:Introduction",false);
-        scrollToByResourceId("p2");
-
-        OpenAnnotationMenu(WebElementByResourceId("p2"),"tag");
-        Thread.sleep(milliseconds_5);
     }
 
 
@@ -1534,6 +1797,12 @@ public class GospelLibrary {
 
     public String getComputedCssUsingXpath(String xPath, String cssAttribute) throws Exception{
         driver.context("WEBVIEW_org.lds.ldssa.dev");
+        Set <java.lang.String> windowHandles = driver.getWindowHandles();
+        windowHandles.size();
+        for (String window: windowHandles) {
+            driver.switchTo().window(window);
+            System.out.println("Window handle is now: "+ window);
+        }
         WebElement we = WebElementByXpath(xPath);
 
         JavascriptExecutor executor = (JavascriptExecutor)driver;
@@ -1550,8 +1819,8 @@ public class GospelLibrary {
 
     public void SplashScreenWait() throws Exception{
         System.out.println("Splash Screen Wait Start…");
-        Thread.sleep(milliseconds_3);
-        System.out.println("Waited for " + milliseconds_3 + " milliseconds");
+        Thread.sleep(milliseconds_1);
+        System.out.println("Waited for " + milliseconds_1 + " milliseconds");
         Boolean isPresent = driver.findElementsByXPath("//android.widget.ProgressBar").size() > 0;
         while (isPresent){
             System.out.println("On Splash Screen… Waiting " + milliseconds_1 / 2 + " milliseconds");
@@ -2174,19 +2443,6 @@ public class GospelLibrary {
         verifyText("https://ldsaccount.lds.org/recovery", WebElementById("com.android.chrome:id/url_bar"),false);
     }
 
-    @Test
-    public void settingsScreenLoginCreateLDSAccount() throws Exception {
-        skipLogin();
-        assertMoreOptionsMenu("Library", false);
-        assertElementExistsBy(WebElementsByText("Settings", false));
-        ClickUIElementByText("Settings", false);
-        assertElementExistsBy(WebElementsByText("Sign In", false));
-        ClickUIElementByText("Sign In", false);
-        verifyText("CREATE LDS ACCOUNT", WebElementById("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton"),false);
-        ClickUIElementByID("org.lds.ldssa.dev:id/ldsAccountLoginCreateAccountButton");
-        Thread.sleep(milliseconds_5);
-        verifyText("https://ldsaccount.lds.org/register", WebElementById("com.android.chrome:id/url_bar"),false);
-    }
 
     @Test
     public void settingsScreenCreateLDSAccount() throws Exception {
@@ -4840,100 +5096,80 @@ public class GospelLibrary {
 
     //********** Content Interaction **********
 
-    // Doesn't Verify Anything, but opens the annotations menu
     @Test
-    public void annotationsMenu() throws Exception {
+    public void AnnotationMenuTapMark() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon", "Helaman", "5", "");
-        Thread.sleep(milliseconds_1);
-        Thread.sleep(milliseconds_1);
-        driver.tap(1, WebElementByResourceId("p1"), 1000);
-        Thread.sleep(milliseconds_2);
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Mark");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
 
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
+    }
 
+    @Test
+    public void AnnotationMenuTapNote() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Note");
+        assertNoteScreen(true);
+    }
 
-        List handles = new ArrayList();
-        handles.add("NATIVE_APP");
-        handles.add("WEBVIEW_org.lds.ldssa.dev");
-        handles.add("WEBVIEW_chrome");
-        handles.add("WEBVIEW_Terrace");
-        List wHandles = new ArrayList();
+    @Test
+    public void AnnotationMenuTapTag() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Tag");
+        assertTagScreen(true);
+    }
 
+    @Test
+    public void AnnotationMenuTapAddTo() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Add to");
+        assertAddToNotebookScreen(true);
+    }
 
-        int i = 1;
-        System.out.println(driver.getContextHandles());
-        System.out.println("Context is: "+handles.get(i));
-        driver.context(handles.get(i).toString());
+    @Test
+    public void AnnotationMenuTapLink() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Link");
+    }
 
+    @Test
+    public void AnnotationMenuTapCopy() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Copy");
+    }
 
-        String parentWindowHandle = driver.getWindowHandle(); // save the current window handle
-        handles.add(parentWindowHandle);
+    @Test
+    public void AnnotationMenuTapShare() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Share");
+    }
 
-        System.out.println("Context handles: " + driver.getContextHandles());
-        System.out.println("Window Handles: " + driver.getWindowHandles());
+    @Test
+    public void AnnotationMenuTapSearch() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Search");
+    }
 
+    @Test
+    public void AnnotationMenuTapDefine() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Define");
+    }
 
-        Set<String> windowids = driver.getWindowHandles();
-
-        Iterator<String> iter= windowids.iterator();
-        while(iter.hasNext()){
-            String windowHandle = iter.next();
-            wHandles.add(windowHandle);
-        }
-
-        int k = 2;
-
-
-        System.out.println("Window is: "+wHandles.get(k));
-        driver.switchTo().window(wHandles.get(k).toString());
-        List elements = driver.findElementsByXPath("//*");
-        for (int j = 0; j < elements.size(); j++) {
-            WebElement temp = (WebElement) elements.get(j);
-            System.out.println("Text:     "+ temp.getText());
-            System.out.println("Class:    "+ temp.getClass());
-            System.out.println("Tag Name: "+ temp.getTagName());
-        }
-
-        System.out.println(driver.getContextHandles());
-//        for (int i = 0; i < Webhandles.size(); i++) {
-//            System.out.println("Window is: "+Webhandles.get(i));
-//            driver.switchTo().window(Webhandles.get(i).toString());
-//            List elements = driver.findElementsByXPath("//*");
-//            for (int j = 0; j < elements.size(); j++) {
-//                WebElement temp = (WebElement) elements.get(i);
-//                System.out.println("Text:     "+ temp.getText());
-//                System.out.println("Class:    "+ temp.getClass());
-//                System.out.println("Tag Name: "+ temp.getTagName());
-//            }
-//
-//        }
-
-
-
-
-
-//        Set<String> windowids = driver.getWindowHandles();
-//
-//        Iterator<String> iter= windowids.iterator();
-//        while(iter.hasNext()){
-//            System.out.println(iter.next());
-//        }
-//        windowids = driver.getWindowHandles();
-//        iter= windowids.iterator();
-//        String mainWindowId=iter.next();
-//        String popupwindowid=iter.next();
-//        driver.switchTo().window(popupwindowid);
-//        List elements = driver.findElementsByXPath("//*");
-//        for (int i = 0; i < elements.size(); i++) {
-//            WebElement temp = (WebElement) elements.get(i);
-//            System.out.println("Text:     "+ temp.getText());
-//            System.out.println("Class:    "+ temp.getClass());
-//            System.out.println("Tag Name: "+ temp.getTagName());
-//        }
-        //driver.switchTo().window(mainWindowId);
-        Thread.sleep(milliseconds_2);
-
+    @Test
+    public void AnnotationMenuTapRemove() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Remove");
     }
 
     //********** General Conference Section **********
@@ -4942,7 +5178,7 @@ public class GospelLibrary {
     public void generalConferenceVerifyAll() throws Exception {
 
         assertElementExistsBy(WebElementsByText("General Conference", false));
-        ClickUIElementByText("General Conference", false);
+        ClickUIElementByText("General Conference",false);
         int cYear = parseInt(getLatestConferenceYear());
         String cMonth = getLatestConferenceMonth();
         if (cMonth == "April"){

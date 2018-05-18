@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="selendroid-client-0.10.0">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selendroid-client-0.10.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ExternalJars/selendroid-client-0.10.0.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

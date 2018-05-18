@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="javax">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/javax.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ExternalJars/javax.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
