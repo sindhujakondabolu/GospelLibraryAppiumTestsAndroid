@@ -1,7 +1,7 @@
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import javafx.util.Pair;
-import org.apache.xpath.operations.Bool;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -9,14 +9,15 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.touch.TouchActions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.tukaani.xz.check.Check;
 
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 import static java.lang.Integer.parseInt;
 import static org.junit.Assert.assertEquals;
@@ -39,9 +40,6 @@ public class GospelLibrary {
         capabilities.setCapability("automationName","UiAutomator2");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         setBooks();
-
-
-
 
     }
 
@@ -491,6 +489,20 @@ public class GospelLibrary {
         return tempElement;
     }
 
+    //Click Element in Webview
+    public void ClickUIElementInWebviewByXPath(String xPath) throws Exception{
+        driver.context("WEBVIEW_org.lds.ldssa.dev");
+        Set <java.lang.String> windowHandles = driver.getWindowHandles();
+        windowHandles.size();
+        for (String window: windowHandles) {
+            driver.switchTo().window(window);
+            System.out.println("Window handle is now: "+ window);
+        }
+
+        ClickUIElementByXpath(xPath);
+        driver.context("NATIVE_APP");
+    }
+
     //Click Element by Text
     public void ClickUIElementByText(String text, Boolean isCapitalized) throws Exception {
         if (isCapitalized){
@@ -668,7 +680,9 @@ public class GospelLibrary {
         System.out.println("Y Tap Point is:   " + yTapPoint);
         System.out.println("Screen Width is: " + screenWidth);
         System.out.println("X Tap Point is:  " + xTapPoint);
-        driver.tap(1,xTapPoint,yTapPoint,100);
+        TouchAction action = new TouchAction(driver);
+        action.tap(xTapPoint, yTapPoint).perform();
+        Thread.sleep(1000);
     }
 
 
@@ -1230,8 +1244,6 @@ public class GospelLibrary {
         System.out.println("assert element is present. Expected: true [] Actual: " + tempElement + " Element: " + xPath.toString() + "");
         assert tempElement;
         driver.context("NATIVE_APP");
-
-
     }
 
 
@@ -1476,6 +1488,46 @@ public class GospelLibrary {
 
     }
 
+    public void assertMenuBar(String title, String subTitle) throws Exception {
+        //assert menu bar
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbar"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbarTextLayout"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/dropArrowImageView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        verifyText(title,WebElementByResourceId("org.lds.ldssa.dev:id/mainToolbarTitleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbarSubTitleTextView"));
+        verifyText(subTitle,WebElementByResourceId("org.lds.ldssa.dev:id/mainToolbarSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbarSubTitleTextView"));
+    }
+    public void assertSideBar(String title, Boolean isAnnotation, String annotationType, String TagName) throws Exception {
+        //assert sidebar
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/contentDrawerToolbar"));
+        //assert close icon
+        assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/contentDrawerToolbar\"]/android.widget.ImageButton"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/contentDrawerToolbarTitleTextView"));
+        verifyText(title,WebElementByResourceId("org.lds.ldssa.dev:id/contentDrawerToolbarTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("Related Content"));
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.ImageView[@content-desc=\"More options\"])[2]"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/sideBarContainer"));
+        if (isAnnotation) {
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/annotationView"));
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/lastModifiedTextView"));
+        }
+        if (annotationType == "Tag"){
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleLayout"));
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+            verifyText(TagName, WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"), false);
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/tag_text"));
+        } else if (annotationType == ""){
+        } else {
+            fail(annotationType + " is not supported. Supported annotations are \"Tag\"");
+        }
+    }
+
 
     public void AnnotationsSyncCheck(String buttonToPress) throws Exception {
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_title"));
@@ -1634,7 +1686,274 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/searchClearTextImageView"));
     }
 
+    public void assertHighlightStyleScreen() throws Exception {
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbar"));
+        assertElementExistsBy(WebElementsByText("Highlight Style",false));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/textView2"));
+        verifyText("Recent",WebElementByResourceId("org.lds.ldssa.dev:id/textView2"),true);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/indicatorImageView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/fillIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/underlineIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/clearIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/underlineView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/highlightStyleImageView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/redColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/orangeColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/yellowColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/greenColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/blueColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/darkBlueColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/purpleColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/pinkColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/brownColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/grayColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/recentSeparatorView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/recent1ColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/recent2ColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/recent3ColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/recent4ColorIndicator"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/recent5ColorIndicator"));
+    }
+
+    public void assertHighlightStyleScreenStyleAndColor(String Style,String Color) throws Exception{
+        if (Style == "solid"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/fillIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/indicatorImageView\"]"));
+        } else if (Style == "underline"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/underlineIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/indicatorImageView\"]"));
+        } else if (Style == "clear"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/clearIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/indicatorImageView\"]"));
+            Color = "clear";
+        } else {
+            fail(Style + " is not a valid style. Valid styles are \"solid\" \"underline\" and \"clear\"");
+        }
+
+        if (Color == "red"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/redColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "orange"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/orangeColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "yellow"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/yellowColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "green"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/greenColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "blue"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/blueColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "dark_blue"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/darkBlueColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "purple") {
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/purpleColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "pink"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/pinkColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "brown"){
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/brownColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "gray") {
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/grayColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "clear"){
+        }else {
+            fail(Color + " is not a valid color. Valid colors are \"red\" \"orange\" \"yellow\" \"blue\" \"dark_blue\" \"purple\" \"pink\" \"brown\" \"gray\"");
+        }
+    }
+
+    public String ChangeHighlightColorAndStyle(String Style,String Color) throws Exception{
+        if (Style == "solid"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/fillIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/fillIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/indicatorImageView\"]"));
+            Style = "box";
+        } else if (Style == "underline"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/underlineIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/underlineIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/indicatorImageView\"]"));
+            Style = "underline";
+        } else if (Style == "clear"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/clearIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/clearIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/indicatorImageView\"]"));
+            Style = "box";
+            Color = "clear";
+        } else {
+                fail(Style + " is not a valid style. Valid styles are \"solid\" \"underline\" and \"clear\"");
+        }
+
+        if (Color == "red"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/redColorIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/redColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "orange"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/orangeColorIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/orangeColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "yellow"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/yellowColorIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/yellowColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "green"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/greenColorIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/greenColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "blue"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/blueColorIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/blueColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "dark_blue"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/darkBlueColorIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/darkBlueColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "purple") {
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/purpleColorIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/purpleColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "pink"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/pinkColorIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/pinkColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "brown"){
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/brownColorIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/brownColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "gray") {
+            ClickUIElementByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/grayColorIndicator\"]");
+            driver.getPageSource();
+            assertElementExistsBy(WebElementsByXpath("//*[@resource-id=\"org.lds.ldssa.dev:id/grayColorIndicator\"]/android.view.ViewGroup/android.widget.ImageView[@resource-id=\"org.lds.ldssa.dev:id/checkmarkImageView\"]"));
+        } else if (Color == "clear"){
+            System.out.println("Style was \"clear\" skipping color");
+        } else {
+            fail(Color + " is not a valid color. Valid colors are \"red\" \"orange\" \"yellow\" \"blue\" \"dark_blue\" \"purple\" \"pink\" \"brown\" \"gray\"");
+        }
+        String StyleAndColorClass = "hl-" + Color + "-" + Style;
+        return StyleAndColorClass;
+    }
+
+    public void TestCheckAnnotationStyleAndColor(String Style, String Color) throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","");
+        OpenAnnotationMenu("p1","Mark");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size())+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size())+"]"),"Style");
+        assertHighlightStyleScreen();
+        assertHighlightStyleScreenStyleAndColor("solid","yellow");
+        String highlightClass = ChangeHighlightColorAndStyle(Style,Color);
+        ClickUIElementByAccessibilityID("Navigate up");
+        assertElementInWebviewExistsBy("//div[contains(@class, '"+highlightClass+"')]");
+        templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size())+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size())+"]"),"Style");
+        assertHighlightStyleScreenStyleAndColor(Style,Color);
+    }
+
+
     //************************ Open Annotation Menu *********************************
+
+    public void OpenAnnotationMenuFromAnnotation(WebElement element, String annotationType) throws Exception{
+        driver.getPageSource();
+        Thread.sleep(milliseconds_2);
+        int windowHeight = driver.manage().window().getSize().height;
+        int windowWidth = driver.manage().window().getSize().width;
+        int elementWidth = element.getSize().width;
+        int elementHeight = element.getSize().height;
+        int elementUpperX = element.getLocation().getX();
+        int elementUpperY = element.getLocation().getY();
+        int elementTapPointX = elementUpperX + (elementWidth / 2);
+        int elementTapPointY = elementUpperY + (elementHeight / 2);
+        int annotationMenuWidth = 1184;
+        int annotationMenuHeight = 560;
+        int buttonWidth = 224;
+        int buttonHeight = 224;
+        int margin = 32;
+        int headerFooter = 40;
+        int menuBottomY = elementTapPointY - 140 ;
+        if ((windowHeight/elementTapPointY) > 2.8){
+            menuBottomY = elementTapPointY + 140 + annotationMenuHeight;
+            System.out.println("elementTapPoint is above 28% of the screen");
+        }
+        int menuBottomX = ((windowWidth / 2) - (annotationMenuWidth / 2));
+        int bottomRowY = (menuBottomY - headerFooter - (buttonHeight/2));
+        int topRowY = (menuBottomY - headerFooter - buttonHeight - margin - (buttonHeight/2));
+        int markX = (menuBottomX + margin + (buttonWidth/2));
+        int noteX = (menuBottomX + margin + buttonWidth + (buttonWidth/2));
+        int tagX = (menuBottomX + margin + (buttonWidth * 2) + (buttonWidth/2));
+        int addToX = (menuBottomX + margin + (buttonWidth * 3) + (buttonWidth/2));
+        int linkX = (menuBottomX + margin + (buttonWidth * 4) + (buttonWidth/2));
+        int copyX = (menuBottomX + margin + (buttonWidth/2));
+        int shareX = (menuBottomX + margin + buttonWidth + (buttonWidth/2));
+        int searchX = (menuBottomX + margin + (buttonWidth * 2) + (buttonWidth/2));
+        int defineX = (menuBottomX + margin + (buttonWidth * 3) + (buttonWidth/2));
+        int removeX = (menuBottomX + margin + (buttonWidth * 4) + (buttonWidth/2));
+
+        element.click();
+        Thread.sleep(milliseconds_1);
+        System.out.println("Width: " + elementWidth);
+        System.out.println("Height: " + elementHeight);
+        System.out.println("UpperX: " + elementUpperX);
+        System.out.println("UpperY: " + elementUpperY);
+        System.out.println("elementTapX: " + elementTapPointX);
+        System.out.println("elementTapY: " + elementTapPointY);
+
+        if (annotationType == "Style"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, markX, topRowY,1000);
+            System.out.println("markX is: " + markX);
+            assertHighlightStyleScreen();
+        } else if (annotationType == "Note"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, noteX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertNoteScreen(false);
+        } else if (annotationType == "Tag"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, tagX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertTagScreen(false);
+        } else if (annotationType == "Add to"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, addToX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertAddToNotebookScreen(false);
+        } else if (annotationType == "Link"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, linkX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertLinksScreen();
+        } else if (annotationType == "Copy"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, copyX, bottomRowY,10);
+        } else if (annotationType == "Share"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, shareX, bottomRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertShareScreen();
+        } else if (annotationType == "Search"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, searchX, bottomRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertSearchScreen();
+        } else if (annotationType == "Define"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, defineX, bottomRowY,10);
+        } else if (annotationType == "Remove"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, removeX, bottomRowY,10);
+        } else {
+            fail(annotationType + " is not a valid annotation menu item. Valid annotation items are: " +
+                    "Style, " +
+                    "Note, " +
+                    "Tag, " +
+                    "Add to, " +
+                    "Link, " +
+                    "Copy, " +
+                    "Share, " +
+                    "Search, " +
+                    "Define, " +
+                    "Remove");
+        }
+
+
+
+
+    }
 
     public void OpenAnnotationMenu(String id, String annotationType) throws Exception{
         driver.getPageSource();
@@ -1737,10 +2056,6 @@ public class GospelLibrary {
                     "Define, " +
                     "Remove");
         }
-
-
-
-
     }
 
 
@@ -4661,6 +4976,7 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_5);
         assertElementExistsBy(WebElementsByText("Settings", false));
 
+
     }
 
     @Test
@@ -5107,11 +5423,189 @@ public class GospelLibrary {
     }
 
     @Test
+    public void AnnotationMenuTapMarkAndStyle() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","");
+        OpenAnnotationMenu("p1","Mark");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size())+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size())+"]"),"Style");
+        assertHighlightStyleScreen();
+        assertHighlightStyleScreenStyleAndColor("solid","yellow");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleClear() throws Exception{
+        TestCheckAnnotationStyleAndColor("clear","");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleRedUnderline() throws Exception{
+        TestCheckAnnotationStyleAndColor("underline","red");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleOrangeUnderline() throws Exception{
+        TestCheckAnnotationStyleAndColor("underline","orange");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleYellowUnderline() throws Exception{
+        TestCheckAnnotationStyleAndColor("underline","yellow");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleGreenUnderlined() throws Exception{
+        TestCheckAnnotationStyleAndColor("underline","green");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleBlueUnderline() throws Exception{
+        TestCheckAnnotationStyleAndColor("underline","blue");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleDarkBlueUnderline() throws Exception{
+        TestCheckAnnotationStyleAndColor("underline","dark_blue");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStylePurpleUnderline() throws Exception{
+        TestCheckAnnotationStyleAndColor("underline","purple");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStylePinkUnderline() throws Exception{
+        TestCheckAnnotationStyleAndColor("underline","pink");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleBrownUnderline() throws Exception{
+        TestCheckAnnotationStyleAndColor("underline","brown");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleGrayUnderline() throws Exception{
+        TestCheckAnnotationStyleAndColor("underline","gray");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleRedSolid() throws Exception{
+        TestCheckAnnotationStyleAndColor("solid","red");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleOrangeSolid() throws Exception{
+        TestCheckAnnotationStyleAndColor("solid","orange");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleYellowSolid() throws Exception{
+        TestCheckAnnotationStyleAndColor("solid","yellow");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleGreenSolid() throws Exception{
+        TestCheckAnnotationStyleAndColor("solid","green");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleBlueSolid() throws Exception{
+        TestCheckAnnotationStyleAndColor("solid","blue");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleDarkBlueSolid() throws Exception{
+        TestCheckAnnotationStyleAndColor("solid","dark_blue");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStylePurpleSolid() throws Exception{
+        TestCheckAnnotationStyleAndColor("solid","purple");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStylePinkSolid() throws Exception{
+        TestCheckAnnotationStyleAndColor("solid","pink");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleBrownSolid() throws Exception{
+        TestCheckAnnotationStyleAndColor("solid","brown");
+    }
+
+    @Test
+    public void AnnotationMenuTapMarkAndStyleGraySolid() throws Exception{
+        TestCheckAnnotationStyleAndColor("solid","gray");
+    }
+
+    @Test
     public void AnnotationMenuTapNote() throws Exception{
         skipLogin();
         OpenScripture("Book of Mormon","Jacob","5","1");
         OpenAnnotationMenu("p1","Note");
         assertNoteScreen(true);
+    }
+
+    @Test
+    public void AnnotationMenuCreateNoteAnnotationIndicatorIcon() throws Exception{
+        AnnotationMenuCreateNote();
+        ClickUIElementByAccessibilityID("Navigate up");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
+        assertEquals("url(\"file:///android_asset/images/annotation_note.png\")",getComputedCssUsingXpath("//div[contains(@class,'stickyNote')]","background-image"));
+
+    }
+
+    @Test
+    public void AnnotationMenuCreateNote() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Note");
+        assertNoteScreen(true);
+        sendText("org.lds.ldssa.dev:id/noteTitleEditText","Spiritual Thought Title");
+        sendText("org.lds.ldssa.dev:id/markdownEditText","Spiritual thought expounded on");
+        verifyText("Spiritual Thought Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText("Spiritual thought expounded on", WebElementByResourceId("org.lds.ldssa.dev:id/markdownEditText"),false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Note");
+        verifyText("Spiritual Thought Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText("Spiritual thought expounded on", WebElementByResourceId("org.lds.ldssa.dev:id/markdownEditText"),false);
+    }
+
+    @Test
+    public void AnnotationMenuCreateNoteWithLink() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Note");
+        assertNoteScreen(true);
+        sendText("org.lds.ldssa.dev:id/noteTitleEditText","Spiritual Thought Title");
+        sendText("org.lds.ldssa.dev:id/markdownEditText","Spiritual thought expounded on");
+        verifyText("Spiritual Thought Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText("Spiritual thought expounded on", WebElementByResourceId("org.lds.ldssa.dev:id/markdownEditText"),false);
+        ClickUIElementByAccessibilityID("Link");
+        assertLinksScreen();
+        sendText("org.lds.ldssa.dev:id/searchEditText","Jarom");
+        ClickUIElementByXpath("(//*[@text=\"Jarom\"]/../../android.widget.ImageView[2])[1]");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+        verifyText("Jarom",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Note");
+        verifyText("Spiritual Thought Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText("Spiritual thought expounded on", WebElementByResourceId("org.lds.ldssa.dev:id/markdownEditText"),false);
+        ClickUIElementByAccessibilityID("Link");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+        verifyText("Jarom",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
     }
 
     @Test
@@ -5123,6 +5617,67 @@ public class GospelLibrary {
     }
 
     @Test
+    public void AnnotationMenuCreateTag() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Tag");
+        assertTagScreen(true);
+        sendText("org.lds.ldssa.dev:id/tagNameEditText","Test Tag");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/linearLayout3"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/listItemImageView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/listItemTextView"));
+        verifyText("Create “Test Tag”",WebElementByResourceId("org.lds.ldssa.dev:id/listItemTextView"),false);
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/listItemImageView");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+        verifyText("Test Tag",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleDeleteImageView"));
+        ClickUIElementByAccessibilityID("Navigate up");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyTag')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Tag");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+        verifyText("Test Tag",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleDeleteImageView"));
+    }
+
+    @Test
+    public void AnnotationMenuCreateTagAnnotationIndicatorIcon() throws Exception{
+        AnnotationMenuCreateTag();
+        ClickUIElementByAccessibilityID("Navigate up");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyTag')]");
+        assertEquals("url(\"file:///android_asset/images/annotation_tag.png\")",getComputedCssUsingXpath("//div[contains(@class,'stickyTag')]","background-image"));
+
+    }
+
+    @Test
+    public void AnnotationMenuOpenTagInSidebarGoToTag() throws Exception{
+        AnnotationMenuCreateTag();
+        ClickUIElementByAccessibilityID("Navigate up");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        ClickUIElementInWebviewByXPath("//div[contains(@class,'stickyTag')]");
+
+        //assert sidebar
+        assertSideBar("Tag",true,"Tag","Test Tag");
+        //click tag
+        ClickUIElementByText("Test Tag",false);
+        //assert menu bar
+        assertMenuBar("Test Tag","Tags");
+
+        //assert tag
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/lastModifiedTextView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/annotationMenuImageButton"));
+        //assert tag content
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/highlightLayout"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleLayout"));
+        verifyText("Test Tag",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/tag_text"));
+    }
+
+    @Test
     public void AnnotationMenuTapAddTo() throws Exception{
         skipLogin();
         OpenScripture("Book of Mormon","Jacob","5","1");
@@ -5131,10 +5686,75 @@ public class GospelLibrary {
     }
 
     @Test
+    public void AnnotationMenuAddToNotebook() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Add to");
+        assertAddToNotebookScreen(true);
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/notebookSelectionFloatingActionButton");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_title"));
+        verifyText("Create Notebook",WebElementByResourceId("org.lds.ldssa.dev:id/md_title"),false);
+        assertElementExistsBy(WebElementsById("android:id/input"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_minMax"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+        assert !Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive").getAttribute("enabled"));
+        sendText("android:id/input","Test Notebook");
+        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive").getAttribute("enabled"));
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/notebookCheckBox");
+        ClickUIElementByAccessibilityID("Navigate up");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Add to");
+        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/notebookCheckBox").getAttribute("checked"));
+
+    }
+
+    @Test
+    public void AnnotationMenuCreateAddToAnnotationIndicatorIcon() throws Exception{
+        AnnotationMenuAddToNotebook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNotebook')]");
+        assertEquals("url(\"file:///android_asset/images/annotation_notebook.png\")",getComputedCssUsingXpath("//div[contains(@class,'stickyNotebook')]","background-image"));
+
+    }
+
+    @Test
     public void AnnotationMenuTapLink() throws Exception{
         skipLogin();
         OpenScripture("Book of Mormon","Jacob","5","1");
         OpenAnnotationMenu("p1","Link");
+    }
+
+    @Test
+    public void AnnotationMenuCreateLinkToSingleChapterBook() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenAnnotationMenu("p1","Link");
+        sendText("org.lds.ldssa.dev:id/searchEditText","Jarom");
+        ClickUIElementByXpath("(//*[@text=\"Jarom\"]/../../android.widget.ImageView[2])[1]");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+        verifyText("Jarom",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Link");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+        verifyText("Jarom",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
+    }
+
+    @Test
+    public void AnnotationMenuCreateLinkAnnotationIndicatorIcon() throws Exception{
+        AnnotationMenuCreateLinkToSingleChapterBook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyLink')]");
+        assertEquals("url(\"file:///android_asset/images/annotation_link.png\")",getComputedCssUsingXpath("//div[contains(@class,'stickyLink')]","background-image"));
+
     }
 
     @Test
@@ -5176,7 +5796,7 @@ public class GospelLibrary {
 
     @Test
     public void generalConferenceVerifyAll() throws Exception {
-
+        skipLogin();
         assertElementExistsBy(WebElementsByText("General Conference", false));
         ClickUIElementByText("General Conference",false);
         int cYear = parseInt(getLatestConferenceYear());
@@ -5231,11 +5851,9 @@ public class GospelLibrary {
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
-        Thread.sleep(milliseconds_5);
-        Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
-        scrollDownTo( latestConference);
+        scrollDownTo(latestConference);
         assertElementExistsBy(WebElementsByText(latestConference, false));
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
         assertElementExistsBy(WebElementsByText("Remove", false));
