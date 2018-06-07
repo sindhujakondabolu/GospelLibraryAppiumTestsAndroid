@@ -36,7 +36,7 @@ public class GospelLibrary {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName", "AndroidTestDevice");
-        capabilities.setCapability("app", "/Users/dexterdrysdale/Documents/GitHub/GospelLibraryAppiumTestsAndroid/APK/gospel-library-alpha-20180321-2038.apk");
+        capabilities.setCapability("app", System.getProperty("user.dir") + "/../../APK/gospel-library-alpha-20180321-2038.apk");
         capabilities.setCapability("automationName","UiAutomator2");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         setBooks();
@@ -62,7 +62,6 @@ public class GospelLibrary {
 
     //String idString = "org.lds.ldssa.dev";
     String idString = "org.lds.ldssa";
-
 
     //*************************************************************** UI STRINGS ***************************************************************
     //New Notebook 1
@@ -5850,7 +5849,6 @@ public class GospelLibrary {
         verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),false);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         Thread.sleep(milliseconds_5);
-        Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
         scrollDownTo(latestConference);
@@ -5884,8 +5882,6 @@ public class GospelLibrary {
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
-        Thread.sleep(milliseconds_5);
-        Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
         scrollDownTo( latestConference);
@@ -5907,8 +5903,6 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         verifyText("REMOVE ALL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),false);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
-        Thread.sleep(milliseconds_5);
-        Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         scrollDownTo( latestConference);
         assertElementExistsBy(WebElementsByText(latestConference, false));
@@ -5940,8 +5934,6 @@ public class GospelLibrary {
         verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),false);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         ClickUIElementByText("General Conference", false);
-        Thread.sleep(milliseconds_5);
-        Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
@@ -5976,8 +5968,6 @@ public class GospelLibrary {
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         ClickUIElementByText("General Conference", false);
         Thread.sleep(milliseconds_5);
-        Thread.sleep(milliseconds_5);
-        Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
         scrollDownTo( latestConference);
@@ -6005,8 +5995,6 @@ public class GospelLibrary {
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         assertElementExistsBy(WebElementsByText("General Conference", false));
         ClickUIElementByText("General Conference", false);
-        Thread.sleep(milliseconds_5);
-        Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         scrollDownTo( latestConference);
         assertElementExistsBy(WebElementsByText(latestConference, false));
