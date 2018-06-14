@@ -38,6 +38,8 @@ public class GospelLibrary {
         capabilities.setCapability("deviceName", "AndroidTestDevice");
         capabilities.setCapability("app", System.getProperty("user.dir") + "/../../APK/gospel-library-alpha-20180321-2038.apk");
         capabilities.setCapability("automationName","UiAutomator2");
+        capabilities.setCapability("chromedriverChromeMappingFile",System.getProperty("user.dir")+"/../../ChromeDriver/chromeDriverMappings.json");
+        capabilities.setCapability("chromedriverExecutableDir",System.getProperty("user.dir")+"/../../ChromeDriver");
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         setBooks();
 
@@ -2148,10 +2150,8 @@ public class GospelLibrary {
 
     //*************************************************************** Tests ***************************************************************
     @Test
-    public void LaunchTest() throws Exception {
-        skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","10");
-        assertNavBar("Jacob 5","Jacob", "Book of Mormon", "Scriptures","","",true);
+    public void launchTest() throws Exception{
+        SplashScreenWait();
     }
 
     //********** Tips Screen **********
@@ -3448,6 +3448,7 @@ public class GospelLibrary {
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         System.out.println(WebElementById("p1").getCssValue("font-size"));
         Assert.assertEquals("15px", WebElementById("p1").getCssValue("font-size"));
+
         driver.context("NATIVE_APP");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
@@ -5414,7 +5415,7 @@ public class GospelLibrary {
     @Test
     public void AnnotationMenuTapMark() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Mark");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
@@ -5543,7 +5544,7 @@ public class GospelLibrary {
     @Test
     public void AnnotationMenuTapNote() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Note");
         assertNoteScreen(true);
     }
@@ -5560,7 +5561,7 @@ public class GospelLibrary {
     @Test
     public void AnnotationMenuCreateNote() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Note");
         assertNoteScreen(true);
         sendText("org.lds.ldssa.dev:id/noteTitleEditText","Spiritual Thought Title");
@@ -5570,6 +5571,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Note");
@@ -5580,7 +5582,7 @@ public class GospelLibrary {
     @Test
     public void AnnotationMenuCreateNoteWithLink() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Note");
         assertNoteScreen(true);
         sendText("org.lds.ldssa.dev:id/noteTitleEditText","Spiritual Thought Title");
@@ -5597,6 +5599,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Note");
@@ -5608,9 +5611,83 @@ public class GospelLibrary {
     }
 
     @Test
+    public void AnnotationMenuCreateNoteWithTag() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","");
+        OpenAnnotationMenu("p1","Note");
+        assertNoteScreen(true);
+        sendText("org.lds.ldssa.dev:id/noteTitleEditText","Spiritual Thought Title");
+        sendText("org.lds.ldssa.dev:id/markdownEditText","Spiritual thought expounded on");
+        verifyText("Spiritual Thought Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText("Spiritual thought expounded on", WebElementByResourceId("org.lds.ldssa.dev:id/markdownEditText"),false);
+        ClickUIElementByAccessibilityID("Tag");
+        assertTagScreen(true);
+        sendText("org.lds.ldssa.dev:id/tagNameEditText","Test Tag");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/linearLayout3"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/listItemImageView"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/listItemTextView"));
+        verifyText("Create “Test Tag”",WebElementByResourceId("org.lds.ldssa.dev:id/listItemTextView"),false);
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/listItemImageView");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+        verifyText("Test Tag",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleDeleteImageView"));
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Note");
+        verifyText("Spiritual Thought Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText("Spiritual thought expounded on", WebElementByResourceId("org.lds.ldssa.dev:id/markdownEditText"),false);
+        ClickUIElementByAccessibilityID("Tag");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+        verifyText("Test Tag",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleDeleteImageView"));
+    }
+    @Test
+    public void AnnotationMenuCreateNoteAddtoNotebook() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","");
+        OpenAnnotationMenu("p1","Note");
+        assertNoteScreen(true);
+        sendText("org.lds.ldssa.dev:id/noteTitleEditText","Spiritual Thought Title");
+        sendText("org.lds.ldssa.dev:id/markdownEditText","Spiritual thought expounded on");
+        verifyText("Spiritual Thought Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText("Spiritual thought expounded on", WebElementByResourceId("org.lds.ldssa.dev:id/markdownEditText"),false);
+        ClickUIElementByAccessibilityID("Add to Notebook");
+        assertAddToNotebookScreen(true);
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/notebookSelectionFloatingActionButton");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_title"));
+        verifyText("Create Notebook",WebElementByResourceId("org.lds.ldssa.dev:id/md_title"),false);
+        assertElementExistsBy(WebElementsById("android:id/input"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_minMax"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+        assert !Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive").getAttribute("enabled"));
+        sendText("android:id/input","Test Notebook");
+        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive").getAttribute("enabled"));
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/notebookCheckBox");
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Note");
+        verifyText("Spiritual Thought Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText("Spiritual thought expounded on", WebElementByResourceId("org.lds.ldssa.dev:id/markdownEditText"),false);
+        ClickUIElementByAccessibilityID("Add to Notebook");
+        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/notebookCheckBox").getAttribute("checked"));
+    }
+
+    @Test
     public void AnnotationMenuTapTag() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Tag");
         assertTagScreen(true);
     }
@@ -5618,7 +5695,7 @@ public class GospelLibrary {
     @Test
     public void AnnotationMenuCreateTag() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Tag");
         assertTagScreen(true);
         sendText("org.lds.ldssa.dev:id/tagNameEditText","Test Tag");
@@ -5679,7 +5756,7 @@ public class GospelLibrary {
     @Test
     public void AnnotationMenuTapAddTo() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Add to");
         assertAddToNotebookScreen(true);
     }
@@ -5687,7 +5764,7 @@ public class GospelLibrary {
     @Test
     public void AnnotationMenuAddToNotebook() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Add to");
         assertAddToNotebookScreen(true);
         ClickUIElementByResourceID("org.lds.ldssa.dev:id/notebookSelectionFloatingActionButton");
@@ -5705,6 +5782,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNotebook')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Add to");
@@ -5724,14 +5802,14 @@ public class GospelLibrary {
     @Test
     public void AnnotationMenuTapLink() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Link");
     }
 
     @Test
     public void AnnotationMenuCreateLinkToSingleChapterBook() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Link");
         sendText("org.lds.ldssa.dev:id/searchEditText","Jarom");
         ClickUIElementByXpath("(//*[@text=\"Jarom\"]/../../android.widget.ImageView[2])[1]");
@@ -5759,35 +5837,41 @@ public class GospelLibrary {
     @Test
     public void AnnotationMenuTapCopy() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Copy");
     }
 
     @Test
     public void AnnotationMenuTapShare() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Share");
     }
 
     @Test
     public void AnnotationMenuTapSearch() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Search");
     }
 
     @Test
     public void AnnotationMenuTapDefine() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Define");
     }
 
     @Test
     public void AnnotationMenuTapRemove() throws Exception{
         skipLogin();
-        OpenScripture("Book of Mormon","Jacob","5","1");
+        OpenScripture("Book of Mormon","Jacob","5","");
+        OpenAnnotationMenu("p1","Remove");
+    }
+    @Test
+    public void AnnotationMenuTapCreateRemove() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Remove");
     }
 
@@ -5935,6 +6019,7 @@ public class GospelLibrary {
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         ClickUIElementByText("General Conference", false);
         Thread.sleep(milliseconds_5);
+        Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
         scrollDownTo( latestConference);
@@ -5967,6 +6052,7 @@ public class GospelLibrary {
         verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),false);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         ClickUIElementByText("General Conference", false);
+        Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
@@ -6018,6 +6104,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Download", false));
         assertElementExistsBy(WebElementsByText("Add to…", false));
         ClickUIElementByText("Download", false);
+        Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
         assertElementExistsBy(WebElementsByText("Remove", false));
