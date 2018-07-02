@@ -33,8 +33,8 @@
       <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="545">
-              <caret line="3450" column="0" lean-forward="false" selection-start-line="3450" selection-start-column="0" selection-end-line="3450" selection-end-column="0" />
+            <state relative-caret-position="362">
+              <caret line="2480" column="16" lean-forward="true" selection-start-line="2480" selection-start-column="16" selection-end-line="2480" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -53,8 +53,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ClickUIElementByText(&quot;screens&quot;)</find>
-      <find>ClickUIElementByText(&quot;history&quot;)</find>
       <find>ClickUIElementByText(</find>
       <find>&quot;&quot;</find>
       <find>verifytext(&quot;&quot;</find>
@@ -83,6 +81,8 @@
       <find>verify</find>
       <find>text</find>
       <find>string</find>
+      <find>ChangeTextSize</find>
+      <find>css</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot; + idString + &quot;</replace>
@@ -93,6 +93,7 @@
       <replace>&quot;sendto:&quot;+ sendtoemail</replace>
       <replace>Language…</replace>
       <replace>dark_blue</replace>
+      <replace>scrollToById(&quot;p1&quot;);</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -118,9 +119,15 @@
       </list>
     </option>
   </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="2271" />
+    <option name="width" value="2080" />
     <option name="height" value="1417" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -166,10 +173,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -203,27 +210,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
-    <configuration name="GospelLibrary" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
+  <component name="RunManager" selected="JUnit.GospelLibrary.BookmarksLandingPageFromNotes_NotSignedIn">
     <configuration name="GospelLibrary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Gospel-Library-Appium-Tests" />
@@ -244,34 +231,14 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.AnnotationMenuCreateNoteWithLink" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.BookmarksLandingPageFromNotes_NotSignedIn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Gospel-Library-Appium-Tests" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="AnnotationMenuCreateNoteWithLink" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.CreateBookmarkOnChapter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="CreateBookmarkOnChapter" />
+      <option name="METHOD_NAME" value="BookmarksLandingPageFromNotes_NotSignedIn" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -284,14 +251,74 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.LaunchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.CreateNewNoteInNewNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="Gospel-Library-Appium-Tests" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="LaunchTest" />
+      <option name="METHOD_NAME" value="CreateNewNoteInNewNotebook" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="GospelLibrary.CreateNewNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Gospel-Library-Appium-Tests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
+      <option name="METHOD_NAME" value="CreateNewNotebook" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="GospelLibrary.settingsScreenTextSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Gospel-Library-Appium-Tests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
+      <option name="METHOD_NAME" value="settingsScreenTextSize" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="Gospel-Library-Appium-Tests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
+      <option name="METHOD_NAME" value="settingsScreenTextSizeAllSizesSameRelatedContentScripture" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -434,18 +461,20 @@
       <properties />
       <listeners />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Android JUnit.GospelLibrary" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.LaunchTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateBookmarkOnChapter" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.AnnotationMenuCreateNoteWithLink" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenTextSize" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateNewNotebook" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateNewNoteInNewNotebook" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.BookmarksLandingPageFromNotes_NotSignedIn" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.AnnotationMenuCreateNoteWithLink" />
-        <item index="1" class="java.lang.String" itemvalue="Android JUnit.GospelLibrary" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateBookmarkOnChapter" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.LaunchTest" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.BookmarksLandingPageFromNotes_NotSignedIn" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateNewNoteInNewNotebook" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateNewNotebook" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenTextSize" />
       </list>
     </recent_temporary>
   </component>
@@ -466,35 +495,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GospelLibrary - 2018.06.13 at 10h 02m 48s.xml">
-      <configuration name="GospelLibrary" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNewNoteInNewNotebook - 2018.07.02 at 08h 37m 21s.xml">
+      <configuration name="GospelLibrary.CreateNewNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.06.13 at 10h 11m 26s.xml">
-      <configuration name="GospelLibrary" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNewNotebook - 2018.07.02 at 08h 32m 57s.xml">
+      <configuration name="GospelLibrary.CreateNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.06.13 at 10h 19m 26s.xml">
-      <configuration name="GospelLibrary" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 23m 14s.xml">
+      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.06.13 at 10h 21m 05s.xml">
-      <configuration name="GospelLibrary" configurationId="AndroidJUnit" />
+    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 27m 51s.xml">
+      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.06.13 at 10h 23m 05s.xml">
-      <configuration name="GospelLibrary" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 32m 17s.xml">
+      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.06.13 at 10h 33m 43s.xml">
-      <configuration name="GospelLibrary" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 35m 35s.xml">
+      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.06.13 at 17h 37m 43s.xml">
-      <configuration name="GospelLibrary" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 41m 11s.xml">
+      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationMenuCreateNoteWithLink - 2018.06.13 at 10h 24m 07s.xml">
-      <configuration name="GospelLibrary.AnnotationMenuCreateNoteWithLink" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 47m 51s.xml">
+      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationMenuCreateNoteWithLink - 2018.06.13 at 10h 26m 33s.xml">
-      <configuration name="GospelLibrary.AnnotationMenuCreateNoteWithLink" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 54m 15s.xml">
+      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationMenuCreateNoteWithLink - 2018.06.13 at 10h 31m 05s.xml">
-      <configuration name="GospelLibrary.AnnotationMenuCreateNoteWithLink" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.07.02 at 08h 24m 33s.xml">
+      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -512,17 +541,18 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285985" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22541603" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.4074367" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.74168795" sideWeight="0.5925633" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3804841" sideWeight="0.5925633" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32829046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285985" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24583003" sideWeight="0.48393196" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.100079425" sideWeight="0.48393196" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19737887" sideWeight="0.4965035" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -533,7 +563,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22604588" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290469" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -931,8 +960,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="545">
-          <caret line="3450" column="0" lean-forward="false" selection-start-line="3450" selection-start-column="0" selection-end-line="3450" selection-end-column="0" />
+        <state relative-caret-position="362">
+          <caret line="2480" column="16" lean-forward="true" selection-start-line="2480" selection-start-column="16" selection-end-line="2480" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

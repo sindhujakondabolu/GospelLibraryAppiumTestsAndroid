@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -608,7 +609,8 @@ public class GospelLibrary {
     public void TapCenterScreen() throws Exception {
         int screenHeight = driver.manage().window().getSize().getHeight();
         int screenWidth = driver.manage().window().getSize().getWidth();
-        driver.tap(1, screenWidth / 2, screenHeight / 2, 10);
+        TouchAction action = new TouchAction(driver);
+        action.tap(screenWidth / 2, screenHeight / 2).perform();
         System.out.println("Tapping center of screen");
     }
 
@@ -1066,13 +1068,8 @@ public class GospelLibrary {
         verifyText("OK", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),false);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         ClickUIElementByAccessibilityID("Navigate up");
-        Thread.sleep(milliseconds_1);
-        swipeRight();
-        swipeLeft();
-        System.out.println("Waited … Getting page source");
         Thread.sleep(milliseconds_2);
         driver.getPageSource();
-        System.out.println("Page Source Recieved");
     }
 
     //Change Theme
@@ -2115,6 +2112,7 @@ public class GospelLibrary {
         driver.context("WEBVIEW_org.lds.ldssa.dev");
         Set <java.lang.String> windowHandles = driver.getWindowHandles();
         windowHandles.size();
+        System.out.println("Getting foremost Webview");
         for (String window: windowHandles) {
             driver.switchTo().window(window);
             System.out.println("Window handle is now: "+ window);
@@ -3227,60 +3225,37 @@ public class GospelLibrary {
     @Test
     public void settingsScreenThemeAllThemesTextColorAndFootnoteColor() throws Exception {
         skipLogin();
-        OpenScripture("Book of Mormon", "Jacob", "1", "1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgba(33, 34, 37, 1)", WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgb(23, 124, 156)", getComputedCssUsingXpath("//*[@id='p1']/span/sup", "color"));
-        driver.context("NATIVE_APP");
+        OpenScripture("Book of Mormon", "Jacob", "1", "");
+        Assert.assertEquals("rgb(33, 34, 37)",getComputedCssUsingXpath("//*[@id='title_number1']","color"));
+        Assert.assertEquals("rgb(23, 124, 156)",getComputedCssUsingXpath("//*[@id='p1']/span/sup","color"));
         ChangeTheme("Default");
         driver.getPageSource();
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Default Text Color: " + WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgba(33, 34, 37, 1)", WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgb(23, 124, 156)", getComputedCssUsingXpath("//*[@id='p1']/span/sup", "color"));
-        driver.context("NATIVE_APP");
+        Assert.assertEquals("rgb(33, 34, 37)",getComputedCssUsingXpath("//*[@id='title_number1']","color"));
+        Assert.assertEquals("rgb(23, 124, 156)",getComputedCssUsingXpath("//*[@id='p1']/span/sup","color"));
         ChangeTheme("Sepia");
         driver.getPageSource();
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Sepia Text Color: " + WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgb(23, 124, 156)", getComputedCssUsingXpath("//*[@id='p1']/span/sup", "color"));
-        driver.context("NATIVE_APP");
+        Assert.assertEquals("rgb(63, 43, 24)",getComputedCssUsingXpath("//*[@id='title_number1']","color"));
+        Assert.assertEquals("rgb(23, 124, 156)",getComputedCssUsingXpath("//*[@id='p1']/span/sup","color"));
         ChangeTheme("Night");
         driver.getPageSource();
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Night Text Color: " + WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgba(186, 186, 186, 1)", WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgb(138, 225, 237)", getComputedCssUsingXpath("//*[@id='p1']/span/sup", "color"));
-        driver.context("NATIVE_APP");
+        Assert.assertEquals("rgb(186, 186, 186)",getComputedCssUsingXpath("//*[@id='title_number1']","color"));
+        Assert.assertEquals("rgb(138, 225, 237)",getComputedCssUsingXpath("//*[@id='p1']/span/sup","color"));
         ChangeTheme("Dark Blue");
         driver.getPageSource();
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Dark Blue Text Color: " + WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgba(33, 34, 37, 1)", WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgb(23, 124, 156)", getComputedCssUsingXpath("//*[@id='p1']/span/sup", "color"));
-        driver.context("NATIVE_APP");
+        Assert.assertEquals("rgb(33, 34, 37)",getComputedCssUsingXpath("//*[@id='title_number1']","color"));
+        Assert.assertEquals("rgb(23, 124, 156)",getComputedCssUsingXpath("//*[@id='p1']/span/sup","color"));
         ChangeTheme("Magenta");
         driver.getPageSource();
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Magenta Text Color: " + WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgba(33, 34, 37, 1)", WebElementById("title_number1").getCssValue("color"));
-        assertEquals("rgb(23, 124, 156)", getComputedCssUsingXpath("//*[@id='p1']/span/sup", "color"));
-        driver.context("NATIVE_APP");
-        Thread.sleep(milliseconds_5);
-
-
-
+        Assert.assertEquals("rgb(33, 34, 37)",getComputedCssUsingXpath("//*[@id='title_number1']","color"));
+        Assert.assertEquals("rgb(23, 124, 156)",getComputedCssUsingXpath("//*[@id='p1']/span/sup","color"));
     }
 
 
     @Test
     public void settingsScreenTextSize() throws Exception {
         skipLogin();
-        OpenScripture("Book of Mormon", "Jacob", "1", "1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("18px", (WebElementById("p1").getCssValue("font-size")));
-        driver.context("NATIVE_APP");
+        OpenScripture("Book of Mormon", "Jacob", "1", "");
+        Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         ClickUIElementByAccessibilityID("Navigate up");
         ClickUIElementByAccessibilityID("Navigate up");
         ClickUIElementByAccessibilityID("Navigate up");
@@ -3304,20 +3279,15 @@ public class GospelLibrary {
         verifyText("OK", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),false);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         ClickUIElementByAccessibilityID("Navigate up");
-        OpenScripture("Book of Mormon", "Jacob", "1", "1");
-        System.out.println(driver.getContextHandles());
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("21px", (WebElementById("p1").getCssValue("font-size")));
-
+        OpenScripture("Book of Mormon", "Jacob", "1", "");
+        Assert.assertEquals("21px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
     }
 
     @Test
     public void settingsScreenTextSizeCancelSameContent() throws Exception {
         skipLogin();
         OpenScripture("Book of Mormon", "Ether", "1", "1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("18px", WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         ClickUIElementByText("Settings", false);
@@ -3333,20 +3303,14 @@ public class GospelLibrary {
         verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),true);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
         ClickUIElementByAccessibilityID("Navigate up");
-        driver.getPageSource();
-        Thread.sleep(milliseconds_3);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("18px", (WebElementById("p1").getCssValue("font-size")));
-        driver.context("NATIVE_APP");
+        Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
     }
 
     @Test
     public void settingsScreenTextSizeChangeSliderThenCancelSameContent() throws Exception {
         skipLogin();
-        OpenScripture("Book of Mormon", "Ether", "1", "1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("18px", WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        OpenScripture("Book of Mormon", "Ether", "1", "");
+        Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         ClickUIElementByText("Settings", false);
@@ -3363,93 +3327,14 @@ public class GospelLibrary {
         verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),true);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
         ClickUIElementByAccessibilityID("Navigate up");
-        driver.getPageSource();
-        Thread.sleep(milliseconds_3);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("18px", (WebElementById("p1").getCssValue("font-size")));
-        driver.context("NATIVE_APP");
-    }
-
-
-    @Test
-    public void settingsScreenTextSizeAllSizesSameContent() throws Exception {
-        skipLogin();
-        OpenScripture("Book of Mormon", "Jacob", "1", "1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("18px", WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        ChangeTextSize(1);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("12px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
-        driver.context("NATIVE_APP");
-        ChangeTextSize(2);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("15px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
-        driver.context("NATIVE_APP");
-        ChangeTextSize(3);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("18px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
-        driver.context("NATIVE_APP");
-        ChangeTextSize(4);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("21px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
-        driver.context("NATIVE_APP");
-        ChangeTextSize(5);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("26px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
-        driver.context("NATIVE_APP");
-        ChangeTextSize(6);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("40px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
-        driver.context("NATIVE_APP");
-        ChangeTextSize(7);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("60px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
-        driver.context("NATIVE_APP");
+        Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
     }
 
     @Test
     public void settingsScreenTextSizeAllSizesSameRelatedContentScripture() throws Exception {
         skipLogin();
-        OpenScripture("Book of Mormon", "Jacob", "1", "1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("18px", WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content", false));
-        ClickUIElementByText("Related Content", false);
-        assertElementExistsBy(WebElementsByText("1a", false));
-        ClickUIElementByText("1a", false);
-        Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
-        ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
-        ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
-        ChangeTextSize(1);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Assert.assertEquals("12px", WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content", false));
-        ClickUIElementByText("Related Content", false);
-        assertElementExistsBy(WebElementsByText("1a", false));
-        ClickUIElementByText("1a", false);
-        driver.getPageSource();
-        Assert.assertEquals("12px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
-        ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
-        ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
-        ChangeTextSize(2);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("15px", WebElementById("p1").getCssValue("font-size"));
-
-        driver.context("NATIVE_APP");
+        OpenScripture("Book of Mormon", "Jacob", "1", "");
+        Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Related Content", false));
@@ -3459,11 +3344,45 @@ public class GospelLibrary {
         Assert.assertEquals("15px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
+        ChangeTextSize(1);
+        Thread.sleep(milliseconds_1);
+        Assert.assertEquals("12px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
+        Assert.assertEquals("12px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
+        ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
+        ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
+        ChangeTextSize(2);
+        Thread.sleep(milliseconds_1);
+        Assert.assertEquals("15px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
+        Assert.assertEquals("12px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
+        ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
+        ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
         ChangeTextSize(3);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("18px", WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        Thread.sleep(milliseconds_1);
+        Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Related Content", false));
+        ClickUIElementByText("Related Content", false);
+        assertElementExistsBy(WebElementsByText("1a", false));
+        ClickUIElementByText("1a", false);
+        Assert.assertEquals("15px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
+        ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
+        ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
+        ChangeTextSize(4);
+        Thread.sleep(milliseconds_1);
+        Assert.assertEquals("21px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Related Content", false));
@@ -3473,11 +3392,9 @@ public class GospelLibrary {
         Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
-        ChangeTextSize(4);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("21px", WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        ChangeTextSize(5);
+        Thread.sleep(milliseconds_1);
+        Assert.assertEquals("26px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Related Content", false));
@@ -3487,25 +3404,9 @@ public class GospelLibrary {
         Assert.assertEquals("21px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
-        ChangeTextSize(5);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("26px", WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        ClickUIElementByAccessibilityID("More options");
-        assertElementExistsBy(WebElementsByText("Related Content", false));
-        ClickUIElementByText("Related Content", false);
-        assertElementExistsBy(WebElementsByText("1a", false));
-        ClickUIElementByText("1a", false);
-        Assert.assertEquals("26px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
-        ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
-        ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
         ChangeTextSize(6);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("40px", WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        Thread.sleep(milliseconds_1);
+        Assert.assertEquals("40px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Related Content", false));
@@ -3516,194 +3417,136 @@ public class GospelLibrary {
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
         ChangeTextSize(7);
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println(WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("60px", WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        Thread.sleep(milliseconds_1);
+        Assert.assertEquals("60px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Related Content", false));
         ClickUIElementByText("Related Content", false);
         assertElementExistsBy(WebElementsByText("1a", false));
         ClickUIElementByText("1a", false);
-        Assert.assertEquals("60px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
+        Assert.assertEquals("40px",getComputedCssUsingXpath("//*[@id='p27']","font-size"));
         ClickUIElementByXpath("//android.widget.TextView[@text='1a']/../android.widget.ImageButton");
         ClickUIElementByXpath("//android.widget.TextView[@text='Related Content']/../android.widget.ImageButton");
     }
 
     @Test
-    public void settingsScreenTextSizeAllSizesTitle_Subtitle_Body_SameContent() throws Exception {
+    public void settingsScreenTextSizeOneTitle_Subtitle_Body() throws Exception {
         skipLogin();
-        OpenScripture("Book of Mormon", "Jacob", "1", "1");
-//        swipeRight();
-//        scrollToById("title1");
-//        driver.context("WEBVIEW_org.lds.ldssa.dev");
-//        System.out.println("Title: " + driver.findElementByClassName("dominant").getCssValue("font-size"));
-//        driver.context("NATIVE_APP");
-        scrollToByResourceId("title_number1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
-        Assert.assertEquals("19.8px",WebElementById("title_number1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("study_summary1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
-        Assert.assertEquals("18px",WebElementById("study_summary1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("p1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("18px",WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        OpenScripture("Book of Mormon","Jacob","1","");
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("19.8px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("18px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         ChangeTextSize(1);
-        scrollToByResourceId("title1");
-//        driver.context("WEBVIEW_org.lds.ldssa.dev");
-//        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
-//        driver.context("NATIVE_APP");
-        scrollToByResourceId("title_number1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        driver.getPageSource();
-        System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
-        Assert.assertEquals("13.2px",WebElementById("title_number1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("study_summary1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
-        Assert.assertEquals("12px",WebElementById("study_summary1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("p1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("12px",WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        Assertions.assertEquals("12px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("13.2px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("12px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("12px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("12px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
+    }
+
+    @Test
+    public void settingsScreenTextSizeTwoTitle_Subtitle_Body() throws Exception {
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","1","");
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("19.8px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("18px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         ChangeTextSize(2);
-        scrollToByResourceId("title1");
-//        driver.context("WEBVIEW_org.lds.ldssa.dev");
-//        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
-//        driver.context("NATIVE_APP");
-        scrollToByResourceId("title_number1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        driver.getPageSource();
-        System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
-        Assert.assertEquals("16.5px",WebElementById("title_number1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("study_summary1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
-        Assert.assertEquals("15px",WebElementById("study_summary1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("p1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("15px",WebElementById("ps").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        Assertions.assertEquals("15px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("16.5px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("15px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("15px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("15px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
+    }
+
+    @Test
+    public void settingsScreenTextSizeThreeTitle_Subtitle_Body() throws Exception {
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","1","");
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("19.8px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("18px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         ChangeTextSize(3);
-        scrollToByResourceId("title1");
-//        driver.context("WEBVIEW_org.lds.ldssa.dev");
-//        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
-//        driver.context("NATIVE_APP");
-        scrollToByResourceId("title_number1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        driver.getPageSource();
-        System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
-        Assert.assertEquals("19.8px",WebElementById("title_number1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("study_summary1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
-        Assert.assertEquals("18px",WebElementById("study_summary1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("p1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("18px",WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("19.8px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("18px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
+    }
+
+    @Test
+    public void settingsScreenTextSizeFourTitle_Subtitle_Body() throws Exception {
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","1","");
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("19.8px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("18px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         ChangeTextSize(4);
-        scrollToByResourceId("title1");
-//        driver.context("WEBVIEW_org.lds.ldssa.dev");
-//        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
-//        driver.context("NATIVE_APP");
-        scrollToByResourceId("title_number1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        driver.getPageSource();
-        System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
-        Assert.assertEquals("23.1px",WebElementById("title_number1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("study_summary1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
-        Assert.assertEquals("21px",WebElementById("study_summary1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("p1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("21px",WebElementById("p1").getCssValue("font-size"));
+        Assertions.assertEquals("21px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("23.1px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("21px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("21px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("21px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
+    }
 
-        driver.context("NATIVE_APP");
+    @Test
+    public void settingsScreenTextSizeFiveTitle_Subtitle_Body() throws Exception {
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","1","");
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("19.8px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("18px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         ChangeTextSize(5);
-        scrollToByResourceId("title1");
-//        driver.context("WEBVIEW_org.lds.ldssa.dev");
-//        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
-//        driver.context("NATIVE_APP");
-        scrollToByResourceId("title_number1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        driver.getPageSource();
-        System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
-        Assert.assertEquals("28.6px",WebElementById("title_number1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("study_summary1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
-        Assert.assertEquals("26px",WebElementById("study_summary1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("p1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("26px",WebElementById("p1").getCssValue("font-size"));
+        Assertions.assertEquals("26px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("28.6px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("26px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("26px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("26px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
+    }
 
-        driver.context("NATIVE_APP");
+    @Test
+    public void settingsScreenTextSizeSixTitle_Subtitle_Body() throws Exception {
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","1","");
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("19.8px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("18px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         ChangeTextSize(6);
-        scrollToByResourceId("title1");
-//        driver.context("WEBVIEW_org.lds.ldssa.dev");
-//        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
-//        driver.context("NATIVE_APP");
-        scrollToByResourceId("title_number1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        driver.getPageSource();
-        System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
-        Assert.assertEquals("44px",WebElementById("title_number1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("study_summary1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
-        Assert.assertEquals("40px",WebElementById("study_summary1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("p1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("40px",WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        Assertions.assertEquals("40px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("44px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("40px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("40px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("40px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
+    }
+
+    @Test
+    public void settingsScreenTextSizeSevenTitle_Subtitle_Body() throws Exception {
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","1","");
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("19.8px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("18px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
         ChangeTextSize(7);
-        scrollToByResourceId("title1");
-//        driver.context("WEBVIEW_org.lds.ldssa.dev");
-//        System.out.println("Title: " + WebElementById("title1").getCssValue("font-size"));
-//        driver.context("NATIVE_APP");
-        scrollToByResourceId("title_number1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        driver.getPageSource();
-        System.out.println("Subtitle: " + WebElementById("title_number1").getCssValue("font-size"));
-        Assert.assertEquals("66px",WebElementById("title_number1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("study_summary1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("Study Summary: " + WebElementById("study_summary1").getCssValue("font-size"));
-        Assert.assertEquals("60px",WebElementById("study_summary1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
-        scrollToByResourceId("p1");
-        driver.context("WEBVIEW_org.lds.ldssa.dev");
-        System.out.println("p1: " + WebElementById("p1").getCssValue("font-size"));
-        Assert.assertEquals("60px",WebElementById("p1").getCssValue("font-size"));
-        driver.context("NATIVE_APP");
+        Assertions.assertEquals("60px",getComputedCssUsingXpath("//*[@id='title1']","font-size"));
+        Assertions.assertEquals("66px",getComputedCssUsingXpath("//*[@id='title_number1']","font-size"));
+        Assertions.assertEquals("60px",getComputedCssUsingXpath("//*[@id='study_summary1']","font-size"));
+        Assertions.assertEquals("60px", getComputedCssUsingXpath("//*[@class='body-block']","font-size"));
+        Assertions.assertEquals("60px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
     }
 
     @Test
@@ -4863,7 +4706,7 @@ public class GospelLibrary {
             ClickUIElementByID("org.lds.ldssa.dev:id/feedbackCategorySpinner");
             assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
             ClickUIElementByCheckedText((String) category.get(x), false);
-            assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/feedbackCategorySpinner"));
             verifyText((String) category.get(x), WebElementById("android:id/text1"),false);
             Thread.sleep(milliseconds_1);
         }
@@ -5933,6 +5776,7 @@ public class GospelLibrary {
         verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),false);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         Thread.sleep(milliseconds_5);
+        Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
         int cYear = parseInt(getLatestConferenceYear());
         scrollDownTo(latestConference);
@@ -5964,6 +5808,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
         verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),false);
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
@@ -6162,7 +6007,7 @@ public class GospelLibrary {
         verifyText("1:25:25",WebElementById("org.lds.ldssa.dev:id/currentPositionTextView"),false);
         WebElementById("org.lds.ldssa.dev:id/playPauseButton").click();
         Thread.sleep(500);
-        WebElementById("org.lds.ldssa.dev:id/playPauseButton").click();
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/playPauseButton");
         assertAudioPlayerUI("Saturday Morning Session","October 2017",WebElementById("org.lds.ldssa.dev:id/currentPositionTextView").getText(),"2:01:59",false,false);
 
 
