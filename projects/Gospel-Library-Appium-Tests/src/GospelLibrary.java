@@ -1,3 +1,5 @@
+package UI;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -24,14 +26,16 @@ import static java.lang.Integer.parseInt;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.fail;
+import static UI.Strings.*;
+import static UI.Content.*;
+
 
 
 public class GospelLibrary {
     AppiumDriver driver;
+    mainFunctions main;
 
-    public GospelLibrary() throws Exception {
-    }
-
+    
     @Before
     public void setUp() throws Exception {
 
@@ -52,286 +56,8 @@ public class GospelLibrary {
     }
 
 
-    //Login with
-    String user = "support2";
-    String password = "ldssaldssa";
-    String wrongPassword = "ldssaldssaa";
-    int AndroidVersion = 7;
-    public int milliseconds_1 = 3600;
-    public int milliseconds_2 = milliseconds_1 * 2;
-    public int milliseconds_3 = milliseconds_1 * 3;
-    public int milliseconds_4 = milliseconds_1 * 4;
-    public int milliseconds_5 = milliseconds_1 * 5;
 
-    //String idString = "org.lds.ldssa.dev";
-    String idString = "org.lds.ldssa";
-
-    //*************************************************************** UI STRINGS ***************************************************************
-    //New Notebook 1
-    String NotebookName1 = "Test Notebook 1";
-
-    //email
-    String email = "WaltDisney@TheWaltDisneyCompany.com";
-    //sendto email
-    String sendtoemail = "dexterdrysdale@gmail.com";
-    //name
-    String name = "Walt Disney";
-
-    //Scripture Lists
-
-    public ArrayList<Pair<String, Integer>> BooksInOldTestament = new ArrayList<>();
-    public ArrayList<Pair<String, Integer>> BooksInNewTestament = new ArrayList<>();
-    public ArrayList<Pair<String, Integer>> BooksInBom = new ArrayList<>();
-    public ArrayList<Pair<String, Integer>> BooksInDAndC = new ArrayList<>();
-    public ArrayList<Pair<String, Integer>> BooksInPearlOfGreatPrice = new ArrayList<>();
-
-    public void setBooks() throws Exception {
-        //Books in the Old Testament
-        BooksInOldTestament.add(new Pair<>("Title Page", 0));
-        BooksInOldTestament.add(new Pair<>("Epistle Dedicatory", 0));
-        BooksInOldTestament.add(new Pair<>("Genesis", 50));
-        BooksInOldTestament.add(new Pair<>("Exodus", 40));
-        BooksInOldTestament.add(new Pair<>("Leviticus", 27));
-        BooksInOldTestament.add(new Pair<>("Numbers", 36));
-        BooksInOldTestament.add(new Pair<>("Deuteronomy", 34));
-        BooksInOldTestament.add(new Pair<>("Joshua", 24));
-        BooksInOldTestament.add(new Pair<>("Judges", 21));
-        BooksInOldTestament.add(new Pair<>("Ruth", 4));
-        BooksInOldTestament.add(new Pair<>("1 Samuel", 31));
-        BooksInOldTestament.add(new Pair<>("2 Samuel", 24));
-        BooksInOldTestament.add(new Pair<>("1 Kings", 22));
-        BooksInOldTestament.add(new Pair<>("2 Kings", 25));
-        BooksInOldTestament.add(new Pair<>("1 Chronicles", 29));
-        BooksInOldTestament.add(new Pair<>("2 Chronicles", 36));
-        BooksInOldTestament.add(new Pair<>("Ezra", 10));
-        BooksInOldTestament.add(new Pair<>("Nehemiah", 13));
-        BooksInOldTestament.add(new Pair<>("Esther", 10));
-        BooksInOldTestament.add(new Pair<>("Job", 42));
-        BooksInOldTestament.add(new Pair<>("Psalms", 150));
-        BooksInOldTestament.add(new Pair<>("Proverbs", 31));
-        BooksInOldTestament.add(new Pair<>("Ecclesiastes", 12));
-        BooksInOldTestament.add(new Pair<>("Song of Solomon", 8));
-        BooksInOldTestament.add(new Pair<>("Isaiah", 66));
-        BooksInOldTestament.add(new Pair<>("Jeremiah", 52));
-        BooksInOldTestament.add(new Pair<>("Lamentations", 5));
-        BooksInOldTestament.add(new Pair<>("Ezekiel", 48));
-        BooksInOldTestament.add(new Pair<>("Daniel", 12));
-        BooksInOldTestament.add(new Pair<>("Hosea", 14));
-        BooksInOldTestament.add(new Pair<>("Joel", 3));
-        BooksInOldTestament.add(new Pair<>("Amos", 9));
-        BooksInOldTestament.add(new Pair<>("Obadiah", 1));
-        BooksInOldTestament.add(new Pair<>("Jonah", 4));
-        BooksInOldTestament.add(new Pair<>("Micah", 7));
-        BooksInOldTestament.add(new Pair<>("Nahum", 3));
-        BooksInOldTestament.add(new Pair<>("Habakkuk", 3));
-        BooksInOldTestament.add(new Pair<>("Zephaniah", 3));
-        BooksInOldTestament.add(new Pair<>("Haggai", 2));
-        BooksInOldTestament.add(new Pair<>("Zechariah", 14));
-        BooksInOldTestament.add(new Pair<>("Malachi", 4));
-        //Books in the New Testament
-        BooksInNewTestament.add(new Pair<>("Title Page", 0));
-        BooksInNewTestament.add(new Pair<>("Matthew", 28));
-        BooksInNewTestament.add(new Pair<>("Mark", 16));
-        BooksInNewTestament.add(new Pair<>("Luke", 24));
-        BooksInNewTestament.add(new Pair<>("John", 21));
-        BooksInNewTestament.add(new Pair<>("Acts", 28));
-        BooksInNewTestament.add(new Pair<>("Romans", 16));
-        BooksInNewTestament.add(new Pair<>("1 Corinthians", 16));
-        BooksInNewTestament.add(new Pair<>("2 Corinthians", 13));
-        BooksInNewTestament.add(new Pair<>("Galatians", 6));
-        BooksInNewTestament.add(new Pair<>("Ephesians", 6));
-        BooksInNewTestament.add(new Pair<>("Philippians", 4));
-        BooksInNewTestament.add(new Pair<>("Colossians", 4));
-        BooksInNewTestament.add(new Pair<>("1 Thessalonians", 5));
-        BooksInNewTestament.add(new Pair<>("2 Thessalonians", 3));
-        BooksInNewTestament.add(new Pair<>("1 Timothy", 6));
-        BooksInNewTestament.add(new Pair<>("2 Timothy", 4));
-        BooksInNewTestament.add(new Pair<>("Titus", 3));
-        BooksInNewTestament.add(new Pair<>("Philemon", 1));
-        BooksInNewTestament.add(new Pair<>("Hebrews", 13));
-        BooksInNewTestament.add(new Pair<>("James", 5));
-        BooksInNewTestament.add(new Pair<>("1 Peter", 5));
-        BooksInNewTestament.add(new Pair<>("2 Peter", 3));
-        BooksInNewTestament.add(new Pair<>("1 John", 5));
-        BooksInNewTestament.add(new Pair<>("2 John", 1));
-        BooksInNewTestament.add(new Pair<>("3 John", 1));
-        BooksInNewTestament.add(new Pair<>("Jude", 1));
-        BooksInNewTestament.add(new Pair<>("Revelation", 22));
-        //Books in the Book of Mormon
-        BooksInBom.add(new Pair<>("Introduction and Witnesses", 0));//has 8 subsections, but they aren't numbered like chapters
-        BooksInBom.add(new Pair<>("1 Nephi", 22));
-        BooksInBom.add(new Pair<>("2 Nephi", 22));
-        BooksInBom.add(new Pair<>("Jacob", 7));
-        BooksInBom.add(new Pair<>("Enos", 1));
-        BooksInBom.add(new Pair<>("Jarom", 1));
-        BooksInBom.add(new Pair<>("Omni", 1));
-        BooksInBom.add(new Pair<>("Words of Mormon", 1));
-        BooksInBom.add(new Pair<>("Mosiah", 29));
-        BooksInBom.add(new Pair<>("Alma", 63));
-        BooksInBom.add(new Pair<>("Helaman", 16));
-        BooksInBom.add(new Pair<>("3 Nephi", 22));
-        BooksInBom.add(new Pair<>("4 Nephi", 1));
-        BooksInBom.add(new Pair<>("Mormon", 9));
-        BooksInBom.add(new Pair<>("Ether", 15));
-        BooksInBom.add(new Pair<>("Moroni", 10));
-        BooksInBom.add(new Pair<>("Book of Mormon Pronunciation Guide", 0));
-        //Books in the Doctrine and Covenants
-        BooksInDAndC.add(new Pair<>("Title Page", 0));
-        BooksInDAndC.add(new Pair<>("Introduction", 0));
-        BooksInDAndC.add(new Pair<>("Chronological Order of Contents", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 1", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 2", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 3", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 4", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 5", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 6", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 7", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 8", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 9", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 10", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 11", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 12", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 13", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 14", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 15", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 16", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 17", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 18", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 19", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 20", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 21", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 22", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 23", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 24", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 25", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 26", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 27", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 28", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 29", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 30", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 31", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 32", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 33", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 34", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 35", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 36", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 37", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 38", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 39", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 40", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 41", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 42", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 43", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 44", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 45", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 46", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 47", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 48", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 49", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 50", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 51", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 52", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 53", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 54", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 55", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 56", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 57", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 58", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 59", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 60", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 61", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 62", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 63", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 64", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 65", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 66", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 67", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 68", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 69", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 70", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 71", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 72", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 73", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 74", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 75", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 76", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 77", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 78", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 79", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 80", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 81", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 82", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 83", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 84", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 85", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 86", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 87", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 88", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 89", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 90", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 91", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 92", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 93", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 94", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 95", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 96", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 97", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 98", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 99", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 100", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 101", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 102", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 103", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 104", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 105", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 106", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 107", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 108", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 109", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 110", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 111", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 112", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 113", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 114", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 115", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 116", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 117", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 118", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 119", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 120", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 121", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 122", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 123", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 124", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 125", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 126", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 127", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 128", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 129", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 130", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 131", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 132", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 133", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 134", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 135", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 136", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 137", 0));
-        BooksInDAndC.add(new Pair<>("Doctrine and Covenants 138", 0));
-        BooksInDAndC.add(new Pair<>("Official Declaration 1", 0));
-        BooksInDAndC.add(new Pair<>("Official Declaration 2", 0));
-        //Books in the Pearl of Great Price
-        BooksInPearlOfGreatPrice.add(new Pair<>("Title Page", 0));
-        BooksInPearlOfGreatPrice.add(new Pair<>("Introduction", 0));
-        BooksInPearlOfGreatPrice.add(new Pair<>("Moses", 8));
-        BooksInPearlOfGreatPrice.add(new Pair<>("Abraham", 5));
-        BooksInPearlOfGreatPrice.add(new Pair<>("Joseph Smith—Matthew", 1));
-        BooksInPearlOfGreatPrice.add(new Pair<>("Joseph Smith—History", 1));
-        BooksInPearlOfGreatPrice.add(new Pair<>("Articles of Faith", 1));
-    }
-
-    //*************************************************************** Functions ***************************************************************
-
-
+    //********************************************** Functions **********************************************
     //Replaces letters with dots
     public String hidePassword(String password) throws Exception {
         String passwordDotted = "";
@@ -355,7 +81,7 @@ public class GospelLibrary {
 
     public String isAndroidVersion(String androidSixAndBelow, String androidSevenAndUp){
         if (AndroidVersion > 6){
-        return androidSevenAndUp;
+            return androidSevenAndUp;
         }else{
             return androidSixAndBelow;
         }
@@ -494,7 +220,7 @@ public class GospelLibrary {
     //Click Element in Webview
     public void ClickUIElementInWebviewByXPath(String xPath) throws Exception{
         driver.context("WEBVIEW_org.lds.ldssa.dev");
-        Set <java.lang.String> windowHandles = driver.getWindowHandles();
+        Set<String> windowHandles = driver.getWindowHandles();
         windowHandles.size();
         for (String window: windowHandles) {
             driver.switchTo().window(window);
@@ -788,7 +514,7 @@ public class GospelLibrary {
 
     //assert Audio Player
     public void assertAudioPlayerUI(String title, String subtitle, String startTime, String endTime, boolean isFirstItem, boolean isLastItem) throws Exception{
-         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/miniPlaybackControls"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/miniPlaybackControls"));
         assertElementExistsBy(WebElementsByXpath("//android.view.ViewGroup[@resource-id='org.lds.ldssa.dev:id/mediaPlaybackToolbar']/android.widget.TextView[1]"));
         verifyText(title,WebElementByXpath("//android.view.ViewGroup[@resource-id='org.lds.ldssa.dev:id/mediaPlaybackToolbar']/android.widget.TextView[1]"),false);
         assertElementExistsBy(WebElementsByXpath("//android.view.ViewGroup[@resource-id='org.lds.ldssa.dev:id/mediaPlaybackToolbar']/android.widget.TextView[2]"));
@@ -1620,7 +1346,7 @@ public class GospelLibrary {
         verifyText("No Notebooks",WebElementByResourceId("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"));
         verifyText("Create notebooks to collect and organize your notes for talks, lessons, and personal study.",WebElementByResourceId("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
-        }
+    }
 
     //******************************** Annotation screen assertions ***********************************
 
@@ -1770,7 +1496,7 @@ public class GospelLibrary {
             Style = "box";
             Color = "clear";
         } else {
-                fail(Style + " is not a valid style. Valid styles are \"solid\" \"underline\" and \"clear\"");
+            fail(Style + " is not a valid style. Valid styles are \"solid\" \"underline\" and \"clear\"");
         }
 
         if (Color == "red"){
@@ -1823,7 +1549,6 @@ public class GospelLibrary {
     }
 
     public void TestCheckAnnotationStyleAndColor(String Style, String Color) throws Exception{
-        skipLogin();
         OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Mark");
         AnnotationsSyncCheck("No Thanks");
@@ -2145,8 +1870,8 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_2);
     }
 
-
     //*************************************************************** Tests ***************************************************************
+
     @Test
     public void launchTest() throws Exception{
         SplashScreenWait();
@@ -5281,106 +5006,127 @@ public class GospelLibrary {
 
     @Test
     public void AnnotationMenuTapMarkAndStyleClear() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("clear","");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleRedUnderline() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("underline","red");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleOrangeUnderline() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("underline","orange");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleYellowUnderline() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("underline","yellow");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleGreenUnderlined() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("underline","green");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleBlueUnderline() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("underline","blue");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleDarkBlueUnderline() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("underline","dark_blue");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStylePurpleUnderline() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("underline","purple");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStylePinkUnderline() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("underline","pink");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleBrownUnderline() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("underline","brown");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleGrayUnderline() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("underline","gray");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleRedSolid() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("solid","red");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleOrangeSolid() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("solid","orange");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleYellowSolid() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("solid","yellow");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleGreenSolid() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("solid","green");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleBlueSolid() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("solid","blue");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleDarkBlueSolid() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("solid","dark_blue");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStylePurpleSolid() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("solid","purple");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStylePinkSolid() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("solid","pink");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleBrownSolid() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("solid","brown");
     }
 
     @Test
     public void AnnotationMenuTapMarkAndStyleGraySolid() throws Exception{
+        skipLogin();
         TestCheckAnnotationStyleAndColor("solid","gray");
     }
 

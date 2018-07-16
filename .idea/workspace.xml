@@ -2,9 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e61195d5-5b6a-4293-81dc-73667731a79a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/GospelLibrary.class" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/GospelLibrary.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/Content/Content.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/GospelLibrary.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/functions/mainFunctions.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/Content/Content.java" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Content.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/functions/mainFunctions.java" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/UI.class" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/UI.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +40,143 @@
       <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="2480" column="16" lean-forward="true" selection-start-line="2480" selection-start-column="16" selection-end-line="2480" selection-end-column="16" />
+            <state relative-caret-position="30">
+              <caret line="3098" column="23" lean-forward="true" selection-start-line="3098" selection-start-column="23" selection-end-line="3098" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="e#45991#46036#0" expanded="false" />
+                <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+                <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Content.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Content.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Strings.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="29" column="18" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mainFunctions.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="27" column="11" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,9 +192,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>ClickUIElementByText(</find>
-      <find>&quot;&quot;</find>
-      <find>verifytext(&quot;&quot;</find>
       <find>by.id</find>
       <find>t</find>
       <find>assertBookmark</find>
@@ -83,6 +219,9 @@
       <find>string</find>
       <find>ChangeTextSize</find>
       <find>css</find>
+      <find>public</find>
+      <find>static</find>
+      <find>main.</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot; + idString + &quot;</replace>
@@ -94,6 +233,7 @@
       <replace>Language…</replace>
       <replace>dark_blue</replace>
       <replace>scrollToById(&quot;p1&quot;);</replace>
+      <replace>public static</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -110,11 +250,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/Tests/GospelLibrary.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/Methods/Methods.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/functions/mainFunctions.java" />
         <option value="$USER_HOME$/VirtualBox VMs/MacOS/MacOS.vbox" />
+        <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java" />
+        <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" />
+        <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Content.java" />
+        <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" />
       </list>
     </option>
@@ -127,7 +270,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
-    <option name="width" value="2080" />
+    <option name="width" value="2560" />
     <option name="height" value="1417" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -169,14 +312,25 @@
               <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
               <item name="Gospel-Library-Appium-Tests" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gospel-Library-Appium-Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gospel-Library-Appium-Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -210,19 +364,24 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GospelLibrary.BookmarksLandingPageFromNotes_NotSignedIn">
+  <component name="RunManager" selected="JUnit.GospelLibrary">
     <configuration name="GospelLibrary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="Gospel-Library-Appium-Tests" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="launchTest" />
+      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
+      <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <option name="ENV_VARIABLES" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="TEST_SEARCH_SCOPE">
@@ -231,14 +390,19 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.BookmarksLandingPageFromNotes_NotSignedIn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration name="GospelLibrary.AboutScreen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="Gospel-Library-Appium-Tests" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="BookmarksLandingPageFromNotes_NotSignedIn" />
+      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
+      <option name="METHOD_NAME" value="AboutScreen" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -251,14 +415,19 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.CreateNewNoteInNewNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration name="GospelLibrary.invalidLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="Gospel-Library-Appium-Tests" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="CreateNewNoteInNewNotebook" />
+      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
+      <option name="METHOD_NAME" value="invalidLogin" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -271,14 +440,19 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.CreateNewNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration name="GospelLibrary.launchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="Gospel-Library-Appium-Tests" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="CreateNewNotebook" />
+      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
+      <option name="METHOD_NAME" value="launchTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -291,34 +465,19 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.settingsScreenTextSize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+    <configuration name="GospelLibrary.skipTips" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="Gospel-Library-Appium-Tests" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="settingsScreenTextSize" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="Gospel-Library-Appium-Tests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="GospelLibrary" />
-      <option name="METHOD_NAME" value="settingsScreenTextSizeAllSizesSameRelatedContentScripture" />
+      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
+      <option name="METHOD_NAME" value="skipTips" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -462,19 +621,19 @@
       <listeners />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenTextSize" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateNewNotebook" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateNewNoteInNewNotebook" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.BookmarksLandingPageFromNotes_NotSignedIn" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.launchTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.AboutScreen" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.invalidLogin" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.skipTips" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary.BookmarksLandingPageFromNotes_NotSignedIn" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateNewNoteInNewNotebook" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.CreateNewNotebook" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.settingsScreenTextSize" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.GospelLibrary" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.GospelLibrary.skipTips" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.GospelLibrary.launchTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.GospelLibrary.invalidLogin" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.GospelLibrary.AboutScreen" />
       </list>
     </recent_temporary>
   </component>
@@ -495,35 +654,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GospelLibrary_CreateNewNoteInNewNotebook - 2018.07.02 at 08h 37m 21s.xml">
-      <configuration name="GospelLibrary.CreateNewNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.07.03 at 08h 32m 31s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CreateNewNotebook - 2018.07.02 at 08h 32m 57s.xml">
-      <configuration name="GospelLibrary.CreateNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.07.03 at 08h 37m 19s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 23m 14s.xml">
-      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.07.03 at 15h 24m 27s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 27m 51s.xml">
-      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.07.03 at 17h 02m 31s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 32m 17s.xml">
-      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.07.05 at 08h 50m 08s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 35m 35s.xml">
-      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.07.05 at 09h 31m 14s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 41m 11s.xml">
-      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.07.16 at 10h 50m 28s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 47m 51s.xml">
-      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_launchTest - 2018.07.03 at 08h 37m 58s.xml">
+      <configuration name="GospelLibrary.launchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.06.21 at 15h 54m 15s.xml">
-      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_launchTest - 2018.07.03 at 08h 41m 51s.xml">
+      <configuration name="GospelLibrary.launchTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_settingsScreenTextSizeAllSizesSameRelatedContentScripture - 2018.07.02 at 08h 24m 33s.xml">
-      <configuration name="GospelLibrary.settingsScreenTextSizeAllSizesSameRelatedContentScripture" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_skipTips - 2018.07.03 at 08h 44m 24s.xml">
+      <configuration name="GospelLibrary.skipTips" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -536,23 +695,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="2560" height="1417" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285985" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22541603" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20332481" sideWeight="0.49574015" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32992327" sideWeight="0.4074367" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3804841" sideWeight="0.5925633" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.54347825" sideWeight="0.5925633" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32829046" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3285985" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.100079425" sideWeight="0.48393196" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10801145" sideWeight="0.48393196" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19737887" sideWeight="0.4965035" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -573,42 +731,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="64" />
+      <option name="time" value="70" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/DelegatingMethodAccessorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="68" column="33" lean-forward="false" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/DefaultGenericMobileDriver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="100" column="0" lean-forward="false" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/openqa/selenium/remote/RemoteWebDriver.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3360">
@@ -671,6 +798,96 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="e#45991#46036#0" expanded="false" />
+            <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -744,6 +961,96 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="e#45991#46036#0" expanded="false" />
+            <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -754,6 +1061,96 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="e#45991#46036#0" expanded="false" />
+            <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -764,6 +1161,96 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="e#45991#46036#0" expanded="false" />
+            <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -774,6 +1261,96 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="e#45991#46036#0" expanded="false" />
+            <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -784,6 +1361,96 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="e#45991#46036#0" expanded="false" />
+            <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -794,6 +1461,96 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="e#45991#46036#0" expanded="false" />
+            <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -804,6 +1561,96 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="e#45991#46036#0" expanded="false" />
+            <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -814,6 +1661,96 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="e#45991#46036#0" expanded="false" />
+            <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -958,12 +1895,136 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Content.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="2480" column="16" lean-forward="true" selection-start-line="2480" selection-start-column="16" selection-end-line="2480" selection-end-column="16" />
+        <state relative-caret-position="180">
+          <caret line="14" column="18" lean-forward="false" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="18" lean-forward="false" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="11" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="3098" column="23" lean-forward="true" selection-start-line="3098" selection-start-column="23" selection-end-line="3098" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#setUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#tearDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#hidePassword#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAllCaps#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#isAndroidVersion#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#FindElementByContainsText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementsByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByAccessibilityId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementSettingSwitchByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementInWebviewByXPath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextContains#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByTextViewView#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByCheckedText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#WebElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementBy2TextStings#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByAccessibilityID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByResourceID#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickUIElementByXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapCenterScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#sendText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDown#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollUp#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeRight#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#swipeLeft#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#dismissDialog#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ClickSeekBarAt#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#addTimetoPlaybackTime#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAudioPlayerUI#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTabs#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMoreOptionsMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertDownloadScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertScreenItemOptions#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNavBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNotebookandAssert#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#CreateNewNoteFromNotebook#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#Backup#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTextSize#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeTheme#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollDownTo#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToByResourceId#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToById#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#scrollToBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertElementInWebviewExistsBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="e#45991#46036#0" expanded="false" />
+            <element signature="method#assertElementNotPresentBy#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndToggle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSettingsSwitchExpectedStateAndTogglePersists#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#verifyNavBookTitle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenScripture#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#signInPage#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertMenuBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSideBar#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#AnnotationsSyncCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TapParagraph#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyNoteText#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertEmptyStateAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertNoteScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertTagScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertAddToNotebookScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertLinksScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertShareScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertSearchScreen#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#assertHighlightStyleScreenStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#ChangeHighlightColorAndStyle#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#TestCheckAnnotationStyleAndColor#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenuFromAnnotation#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#OpenAnnotationMenu#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceMonth#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConferenceYear#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getLatestConference#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#appCheck#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#getComputedCssUsingXpath#0;class#GospelLibrary#0" expanded="false" />
+            <element signature="method#SplashScreenWait#0;class#GospelLibrary#0" expanded="false" />
           </folding>
         </state>
       </provider>
