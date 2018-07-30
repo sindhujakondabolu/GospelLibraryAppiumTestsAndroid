@@ -970,6 +970,21 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
     }
 
+    public void assertElementInWebviewDoesNotExistBy(String xPath) throws Exception{
+        driver.context("WEBVIEW_org.lds.ldssa.dev");
+        Set <java.lang.String> windowHandles = driver.getWindowHandles();
+        windowHandles.size();
+        for (String window: windowHandles) {
+            driver.switchTo().window(window);
+            System.out.println("Window handle is now: "+ window);
+        }
+
+        Boolean tempElement = WebElementsByXpath(xPath).size() == 0;
+        System.out.println("assert element is not present. Expected: true [] Actual: " + tempElement + " Element: " + xPath.toString() + "");
+        assert tempElement;
+        driver.context("NATIVE_APP");
+    }
+
 
 //    //Verify Object Exists and scroll to it
 //    public void assertAndScrollToElementExistsBy(List webElementsBy, WebElement webElementBy){
@@ -1306,11 +1321,60 @@ public class GospelLibrary {
         driver.context("NATIVE_APP");
         int tapX = eUpperX + (eWidth / 5);
         int tapY = eUpperY + scriptReturnFontHeightAsInt + scriptReturnLineHeightAsInt;
-        driver.tap(1,tapX,tapY,1000);
+        driver.tap(1,tapX,tapY,duration);
         List TapXYList = new ArrayList();
         TapXYList.add(tapX);
         TapXYList.add(tapY);
         return TapXYList;
+    }
+
+    public List LocationOfTapParagraph (String id) throws Exception{
+        WebElement element = WebElementByResourceId(id);
+        int eHeight = element.getSize().getHeight();
+        int eWidth = element.getSize().getWidth();
+        int eUpperX = element.getLocation().x;
+        int eUpperY = element.getLocation().y;
+        driver.context("WEBVIEW_org.lds.ldssa.dev");
+        WebElement wElement = WebElementById(id);
+        JavascriptExecutor executor = (JavascriptExecutor)driver;
+
+        String script = "var s = getComputedStyle(arguments[0],null).getPropertyValue(arguments[1]);" +
+                "return s;";
+
+        String scriptReturnLineHeight = executor.executeScript(script, wElement, "line-height").toString();
+        scriptReturnLineHeight = scriptReturnLineHeight.substring(0,(scriptReturnLineHeight.length()-2));
+        double LineHeight = Double.parseDouble(scriptReturnLineHeight);
+        int scriptReturnLineHeightAsInt = (int) LineHeight;
+        System.out.println(scriptReturnLineHeightAsInt);
+        String scriptReturnFontHeight = executor.executeScript(script, wElement, "font-size").toString();
+        scriptReturnFontHeight = scriptReturnFontHeight.substring(0,(scriptReturnFontHeight.length()-2));
+        double FontHeight = Double.parseDouble(scriptReturnFontHeight);
+        int scriptReturnFontHeightAsInt = (int) FontHeight;
+        System.out.println(scriptReturnFontHeightAsInt);
+        driver.context("NATIVE_APP");
+        int tapX = eUpperX + (eWidth / 5);
+        int tapY = eUpperY + scriptReturnFontHeightAsInt + scriptReturnLineHeightAsInt;
+        List TapXYList = new ArrayList();
+        TapXYList.add(tapX);
+        TapXYList.add(tapY);
+        return TapXYList;
+    }
+
+    public void assertChooseHighlightScreen() throws Exception {
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
+        verifyText("Choose Highlight",WebElementById("org.lds.ldssa.dev:id/mainToolbarTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+    }
+
+    public void assertRemoveHighlightPopup() throws Exception {
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
+        verifyText("Remove Annotation",WebElementById("org.lds.ldssa.dev:id/md_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
+        verifyText("Any notes, tags, or links attached to this highlight will also be removed.",WebElementById("org.lds.ldssa.dev:id/md_content"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+        verifyText("Cancel",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+        verifyText("Delete",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),true);
     }
 
     //******************************** Empty State assertions ***********************************
@@ -1681,6 +1745,109 @@ public class GospelLibrary {
     public void OpenAnnotationMenu(String id, String annotationType) throws Exception{
         driver.getPageSource();
         List TapXY = TapParagraph(id, 1000);
+        WebElement element = WebElementByResourceId(id);
+        Thread.sleep(milliseconds_2);
+        int windowHeight = driver.manage().window().getSize().height;
+        int windowWidth = driver.manage().window().getSize().width;
+        int elementWidth = element.getSize().width;
+        int elementHeight = element.getSize().height;
+        int elementUpperX = element.getLocation().getX();
+        int elementUpperY = element.getLocation().getY();
+        int elementTapPointX = (int) TapXY.get(0);
+        int elementTapPointY = (int) TapXY.get(1);
+        int annotationMenuWidth = 1184;
+        int annotationMenuHeight = 560;
+        int buttonWidth = 224;
+        int buttonHeight = 224;
+        int margin = 32;
+        int headerFooter = 40;
+        int menuBottomY = elementTapPointY - 140 ;
+        if ((windowHeight/elementTapPointY) > 2.8){
+            menuBottomY = elementTapPointY + 140 + annotationMenuHeight;
+            System.out.println("elementTapPoint is above 28% of the screen");
+        }
+        int menuBottomX = ((windowWidth / 2) - (annotationMenuWidth / 2));
+        int bottomRowY = (menuBottomY - headerFooter - (buttonHeight/2));
+        int topRowY = (menuBottomY - headerFooter - buttonHeight - margin - (buttonHeight/2));
+        int markX = (menuBottomX + margin + (buttonWidth/2));
+        int noteX = (menuBottomX + margin + buttonWidth + (buttonWidth/2));
+        int tagX = (menuBottomX + margin + (buttonWidth * 2) + (buttonWidth/2));
+        int addToX = (menuBottomX + margin + (buttonWidth * 3) + (buttonWidth/2));
+        int linkX = (menuBottomX + margin + (buttonWidth * 4) + (buttonWidth/2));
+        int copyX = (menuBottomX + margin + (buttonWidth/2));
+        int shareX = (menuBottomX + margin + buttonWidth + (buttonWidth/2));
+        int searchX = (menuBottomX + margin + (buttonWidth * 2) + (buttonWidth/2));
+        int defineX = (menuBottomX + margin + (buttonWidth * 3) + (buttonWidth/2));
+        int removeX = (menuBottomX + margin + (buttonWidth * 4) + (buttonWidth/2));
+
+        System.out.println("Width: " + elementWidth);
+        System.out.println("Height: " + elementHeight);
+        System.out.println("UpperX: " + elementUpperX);
+        System.out.println("UpperY: " + elementUpperY);
+        System.out.println("elementTapX: " + elementTapPointX);
+        System.out.println("elementTapY: " + elementTapPointY);
+
+        if (annotationType == "Mark"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, markX, topRowY,1000);
+            System.out.println("markX is: " + markX);
+        } else if (annotationType == "Note"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, noteX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertNoteScreen(false);
+        } else if (annotationType == "Tag"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, tagX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertTagScreen(false);
+        } else if (annotationType == "Add to"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, addToX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertAddToNotebookScreen(false);
+        } else if (annotationType == "Link"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, linkX, topRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertLinksScreen();
+        } else if (annotationType == "Copy"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, copyX, bottomRowY,10);
+        } else if (annotationType == "Share"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, shareX, bottomRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertShareScreen();
+        } else if (annotationType == "Search"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, searchX, bottomRowY,10);
+            Thread.sleep(milliseconds_1);
+            assertSearchScreen();
+        } else if (annotationType == "Define"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, defineX, bottomRowY,10);
+        } else if (annotationType == "Remove"){
+            System.out.println("Clicking " + annotationType);
+            driver.tap(1, removeX, bottomRowY,10);
+        } else {
+            fail(annotationType + " is not a valid annotation menu item. Valid annotation items are: " +
+                    "Mark, " +
+                    "Note, " +
+                    "Tag, " +
+                    "Add to, " +
+                    "Link, " +
+                    "Copy, " +
+                    "Share, " +
+                    "Search, " +
+                    "Define, " +
+                    "Remove");
+        }
+    }
+
+    public void TapAnnotationMenuItem(String id, String annotationType) throws Exception{
+        driver.getPageSource();
+        List TapXY = LocationOfTapParagraph(id);
         WebElement element = WebElementByResourceId(id);
         Thread.sleep(milliseconds_2);
         int windowHeight = driver.manage().window().getSize().height;
@@ -4943,8 +5110,8 @@ public class GospelLibrary {
 //    public void allBooksInTheBoM() throws Exception {
 //        skipLogin();
 //
-//        ClickUIElementByText("Scriptures");
-//        ClickUIElementByText("Book of Mormon");
+//        ClickUIElementByText("Scriptures",false);
+//        ClickUIElementByText("Book of Mormon",false);
 //        //Calls verifyNavBookTitle and passes in the books in the Book of Mormon
 //        verifyNavBookTitle(BooksInBom);
 //
@@ -5352,21 +5519,11 @@ public class GospelLibrary {
 
     @Test
     public void AnnotationMenuAddToNotebook() throws Exception{
-        skipLogin();
+        CreateNewNotebook();
+        ClickUIElementByAccessibilityID("Navigate up");
         OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Add to");
-        assertAddToNotebookScreen(true);
-        ClickUIElementByResourceID("org.lds.ldssa.dev:id/notebookSelectionFloatingActionButton");
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_title"));
-        verifyText("Create Notebook",WebElementByResourceId("org.lds.ldssa.dev:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("android:id/input"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_minMax"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
-        assert !Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive").getAttribute("enabled"));
-        sendText("android:id/input","Test Notebook");
-        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive").getAttribute("enabled"));
-        ClickUIElementByResourceID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        assertAddToNotebookScreen(false);
         ClickUIElementByResourceID("org.lds.ldssa.dev:id/notebookCheckBox");
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
@@ -5380,7 +5537,7 @@ public class GospelLibrary {
     }
 
     @Test
-    public void AnnotationMenuCreateAddToAnnotationIndicatorIcon() throws Exception{
+    public void AnnotationMenuAddToAnnotationIndicatorIcon() throws Exception{
         AnnotationMenuAddToNotebook();
         ClickUIElementByAccessibilityID("Navigate up");
         assertElementInWebviewExistsBy("//div[contains(@class,'stickyNotebook')]");
@@ -5463,6 +5620,226 @@ public class GospelLibrary {
         OpenScripture("Book of Mormon","Jacob","5","");
         OpenAnnotationMenu("p1","Remove");
     }
+
+    @Test
+    public void AnnotationChooseBetweenOverlappingHighlights() throws Exception{
+        skipLogin();
+        OpenScripture("Book of Mormon", "Jacob","7","");
+        OpenAnnotationMenu("p1","Mark");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        OpenAnnotationMenu("p1","Mark");
+        templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        assertChooseHighlightScreen();
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/stickyIcon\"])[1]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/stickyIcon\"])[2]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[1]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[2]"));
+        ClickUIElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[1]");
+    }
+
+    @Test
+    public void AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeTagAndMark() throws Exception{
+        AnnotationMenuCreateTag();
+        ClickUIElementByAccessibilityID("Navigate up");
+        OpenAnnotationMenu("p1","Mark");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-2)+"]");
+        assertChooseHighlightScreen();
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/stickyIcon\"])[1]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/stickyIcon\"])[2]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[1]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[2]"));
+        ClickUIElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[1]");
+        TapAnnotationMenuItem("p1","Tag");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+        verifyText("Test Tag",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleDeleteImageView"));
+
+    }
+
+    @Test
+    public void AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeLinkAndMark() throws Exception{
+        AnnotationMenuCreateLinkToSingleChapterBook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        OpenAnnotationMenu("p1","Mark");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-2)+"]");
+        assertChooseHighlightScreen();
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/stickyIcon\"])[1]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/stickyIcon\"])[2]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[1]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[2]"));
+        ClickUIElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[1]");
+        TapAnnotationMenuItem("p1","Link");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/bubbleTextView"));
+        verifyText("Jarom",WebElementByResourceId("org.lds.ldssa.dev:id/bubbleTextView"),false);
+    }
+
+    @Test
+    public void AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeNoteAndMark() throws Exception{
+        AnnotationMenuCreateNote();
+        ClickUIElementByAccessibilityID("Navigate up");
+        OpenAnnotationMenu("p1","Mark");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-2)+"]");
+        assertChooseHighlightScreen();
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/stickyIcon\"])[1]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/stickyIcon\"])[2]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[1]"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[2]"));
+        ClickUIElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/listItemTextView\"])[1]");
+        TapAnnotationMenuItem("p1","Note");
+        verifyText("Spiritual Thought Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText("Spiritual thought expounded on", WebElementByResourceId("org.lds.ldssa.dev:id/markdownEditText"),false);
+    }
+
+    @Test
+    public void AnnotationDeleteHighlightWithNote() throws Exception{
+        AnnotationMenuCreateNote();
+        ClickUIElementByAccessibilityID("Navigate up");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
+        assertRemoveHighlightPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyNote')]");
+    }
+
+    @Test
+    public void AnnotationCancelDeleteHighlightWithNote() throws Exception{
+        AnnotationMenuCreateNote();
+        ClickUIElementByAccessibilityID("Navigate up");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
+        assertRemoveHighlightPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
+    }
+
+    @Test
+    public void AnnotationDeleteHighlightWithLink() throws Exception{
+        AnnotationMenuCreateLinkToSingleChapterBook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
+        assertRemoveHighlightPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyLink')]");
+    }
+
+    @Test
+    public void AnnotationCancelDeleteHighlightWithLink() throws Exception{
+        AnnotationMenuCreateLinkToSingleChapterBook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
+        assertRemoveHighlightPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyLink')]");
+    }
+
+    @Test
+    public void AnnotationDeleteHighlightWithTag() throws Exception{
+        AnnotationMenuCreateTag();
+        ClickUIElementByAccessibilityID("Navigate up");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
+        assertRemoveHighlightPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyTag')]");
+    }
+
+    @Test
+    public void AnnotationCancelDeleteHighlightWithTag() throws Exception{
+        AnnotationMenuCreateTag();
+        ClickUIElementByAccessibilityID("Navigate up");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
+        assertRemoveHighlightPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyTag')]");
+    }
+
+    @Test
+    public void AnnotationDeleteHighlightNoteWithLink() throws Exception{
+        AnnotationMenuCreateNoteWithLink();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
+        assertRemoveHighlightPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyNote')]");
+    }
+
+    @Test
+    public void AnnotationCancelDeleteHighlightNoteWithLink() throws Exception{
+        AnnotationMenuCreateNoteWithLink();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
+        assertRemoveHighlightPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
+    }
+
+    @Test
+    public void AnnotationAddSelectionToNewNotebook() throws Exception {
+        skipLogin();
+        OpenScripture("Book of Mormon","Jacob","5","");
+        OpenAnnotationMenu("p1","Add to");
+        assertAddToNotebookScreen(true);
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/notebookSelectionFloatingActionButton");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_title"));
+        verifyText("Create Notebook",WebElementByResourceId("org.lds.ldssa.dev:id/md_title"),false);
+        assertElementExistsBy(WebElementsById("android:id/input"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_minMax"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+        assert !Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive").getAttribute("enabled"));
+        sendText("android:id/input","Test Notebook");
+        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/md_buttonDefaultPositive").getAttribute("enabled"));
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/notebookCheckBox");
+        ClickUIElementByAccessibilityID("Navigate up");
+        AnnotationsSyncCheck("No Thanks");
+        assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNotebook')]");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Add to");
+        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/notebookCheckBox").getAttribute("checked"));
+    }
+
+
 
     //********** General Conference Section **********
 
