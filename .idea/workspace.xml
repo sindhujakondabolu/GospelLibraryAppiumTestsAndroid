@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e61195d5-5b6a-4293-81dc-73667731a79a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +32,8 @@
       <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="5841" lean-forward="true" selection-start-line="5841" selection-end-line="5841" />
+            <state relative-caret-position="535">
+              <caret line="2385" lean-forward="true" selection-start-line="2385" selection-end-line="2385" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1003#1777#0" />
@@ -79,11 +77,9 @@
                 <element signature="e#19216#20756#0" />
                 <element signature="e#20763#24198#0" />
                 <element signature="e#24204#24989#0" />
-                <element signature="e#24995#30210#0" />
                 <element signature="e#30216#31191#0" />
                 <element signature="e#31197#31749#0" />
                 <element signature="e#31755#33151#0" />
-                <element signature="e#34368#35574#0" />
                 <element signature="e#35580#36720#0" />
                 <element signature="e#36725#38551#0" />
                 <element signature="e#38557#41272#0" />
@@ -123,8 +119,8 @@
       <file leaf-file-name="Strings.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
+            <state relative-caret-position="465">
+              <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -158,8 +154,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>toggle password visibility</find>
-      <find>upper</find>
       <find>resource</find>
       <find>ok</find>
       <find>&quot;ok&quot;</find>
@@ -187,7 +181,9 @@
       <find>main.</find>
       <find>//</find>
       <find>allbooks</find>
+      <find>annotationdeleteHighlight</find>
       <find>notebook</find>
+      <find>assertmoreOptionsMenu</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot; + idString + &quot;</replace>
@@ -216,9 +212,9 @@
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/functions/mainFunctions.java" />
         <option value="$USER_HOME$/VirtualBox VMs/MacOS/MacOS.vbox" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java" />
-        <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Content.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java" />
+        <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" />
       </list>
     </option>
@@ -232,8 +228,8 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1680" />
     <option name="y" value="-1191" />
-    <option name="width" value="2560" />
-    <option name="height" value="1417" />
+    <option name="width" value="1680" />
+    <option name="height" value="1027" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -315,14 +311,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GospelLibrary.AnnotationMenuAddToNotebook">
+  <component name="RunManager" selected="JUnit.GospelLibrary.CancelDeleteANotebook">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="GospelLibrary.AnnotationCancelDeleteHighlightNoteWithLink" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -334,7 +330,30 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="AnnotationCancelDeleteHighlightNoteWithLink" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="GospelLibrary.CancelDeleteANotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gospel-Library-Appium-Tests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
+      <option name="METHOD_NAME" value="CancelDeleteANotebook" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -345,7 +364,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.AnnotationCancelDeleteHighlightWithLink" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.DeleteANotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -357,7 +376,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="AnnotationCancelDeleteHighlightWithLink" />
+      <option name="METHOD_NAME" value="DeleteANotebook" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -368,7 +387,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.AnnotationCancelDeleteHighlightWithTag" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.NotesSectionCancelDeleteNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -380,7 +399,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="AnnotationCancelDeleteHighlightWithTag" />
+      <option name="METHOD_NAME" value="NotesSectionCancelDeleteNote" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -391,7 +410,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.AnnotationDeleteHighlightNoteWithLink" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.NotesSectionEditNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -403,30 +422,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="AnnotationDeleteHighlightNoteWithLink" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.AnnotationMenuAddToNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Gospel-Library-Appium-Tests" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="UI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="AnnotationMenuAddToNotebook" />
+      <option name="METHOD_NAME" value="NotesSectionEditNote" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -476,19 +472,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="JUnit.GospelLibrary.AnnotationCancelDeleteHighlightWithLink" />
-      <item itemvalue="JUnit.GospelLibrary.AnnotationCancelDeleteHighlightWithTag" />
-      <item itemvalue="JUnit.GospelLibrary.AnnotationDeleteHighlightNoteWithLink" />
-      <item itemvalue="JUnit.GospelLibrary.AnnotationCancelDeleteHighlightNoteWithLink" />
-      <item itemvalue="JUnit.GospelLibrary.AnnotationMenuAddToNotebook" />
+      <item itemvalue="JUnit.GospelLibrary.NotesSectionCancelDeleteNote" />
+      <item itemvalue="JUnit.GospelLibrary.NotesSectionEditNote" />
+      <item itemvalue="JUnit.GospelLibrary.DeleteANotebook" />
+      <item itemvalue="JUnit.GospelLibrary" />
+      <item itemvalue="JUnit.GospelLibrary.CancelDeleteANotebook" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GospelLibrary.AnnotationMenuAddToNotebook" />
-        <item itemvalue="JUnit.GospelLibrary.AnnotationCancelDeleteHighlightNoteWithLink" />
-        <item itemvalue="JUnit.GospelLibrary.AnnotationDeleteHighlightNoteWithLink" />
-        <item itemvalue="JUnit.GospelLibrary.AnnotationCancelDeleteHighlightWithLink" />
-        <item itemvalue="JUnit.GospelLibrary.AnnotationCancelDeleteHighlightWithTag" />
+        <item itemvalue="JUnit.GospelLibrary.CancelDeleteANotebook" />
+        <item itemvalue="JUnit.GospelLibrary.DeleteANotebook" />
+        <item itemvalue="JUnit.GospelLibrary" />
+        <item itemvalue="JUnit.GospelLibrary.NotesSectionEditNote" />
+        <item itemvalue="JUnit.GospelLibrary.NotesSectionCancelDeleteNote" />
       </list>
     </recent_temporary>
   </component>
@@ -506,35 +502,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GospelLibrary_AnnotationDeleteHighlightNoteWithLink - 2018.07.26 at 15h 19m 59s.xml">
-      <configuration name="GospelLibrary.AnnotationDeleteHighlightNoteWithLink" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 14h 24m 22s.xml">
+      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationDeleteHighlightNoteWithLink - 2018.07.26 at 15h 24m 41s.xml">
-      <configuration name="GospelLibrary.AnnotationDeleteHighlightNoteWithLink" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.07.31 at 14h 26m 17s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationDeleteHighlightNoteWithLink - 2018.07.26 at 15h 29m 13s.xml">
-      <configuration name="GospelLibrary.AnnotationDeleteHighlightNoteWithLink" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 14h 27m 59s.xml">
+      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationDeleteHighlightNoteWithLink - 2018.07.26 at 15h 34m 56s.xml">
-      <configuration name="GospelLibrary.AnnotationDeleteHighlightNoteWithLink" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 14h 30m 39s.xml">
+      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationCancelDeleteHighlightNoteWithLink - 2018.07.26 at 15h 39m 54s.xml">
-      <configuration name="GospelLibrary.AnnotationCancelDeleteHighlightNoteWithLink" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.07.31 at 14h 35m 21s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationMenuAddToNotebook - 2018.07.26 at 15h 56m 17s.xml">
-      <configuration name="GospelLibrary.AnnotationMenuAddToNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 14h 36m 19s.xml">
+      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationMenuAddToNotebook - 2018.07.26 at 16h 02m 20s.xml">
-      <configuration name="GospelLibrary.AnnotationMenuAddToNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 14h 57m 22s.xml">
+      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationMenuAddToNotebook - 2018.07.26 at 16h 07m 21s.xml">
-      <configuration name="GospelLibrary.AnnotationMenuAddToNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 15h 27m 03s.xml">
+      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationMenuAddToNotebook - 2018.07.27 at 08h 52m 46s.xml">
-      <configuration name="GospelLibrary.AnnotationMenuAddToNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 15h 30m 14s.xml">
+      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_AnnotationMenuAddToNotebook - 2018.07.27 at 13h 25m 40s.xml">
-      <configuration name="GospelLibrary.AnnotationMenuAddToNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CancelDeleteANotebook - 2018.07.31 at 15h 41m 04s.xml">
+      <configuration name="GospelLibrary.CancelDeleteANotebook" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -642,11 +638,9 @@
             <element signature="e#19216#20756#0" />
             <element signature="e#20763#24198#0" />
             <element signature="e#24204#24989#0" />
-            <element signature="e#24995#30210#0" />
             <element signature="e#30216#31191#0" />
             <element signature="e#31197#31749#0" />
             <element signature="e#31755#33151#0" />
-            <element signature="e#34368#35574#0" />
             <element signature="e#35580#36720#0" />
             <element signature="e#36725#38551#0" />
             <element signature="e#38557#41272#0" />
@@ -725,11 +719,9 @@
             <element signature="e#19216#20756#0" />
             <element signature="e#20763#24198#0" />
             <element signature="e#24204#24989#0" />
-            <element signature="e#24995#30210#0" />
             <element signature="e#30216#31191#0" />
             <element signature="e#31197#31749#0" />
             <element signature="e#31755#33151#0" />
-            <element signature="e#34368#35574#0" />
             <element signature="e#35580#36720#0" />
             <element signature="e#36725#38551#0" />
             <element signature="e#38557#41272#0" />
@@ -799,11 +791,9 @@
             <element signature="e#19216#20756#0" />
             <element signature="e#20763#24198#0" />
             <element signature="e#24204#24989#0" />
-            <element signature="e#24995#30210#0" />
             <element signature="e#30216#31191#0" />
             <element signature="e#31197#31749#0" />
             <element signature="e#31755#33151#0" />
-            <element signature="e#34368#35574#0" />
             <element signature="e#35580#36720#0" />
             <element signature="e#36725#38551#0" />
             <element signature="e#38557#41272#0" />
@@ -873,11 +863,9 @@
             <element signature="e#19216#20756#0" />
             <element signature="e#20763#24198#0" />
             <element signature="e#24204#24989#0" />
-            <element signature="e#24995#30210#0" />
             <element signature="e#30216#31191#0" />
             <element signature="e#31197#31749#0" />
             <element signature="e#31755#33151#0" />
-            <element signature="e#34368#35574#0" />
             <element signature="e#35580#36720#0" />
             <element signature="e#36725#38551#0" />
             <element signature="e#38557#41272#0" />
@@ -947,11 +935,9 @@
             <element signature="e#19216#20756#0" />
             <element signature="e#20763#24198#0" />
             <element signature="e#24204#24989#0" />
-            <element signature="e#24995#30210#0" />
             <element signature="e#30216#31191#0" />
             <element signature="e#31197#31749#0" />
             <element signature="e#31755#33151#0" />
-            <element signature="e#34368#35574#0" />
             <element signature="e#35580#36720#0" />
             <element signature="e#36725#38551#0" />
             <element signature="e#38557#41272#0" />
@@ -1021,11 +1007,9 @@
             <element signature="e#19216#20756#0" />
             <element signature="e#20763#24198#0" />
             <element signature="e#24204#24989#0" />
-            <element signature="e#24995#30210#0" />
             <element signature="e#30216#31191#0" />
             <element signature="e#31197#31749#0" />
             <element signature="e#31755#33151#0" />
-            <element signature="e#34368#35574#0" />
             <element signature="e#35580#36720#0" />
             <element signature="e#36725#38551#0" />
             <element signature="e#38557#41272#0" />
@@ -1095,11 +1079,9 @@
             <element signature="e#19216#20756#0" />
             <element signature="e#20763#24198#0" />
             <element signature="e#24204#24989#0" />
-            <element signature="e#24995#30210#0" />
             <element signature="e#30216#31191#0" />
             <element signature="e#31197#31749#0" />
             <element signature="e#31755#33151#0" />
-            <element signature="e#34368#35574#0" />
             <element signature="e#35580#36720#0" />
             <element signature="e#36725#38551#0" />
             <element signature="e#38557#41272#0" />
@@ -1169,11 +1151,9 @@
             <element signature="e#19216#20756#0" />
             <element signature="e#20763#24198#0" />
             <element signature="e#24204#24989#0" />
-            <element signature="e#24995#30210#0" />
             <element signature="e#30216#31191#0" />
             <element signature="e#31197#31749#0" />
             <element signature="e#31755#33151#0" />
-            <element signature="e#34368#35574#0" />
             <element signature="e#35580#36720#0" />
             <element signature="e#36725#38551#0" />
             <element signature="e#38557#41272#0" />
@@ -1243,11 +1223,9 @@
             <element signature="e#19216#20756#0" />
             <element signature="e#20763#24198#0" />
             <element signature="e#24204#24989#0" />
-            <element signature="e#24995#30210#0" />
             <element signature="e#30216#31191#0" />
             <element signature="e#31197#31749#0" />
             <element signature="e#31755#33151#0" />
-            <element signature="e#34368#35574#0" />
             <element signature="e#35580#36720#0" />
             <element signature="e#36725#38551#0" />
             <element signature="e#38557#41272#0" />
@@ -1291,13 +1269,6 @@
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableEntry.class" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/DelegatingMethodAccessorImpl.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/reflect/Method.java" />
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="18" selection-start-line="29" selection-start-column="18" selection-end-line="29" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1322,10 +1293,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="5841" lean-forward="true" selection-start-line="5841" selection-end-line="5841" />
+        <state relative-caret-position="535">
+          <caret line="2385" lean-forward="true" selection-start-line="2385" selection-end-line="2385" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1003#1777#0" />
@@ -1369,11 +1347,9 @@
             <element signature="e#19216#20756#0" />
             <element signature="e#20763#24198#0" />
             <element signature="e#24204#24989#0" />
-            <element signature="e#24995#30210#0" />
             <element signature="e#30216#31191#0" />
             <element signature="e#31197#31749#0" />
             <element signature="e#31755#33151#0" />
-            <element signature="e#34368#35574#0" />
             <element signature="e#35580#36720#0" />
             <element signature="e#36725#38551#0" />
             <element signature="e#38557#41272#0" />

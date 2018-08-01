@@ -656,6 +656,14 @@ public class GospelLibrary {
         }
     }
 
+    //assert Note options menu
+    public void assertNoteOptionsMenu()throws Exception{
+        assertElementExistsBy(WebElementsByText("Edit Note",false));
+        assertElementExistsBy(WebElementsByText("Share",false));
+        assertElementExistsBy(WebElementsByText("Move to Notebook",false));
+        assertElementExistsBy(WebElementsByText("Delete",false ));
+    }
+
     //assert downloads screen
     public void assertDownloadScreen(boolean empty)throws Exception{
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
@@ -753,6 +761,18 @@ public class GospelLibrary {
         sendText("org.lds.ldssa.dev:id/markdownEditText", body);
 
         ClickUIElementByAccessibilityID("Navigate up");
+    }
+
+    //assertDeleteNotePopup
+    public void assertDeleteNotebooksPopup() throws Exception {
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
+        verifyText("Delete Notebooks", WebElementById("org.lds.ldssa.dev:id/md_title"), false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
+        verifyText("Delete selected notebooks?", WebElementById("org.lds.ldssa.dev:id/md_content"), false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+        verifyText("Cancel", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"), true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+        verifyText("Delete", WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"), true);
     }
 
     //Backup
@@ -1366,7 +1386,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
     }
 
-    public void assertRemoveHighlightPopup() throws Exception {
+    public void assertRemoveAnnotationPopup() throws Exception {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
         verifyText("Remove Annotation",WebElementById("org.lds.ldssa.dev:id/md_title"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
@@ -2317,6 +2337,30 @@ public class GospelLibrary {
     }
 
     @Test
+    public void DeleteANotebook() throws Exception{
+        CreateNewNotebook();
+        ClickUIElementByID("org.lds.ldssa.dev:id/menuButton");
+        assertElementExistsBy(WebElementsByText("Rename",false));
+        assertElementExistsBy(WebElementsByText("Delete",false));
+        ClickUIElementByText("Delete",false);
+        assertDeleteNotebooksPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        assertElementNotPresentBy(WebElementsByText("Spiritual Impressions 1", false));
+    }
+
+    @Test
+    public void CancelDeleteANotebook() throws Exception{
+        CreateNewNotebook();
+        ClickUIElementByID("org.lds.ldssa.dev:id/menuButton");
+        assertElementExistsBy(WebElementsByText("Rename",false));
+        assertElementExistsBy(WebElementsByText("Delete",false));
+        ClickUIElementByText("Delete",false);
+        assertDeleteNotebooksPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
+        assertElementExistsBy(WebElementsByText("Spiritual Impressions 1", false));
+    }
+
+    @Test
     public void CreateNewNoteInNewNotebook() throws Exception {
         skipLogin();
         verifyText("Notes",WebElementByText("Notes", false),false);
@@ -2335,9 +2379,6 @@ public class GospelLibrary {
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks","Spiritual Impressions 1","","","","",true);
 
-        String NoteTitle = "My first note";
-        String NoteBody = "This is a note.";
-
         CreateNewNoteFromNotebook(NoteTitle, NoteBody);
         Thread.sleep(milliseconds_1);
 
@@ -2354,6 +2395,68 @@ public class GospelLibrary {
 
     }
 
+    @Test
+    public void NotesSectionDeleteNote() throws Exception{
+        CreateNewNoteInNewNotebook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByID("org.lds.ldssa.dev:id/annotationMenuImageButton");
+        assertNoteOptionsMenu();
+        ClickUIElementByText("Delete",false);
+        assertRemoveAnnotationPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
+        assertElementNotPresentBy(WebElementsById("org.lds.ldssa.dev:id/noteTitleTextView"));
+        assertElementNotPresentBy(WebElementsById("org.lds.ldssa.dev:id/noteMarkdownTextView"));
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+    }
+
+    @Test
+    public void NotesSectionCancelDeleteNote() throws Exception{
+        CreateNewNoteInNewNotebook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByID("org.lds.ldssa.dev:id/annotationMenuImageButton");
+        assertNoteOptionsMenu();
+        ClickUIElementByText("Delete",false);
+        assertRemoveAnnotationPopup();
+        ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/noteTitleTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/noteMarkdownTextView"));
+
+        //Check Note
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+
+    }
+
+    @Test
+    public void NotesSectionEditNote() throws Exception{
+        CreateNewNoteInNewNotebook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByID("org.lds.ldssa.dev:id/annotationMenuImageButton");
+        assertNoteOptionsMenu();
+        ClickUIElementByText("Edit Note",false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_bold"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_italic"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_unordered_list"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/markdown_controls_ordered_list"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Add to Notebook"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Tag"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        verifyText(NoteTitle,WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(NoteBody,WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+        //Type Note Text
+        sendText("org.lds.ldssa.dev:id/noteTitleEditText", "Title Edited");
+        sendText("org.lds.ldssa.dev:id/markdownEditText", "Body Edited");
+        ClickUIElementByAccessibilityID("Navigate up");
+
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/noteTitleTextView"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/noteMarkdownTextView"));
+
+        //Check Note
+        verifyText("Title Edited", WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText("Body Edited", WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+
+    }
     //********** Bookmarks Landing Page **********
     @Test
     public void BookmarksLandingPageFromLibrary_NotSignedIn() throws Exception {
@@ -5708,7 +5811,7 @@ public class GospelLibrary {
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
-        assertRemoveHighlightPopup();
+        assertRemoveAnnotationPopup();
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyNote')]");
@@ -5721,7 +5824,7 @@ public class GospelLibrary {
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
-        assertRemoveHighlightPopup();
+        assertRemoveAnnotationPopup();
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
@@ -5735,7 +5838,7 @@ public class GospelLibrary {
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
-        assertRemoveHighlightPopup();
+        assertRemoveAnnotationPopup();
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyLink')]");
@@ -5748,7 +5851,7 @@ public class GospelLibrary {
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
-        assertRemoveHighlightPopup();
+        assertRemoveAnnotationPopup();
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
@@ -5762,7 +5865,7 @@ public class GospelLibrary {
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
-        assertRemoveHighlightPopup();
+        assertRemoveAnnotationPopup();
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyTag')]");
@@ -5775,7 +5878,7 @@ public class GospelLibrary {
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
-        assertRemoveHighlightPopup();
+        assertRemoveAnnotationPopup();
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
@@ -5790,7 +5893,7 @@ public class GospelLibrary {
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
-        assertRemoveHighlightPopup();
+        assertRemoveAnnotationPopup();
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyNote')]");
@@ -5804,7 +5907,7 @@ public class GospelLibrary {
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
-        assertRemoveHighlightPopup();
+        assertRemoveAnnotationPopup();
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
@@ -5839,6 +5942,19 @@ public class GospelLibrary {
         assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.dev:id/notebookCheckBox").getAttribute("checked"));
     }
 
+    @Test
+    public void AnnotationMenuRecentHighlightStyles() throws Exception {
+        skipLogin();
+        TestCheckAnnotationStyleAndColor("underline", "orange");
+        ClickUIElementByAccessibilityID("Navigate up");
+        List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()) + "]");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()) + "]"), "Remove");
+        OpenAnnotationMenu("p1", "Mark");
+        templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()) + "]");
+        assertElementInWebviewExistsBy("//div[contains(@class, '" + "hl-" + "orange" + "-" + "underline" + "')]");
+    }
 
 
     //********** General Conference Section **********

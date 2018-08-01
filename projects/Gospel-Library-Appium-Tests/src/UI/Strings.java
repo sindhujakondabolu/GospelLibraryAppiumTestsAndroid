@@ -28,4 +28,8 @@ public abstract class Strings {
     public static String sendtoemail = "dexterdrysdale@gmail.com";
     //name
     public static String name = "Walt Disney";
+
+    //New Note Title and Body
+    public static String NoteTitle = "My first note";
+    public static String NoteBody = "This is a note.";
 }
