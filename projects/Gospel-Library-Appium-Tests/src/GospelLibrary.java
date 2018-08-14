@@ -3,6 +3,8 @@ package UI;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidKeyCode;
+import io.appium.java_client.android.AndroidKeyMetastate;
 import javafx.util.Pair;
 import org.junit.After;
 import org.junit.Assert;
@@ -350,6 +352,89 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
     }
 
+    //Convert String into keyboard keys
+    public void sendTextFromKeyboard(String elementID, String text,Boolean clickOnElement)throws Exception{
+        if (clickOnElement) {
+            ClickUIElementByID(elementID);
+        }
+        int i = 0;
+        Character currentChar = text.charAt(i);
+        while (i < text.length())
+        {
+            currentChar = text.charAt(i);
+            switch(currentChar){
+                case 'a':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_A); break;
+                case 'b':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_B); break;
+                case 'c':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_C); break;
+                case 'd':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_D); break;
+                case 'e':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_E); break;
+                case 'f':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_F); break;
+                case 'g':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_G); break;
+                case 'h':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_H); break;
+                case 'i':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_I); break;
+                case 'j':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_J); break;
+                case 'k':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_K); break;
+                case 'l':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_L); break;
+                case 'm':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_M); break;
+                case 'n':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_N); break;
+                case 'o':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_O); break;
+                case 'p':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_P); break;
+                case 'q':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_Q); break;
+                case 'r':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_R); break;
+                case 's':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_S); break;
+                case 't':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_T); break;
+                case 'u':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_U); break;
+                case 'v':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_V); break;
+                case 'w':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_W); break;
+                case 'x':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_X); break;
+                case 'y':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_Y); break;
+                case 'z':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_Z); break;
+                case 'A':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_A,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'B':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_B,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'C':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_C,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'D':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_D,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'E':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_E,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'F':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_F,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'G':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_G,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'H':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_H,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'I':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_I,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'J':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_J,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'K':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_K,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'L':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_L,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'M':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_M,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'N':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_N,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'O':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_O,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'P':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_P,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'Q':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_Q,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'R':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_R,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'S':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_S,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'T':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_T,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'U':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_U,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'V':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_V,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'W':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_W,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'X':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_X,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'Y':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_Y,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case 'Z':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_Z,AndroidKeyMetastate.META_SHIFT_LEFT_ON); break;
+                case ' ':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_SPACE); break;
+                case '.':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_PERIOD); break;
+                case ',':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_COMMA); break;
+                case '¶':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_ENTER); break;
+                case '0':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_0); break;
+                case '1':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_1); break;
+                case '2':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_2); break;
+                case '3':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_3); break;
+                case '4':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_4); break;
+                case '5':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_5); break;
+                case '6':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_6); break;
+                case '7':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_7); break;
+                case '8':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_8); break;
+                case '9':((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.KEYCODE_9); break;
+
+            }
+
+                i = i + 1;
+        }
+    }
     //Scroll down the page
     public void scrollDown() {
         int screenHeight = driver.manage().window().getSize().getHeight();
@@ -662,6 +747,71 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Share",false));
         assertElementExistsBy(WebElementsByText("Move to Notebook",false));
         assertElementExistsBy(WebElementsByText("Delete",false ));
+    }
+
+    //assert Notebook Multiselect Mode
+    public void assertNotebookMultiselectMode(String title) throws Exception{
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/action_mode_bar"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Done"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/action_bar_title"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Delete"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/notesFloatingActionButton"));
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id =\"org.lds.ldssa.dev:id/listItemImageView\"])[1]"));
+        verifyText(title, WebElementById("org.lds.ldssa.dev:id/action_bar_title"),false);
+    }
+
+    //assert Sort Notebooks Menu and Click
+    public void assertSortNotebooksMenuAndClick(String startedSortAs, String sortBy) throws Exception{
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/title\"])[1]"));
+        verifyText("Sort by Most Recent",WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/title\"])[1]"),false);
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/title\"])[2]"));
+        verifyText("Sort by Name",WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/title\"])[2]"),false);
+        assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/title\"])[3]"));
+        verifyText("Sort by Count", WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/title\"])[3]"),false);
+        if (startedSortAs == "Recent"){
+            assert Boolean.parseBoolean(WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/radio\"])[1]").getAttribute("checked"));
+            assert !Boolean.parseBoolean(WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/radio\"])[2]").getAttribute("checked"));
+            assert !Boolean.parseBoolean(WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/radio\"])[3]").getAttribute("checked"));
+        } else if (startedSortAs == "Name"){
+            assert !Boolean.parseBoolean(WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/radio\"])[1]").getAttribute("checked"));
+            assert Boolean.parseBoolean(WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/radio\"])[2]").getAttribute("checked"));
+            assert !Boolean.parseBoolean(WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/radio\"])[3]").getAttribute("checked"));
+        } else if (startedSortAs == "Count"){
+            assert !Boolean.parseBoolean(WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/radio\"])[1]").getAttribute("checked"));
+            assert !Boolean.parseBoolean(WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/radio\"])[2]").getAttribute("checked"));
+            assert Boolean.parseBoolean(WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/radio\"])[3]").getAttribute("checked"));
+        } else { fail("This Function only accepts the strings \"Recent\" \"Name\" and \"Count\"");}
+        if (sortBy == "Recent"){
+            ClickUIElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/title\"])[1]");
+        } else if (sortBy == "Name"){
+            ClickUIElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/title\"])[2]");
+        } else if (sortBy == "Count"){
+            ClickUIElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/title\"])[3]");
+        } else { fail("This Function only accepts the strings \"Recent\" \"Name\" and \"Count\"");}
+    }
+
+    //assert merge notebook popup
+    public void assertMergeNotebookPopup(String NewNotebookName, Boolean Continue) throws Exception{
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_title"));
+        verifyText("Merged Notebook Name",WebElementById("org.lds.ldssa.dev:id/md_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_content"));
+        verifyText("The selected notebooks will be merged. Please enter a name for the resulting notebook.",WebElementById("org.lds.ldssa.dev:id/md_content"),false);
+        assertElementExistsBy(WebElementsById("android:id/input"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_minMax"));
+        verifyText("0/256",WebElementById("org.lds.ldssa.dev:id/md_minMax"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"));
+        verifyText("Cancel",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultNegative"),true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"));
+        verifyText("Merge",WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive"),true);
+        assert !Boolean.parseBoolean((WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive")).getAttribute("enabled"));
+        sendText("android:id/input",NewNotebookName);
+        verifyText(NewNotebookName.length() + "/256",WebElementByResourceId("org.lds.ldssa.dev:id/md_minMax"),false);
+        driver.getPageSource();
+        assert Boolean.parseBoolean((WebElementById("org.lds.ldssa.dev:id/md_buttonDefaultPositive")).getAttribute("enabled"));
+        if (Continue)
+            {ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");}
+        else
+            {ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");}
     }
 
     //assert downloads screen
@@ -1247,20 +1397,19 @@ public class GospelLibrary {
 
     }
 
-    public void assertMenuBar(String title, String subTitle) throws Exception {
+    public void assertMenuBar(String title, String subTitle, Boolean CheckNavigateUp) throws Exception {
         //assert menu bar
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbar"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        if (CheckNavigateUp) {assertElementExistsBy(WebElementsByAccessibilityId("Navigate up")); }
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbarTextLayout"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/dropArrowImageView"));
+        if (CheckNavigateUp) {assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/dropArrowImageView"));}
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbarTitleTextView"));
         verifyText(title,WebElementByResourceId("org.lds.ldssa.dev:id/mainToolbarTitleTextView"),false);
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbarSubTitleTextView"));
-        verifyText(subTitle,WebElementByResourceId("org.lds.ldssa.dev:id/mainToolbarSubTitleTextView"),false);
+        if (CheckNavigateUp) {assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbarSubTitleTextView"));}
+        if (CheckNavigateUp) {verifyText(subTitle,WebElementByResourceId("org.lds.ldssa.dev:id/mainToolbarSubTitleTextView"),false);}
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/mainToolbarSubTitleTextView"));
     }
     public void assertSideBar(String title, Boolean isAnnotation, String annotationType, String TagName) throws Exception {
         //assert sidebar
@@ -2332,7 +2481,7 @@ public class GospelLibrary {
         //Click Notebooks
         ClickUIElementByText("Notebooks",true);
         Thread.sleep(milliseconds_1);
-        CreateNotebookandAssert("Spiritual Impressions 1",true);
+        CreateNotebookandAssert(NotebookTitle1,true);
 
     }
 
@@ -2345,7 +2494,7 @@ public class GospelLibrary {
         ClickUIElementByText("Delete",false);
         assertDeleteNotebooksPopup();
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultPositive");
-        assertElementNotPresentBy(WebElementsByText("Spiritual Impressions 1", false));
+        assertElementNotPresentBy(WebElementsByText(NotebookTitle1, false));
     }
 
     @Test
@@ -2357,7 +2506,7 @@ public class GospelLibrary {
         ClickUIElementByText("Delete",false);
         assertDeleteNotebooksPopup();
         ClickUIElementByID("org.lds.ldssa.dev:id/md_buttonDefaultNegative");
-        assertElementExistsBy(WebElementsByText("Spiritual Impressions 1", false));
+        assertElementExistsBy(WebElementsByText(NotebookTitle1, false));
     }
 
     @Test
@@ -2368,16 +2517,15 @@ public class GospelLibrary {
         assertTabs("Notes");
         assertMoreOptionsMenu("Notes",true);
         ClickUIElementByText("Notebooks", true);
-        String notebookTitle = "Spiritual Impressions 1";
-        CreateNotebookandAssert(notebookTitle, true);
-        ClickUIElementByText(notebookTitle,false);
+        CreateNotebookandAssert(NotebookTitle1, true);
+        ClickUIElementByText(NotebookTitle1,false);
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
-        assertNavBar("Notebooks","Spiritual Impressions 1","","","","",true);
+        assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
 
         CreateNewNoteFromNotebook(NoteTitle, NoteBody);
         Thread.sleep(milliseconds_1);
@@ -2393,6 +2541,40 @@ public class GospelLibrary {
         verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
         Thread.sleep(milliseconds_1);
 
+    }
+
+    @Test
+    public void CreateNew2000CharacterNoteInNewNotebook() throws Exception {
+        skipLogin();
+        verifyText("Notes",WebElementByText("Notes", false),false);
+        ClickUIElementByText("Notes", false);
+        assertTabs("Notes");
+        assertMoreOptionsMenu("Notes",true);
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle1, true);
+        ClickUIElementByText(NotebookTitle1,false);
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertMoreOptionsMenu("Notebooks",true);
+        assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
+
+        CreateNewNoteFromNotebook(NoteTitle, Note2000Character);
+        Thread.sleep(milliseconds_1);
+
+        Backup(false);
+
+        //Check Note
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText(Note2000Character, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        scrollUp();
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(Note2000Character, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+        Thread.sleep(milliseconds_1);
     }
 
     @Test
@@ -2457,6 +2639,525 @@ public class GospelLibrary {
         verifyText("Body Edited", WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
 
     }
+
+    @Test
+    public void NotesSectionAddNoteToNotebook() throws Exception{
+        AnnotationMenuCreateNote();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        assertMenuBar("Library","",false);
+        assertMoreOptionsMenu("Library",true);
+        ClickUIElementByText("Notes",false);
+        assertTabs("Notes");
+        assertMoreOptionsMenu("Notes",true);
+        //Click Notebooks
+        ClickUIElementByText("Notebooks",true);
+        Thread.sleep(milliseconds_1);
+        CreateNotebookandAssert(NotebookTitle1,true);
+        ClickUIElementByText("All",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/annotationMenuImageButton");
+        assertNoteOptionsMenu();
+        ClickUIElementByText("Move to Notebook",false);
+        ClickUIElementByResourceID("org.lds.ldssa.dev:id/notebookCheckBox");
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByText("Notebooks",true);
+        ClickUIElementByText(NotebookTitle1,false);
+        verifyText("Spiritual Thought Title",WebElementByResourceId("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText("Spiritual thought expounded on", WebElementByResourceId("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+    }
+
+    @Test
+    public void NotesSectionMergeTwoNotebooks() throws Exception{
+        CreateNewNoteInNewNotebook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle2, true);
+        ClickUIElementByText(NotebookTitle2,false);
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertMoreOptionsMenu("Notebooks",true);
+        assertNavBar("Notebooks",NotebookTitle2,"","","","",true);
+        CreateNewNoteFromNotebook(NoteTitle2, NoteBody2);
+        Thread.sleep(milliseconds_1);
+        //Check Note
+        verifyText(NoteBody2, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        verifyText(NoteTitle2, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(NoteBody2, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        driver.tap(1,WebElementByXpath("(//*[@resource-id =\"org.lds.ldssa.dev:id/listItemImageView\"])[1]"),500);
+        assertNotebookMultiselectMode("1 item");
+        ClickUIElementByXpath("(//*[@resource-id =\"org.lds.ldssa.dev:id/listItemImageView\"])[2]");
+        assertElementExistsBy(WebElementsByAccessibilityId("Merge"));
+        ClickUIElementByAccessibilityID("Merge");
+        //assert Merge Notebook Popup
+        assertMergeNotebookPopup("Merged Notebook",true);
+        verifyText("Merged Notebook",WebElementByXpath("//*[@resource-id =\"org.lds.ldssa.dev:id/titleView\"]"),false);
+        verifyText("2 items",WebElementByXpath("//*[@resource-id =\"org.lds.ldssa.dev:id/subTitleView\"]"),false);
+        ClickUIElementByXpath("//*[@resource-id =\"org.lds.ldssa.dev:id/subTitleView\"]");
+        verifyText(NoteTitle,WebElementByXpath("(//*[@resource-id =\"org.lds.ldssa.dev:id/noteTitleTextView\"])[1]"),false);
+        verifyText(NoteTitle2,WebElementByXpath("(//*[@resource-id =\"org.lds.ldssa.dev:id/noteTitleTextView\"])[2]"),false);
+    }
+
+    @Test
+    public void NotesSectionCancelMergeTwoNotebooks() throws Exception{
+        CreateNewNoteInNewNotebook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle2, true);
+        ClickUIElementByText(NotebookTitle2,false);
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertMoreOptionsMenu("Notebooks",true);
+        assertNavBar("Notebooks",NotebookTitle2,"","","","",true);
+        CreateNewNoteFromNotebook(NoteTitle2, NoteBody2);
+        Thread.sleep(milliseconds_1);
+        //Check Note
+        verifyText(NoteBody2, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        verifyText(NoteTitle2, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(NoteBody2, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        driver.tap(1,WebElementByXpath("(//*[@resource-id =\"org.lds.ldssa.dev:id/listItemImageView\"])[1]"),500);
+        assertNotebookMultiselectMode("1 item");
+        ClickUIElementByXpath("(//*[@resource-id =\"org.lds.ldssa.dev:id/listItemImageView\"])[2]");
+        assertElementExistsBy(WebElementsByAccessibilityId("Merge"));
+        ClickUIElementByAccessibilityID("Merge");
+        //assert Merge Notebook Popup
+        assertMergeNotebookPopup("Merged Notebook",false);
+        verifyText(NotebookTitle2,WebElementByXpath("//*[@resource-id =\"org.lds.ldssa.dev:id/titleView\"]"),false);
+        verifyText("1 item",WebElementByXpath("//*[@resource-id =\"org.lds.ldssa.dev:id/subTitleView\"]"),false);
+        ClickUIElementByXpath("(//*[@resource-id =\"org.lds.ldssa.dev:id/subTitleView\"])[1]");
+        verifyText(NoteTitle2,WebElementByXpath("//*[@resource-id =\"org.lds.ldssa.dev:id/noteTitleTextView\"]"),false);
+    }
+
+    @Test
+    public void NotesSectionSortNotebooksByCount() throws Exception{
+        CreateNewNoteInNewNotebook();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle2, true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/filterMenuImageButton");
+        driver.getPageSource();
+        //assert Sort Notebooks Menu
+        assertSortNotebooksMenuAndClick("Recent","Count");
+        verifyText(NotebookTitle1,WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/titleView\"])[1]"),false);
+        verifyText(NotebookTitle2,WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/titleView\"])[2]"),false);
+    }
+
+    @Test
+    public void NotesSectionSortNotebooksByRecent() throws Exception{
+        CreateNewNotebook();
+        CreateNotebookandAssert(NotebookTitle2, true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/filterMenuImageButton");
+        driver.getPageSource();
+        //assert Sort Notebooks Menu
+        assertSortNotebooksMenuAndClick("Recent","Recent");
+        verifyText(NotebookTitle1,WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/titleView\"])[2]"),false);
+        verifyText(NotebookTitle2,WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/titleView\"])[1]"),false);
+    }
+
+    @Test
+    public void NotesSectionSortNotebooksByName() throws Exception{
+        CreateNewNotebook();
+        CreateNotebookandAssert(NotebookTitle2, true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/filterMenuImageButton");
+        driver.getPageSource();
+        //assert Sort Notebooks Menu
+        assertSortNotebooksMenuAndClick("Recent","Name");
+        verifyText(NotebookTitle1,WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/titleView\"])[1]"),false);
+        verifyText(NotebookTitle2,WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.dev:id/titleView\"])[2]"),false);
+    }
+
+    @Test
+    public void NotesSectionUseBoldFormatting() throws Exception {
+        turnOnDeveloperSettings();
+        ClickUIElementByAccessibilityID("Navigate up");
+        verifyText("Notes",WebElementByText("Notes", false),false);
+        ClickUIElementByText("Notes", false);
+        assertTabs("Notes");
+        assertMoreOptionsMenu("Notes",true);
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle1, true);
+        ClickUIElementByText(NotebookTitle1,false);
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertMoreOptionsMenu("Notebooks",true);
+        assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
+        CreateNewNoteFromNotebook(NoteTitle, NoteBody);
+        Thread.sleep(milliseconds_1);
+        Backup(false);
+        //Check Note
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText"," ",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_bold");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","This should be Bold ",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_bold");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","This should not be Bold",false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Show Annotation Info", false));
+        ClickUIElementByText("Show Annotation Info",false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/infoTextView"));
+        String theAnnotationInfo = WebElementById("org.lds.ldssa.dev:id/infoTextView").getText();
+        System.out.println(theAnnotationInfo);
+        int noteBodyOffset = theAnnotationInfo.indexOf("content\"");
+        noteBodyOffset = noteBodyOffset + 11;
+        System.out.println("noteBodyOffset is " + noteBodyOffset);
+        int noteTitleOffset = theAnnotationInfo.indexOf("title");
+        noteTitleOffset = noteTitleOffset - 8;
+        System.out.println("noteTitleOffset is "+ noteTitleOffset);
+        String noteBody = theAnnotationInfo.substring(noteBodyOffset,noteTitleOffset);
+        System.out.println(noteBody);
+        Assert.assertEquals("This is a note\\\\. **This should be Bold** This should not be Bold", noteBody);
+    }
+
+    @Test
+    public void NotesSectionUseItalicFormatting() throws Exception {
+        turnOnDeveloperSettings();
+        ClickUIElementByAccessibilityID("Navigate up");
+        verifyText("Notes",WebElementByText("Notes", false),false);
+        ClickUIElementByText("Notes", false);
+        assertTabs("Notes");
+        assertMoreOptionsMenu("Notes",true);
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle1, true);
+        ClickUIElementByText(NotebookTitle1,false);
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertMoreOptionsMenu("Notebooks",true);
+        assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
+        CreateNewNoteFromNotebook(NoteTitle, NoteBody);
+        Thread.sleep(milliseconds_1);
+        Backup(false);
+        //Check Note
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText"," ",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_italic");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","This should be Italic ",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_italic");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","This should not be Italic",false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Show Annotation Info", false));
+        ClickUIElementByText("Show Annotation Info",false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/infoTextView"));
+        String theAnnotationInfo = WebElementById("org.lds.ldssa.dev:id/infoTextView").getText();
+        System.out.println(theAnnotationInfo);
+        int noteBodyOffset = theAnnotationInfo.indexOf("content\"");
+        noteBodyOffset = noteBodyOffset + 11;
+        System.out.println("noteBodyOffset is " + noteBodyOffset);
+        int noteTitleOffset = theAnnotationInfo.indexOf("title");
+        noteTitleOffset = noteTitleOffset - 8;
+        System.out.println("noteTitleOffset is "+ noteTitleOffset);
+        String noteBody = theAnnotationInfo.substring(noteBodyOffset,noteTitleOffset);
+        System.out.println(noteBody);
+        Assert.assertEquals("This is a note\\\\. _This should be Italic_ This should not be Italic ", noteBody);
+    }
+
+
+    @Test
+    public void NotesSectionUseItalicAndBoldFormattingInSameNote() throws Exception {
+        turnOnDeveloperSettings();
+        ClickUIElementByAccessibilityID("Navigate up");
+        verifyText("Notes",WebElementByText("Notes", false),false);
+        ClickUIElementByText("Notes", false);
+        assertTabs("Notes");
+        assertMoreOptionsMenu("Notes",true);
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle1, true);
+        ClickUIElementByText(NotebookTitle1,false);
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertMoreOptionsMenu("Notebooks",true);
+        assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
+        CreateNewNoteFromNotebook(NoteTitle, NoteBody);
+        Thread.sleep(milliseconds_1);
+        Backup(false);
+        //Check Note
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText"," ",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_italic");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","This should be Italic ",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_italic");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","This should not be Italic ",false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_bold");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","This should be Bold ",false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_bold");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","This should not be Bold",false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Show Annotation Info", false));
+        ClickUIElementByText("Show Annotation Info",false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/infoTextView"));
+        String theAnnotationInfo = WebElementById("org.lds.ldssa.dev:id/infoTextView").getText();
+        System.out.println(theAnnotationInfo);
+        int noteBodyOffset = theAnnotationInfo.indexOf("content\"");
+        noteBodyOffset = noteBodyOffset + 11;
+        System.out.println("noteBodyOffset is " + noteBodyOffset);
+        int noteTitleOffset = theAnnotationInfo.indexOf("title");
+        noteTitleOffset = noteTitleOffset - 8;
+        System.out.println("noteTitleOffset is "+ noteTitleOffset);
+        String noteBody = theAnnotationInfo.substring(noteBodyOffset,noteTitleOffset);
+        System.out.println(noteBody);
+        Assert.assertEquals("This is a note\\\\. _This should be Italic_ This should not be Italic **This should be Bold** This should not be Bold", noteBody);
+    }
+
+    @Test
+    public void NotesSectionUseItalicAndBoldFormattingOnSameWord() throws Exception {
+        turnOnDeveloperSettings();
+        ClickUIElementByAccessibilityID("Navigate up");
+        verifyText("Notes",WebElementByText("Notes", false),false);
+        ClickUIElementByText("Notes", false);
+        assertTabs("Notes");
+        assertMoreOptionsMenu("Notes",true);
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle1, true);
+        ClickUIElementByText(NotebookTitle1,false);
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertMoreOptionsMenu("Notebooks",true);
+        assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
+        CreateNewNoteFromNotebook(NoteTitle, NoteBody);
+        Thread.sleep(milliseconds_1);
+        Backup(false);
+        //Check Note
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText"," ",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_italic");
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_bold");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","This should be Italic and Bold ",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_italic");
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_bold");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","This should not be Italic or Bold",false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Show Annotation Info", false));
+        ClickUIElementByText("Show Annotation Info",false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/infoTextView"));
+        String theAnnotationInfo = WebElementById("org.lds.ldssa.dev:id/infoTextView").getText();
+        System.out.println(theAnnotationInfo);
+        int noteBodyOffset = theAnnotationInfo.indexOf("content\"");
+        noteBodyOffset = noteBodyOffset + 11;
+        System.out.println("noteBodyOffset is " + noteBodyOffset);
+        int noteTitleOffset = theAnnotationInfo.indexOf("title");
+        noteTitleOffset = noteTitleOffset - 8;
+        System.out.println("noteTitleOffset is "+ noteTitleOffset);
+        String noteBody = theAnnotationInfo.substring(noteBodyOffset,noteTitleOffset);
+        System.out.println(noteBody);
+        Assert.assertEquals("This is a note\\\\. _**This should be Italic and Bold**_ This should not be Italic or Bold", noteBody);
+    }
+
+
+    @Test
+    public void NotesSectionUseNumberedAndBulletedLists() throws Exception {
+        turnOnDeveloperSettings();
+        ClickUIElementByAccessibilityID("Navigate up");
+        verifyText("Notes",WebElementByText("Notes", false),false);
+        ClickUIElementByText("Notes", false);
+        assertTabs("Notes");
+        assertMoreOptionsMenu("Notes",true);
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle1, true);
+        ClickUIElementByText(NotebookTitle1,false);
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertMoreOptionsMenu("Notebooks",true);
+        assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
+        CreateNewNoteFromNotebook(NoteTitle, NoteBody);
+        Thread.sleep(milliseconds_1);
+        Backup(false);
+        //Check Note
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","¶",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_unordered_list");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","bulleted list 1¶bulleted list 2¶¶",false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_ordered_list");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","numbered list 1¶numbered list 2¶numbered list 3¶¶not numbered",false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Show Annotation Info", false));
+        ClickUIElementByText("Show Annotation Info",false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/infoTextView"));
+        String theAnnotationInfo = WebElementById("org.lds.ldssa.dev:id/infoTextView").getText();
+        System.out.println(theAnnotationInfo);
+        int noteBodyOffset = theAnnotationInfo.indexOf("content\"");
+        noteBodyOffset = noteBodyOffset + 11;
+        System.out.println("noteBodyOffset is " + noteBodyOffset);
+        int noteTitleOffset = theAnnotationInfo.indexOf("title");
+        noteTitleOffset = noteTitleOffset - 8;
+        System.out.println("noteTitleOffset is "+ noteTitleOffset);
+        String noteBody = theAnnotationInfo.substring(noteBodyOffset,noteTitleOffset);
+        System.out.println(noteBody);
+        Assert.assertEquals("This is a note\\\\.&nbsp;  \\n* bulleted list 1&nbsp;  \\n* bulleted list 2&nbsp;  \\n* \\n\\n&nbsp;  \\n&nbsp;  \\n1. numbered list 1&nbsp;  \\n2. numbered list 2&nbsp;  \\n3. numbered list 3&nbsp;  \\n4. \\n\\n&nbsp;  \\n&nbsp;  \\nnot numbered", noteBody);
+    }
+
+    @Test
+    public void NotesSectionUseBulletedList() throws Exception {
+        turnOnDeveloperSettings();
+        ClickUIElementByAccessibilityID("Navigate up");
+        verifyText("Notes",WebElementByText("Notes", false),false);
+        ClickUIElementByText("Notes", false);
+        assertTabs("Notes");
+        assertMoreOptionsMenu("Notes",true);
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle1, true);
+        ClickUIElementByText(NotebookTitle1,false);
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertMoreOptionsMenu("Notebooks",true);
+        assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
+        CreateNewNoteFromNotebook(NoteTitle, NoteBody);
+        Thread.sleep(milliseconds_1);
+        Backup(false);
+        //Check Note
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","¶",true);
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_unordered_list");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","bulleted list 1¶bulleted list 2",false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Show Annotation Info", false));
+        ClickUIElementByText("Show Annotation Info",false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/infoTextView"));
+        String theAnnotationInfo = WebElementById("org.lds.ldssa.dev:id/infoTextView").getText();
+        System.out.println(theAnnotationInfo);
+        int noteBodyOffset = theAnnotationInfo.indexOf("content\"");
+        noteBodyOffset = noteBodyOffset + 11;
+        System.out.println("noteBodyOffset is " + noteBodyOffset);
+        int noteTitleOffset = theAnnotationInfo.indexOf("title");
+        noteTitleOffset = noteTitleOffset - 8;
+        System.out.println("noteTitleOffset is "+ noteTitleOffset);
+        String noteBody = theAnnotationInfo.substring(noteBodyOffset,noteTitleOffset);
+        System.out.println(noteBody);
+        Assert.assertEquals("This is a note\\\\.&nbsp;  \\n* bulleted list 1&nbsp;  \\n* bulleted list 2\\n\\n", noteBody);
+    }
+
+    @Test
+    public void NotesSectionUseNumberedList() throws Exception {
+        turnOnDeveloperSettings();
+        ClickUIElementByAccessibilityID("Navigate up");
+        verifyText("Notes",WebElementByText("Notes", false),false);
+        ClickUIElementByText("Notes", false);
+        assertTabs("Notes");
+        assertMoreOptionsMenu("Notes",true);
+        ClickUIElementByText("Notebooks", true);
+        CreateNotebookandAssert(NotebookTitle1, true);
+        ClickUIElementByText(NotebookTitle1,false);
+        verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.dev:id/emptyStateTitleTextView"),false);
+        verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.dev:id/emptyStateSubTitleTextView"),false);
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertMoreOptionsMenu("Notebooks",true);
+        assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
+        CreateNewNoteFromNotebook(NoteTitle, NoteBody);
+        Thread.sleep(milliseconds_1);
+        Backup(false);
+        //Check Note
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleTextView"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/noteMarkdownTextView"),false);
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        Thread.sleep(milliseconds_1);
+        verifyText(NoteTitle, WebElementById("org.lds.ldssa.dev:id/noteTitleEditText"),false);
+        verifyText(NoteBody, WebElementById("org.lds.ldssa.dev:id/markdownEditText"),false);
+
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","¶",true);
+
+        ClickUIElementByID("org.lds.ldssa.dev:id/markdown_controls_ordered_list");
+        sendTextFromKeyboard("org.lds.ldssa.dev:id/markdownEditText","numbered list 1¶numbered list 2¶numbered list 3",false);
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByID("org.lds.ldssa.dev:id/noteTitleTextView");
+        ClickUIElementByAccessibilityID("More options");
+        assertElementExistsBy(WebElementsByText("Show Annotation Info", false));
+        ClickUIElementByText("Show Annotation Info",false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.dev:id/infoTextView"));
+        String theAnnotationInfo = WebElementById("org.lds.ldssa.dev:id/infoTextView").getText();
+        System.out.println(theAnnotationInfo);
+        int noteBodyOffset = theAnnotationInfo.indexOf("content\"");
+        noteBodyOffset = noteBodyOffset + 11;
+        System.out.println("noteBodyOffset is " + noteBodyOffset);
+        int noteTitleOffset = theAnnotationInfo.indexOf("title");
+        noteTitleOffset = noteTitleOffset - 8;
+        System.out.println("noteTitleOffset is "+ noteTitleOffset);
+        String noteBody = theAnnotationInfo.substring(noteBodyOffset,noteTitleOffset);
+        System.out.println(noteBody);
+        Assert.assertEquals("This is a note\\\\.&nbsp;  \\n1. numbered list 1&nbsp;  \\n2. numbered list 2&nbsp;  \\n3. numbered list 3\\n\\n", noteBody);
+    }
+
+
     //********** Bookmarks Landing Page **********
     @Test
     public void BookmarksLandingPageFromLibrary_NotSignedIn() throws Exception {
@@ -5182,6 +5883,28 @@ public class GospelLibrary {
 
     }
 
+    @Test
+    public void turnOnDeveloperSettings() throws Exception{
+        skipLogin();
+        //Open More Options Menu
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("More options");
+        //Click Settings
+        assertElementExistsBy(WebElementsByText("Settings", false));
+        ClickUIElementByText("Settings", false);
+        //Click "About"
+        scrollDownTo("About");
+        ClickUIElementByText("About", false);
+        driver.tap(1, WebElementById("org.lds.ldssa.dev:id/aboutLogo"),1);
+        driver.tap(1, WebElementById("org.lds.ldssa.dev:id/aboutLogo"),1);
+        driver.tap(1, WebElementById("org.lds.ldssa.dev:id/aboutLogo"),1);
+        driver.tap(1, WebElementById("org.lds.ldssa.dev:id/aboutLogo"),1);
+        driver.tap(1, WebElementById("org.lds.ldssa.dev:id/aboutLogo"),1);
+        ClickUIElementByAccessibilityID("Navigate up");
+        scrollDownTo("Developer Options");
+        assertElementExistsBy(WebElementsByText("Developer Options",false));
+    }
+
 
     //********** Standard Works Nav and Content **********
 //    @Test
@@ -5600,7 +6323,7 @@ public class GospelLibrary {
         //click tag
         ClickUIElementByText("Test Tag",false);
         //assert menu bar
-        assertMenuBar("Test Tag","Tags");
+        assertMenuBar("Test Tag","Tags", true);
 
         //assert tag
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.dev:id/lastModifiedTextView"));

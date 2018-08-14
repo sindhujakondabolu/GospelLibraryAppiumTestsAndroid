@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e61195d5-5b6a-4293-81dc-73667731a79a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/Strings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/Strings.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" afterDir="false" />
     </list>
@@ -32,74 +35,20 @@
       <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="535">
-              <caret line="2385" lean-forward="true" selection-start-line="2385" selection-end-line="2385" />
+            <state relative-caret-position="282">
+              <caret line="2573" column="19" selection-start-line="2573" selection-start-column="19" selection-end-line="2573" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1003#1777#0" />
-                <element signature="e#1783#1864#0" />
-                <element signature="e#1872#2376#0" />
-                <element signature="e#2382#2633#0" />
-                <element signature="e#2640#2865#0" />
-                <element signature="e#2870#3230#0" />
-                <element signature="e#3237#3529#0" />
-                <element signature="e#3535#3995#0" />
-                <element signature="e#4001#4473#0" />
-                <element signature="e#4479#4867#0" />
-                <element signature="e#4873#5331#0" />
-                <element signature="e#5337#5726#0" />
-                <element signature="e#5732#6240#0" />
-                <element signature="e#6246#6424#0" />
-                <element signature="e#6430#6648#0" />
-                <element signature="e#6654#6872#0" />
-                <element signature="e#6878#7196#0" />
-                <element signature="e#7202#7389#0" />
-                <element signature="e#7395#7619#0" />
-                <element signature="e#7625#7877#0" />
-                <element signature="e#7883#8312#0" />
-                <element signature="e#8318#8819#0" />
-                <element signature="e#8825#9408#0" />
-                <element signature="e#9414#10016#0" />
-                <element signature="e#10022#10618#0" />
-                <element signature="e#10624#11236#0" />
-                <element signature="e#11242#11442#0" />
-                <element signature="e#11448#12022#0" />
-                <element signature="e#12028#12422#0" />
-                <element signature="e#12428#12729#0" />
-                <element signature="e#12735#13060#0" />
-                <element signature="e#13373#13788#0" />
-                <element signature="e#13794#14172#0" />
-                <element signature="e#14178#14543#0" />
-                <element signature="e#14549#14908#0" />
-                <element signature="e#14914#15323#0" />
-                <element signature="e#15329#15735#0" />
-                <element signature="e#17266#19210#0" />
-                <element signature="e#19216#20756#0" />
-                <element signature="e#20763#24198#0" />
-                <element signature="e#24204#24989#0" />
-                <element signature="e#30216#31191#0" />
-                <element signature="e#31197#31749#0" />
-                <element signature="e#31755#33151#0" />
-                <element signature="e#35580#36720#0" />
-                <element signature="e#36725#38551#0" />
-                <element signature="e#38557#41272#0" />
-                <element signature="e#41279#41755#0" />
-                <element signature="e#41761#42697#0" />
-                <element signature="e#42704#43615#0" />
-                <element signature="e#43621#44460#0" />
-                <element signature="e#44467#44953#0" />
-                <element signature="e#45991#46036#0" />
-                <element signature="e#46361#46716#0" />
-                <element signature="e#46722#48198#0" />
-                <element signature="e#48205#49639#0" />
-                <element signature="e#49645#52861#0" />
-                <element signature="e#52867#53764#0" />
-                <element signature="e#53770#54517#0" />
-                <element signature="e#54523#58870#0" />
-                <element signature="e#58876#60110#0" />
-                <element signature="e#60115#61894#0" />
-                <element signature="e#61901#63965#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Method.java" pinned="false" current-in-tab="false">
+        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/reflect/Method.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="7740">
+              <caret line="590" column="17" selection-start-line="590" selection-start-column="17" selection-end-line="590" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -119,8 +68,8 @@
       <file leaf-file-name="Strings.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="465">
-              <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+            <state relative-caret-position="765">
+              <caret line="51" column="406" selection-start-line="51" selection-start-column="406" selection-end-line="51" selection-end-column="406" />
             </state>
           </provider>
         </entry>
@@ -154,9 +103,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>resource</find>
-      <find>ok</find>
-      <find>&quot;ok&quot;</find>
       <find>annotations</find>
       <find>context</find>
       <find>window is:</find>
@@ -182,8 +128,11 @@
       <find>//</find>
       <find>allbooks</find>
       <find>annotationdeleteHighlight</find>
-      <find>notebook</find>
       <find>assertmoreOptionsMenu</find>
+      <find>notebook</find>
+      <find>256</find>
+      <find>bold</find>
+      <find>more options</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot; + idString + &quot;</replace>
@@ -225,11 +174,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="1680" />
     <option name="y" value="-1191" />
-    <option name="width" value="1680" />
-    <option name="height" value="1027" />
+    <option name="width" value="2560" />
+    <option name="height" value="1417" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -253,6 +202,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -276,8 +227,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -287,7 +236,7 @@
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2710104" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.general" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -311,14 +260,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GospelLibrary.CancelDeleteANotebook">
+  <component name="RunManager" selected="JUnit.GospelLibrary.CreateNew2000CharacterNoteInNewNotebook">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="GospelLibrary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -330,30 +279,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.CancelDeleteANotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Gospel-Library-Appium-Tests" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="UI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="CancelDeleteANotebook" />
+      <option name="METHOD_NAME" value="CreateNew2000CharacterNoteInNewNotebook" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -364,7 +290,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.DeleteANotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.NotesSectionUseBulletedList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -376,7 +302,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="DeleteANotebook" />
+      <option name="METHOD_NAME" value="NotesSectionUseBulletedList" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -387,7 +313,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.NotesSectionCancelDeleteNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.NotesSectionUseBulletedLists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -399,7 +325,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="NotesSectionCancelDeleteNote" />
+      <option name="METHOD_NAME" value="NotesSectionUseBulletedLists" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -410,7 +336,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.NotesSectionEditNote" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.NotesSectionUseNumberedAndBulletedLists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -422,7 +348,30 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="NotesSectionEditNote" />
+      <option name="METHOD_NAME" value="NotesSectionUseNumberedAndBulletedLists" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="GospelLibrary.NotesSectionUseNumberedList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gospel-Library-Appium-Tests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
+      <option name="METHOD_NAME" value="NotesSectionUseNumberedList" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -472,19 +421,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="JUnit.GospelLibrary.NotesSectionCancelDeleteNote" />
-      <item itemvalue="JUnit.GospelLibrary.NotesSectionEditNote" />
-      <item itemvalue="JUnit.GospelLibrary.DeleteANotebook" />
-      <item itemvalue="JUnit.GospelLibrary" />
-      <item itemvalue="JUnit.GospelLibrary.CancelDeleteANotebook" />
+      <item itemvalue="JUnit.GospelLibrary.NotesSectionUseNumberedAndBulletedLists" />
+      <item itemvalue="JUnit.GospelLibrary.NotesSectionUseBulletedLists" />
+      <item itemvalue="JUnit.GospelLibrary.NotesSectionUseBulletedList" />
+      <item itemvalue="JUnit.GospelLibrary.NotesSectionUseNumberedList" />
+      <item itemvalue="JUnit.GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GospelLibrary.CancelDeleteANotebook" />
-        <item itemvalue="JUnit.GospelLibrary.DeleteANotebook" />
-        <item itemvalue="JUnit.GospelLibrary" />
-        <item itemvalue="JUnit.GospelLibrary.NotesSectionEditNote" />
-        <item itemvalue="JUnit.GospelLibrary.NotesSectionCancelDeleteNote" />
+        <item itemvalue="JUnit.GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" />
+        <item itemvalue="JUnit.GospelLibrary.NotesSectionUseNumberedList" />
+        <item itemvalue="JUnit.GospelLibrary.NotesSectionUseBulletedList" />
+        <item itemvalue="JUnit.GospelLibrary.NotesSectionUseBulletedLists" />
+        <item itemvalue="JUnit.GospelLibrary.NotesSectionUseNumberedAndBulletedLists" />
       </list>
     </recent_temporary>
   </component>
@@ -502,35 +451,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 14h 24m 22s.xml">
-      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 13m 19s.xml">
+      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.07.31 at 14h 26m 17s.xml">
-      <configuration name="GospelLibrary" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 15m 59s.xml">
+      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 14h 27m 59s.xml">
-      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 16m 05s.xml">
+      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 14h 30m 39s.xml">
-      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 20m 09s.xml">
+      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.07.31 at 14h 35m 21s.xml">
-      <configuration name="GospelLibrary" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 21m 11s.xml">
+      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 14h 36m 19s.xml">
-      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 29m 16s.xml">
+      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 14h 57m 22s.xml">
-      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 33m 31s.xml">
+      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 15h 27m 03s.xml">
-      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 37m 22s.xml">
+      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_DeleteANotebook - 2018.07.31 at 15h 30m 14s.xml">
-      <configuration name="GospelLibrary.DeleteANotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 47m 16s.xml">
+      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CancelDeleteANotebook - 2018.07.31 at 15h 41m 04s.xml">
-      <configuration name="GospelLibrary.CancelDeleteANotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 13h 07m 59s.xml">
+      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -543,7 +492,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1680" y="-1191" width="2560" height="1417" extended-state="6" />
+    <frame x="1680" y="-1191" width="2560" height="1417" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
@@ -553,9 +502,9 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4074367" side_tool="true" weight="0.32992327" />
-      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.21640626" />
+      <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="3.90625E-4" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.30081907" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32829046" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.29858527" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3285985" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
@@ -564,8 +513,8 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
       <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info id="Favorites" order="2" sideWeight="0.51606804" side_tool="true" weight="0.1056394" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49574015" weight="0.39814815" />
+      <window_info id="Favorites" order="2" sideWeight="0.51606804" side_tool="true" weight="0.1056394" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Coverage" order="4" side_tool="true" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -580,11 +529,18 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="71" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java</url>
+          <line>76</line>
+          <properties />
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="72" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/openqa/selenium/remote/RemoteWebDriver.class" />
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableMap.class" />
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableMapEntry.class" />
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableEntry.class" />
@@ -597,69 +553,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1003#1777#0" />
-            <element signature="e#1783#1864#0" />
-            <element signature="e#1872#2376#0" />
-            <element signature="e#2382#2633#0" />
-            <element signature="e#2640#2865#0" />
-            <element signature="e#2870#3230#0" />
-            <element signature="e#3237#3529#0" />
-            <element signature="e#3535#3995#0" />
-            <element signature="e#4001#4473#0" />
-            <element signature="e#4479#4867#0" />
-            <element signature="e#4873#5331#0" />
-            <element signature="e#5337#5726#0" />
-            <element signature="e#5732#6240#0" />
-            <element signature="e#6246#6424#0" />
-            <element signature="e#6430#6648#0" />
-            <element signature="e#6654#6872#0" />
-            <element signature="e#6878#7196#0" />
-            <element signature="e#7202#7389#0" />
-            <element signature="e#7395#7619#0" />
-            <element signature="e#7625#7877#0" />
-            <element signature="e#7883#8312#0" />
-            <element signature="e#8318#8819#0" />
-            <element signature="e#8825#9408#0" />
-            <element signature="e#9414#10016#0" />
-            <element signature="e#10022#10618#0" />
-            <element signature="e#10624#11236#0" />
-            <element signature="e#11242#11442#0" />
-            <element signature="e#11448#12022#0" />
-            <element signature="e#12028#12422#0" />
-            <element signature="e#12428#12729#0" />
-            <element signature="e#12735#13060#0" />
-            <element signature="e#13373#13788#0" />
-            <element signature="e#13794#14172#0" />
-            <element signature="e#14178#14543#0" />
-            <element signature="e#14549#14908#0" />
-            <element signature="e#14914#15323#0" />
-            <element signature="e#15329#15735#0" />
-            <element signature="e#17266#19210#0" />
-            <element signature="e#19216#20756#0" />
-            <element signature="e#20763#24198#0" />
-            <element signature="e#24204#24989#0" />
-            <element signature="e#30216#31191#0" />
-            <element signature="e#31197#31749#0" />
-            <element signature="e#31755#33151#0" />
-            <element signature="e#35580#36720#0" />
-            <element signature="e#36725#38551#0" />
-            <element signature="e#38557#41272#0" />
-            <element signature="e#41279#41755#0" />
-            <element signature="e#41761#42697#0" />
-            <element signature="e#42704#43615#0" />
-            <element signature="e#43621#44460#0" />
-            <element signature="e#44467#44953#0" />
-            <element signature="e#45991#46036#0" />
-            <element signature="e#46361#46716#0" />
-            <element signature="e#46722#48198#0" />
-            <element signature="e#48205#49639#0" />
-            <element signature="e#49645#52861#0" />
-            <element signature="e#52867#53764#0" />
-            <element signature="e#53770#54517#0" />
-            <element signature="e#54523#58870#0" />
-            <element signature="e#58876#60110#0" />
-            <element signature="e#60115#61894#0" />
-            <element signature="e#61901#63965#0" />
           </folding>
         </state>
       </provider>
@@ -678,69 +571,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1003#1777#0" />
-            <element signature="e#1783#1864#0" />
-            <element signature="e#1872#2376#0" />
-            <element signature="e#2382#2633#0" />
-            <element signature="e#2640#2865#0" />
-            <element signature="e#2870#3230#0" />
-            <element signature="e#3237#3529#0" />
-            <element signature="e#3535#3995#0" />
-            <element signature="e#4001#4473#0" />
-            <element signature="e#4479#4867#0" />
-            <element signature="e#4873#5331#0" />
-            <element signature="e#5337#5726#0" />
-            <element signature="e#5732#6240#0" />
-            <element signature="e#6246#6424#0" />
-            <element signature="e#6430#6648#0" />
-            <element signature="e#6654#6872#0" />
-            <element signature="e#6878#7196#0" />
-            <element signature="e#7202#7389#0" />
-            <element signature="e#7395#7619#0" />
-            <element signature="e#7625#7877#0" />
-            <element signature="e#7883#8312#0" />
-            <element signature="e#8318#8819#0" />
-            <element signature="e#8825#9408#0" />
-            <element signature="e#9414#10016#0" />
-            <element signature="e#10022#10618#0" />
-            <element signature="e#10624#11236#0" />
-            <element signature="e#11242#11442#0" />
-            <element signature="e#11448#12022#0" />
-            <element signature="e#12028#12422#0" />
-            <element signature="e#12428#12729#0" />
-            <element signature="e#12735#13060#0" />
-            <element signature="e#13373#13788#0" />
-            <element signature="e#13794#14172#0" />
-            <element signature="e#14178#14543#0" />
-            <element signature="e#14549#14908#0" />
-            <element signature="e#14914#15323#0" />
-            <element signature="e#15329#15735#0" />
-            <element signature="e#17266#19210#0" />
-            <element signature="e#19216#20756#0" />
-            <element signature="e#20763#24198#0" />
-            <element signature="e#24204#24989#0" />
-            <element signature="e#30216#31191#0" />
-            <element signature="e#31197#31749#0" />
-            <element signature="e#31755#33151#0" />
-            <element signature="e#35580#36720#0" />
-            <element signature="e#36725#38551#0" />
-            <element signature="e#38557#41272#0" />
-            <element signature="e#41279#41755#0" />
-            <element signature="e#41761#42697#0" />
-            <element signature="e#42704#43615#0" />
-            <element signature="e#43621#44460#0" />
-            <element signature="e#44467#44953#0" />
-            <element signature="e#45991#46036#0" />
-            <element signature="e#46361#46716#0" />
-            <element signature="e#46722#48198#0" />
-            <element signature="e#48205#49639#0" />
-            <element signature="e#49645#52861#0" />
-            <element signature="e#52867#53764#0" />
-            <element signature="e#53770#54517#0" />
-            <element signature="e#54523#58870#0" />
-            <element signature="e#58876#60110#0" />
-            <element signature="e#60115#61894#0" />
-            <element signature="e#61901#63965#0" />
           </folding>
         </state>
       </provider>
@@ -750,69 +580,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1003#1777#0" />
-            <element signature="e#1783#1864#0" />
-            <element signature="e#1872#2376#0" />
-            <element signature="e#2382#2633#0" />
-            <element signature="e#2640#2865#0" />
-            <element signature="e#2870#3230#0" />
-            <element signature="e#3237#3529#0" />
-            <element signature="e#3535#3995#0" />
-            <element signature="e#4001#4473#0" />
-            <element signature="e#4479#4867#0" />
-            <element signature="e#4873#5331#0" />
-            <element signature="e#5337#5726#0" />
-            <element signature="e#5732#6240#0" />
-            <element signature="e#6246#6424#0" />
-            <element signature="e#6430#6648#0" />
-            <element signature="e#6654#6872#0" />
-            <element signature="e#6878#7196#0" />
-            <element signature="e#7202#7389#0" />
-            <element signature="e#7395#7619#0" />
-            <element signature="e#7625#7877#0" />
-            <element signature="e#7883#8312#0" />
-            <element signature="e#8318#8819#0" />
-            <element signature="e#8825#9408#0" />
-            <element signature="e#9414#10016#0" />
-            <element signature="e#10022#10618#0" />
-            <element signature="e#10624#11236#0" />
-            <element signature="e#11242#11442#0" />
-            <element signature="e#11448#12022#0" />
-            <element signature="e#12028#12422#0" />
-            <element signature="e#12428#12729#0" />
-            <element signature="e#12735#13060#0" />
-            <element signature="e#13373#13788#0" />
-            <element signature="e#13794#14172#0" />
-            <element signature="e#14178#14543#0" />
-            <element signature="e#14549#14908#0" />
-            <element signature="e#14914#15323#0" />
-            <element signature="e#15329#15735#0" />
-            <element signature="e#17266#19210#0" />
-            <element signature="e#19216#20756#0" />
-            <element signature="e#20763#24198#0" />
-            <element signature="e#24204#24989#0" />
-            <element signature="e#30216#31191#0" />
-            <element signature="e#31197#31749#0" />
-            <element signature="e#31755#33151#0" />
-            <element signature="e#35580#36720#0" />
-            <element signature="e#36725#38551#0" />
-            <element signature="e#38557#41272#0" />
-            <element signature="e#41279#41755#0" />
-            <element signature="e#41761#42697#0" />
-            <element signature="e#42704#43615#0" />
-            <element signature="e#43621#44460#0" />
-            <element signature="e#44467#44953#0" />
-            <element signature="e#45991#46036#0" />
-            <element signature="e#46361#46716#0" />
-            <element signature="e#46722#48198#0" />
-            <element signature="e#48205#49639#0" />
-            <element signature="e#49645#52861#0" />
-            <element signature="e#52867#53764#0" />
-            <element signature="e#53770#54517#0" />
-            <element signature="e#54523#58870#0" />
-            <element signature="e#58876#60110#0" />
-            <element signature="e#60115#61894#0" />
-            <element signature="e#61901#63965#0" />
           </folding>
         </state>
       </provider>
@@ -822,69 +589,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1003#1777#0" />
-            <element signature="e#1783#1864#0" />
-            <element signature="e#1872#2376#0" />
-            <element signature="e#2382#2633#0" />
-            <element signature="e#2640#2865#0" />
-            <element signature="e#2870#3230#0" />
-            <element signature="e#3237#3529#0" />
-            <element signature="e#3535#3995#0" />
-            <element signature="e#4001#4473#0" />
-            <element signature="e#4479#4867#0" />
-            <element signature="e#4873#5331#0" />
-            <element signature="e#5337#5726#0" />
-            <element signature="e#5732#6240#0" />
-            <element signature="e#6246#6424#0" />
-            <element signature="e#6430#6648#0" />
-            <element signature="e#6654#6872#0" />
-            <element signature="e#6878#7196#0" />
-            <element signature="e#7202#7389#0" />
-            <element signature="e#7395#7619#0" />
-            <element signature="e#7625#7877#0" />
-            <element signature="e#7883#8312#0" />
-            <element signature="e#8318#8819#0" />
-            <element signature="e#8825#9408#0" />
-            <element signature="e#9414#10016#0" />
-            <element signature="e#10022#10618#0" />
-            <element signature="e#10624#11236#0" />
-            <element signature="e#11242#11442#0" />
-            <element signature="e#11448#12022#0" />
-            <element signature="e#12028#12422#0" />
-            <element signature="e#12428#12729#0" />
-            <element signature="e#12735#13060#0" />
-            <element signature="e#13373#13788#0" />
-            <element signature="e#13794#14172#0" />
-            <element signature="e#14178#14543#0" />
-            <element signature="e#14549#14908#0" />
-            <element signature="e#14914#15323#0" />
-            <element signature="e#15329#15735#0" />
-            <element signature="e#17266#19210#0" />
-            <element signature="e#19216#20756#0" />
-            <element signature="e#20763#24198#0" />
-            <element signature="e#24204#24989#0" />
-            <element signature="e#30216#31191#0" />
-            <element signature="e#31197#31749#0" />
-            <element signature="e#31755#33151#0" />
-            <element signature="e#35580#36720#0" />
-            <element signature="e#36725#38551#0" />
-            <element signature="e#38557#41272#0" />
-            <element signature="e#41279#41755#0" />
-            <element signature="e#41761#42697#0" />
-            <element signature="e#42704#43615#0" />
-            <element signature="e#43621#44460#0" />
-            <element signature="e#44467#44953#0" />
-            <element signature="e#45991#46036#0" />
-            <element signature="e#46361#46716#0" />
-            <element signature="e#46722#48198#0" />
-            <element signature="e#48205#49639#0" />
-            <element signature="e#49645#52861#0" />
-            <element signature="e#52867#53764#0" />
-            <element signature="e#53770#54517#0" />
-            <element signature="e#54523#58870#0" />
-            <element signature="e#58876#60110#0" />
-            <element signature="e#60115#61894#0" />
-            <element signature="e#61901#63965#0" />
           </folding>
         </state>
       </provider>
@@ -894,69 +598,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1003#1777#0" />
-            <element signature="e#1783#1864#0" />
-            <element signature="e#1872#2376#0" />
-            <element signature="e#2382#2633#0" />
-            <element signature="e#2640#2865#0" />
-            <element signature="e#2870#3230#0" />
-            <element signature="e#3237#3529#0" />
-            <element signature="e#3535#3995#0" />
-            <element signature="e#4001#4473#0" />
-            <element signature="e#4479#4867#0" />
-            <element signature="e#4873#5331#0" />
-            <element signature="e#5337#5726#0" />
-            <element signature="e#5732#6240#0" />
-            <element signature="e#6246#6424#0" />
-            <element signature="e#6430#6648#0" />
-            <element signature="e#6654#6872#0" />
-            <element signature="e#6878#7196#0" />
-            <element signature="e#7202#7389#0" />
-            <element signature="e#7395#7619#0" />
-            <element signature="e#7625#7877#0" />
-            <element signature="e#7883#8312#0" />
-            <element signature="e#8318#8819#0" />
-            <element signature="e#8825#9408#0" />
-            <element signature="e#9414#10016#0" />
-            <element signature="e#10022#10618#0" />
-            <element signature="e#10624#11236#0" />
-            <element signature="e#11242#11442#0" />
-            <element signature="e#11448#12022#0" />
-            <element signature="e#12028#12422#0" />
-            <element signature="e#12428#12729#0" />
-            <element signature="e#12735#13060#0" />
-            <element signature="e#13373#13788#0" />
-            <element signature="e#13794#14172#0" />
-            <element signature="e#14178#14543#0" />
-            <element signature="e#14549#14908#0" />
-            <element signature="e#14914#15323#0" />
-            <element signature="e#15329#15735#0" />
-            <element signature="e#17266#19210#0" />
-            <element signature="e#19216#20756#0" />
-            <element signature="e#20763#24198#0" />
-            <element signature="e#24204#24989#0" />
-            <element signature="e#30216#31191#0" />
-            <element signature="e#31197#31749#0" />
-            <element signature="e#31755#33151#0" />
-            <element signature="e#35580#36720#0" />
-            <element signature="e#36725#38551#0" />
-            <element signature="e#38557#41272#0" />
-            <element signature="e#41279#41755#0" />
-            <element signature="e#41761#42697#0" />
-            <element signature="e#42704#43615#0" />
-            <element signature="e#43621#44460#0" />
-            <element signature="e#44467#44953#0" />
-            <element signature="e#45991#46036#0" />
-            <element signature="e#46361#46716#0" />
-            <element signature="e#46722#48198#0" />
-            <element signature="e#48205#49639#0" />
-            <element signature="e#49645#52861#0" />
-            <element signature="e#52867#53764#0" />
-            <element signature="e#53770#54517#0" />
-            <element signature="e#54523#58870#0" />
-            <element signature="e#58876#60110#0" />
-            <element signature="e#60115#61894#0" />
-            <element signature="e#61901#63965#0" />
           </folding>
         </state>
       </provider>
@@ -966,69 +607,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1003#1777#0" />
-            <element signature="e#1783#1864#0" />
-            <element signature="e#1872#2376#0" />
-            <element signature="e#2382#2633#0" />
-            <element signature="e#2640#2865#0" />
-            <element signature="e#2870#3230#0" />
-            <element signature="e#3237#3529#0" />
-            <element signature="e#3535#3995#0" />
-            <element signature="e#4001#4473#0" />
-            <element signature="e#4479#4867#0" />
-            <element signature="e#4873#5331#0" />
-            <element signature="e#5337#5726#0" />
-            <element signature="e#5732#6240#0" />
-            <element signature="e#6246#6424#0" />
-            <element signature="e#6430#6648#0" />
-            <element signature="e#6654#6872#0" />
-            <element signature="e#6878#7196#0" />
-            <element signature="e#7202#7389#0" />
-            <element signature="e#7395#7619#0" />
-            <element signature="e#7625#7877#0" />
-            <element signature="e#7883#8312#0" />
-            <element signature="e#8318#8819#0" />
-            <element signature="e#8825#9408#0" />
-            <element signature="e#9414#10016#0" />
-            <element signature="e#10022#10618#0" />
-            <element signature="e#10624#11236#0" />
-            <element signature="e#11242#11442#0" />
-            <element signature="e#11448#12022#0" />
-            <element signature="e#12028#12422#0" />
-            <element signature="e#12428#12729#0" />
-            <element signature="e#12735#13060#0" />
-            <element signature="e#13373#13788#0" />
-            <element signature="e#13794#14172#0" />
-            <element signature="e#14178#14543#0" />
-            <element signature="e#14549#14908#0" />
-            <element signature="e#14914#15323#0" />
-            <element signature="e#15329#15735#0" />
-            <element signature="e#17266#19210#0" />
-            <element signature="e#19216#20756#0" />
-            <element signature="e#20763#24198#0" />
-            <element signature="e#24204#24989#0" />
-            <element signature="e#30216#31191#0" />
-            <element signature="e#31197#31749#0" />
-            <element signature="e#31755#33151#0" />
-            <element signature="e#35580#36720#0" />
-            <element signature="e#36725#38551#0" />
-            <element signature="e#38557#41272#0" />
-            <element signature="e#41279#41755#0" />
-            <element signature="e#41761#42697#0" />
-            <element signature="e#42704#43615#0" />
-            <element signature="e#43621#44460#0" />
-            <element signature="e#44467#44953#0" />
-            <element signature="e#45991#46036#0" />
-            <element signature="e#46361#46716#0" />
-            <element signature="e#46722#48198#0" />
-            <element signature="e#48205#49639#0" />
-            <element signature="e#49645#52861#0" />
-            <element signature="e#52867#53764#0" />
-            <element signature="e#53770#54517#0" />
-            <element signature="e#54523#58870#0" />
-            <element signature="e#58876#60110#0" />
-            <element signature="e#60115#61894#0" />
-            <element signature="e#61901#63965#0" />
           </folding>
         </state>
       </provider>
@@ -1038,69 +616,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1003#1777#0" />
-            <element signature="e#1783#1864#0" />
-            <element signature="e#1872#2376#0" />
-            <element signature="e#2382#2633#0" />
-            <element signature="e#2640#2865#0" />
-            <element signature="e#2870#3230#0" />
-            <element signature="e#3237#3529#0" />
-            <element signature="e#3535#3995#0" />
-            <element signature="e#4001#4473#0" />
-            <element signature="e#4479#4867#0" />
-            <element signature="e#4873#5331#0" />
-            <element signature="e#5337#5726#0" />
-            <element signature="e#5732#6240#0" />
-            <element signature="e#6246#6424#0" />
-            <element signature="e#6430#6648#0" />
-            <element signature="e#6654#6872#0" />
-            <element signature="e#6878#7196#0" />
-            <element signature="e#7202#7389#0" />
-            <element signature="e#7395#7619#0" />
-            <element signature="e#7625#7877#0" />
-            <element signature="e#7883#8312#0" />
-            <element signature="e#8318#8819#0" />
-            <element signature="e#8825#9408#0" />
-            <element signature="e#9414#10016#0" />
-            <element signature="e#10022#10618#0" />
-            <element signature="e#10624#11236#0" />
-            <element signature="e#11242#11442#0" />
-            <element signature="e#11448#12022#0" />
-            <element signature="e#12028#12422#0" />
-            <element signature="e#12428#12729#0" />
-            <element signature="e#12735#13060#0" />
-            <element signature="e#13373#13788#0" />
-            <element signature="e#13794#14172#0" />
-            <element signature="e#14178#14543#0" />
-            <element signature="e#14549#14908#0" />
-            <element signature="e#14914#15323#0" />
-            <element signature="e#15329#15735#0" />
-            <element signature="e#17266#19210#0" />
-            <element signature="e#19216#20756#0" />
-            <element signature="e#20763#24198#0" />
-            <element signature="e#24204#24989#0" />
-            <element signature="e#30216#31191#0" />
-            <element signature="e#31197#31749#0" />
-            <element signature="e#31755#33151#0" />
-            <element signature="e#35580#36720#0" />
-            <element signature="e#36725#38551#0" />
-            <element signature="e#38557#41272#0" />
-            <element signature="e#41279#41755#0" />
-            <element signature="e#41761#42697#0" />
-            <element signature="e#42704#43615#0" />
-            <element signature="e#43621#44460#0" />
-            <element signature="e#44467#44953#0" />
-            <element signature="e#45991#46036#0" />
-            <element signature="e#46361#46716#0" />
-            <element signature="e#46722#48198#0" />
-            <element signature="e#48205#49639#0" />
-            <element signature="e#49645#52861#0" />
-            <element signature="e#52867#53764#0" />
-            <element signature="e#53770#54517#0" />
-            <element signature="e#54523#58870#0" />
-            <element signature="e#58876#60110#0" />
-            <element signature="e#60115#61894#0" />
-            <element signature="e#61901#63965#0" />
           </folding>
         </state>
       </provider>
@@ -1110,69 +625,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1003#1777#0" />
-            <element signature="e#1783#1864#0" />
-            <element signature="e#1872#2376#0" />
-            <element signature="e#2382#2633#0" />
-            <element signature="e#2640#2865#0" />
-            <element signature="e#2870#3230#0" />
-            <element signature="e#3237#3529#0" />
-            <element signature="e#3535#3995#0" />
-            <element signature="e#4001#4473#0" />
-            <element signature="e#4479#4867#0" />
-            <element signature="e#4873#5331#0" />
-            <element signature="e#5337#5726#0" />
-            <element signature="e#5732#6240#0" />
-            <element signature="e#6246#6424#0" />
-            <element signature="e#6430#6648#0" />
-            <element signature="e#6654#6872#0" />
-            <element signature="e#6878#7196#0" />
-            <element signature="e#7202#7389#0" />
-            <element signature="e#7395#7619#0" />
-            <element signature="e#7625#7877#0" />
-            <element signature="e#7883#8312#0" />
-            <element signature="e#8318#8819#0" />
-            <element signature="e#8825#9408#0" />
-            <element signature="e#9414#10016#0" />
-            <element signature="e#10022#10618#0" />
-            <element signature="e#10624#11236#0" />
-            <element signature="e#11242#11442#0" />
-            <element signature="e#11448#12022#0" />
-            <element signature="e#12028#12422#0" />
-            <element signature="e#12428#12729#0" />
-            <element signature="e#12735#13060#0" />
-            <element signature="e#13373#13788#0" />
-            <element signature="e#13794#14172#0" />
-            <element signature="e#14178#14543#0" />
-            <element signature="e#14549#14908#0" />
-            <element signature="e#14914#15323#0" />
-            <element signature="e#15329#15735#0" />
-            <element signature="e#17266#19210#0" />
-            <element signature="e#19216#20756#0" />
-            <element signature="e#20763#24198#0" />
-            <element signature="e#24204#24989#0" />
-            <element signature="e#30216#31191#0" />
-            <element signature="e#31197#31749#0" />
-            <element signature="e#31755#33151#0" />
-            <element signature="e#35580#36720#0" />
-            <element signature="e#36725#38551#0" />
-            <element signature="e#38557#41272#0" />
-            <element signature="e#41279#41755#0" />
-            <element signature="e#41761#42697#0" />
-            <element signature="e#42704#43615#0" />
-            <element signature="e#43621#44460#0" />
-            <element signature="e#44467#44953#0" />
-            <element signature="e#45991#46036#0" />
-            <element signature="e#46361#46716#0" />
-            <element signature="e#46722#48198#0" />
-            <element signature="e#48205#49639#0" />
-            <element signature="e#49645#52861#0" />
-            <element signature="e#52867#53764#0" />
-            <element signature="e#53770#54517#0" />
-            <element signature="e#54523#58870#0" />
-            <element signature="e#58876#60110#0" />
-            <element signature="e#60115#61894#0" />
-            <element signature="e#61901#63965#0" />
           </folding>
         </state>
       </provider>
@@ -1182,69 +634,6 @@
         <state>
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1003#1777#0" />
-            <element signature="e#1783#1864#0" />
-            <element signature="e#1872#2376#0" />
-            <element signature="e#2382#2633#0" />
-            <element signature="e#2640#2865#0" />
-            <element signature="e#2870#3230#0" />
-            <element signature="e#3237#3529#0" />
-            <element signature="e#3535#3995#0" />
-            <element signature="e#4001#4473#0" />
-            <element signature="e#4479#4867#0" />
-            <element signature="e#4873#5331#0" />
-            <element signature="e#5337#5726#0" />
-            <element signature="e#5732#6240#0" />
-            <element signature="e#6246#6424#0" />
-            <element signature="e#6430#6648#0" />
-            <element signature="e#6654#6872#0" />
-            <element signature="e#6878#7196#0" />
-            <element signature="e#7202#7389#0" />
-            <element signature="e#7395#7619#0" />
-            <element signature="e#7625#7877#0" />
-            <element signature="e#7883#8312#0" />
-            <element signature="e#8318#8819#0" />
-            <element signature="e#8825#9408#0" />
-            <element signature="e#9414#10016#0" />
-            <element signature="e#10022#10618#0" />
-            <element signature="e#10624#11236#0" />
-            <element signature="e#11242#11442#0" />
-            <element signature="e#11448#12022#0" />
-            <element signature="e#12028#12422#0" />
-            <element signature="e#12428#12729#0" />
-            <element signature="e#12735#13060#0" />
-            <element signature="e#13373#13788#0" />
-            <element signature="e#13794#14172#0" />
-            <element signature="e#14178#14543#0" />
-            <element signature="e#14549#14908#0" />
-            <element signature="e#14914#15323#0" />
-            <element signature="e#15329#15735#0" />
-            <element signature="e#17266#19210#0" />
-            <element signature="e#19216#20756#0" />
-            <element signature="e#20763#24198#0" />
-            <element signature="e#24204#24989#0" />
-            <element signature="e#30216#31191#0" />
-            <element signature="e#31197#31749#0" />
-            <element signature="e#31755#33151#0" />
-            <element signature="e#35580#36720#0" />
-            <element signature="e#36725#38551#0" />
-            <element signature="e#38557#41272#0" />
-            <element signature="e#41279#41755#0" />
-            <element signature="e#41761#42697#0" />
-            <element signature="e#42704#43615#0" />
-            <element signature="e#43621#44460#0" />
-            <element signature="e#44467#44953#0" />
-            <element signature="e#45991#46036#0" />
-            <element signature="e#46361#46716#0" />
-            <element signature="e#46722#48198#0" />
-            <element signature="e#48205#49639#0" />
-            <element signature="e#49645#52861#0" />
-            <element signature="e#52867#53764#0" />
-            <element signature="e#53770#54517#0" />
-            <element signature="e#54523#58870#0" />
-            <element signature="e#58876#60110#0" />
-            <element signature="e#60115#61894#0" />
-            <element signature="e#61901#63965#0" />
           </folding>
         </state>
       </provider>
@@ -1293,82 +682,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/reflect/Method.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7740">
+          <caret line="590" column="17" selection-start-line="590" selection-start-column="17" selection-end-line="590" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="29" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+        <state relative-caret-position="765">
+          <caret line="51" column="406" selection-start-line="51" selection-start-column="406" selection-end-line="51" selection-end-column="406" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="2385" lean-forward="true" selection-start-line="2385" selection-end-line="2385" />
+        <state relative-caret-position="282">
+          <caret line="2573" column="19" selection-start-line="2573" selection-start-column="19" selection-end-line="2573" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1003#1777#0" />
-            <element signature="e#1783#1864#0" />
-            <element signature="e#1872#2376#0" />
-            <element signature="e#2382#2633#0" />
-            <element signature="e#2640#2865#0" />
-            <element signature="e#2870#3230#0" />
-            <element signature="e#3237#3529#0" />
-            <element signature="e#3535#3995#0" />
-            <element signature="e#4001#4473#0" />
-            <element signature="e#4479#4867#0" />
-            <element signature="e#4873#5331#0" />
-            <element signature="e#5337#5726#0" />
-            <element signature="e#5732#6240#0" />
-            <element signature="e#6246#6424#0" />
-            <element signature="e#6430#6648#0" />
-            <element signature="e#6654#6872#0" />
-            <element signature="e#6878#7196#0" />
-            <element signature="e#7202#7389#0" />
-            <element signature="e#7395#7619#0" />
-            <element signature="e#7625#7877#0" />
-            <element signature="e#7883#8312#0" />
-            <element signature="e#8318#8819#0" />
-            <element signature="e#8825#9408#0" />
-            <element signature="e#9414#10016#0" />
-            <element signature="e#10022#10618#0" />
-            <element signature="e#10624#11236#0" />
-            <element signature="e#11242#11442#0" />
-            <element signature="e#11448#12022#0" />
-            <element signature="e#12028#12422#0" />
-            <element signature="e#12428#12729#0" />
-            <element signature="e#12735#13060#0" />
-            <element signature="e#13373#13788#0" />
-            <element signature="e#13794#14172#0" />
-            <element signature="e#14178#14543#0" />
-            <element signature="e#14549#14908#0" />
-            <element signature="e#14914#15323#0" />
-            <element signature="e#15329#15735#0" />
-            <element signature="e#17266#19210#0" />
-            <element signature="e#19216#20756#0" />
-            <element signature="e#20763#24198#0" />
-            <element signature="e#24204#24989#0" />
-            <element signature="e#30216#31191#0" />
-            <element signature="e#31197#31749#0" />
-            <element signature="e#31755#33151#0" />
-            <element signature="e#35580#36720#0" />
-            <element signature="e#36725#38551#0" />
-            <element signature="e#38557#41272#0" />
-            <element signature="e#41279#41755#0" />
-            <element signature="e#41761#42697#0" />
-            <element signature="e#42704#43615#0" />
-            <element signature="e#43621#44460#0" />
-            <element signature="e#44467#44953#0" />
-            <element signature="e#45991#46036#0" />
-            <element signature="e#46361#46716#0" />
-            <element signature="e#46722#48198#0" />
-            <element signature="e#48205#49639#0" />
-            <element signature="e#49645#52861#0" />
-            <element signature="e#52867#53764#0" />
-            <element signature="e#53770#54517#0" />
-            <element signature="e#54523#58870#0" />
-            <element signature="e#58876#60110#0" />
-            <element signature="e#60115#61894#0" />
-            <element signature="e#61901#63965#0" />
           </folding>
         </state>
       </provider>
