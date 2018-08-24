@@ -50,4 +50,14 @@ public abstract class Strings {
             "Bresaola tenderloin venison sirloin jowl pork loin. Biltong pork chop leberkas cow doner. Venison flank alcatra bacon, tenderloin tri-tip short ribs ham rump boudin fatback porchetta pastrami t-bone cupim. Jowl boudin sirloin, kielbasa drumstick chicken picanha pancetta tenderloin capicola prosciutto jerky. Bacon kielbasa landjaeger biltong turkey, sausage pork loin venison beef ribs pancetta flank chicken capicola.\n" +
             "\n" +
             "Beef ribs shank pastrami cow turkey biltong chuck pork belly pork chop shoulder. Flank porchetta pork loin picanha brisket beef turkey boudin beef ribs buffalo. Drumstick short ribs pancetta, cupim shoulder prosciutto ball tip ham hock kevin turducken ribeye landjaeger short loin meatloaf. Hamburger corned beef ham filet mignon shank. Turducken picanha frankfurter fatback shank biltong mm";
+
+    //Bookmark names
+    public static String BookmarkOneTitle = "My First Bookmark";
+    public static String BookmarkTwoTitle = "My Second Bookmark";
+    public static String BookmarkThreeTitle = "My Third Bookmark";
+    public static String BookmarkFourTitle = "My Fourth Bookmark";
+
+
+
+
 }

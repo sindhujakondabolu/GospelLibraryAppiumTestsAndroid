@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e61195d5-5b6a-4293-81dc-73667731a79a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/Strings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/Strings.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" afterDir="false" />
     </list>
@@ -22,6 +20,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/GospelLibraryAppiumTestsAndroid$GospelLibrary_signInCreateAccount.coverage" NAME="GospelLibrary.signInCreateAccount Coverage Results" MODIFIED="1523547782743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
+  <component name="ExportTestResults" exportFormat="Xml" outputFolder="$USER_HOME$/Desktop" openResultsInEditor="true" userTempatePath="" />
   <component name="ExportToHTMLSettings">
     <option name="printScope" value="4" />
     <option name="OPEN_IN_BROWSER" value="true" />
@@ -35,8 +34,8 @@
       <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="2573" column="19" selection-start-line="2573" selection-start-column="19" selection-end-line="2573" selection-end-column="19" />
+            <state relative-caret-position="210">
+              <caret line="905" selection-start-line="905" selection-end-line="905" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,8 +67,8 @@
       <file leaf-file-name="Strings.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="765">
-              <caret line="51" column="406" selection-start-line="51" selection-start-column="406" selection-end-line="51" selection-end-column="406" />
+            <state relative-caret-position="855">
+              <caret line="57" column="55" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -103,10 +102,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>annotations</find>
-      <find>context</find>
-      <find>window is:</find>
-      <find>menu</find>
       <find>window</find>
       <find>handles</find>
       <find>having t</find>
@@ -133,6 +128,10 @@
       <find>256</find>
       <find>bold</find>
       <find>more options</find>
+      <find>bookmarks</find>
+      <find>TapXYList</find>
+      <find>Mormon</find>
+      <find>…</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot; + idString + &quot;</replace>
@@ -145,6 +144,7 @@
       <replace>dark_blue</replace>
       <replace>scrollToById(&quot;p1&quot;);</replace>
       <replace>public static</replace>
+      <replace>Moron</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -174,11 +174,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="1680" />
-    <option name="y" value="-1191" />
-    <option name="width" value="2560" />
-    <option name="height" value="1417" />
+    <option name="y" value="-1214" />
+    <option name="width" value="2297" />
+    <option name="height" value="181" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -260,14 +260,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.GospelLibrary.CreateNew2000CharacterNoteInNewNotebook">
+  <component name="RunManager" selected="JUnit.GospelLibrary">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
-    <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -279,7 +279,30 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="CreateNew2000CharacterNoteInNewNotebook" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
+    <configuration name="GospelLibrary.BookmarksHideAddAndUpdateButtonsWhenNotOnChapter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gospel-Library-Appium-Tests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
+      <option name="METHOD_NAME" value="BookmarksHideAddAndUpdateButtonsWhenNotOnChapter" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -290,7 +313,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.NotesSectionUseBulletedList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.BookmarksRenameABookmarkDefault" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -302,7 +325,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="NotesSectionUseBulletedList" />
+      <option name="METHOD_NAME" value="BookmarksRenameABookmarkDefault" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -313,7 +336,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.NotesSectionUseBulletedLists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.BookmarksRenameABookmarkDefaultBookmarkUpdatesToNewChapterTitle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -325,7 +348,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="NotesSectionUseBulletedLists" />
+      <option name="METHOD_NAME" value="BookmarksRenameABookmarkDefaultBookmarkUpdatesToNewChapterTitle" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -336,7 +359,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.NotesSectionUseNumberedAndBulletedLists" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.BookmarksReorderBookmarks" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -348,30 +371,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="NotesSectionUseNumberedAndBulletedLists" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary.NotesSectionUseNumberedList" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Gospel-Library-Appium-Tests" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="UI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="NotesSectionUseNumberedList" />
+      <option name="METHOD_NAME" value="BookmarksReorderBookmarks" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -421,19 +421,19 @@
       <listeners />
     </configuration>
     <list>
-      <item itemvalue="JUnit.GospelLibrary.NotesSectionUseNumberedAndBulletedLists" />
-      <item itemvalue="JUnit.GospelLibrary.NotesSectionUseBulletedLists" />
-      <item itemvalue="JUnit.GospelLibrary.NotesSectionUseBulletedList" />
-      <item itemvalue="JUnit.GospelLibrary.NotesSectionUseNumberedList" />
-      <item itemvalue="JUnit.GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" />
+      <item itemvalue="JUnit.GospelLibrary.BookmarksRenameABookmarkDefault" />
+      <item itemvalue="JUnit.GospelLibrary.BookmarksRenameABookmarkDefaultBookmarkUpdatesToNewChapterTitle" />
+      <item itemvalue="JUnit.GospelLibrary.BookmarksHideAddAndUpdateButtonsWhenNotOnChapter" />
+      <item itemvalue="JUnit.GospelLibrary.BookmarksReorderBookmarks" />
+      <item itemvalue="JUnit.GospelLibrary" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" />
-        <item itemvalue="JUnit.GospelLibrary.NotesSectionUseNumberedList" />
-        <item itemvalue="JUnit.GospelLibrary.NotesSectionUseBulletedList" />
-        <item itemvalue="JUnit.GospelLibrary.NotesSectionUseBulletedLists" />
-        <item itemvalue="JUnit.GospelLibrary.NotesSectionUseNumberedAndBulletedLists" />
+        <item itemvalue="JUnit.GospelLibrary" />
+        <item itemvalue="JUnit.GospelLibrary.BookmarksReorderBookmarks" />
+        <item itemvalue="JUnit.GospelLibrary.BookmarksHideAddAndUpdateButtonsWhenNotOnChapter" />
+        <item itemvalue="JUnit.GospelLibrary.BookmarksRenameABookmarkDefaultBookmarkUpdatesToNewChapterTitle" />
+        <item itemvalue="JUnit.GospelLibrary.BookmarksRenameABookmarkDefault" />
       </list>
     </recent_temporary>
   </component>
@@ -451,35 +451,35 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 13m 19s.xml">
-      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_BookmarksReorderBookmarks - 2018.08.16 at 15h 11m 05s.xml">
+      <configuration name="GospelLibrary.BookmarksReorderBookmarks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 15m 59s.xml">
-      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_BookmarksReorderBookmarks - 2018.08.16 at 15h 21m 40s.xml">
+      <configuration name="GospelLibrary.BookmarksReorderBookmarks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 16m 05s.xml">
-      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_BookmarksReorderBookmarks - 2018.08.16 at 15h 32m 53s.xml">
+      <configuration name="GospelLibrary.BookmarksReorderBookmarks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 20m 09s.xml">
-      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_BookmarksReorderBookmarks - 2018.08.16 at 15h 41m 14s.xml">
+      <configuration name="GospelLibrary.BookmarksReorderBookmarks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 21m 11s.xml">
-      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_BookmarksReorderBookmarks - 2018.08.16 at 15h 47m 24s.xml">
+      <configuration name="GospelLibrary.BookmarksReorderBookmarks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 29m 16s.xml">
-      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_BookmarksReorderBookmarks - 2018.08.16 at 15h 50m 33s.xml">
+      <configuration name="GospelLibrary.BookmarksReorderBookmarks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 33m 31s.xml">
-      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_BookmarksReorderBookmarks - 2018.08.16 at 15h 55m 56s.xml">
+      <configuration name="GospelLibrary.BookmarksReorderBookmarks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 37m 22s.xml">
-      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary_BookmarksReorderBookmarks - 2018.08.16 at 16h 12m 28s.xml">
+      <configuration name="GospelLibrary.BookmarksReorderBookmarks" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 12h 47m 16s.xml">
-      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.08.19 at 15h 11m 22s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary_CreateNew2000CharacterNoteInNewNotebook - 2018.08.14 at 13h 07m 59s.xml">
-      <configuration name="GospelLibrary.CreateNew2000CharacterNoteInNewNotebook" configurationId="JUnit" />
+    <history-entry file="GospelLibrary - 2018.08.23 at 16h 21m 54s.xml">
+      <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -492,18 +492,17 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1680" y="-1191" width="2560" height="1417" extended-state="0" />
-    <editor active="true" />
+    <frame x="1680" y="-1191" width="2560" height="1417" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3285985" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49574015" weight="0.20327625" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49574015" weight="0.20253165" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4074367" side_tool="true" weight="0.32992327" />
       <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="3.90625E-4" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.30081907" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.4497394" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32829046" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3285985" />
       <window_info id="Capture Tool" order="2" />
@@ -532,7 +531,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java</url>
-          <line>76</line>
+          <line>78</line>
           <properties />
           <option name="timeStamp" value="71" />
         </line-breakpoint>
@@ -541,7 +540,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableMap.class" />
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableMapEntry.class" />
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableEntry.class" />
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/AbstractMapEntry.class" />
@@ -691,15 +689,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="765">
-          <caret line="51" column="406" selection-start-line="51" selection-start-column="406" selection-end-line="51" selection-end-column="406" />
+        <state relative-caret-position="855">
+          <caret line="57" column="55" selection-start-line="57" selection-start-column="55" selection-end-line="57" selection-end-column="55" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Desktop/Test Results - GospelLibrary.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="2573" column="19" selection-start-line="2573" selection-start-column="19" selection-end-line="2573" selection-end-column="19" />
+        <state relative-caret-position="210">
+          <caret line="905" selection-start-line="905" selection-end-line="905" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
