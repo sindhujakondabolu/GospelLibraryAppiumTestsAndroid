@@ -714,7 +714,10 @@ public class GospelLibrary {
             assertElementExistsBy(WebElementsByText("Play Audio", false));
             assertElementExistsBy(WebElementsByText("Language", false));
             assertElementExistsBy(WebElementsByText("Settings", false));
-        } else if (screen == "Notes") {
+        } else if (screen == "New Note") {
+            assertElementExistsBy(WebElementsByText("Add to Notebook", false));
+            assertElementExistsBy(WebElementsByText("Show Annotation Info", false));
+        }else if (screen == "Notes") {
             assertElementExistsBy(WebElementsByText("New Screen", false));
             assertElementExistsBy(WebElementsByText("Restore Journal", false));
             assertElementExistsBy(WebElementsByText("Language", false));
@@ -774,7 +777,7 @@ public class GospelLibrary {
     public void assertNoteOptionsMenu()throws Exception{
         assertElementExistsBy(WebElementsByText("Edit Note",false));
         assertElementExistsBy(WebElementsByText("Share",false));
-        assertElementExistsBy(WebElementsByText("Move to Notebook",false));
+        assertElementExistsBy(WebElementsByText("Add to Notebook",false));
         assertElementExistsBy(WebElementsByText("Delete",false ));
     }
 
@@ -825,26 +828,26 @@ public class GospelLibrary {
 
     //assert merge notebook popup
     public void assertMergeNotebookPopup(String NewNotebookName, Boolean Continue) throws Exception{
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Merged Notebook Name",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        verifyText("The selected notebooks will be merged. Please enter a name for the resulting notebook.",WebElementById("org.lds.ldssa.alpha:id/md_content"),false);
-        assertElementExistsBy(WebElementsById("android:id/input"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_minMax"));
-        verifyText("0/256",WebElementById("org.lds.ldssa.alpha:id/md_minMax"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("Cancel",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),true);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("Merge",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),true);
-        assert !Boolean.parseBoolean((WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive")).getAttribute("enabled"));
-        sendText("android:id/input",NewNotebookName);
-        verifyText(NewNotebookName.length() + "/256",WebElementByResourceId("org.lds.ldssa.alpha:id/md_minMax"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Merged Notebook Name",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        verifyText("The selected notebooks will be merged. Please enter a name for the resulting notebook.",WebElementById("org.lds.ldssa.alpha:id/md_text_message"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_input_message"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/textinput_counter"));
+        verifyText("0 / 256",WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("Cancel",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("Merge",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),true);
+        assert !Boolean.parseBoolean((WebElementById("org.lds.ldssa.alpha:id/md_button_positive")).getAttribute("enabled"));
+        sendText("org.lds.ldssa.alpha:id/md_input_message",NewNotebookName);
+        verifyText(NewNotebookName.length() + " / 256",WebElementByResourceId("org.lds.ldssa.alpha:id/textinput_counter"),false);
         driver.getPageSource();
-        assert Boolean.parseBoolean((WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive")).getAttribute("enabled"));
+        assert Boolean.parseBoolean((WebElementById("org.lds.ldssa.alpha:id/md_button_positive")).getAttribute("enabled"));
         if (Continue)
-            {ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");}
+            {ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");}
         else
-            {ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");}
+            {ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");}
     }
 
     //assert downloads screen
@@ -935,17 +938,17 @@ public class GospelLibrary {
         ClickUIElementByID("org.lds.ldssa.alpha:id/notesFloatingActionButton");
         Thread.sleep(milliseconds_1);
         verifyText("Create Notebook", WebElementByText("Create Notebook", false),false);
-        verifyText("0/256",WebElementByResourceId("org.lds.ldssa.alpha:id/md_minMax"),false);
-        verifyText("CANCEL", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        verifyText("ADD", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        sendText("android:id/input", title);
-        verifyText(title.length() + "/256",WebElementByResourceId("org.lds.ldssa.alpha:id/md_minMax"),false);
+        verifyText("0 / 256",WebElementByResourceId("org.lds.ldssa.alpha:id/textinput_counter"),false);
+        verifyText("CANCEL", WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        verifyText("ADD", WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        sendText("org.lds.ldssa.alpha:id/md_input_message", title);
+        verifyText(title.length() + " / 256",WebElementByResourceId("org.lds.ldssa.alpha:id/textinput_counter"),false);
         if (add){
-            ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+            ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
             Thread.sleep(milliseconds_2);
             verifyText(title, WebElementByText(title,false),false);
         } else {
-            ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+            ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
             Thread.sleep(milliseconds_2);
             assertElementNotPresentBy(WebElementsByText(title, false));
         }
@@ -961,7 +964,8 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/italicImageView"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/unorderedListImageView"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/orderedListImageView"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Add to Notebook"));
+        assertMoreOptionsMenu("New Note",true);
+        assertElementExistsBy(WebElementsByAccessibilityId("Link"));
         assertElementExistsBy(WebElementsByAccessibilityId("Tag"));
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         //Type Note Text
@@ -973,87 +977,87 @@ public class GospelLibrary {
 
     //assertDeleteNotePopup
     public void assertDeleteNotebooksPopup() throws Exception {
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Delete Notebooks", WebElementById("org.lds.ldssa.alpha:id/md_title"), false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        verifyText("Delete selected notebooks?", WebElementById("org.lds.ldssa.alpha:id/md_content"), false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"), true);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("Delete", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"), true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Delete Notebooks", WebElementById("org.lds.ldssa.alpha:id/md_text_title"), false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        verifyText("Delete selected notebooks?", WebElementById("org.lds.ldssa.alpha:id/md_text_message"), false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_button_negative"), true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("Delete", WebElementById("org.lds.ldssa.alpha:id/md_button_positive"), true);
     }
 
     //assertDeleteBookmarkPopup
     public void assertDeleteBookmarkPopupAndTap(String bookmarkTitle, Boolean delete) throws Exception {
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Delete", WebElementById("org.lds.ldssa.alpha:id/md_title"), false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        verifyText("Delete “"+bookmarkTitle +"”?", WebElementById("org.lds.ldssa.alpha:id/md_content"), false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"), true);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("Delete", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"), true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Delete", WebElementById("org.lds.ldssa.alpha:id/md_text_title"), false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        verifyText("Delete “"+bookmarkTitle +"”?", WebElementById("org.lds.ldssa.alpha:id/md_text_message"), false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_button_negative"), true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("Delete", WebElementById("org.lds.ldssa.alpha:id/md_button_positive"), true);
         if (delete){
-            ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+            ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         } else {
-            ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+            ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
         }
     }
 
     //Add Bookmark Popup
     public void assertAddBookmarkPopup(String expectedStartTitle,String title,Boolean add)throws Exception{
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Add Bookmark",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("android:id/input"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Add Bookmark",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_input_message"));
         if (expectedStartTitle.length() > 0) {
-            verifyText(expectedStartTitle, WebElementById("android:id/input"), false);
-            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_minMax"));
+            verifyText(expectedStartTitle, WebElementById("org.lds.ldssa.alpha:id/md_input_message"), false);
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/textinput_counter"));
         }
-        verifyText(expectedStartTitle.length() + "/256",WebElementById("org.lds.ldssa.alpha:id/md_minMax"),false);
+        verifyText(expectedStartTitle.length() + " / 256",WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral"));
         verifyText("Default",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral"),true);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("Cancel",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),true);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("Add",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("Cancel",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("Add",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),true);
         if (title == "Default"){
             ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral");
         } else {
-            sendText("android:id/input",title);
-            verifyText(title.length() + "/256",WebElementById("org.lds.ldssa.alpha:id/md_minMax"),false);
+            sendText("org.lds.ldssa.alpha:id/md_input_message",title);
+            verifyText(title.length() + " / 256",WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
             if (add){
-                ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+                ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
             } else {
-                ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+                ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
             }
         }
     }
 
     //Add Bookmark Popup
     public void assertRenameBookmarkPopup(String expectedStartTitle,String title,Boolean ClickOk)throws Exception{
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Rename Bookmark",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("android:id/input"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Rename Bookmark",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_input_message"));
         if (expectedStartTitle.length() > 0) {
-            verifyText(expectedStartTitle, WebElementById("android:id/input"), false);
-            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_minMax"));
+            verifyText(expectedStartTitle, WebElementById("org.lds.ldssa.alpha:id/md_input_message"), false);
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/textinput_counter"));
         }
-        verifyText(expectedStartTitle.length() + "/256",WebElementById("org.lds.ldssa.alpha:id/md_minMax"),false);
+        verifyText(expectedStartTitle.length() + " / 256",WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral"));
         verifyText("Default",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral"),true);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("Cancel",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),true);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("Ok",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("Cancel",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("Ok",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),true);
         if (title == "Default"){
             ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral");
         } else {
-            sendText("android:id/input",title);
-            verifyText(title.length() + "/256",WebElementById("org.lds.ldssa.alpha:id/md_minMax"),false);
+            sendText("org.lds.ldssa.alpha:id/md_input_message",title);
+            verifyText(title.length() + " / 256",WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
             if (ClickOk){
-                ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+                ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
             } else {
-                ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+                ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
             }
         }
     }
@@ -1062,17 +1066,17 @@ public class GospelLibrary {
     public void Backup(Boolean signIn) throws Exception{
         //Back Up Annotations?
         verifyText("Back Up Annotations", WebElementByText("Back Up Annotations", false),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("SIGN IN",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("NO THANKS",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("SIGN IN",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("NO THANKS",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral"));
         verifyText("CREATE LDS ACCOUNT", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral"),false);
         if (signIn) {
-            ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+            ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
             fail("You need to add the login feature to this function to use 'true'");
         } else {
-            ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+            ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
         }
         Thread.sleep(milliseconds_1);
     }
@@ -1085,17 +1089,17 @@ public class GospelLibrary {
         scrollDownTo("Text Size");
         assertElementExistsBy(WebElementsByText("Text Size", false));
         ClickUIElementByText("Text Size", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Text Size", WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Text Size", WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/sampleTextView"));
         verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementByResourceId("org.lds.ldssa.alpha:id/sampleTextView"),false);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/textSizeSeekbar"));
         ClickSeekBarAt(WebElementByResourceId("org.lds.ldssa.alpha:id/textSizeSeekbar"), sizeOneThroughSeven);
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),true);
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("OK", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),true);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("OK", WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_2);
         driver.getPageSource();
@@ -1168,10 +1172,15 @@ public class GospelLibrary {
     //Scroll to
     public void scrollDownTo(String text) {
         Boolean isNotPresent = driver.findElements(By.xpath("//android.widget.TextView[contains(@text, '" + text + "')]")).size() <= 0;
+        int i = 0;
         while ((isNotPresent)) {
             System.out.println("" + text + " isn't on the screen... Scrolling to find");
             scrollDown();
+            if (i == 100){
+                fail("The item was not found on the screen within " + i + " downward scrolls");
+            }
             isNotPresent = driver.findElements(By.xpath("//android.widget.TextView[@text='" + text + "']")).size() <= 0;
+            i = i + 1;
         }
     }
 
@@ -1255,6 +1264,9 @@ public class GospelLibrary {
     public void assertElementExistsBy(List webElementsBy) {
         Boolean tempElement = webElementsBy.size() > 0;
         System.out.println("assert element is present. Expected: true [] Actual: " + tempElement + " Element: " + webElementsBy.toString() + "");
+        if (tempElement == false){
+            System.out.println("Found " + webElementsBy.size() + ". List of Elements Found: " + webElementsBy);
+        }
         assert tempElement == true;
     }
 
@@ -1541,7 +1553,7 @@ public class GospelLibrary {
         if (CheckNavigateUp) {assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/mainToolbarSubTitleTextView"));}
         if (CheckNavigateUp) {verifyText(subTitle,WebElementByResourceId("org.lds.ldssa.alpha:id/mainToolbarSubTitleTextView"),false);}
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
     }
     public void assertSideBar(String title, Boolean isAnnotation, String annotationType, String TagName) throws Exception {
@@ -1571,21 +1583,21 @@ public class GospelLibrary {
 
 
     public void AnnotationsSyncCheck(String buttonToPress) throws Exception {
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Back Up Annotations",WebElementByResourceId("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_content"));
-        verifyText("Signing in with an LDS Account backs up all your highlights, notes, and bookmarks, keeping them safe and making them available on the web or any mobile device.",WebElementByResourceId("org.lds.ldssa.alpha:id/md_content"),false);
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("Sign In",WebElementByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),true);
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("No Thanks",WebElementByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),true);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Back Up Annotations",WebElementByResourceId("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_text_message"));
+        verifyText("Signing in with an LDS Account backs up all your highlights, notes, and bookmarks, keeping them safe and making them available on the web or any mobile device.",WebElementByResourceId("org.lds.ldssa.alpha:id/md_text_message"),false);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("Sign In",WebElementByResourceId("org.lds.ldssa.alpha:id/md_button_positive"),true);
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("No Thanks",WebElementByResourceId("org.lds.ldssa.alpha:id/md_button_negative"),true);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral"));
         verifyText("Create LDS Account", WebElementByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral"), true);
         if (buttonToPress == "Sign In"){
-            ClickUIElementByResourceID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+            ClickUIElementByResourceID("org.lds.ldssa.alpha:id/md_button_positive");
             signInPage(user,password,"Sign In",true);
         } else if (buttonToPress == "No Thanks"){
-            ClickUIElementByResourceID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+            ClickUIElementByResourceID("org.lds.ldssa.alpha:id/md_button_negative");
         } else if (buttonToPress == "Create LDS Account"){
             ClickUIElementByResourceID("org.lds.ldssa.alpha:id/md_buttonDefaultNeutral");
             Thread.sleep(milliseconds_5);
@@ -1669,14 +1681,14 @@ public class GospelLibrary {
     }
 
     public void assertRemoveAnnotationPopup() throws Exception {
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Remove Annotation",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        verifyText("Any notes, tags, or links attached to this highlight will also be removed.",WebElementById("org.lds.ldssa.alpha:id/md_content"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("Cancel",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),true);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("Delete",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Remove Annotation",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        verifyText("Any notes, tags, or links attached to this highlight will also be removed.",WebElementById("org.lds.ldssa.alpha:id/md_text_message"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("Cancel",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("Delete",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),true);
     }
 
     //******************************** Empty State assertions ***********************************
@@ -1720,7 +1732,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertElementExistsBy(WebElementsByAccessibilityId("Tag"));
         assertElementExistsBy(WebElementsByAccessibilityId("Link"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Add to Notebook"));
+        assertMoreOptionsMenu("New Note",true);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/noteTitleEditText"));
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/markdownEditText"));
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/boldImageView"));
@@ -1734,7 +1746,7 @@ public class GospelLibrary {
 
     public void assertTagScreen(Boolean CheckEmptyState) throws Exception{
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
-        assertElementExistsBy(WebElementsByText("Tags",false));
+        assertElementExistsBy(WebElementsByText("Tag",false));
         assertElementExistsBy(WebElementsByAccessibilityId("Sort"));
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/tagNameEditText"));
         verifyText("Add tag",WebElementByResourceId("org.lds.ldssa.alpha:id/tagNameEditText"),false);
@@ -1759,7 +1771,7 @@ public class GospelLibrary {
 
     public void assertLinksScreen() throws Exception{
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
-        assertElementExistsBy(WebElementsByText("Links",false));
+        assertElementExistsBy(WebElementsByText("Link",false));
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/searchEditText"));
         verifyText("Search for keywords, verses, or titles.",WebElementByResourceId("org.lds.ldssa.alpha:id/searchEditText"),false);
     }
@@ -2325,6 +2337,158 @@ public class GospelLibrary {
 
     }
 
+    public void fillOutFeedbackFormAndAssert(String theName, String theEmail, String theCategory,Boolean checkAllCategories, String theDescription,Boolean attachImage, Boolean deletePhoto, Boolean submit) throws Exception{
+        //Verify Exit Button
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        //Verify Page Title
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"));
+        verifyText("Send Feedback", WebElementById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"),false);
+        //Verify Attach Image
+        assertElementExistsBy(WebElementsByAccessibilityId("Attach Image"));
+        WebElement test = WebElementByAccessibilityId("Attach Image");
+        //Verify Submit
+        assertElementExistsBy(WebElementsByAccessibilityId("Submit"));
+        //Verify Name Field
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackNameTextInputEditText"));
+        verifyText("Name (Optional)", WebElementById("org.lds.ldssa.alpha:id/feedbackNameTextInputEditText"),false);
+        //Verify Email field
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText"));
+        verifyText("Email",WebElementById("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText"),false);
+        //Verify Category Spinner
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinnerTextView"));
+        verifyText("Category",WebElementById("org.lds.ldssa.alpha:id/feedbackCategorySpinnerTextView"),false);
+        //Verify Description Field
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackDescriptionEditText"));
+        verifyText("Description", WebElementById("org.lds.ldssa.alpha:id/feedbackDescriptionEditText"),false);
+        //Verify text field counter
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/textinput_counter"));
+        verifyText("0 / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
+
+        //enter text into form
+        sendText("org.lds.ldssa.alpha:id/feedbackNameTextInputEditText", theName);
+        sendText("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText", theEmail);
+
+        //verify category wheel options
+        List category = new ArrayList();
+        category.add("How do I…?");
+        category.add("Compliment");
+        category.add("Feature request");
+        category.add("Functionality issue (Bug)");
+        category.add("Content issue");
+        category.add("Sign in or syncing issue");
+        category.add("Other");
+
+        if (checkAllCategories) {
+            for (int x = 0; x < category.size(); x++) {
+                ClickUIElementByID("org.lds.ldssa.alpha:id/feedbackCategorySpinner");
+                assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+                ClickUIElementByCheckedText((String) category.get(x), false);
+                assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
+                verifyText((String) category.get(x), WebElementById("android:id/text1"), false);
+                Thread.sleep(milliseconds_1);
+                ClickUIElementByID("org.lds.ldssa.alpha:id/feedbackCategorySpinner");
+            }
+        } else {
+            ((AndroidDriver)driver).pressKeyCode(AndroidKeyCode.BACK);
+            ClickUIElementByID("org.lds.ldssa.alpha:id/feedbackCategorySpinner");
+            for (int x = 0; x < category.size(); x++) {
+                assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
+            }
+        }
+
+        if (theCategory == "How do I"){
+            ClickUIElementByCheckedText((String) category.get(0), false);
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
+            verifyText((String) category.get(0), WebElementById("android:id/text1"),false);
+            Thread.sleep(milliseconds_1);
+        } else if (theCategory == "Compliment"){
+            ClickUIElementByCheckedText((String) category.get(1), false);
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
+            verifyText((String) category.get(1), WebElementById("android:id/text1"),false);
+            Thread.sleep(milliseconds_1);
+        }else if (theCategory == "Feature request"){
+            ClickUIElementByCheckedText((String) category.get(2), false);
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
+            verifyText((String) category.get(2), WebElementById("android:id/text1"),false);
+            Thread.sleep(milliseconds_1);
+        }else if (theCategory == "Bug"){
+            ClickUIElementByCheckedText((String) category.get(3), false);
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
+            verifyText((String) category.get(3), WebElementById("android:id/text1"),false);
+            Thread.sleep(milliseconds_1);
+        }else if (theCategory == "Content"){
+            ClickUIElementByCheckedText((String) category.get(4), false);
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
+            verifyText((String) category.get(4), WebElementById("android:id/text1"),false);
+            Thread.sleep(milliseconds_1);
+        }else if (theCategory == "Sync"){
+            ClickUIElementByCheckedText((String) category.get(5), false);
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
+            verifyText((String) category.get(5), WebElementById("android:id/text1"),false);
+            Thread.sleep(milliseconds_1);
+        }else if (theCategory == "Other"){
+            ClickUIElementByCheckedText((String) category.get(6), false);
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
+            verifyText((String) category.get(6), WebElementById("android:id/text1"),false);
+            Thread.sleep(milliseconds_1);
+        }else {
+            fail(theCategory + " isn't a valid category. Valid categories are \"How do I\", \"Compliment\", \"Feature request\", \"Bug\", \"Content\", \"Sync\" and, \"Other\"");
+        }
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+
+
+        if (theDescription == "default") {
+            String description = ("sendto:" + sendtoemail + " This is a test support email from automation sent on " + dateFormat.format(date) + " test: " + (new Exception().getStackTrace()[0].getMethodName()) + "");
+            sendText("org.lds.ldssa.alpha:id/feedbackDescriptionEditText", description);
+            int screenHeight = driver.manage().window().getSize().getHeight();
+            int screenWidth = driver.manage().window().getSize().getWidth();
+            driver.swipe(screenWidth / 2, screenHeight / 2, screenWidth / 2, screenHeight / 10 * 2, 2000);
+            verifyText("" + description.length() + " / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"), false);
+            Thread.sleep(milliseconds_1);
+        } else if (theDescription == "") {
+            System.out.println("Leaving Description Blank");
+        } else {
+            String description = ("sendto:" + sendtoemail + " " + theDescription);
+            sendText("org.lds.ldssa.alpha:id/feedbackDescriptionEditText", description);
+            int screenHeight = driver.manage().window().getSize().getHeight();
+            int screenWidth = driver.manage().window().getSize().getWidth();
+            driver.swipe(screenWidth / 2, screenHeight / 2, screenWidth / 2, screenHeight / 10 * 2, 2000);
+            verifyText("" + description.length() + " / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"), false);
+            Thread.sleep(milliseconds_1);
+        }
+
+        if (attachImage){
+            ClickUIElementByAccessibilityID("Attach Image");
+            ClickUIElementByAccessibilityID("More options");
+            if (WebElementsByText("List view", false).size() > 0){
+                ClickUIElementByText("List view", false);
+            } else {
+                TapCenterScreen();
+            }
+            String photoTitle = WebElementByXpath("//android.widget.ImageView/../android.widget.TextView").getText();
+            System.out.println(photoTitle);
+            ClickUIElementByXpath("//android.widget.ImageView");
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleLayout"));
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleTextView"));
+            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleDeleteImageView"));
+            verifyText(photoTitle, WebElementById("org.lds.ldssa.alpha:id/bubbleTextView"),false);
+
+            if (deletePhoto) {
+                ClickUIElementByID("org.lds.ldssa.alpha:id/bubbleDeleteImageView");
+                assertElementNotPresentBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleLayout"));
+            }
+
+        }
+
+
+        if (submit) {
+            ClickUIElementByAccessibilityID("Submit");
+        }
+    }
+
     public void SplashScreenWait() throws Exception{
         System.out.println("Splash Screen Wait Start…");
         Thread.sleep(milliseconds_1);
@@ -2336,7 +2500,6 @@ public class GospelLibrary {
             isPresent = driver.findElementsByXPath("//android.widget.ProgressBar").size() > 0;
         }
         System.out.println("Continuing Test…");
-        Thread.sleep(milliseconds_2);
     }
 
     //*************************************************************** Tests ***************************************************************
@@ -2386,9 +2549,8 @@ public class GospelLibrary {
 
         skipTips();
         //click skip
-        Thread.sleep(milliseconds_3);
         driver.findElementById("org.lds.ldssa.alpha:id/done").click();
-        Thread.sleep(milliseconds_3);
+        Thread.sleep(milliseconds_1);
     }
 
     @Test
@@ -2469,7 +2631,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"));
         verifyText("Library", WebElementById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         scrollDownTo("Scriptures");
         assertElementExistsBy(WebElementsByText("Scriptures", false));
@@ -2526,7 +2688,7 @@ public class GospelLibrary {
 
         //Verify all elements present
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         assertTabs("Notes");
         assertElementExistsBy(WebElementsByText("No Notes", false));
@@ -2627,7 +2789,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Delete",false));
         ClickUIElementByText("Delete",false);
         assertDeleteNotebooksPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementNotPresentBy(WebElementsByText(NotebookTitle1, false));
     }
 
@@ -2639,7 +2801,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Delete",false));
         ClickUIElementByText("Delete",false);
         assertDeleteNotebooksPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
         assertElementExistsBy(WebElementsByText(NotebookTitle1, false));
     }
 
@@ -2656,7 +2818,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
@@ -2690,7 +2852,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
@@ -2719,7 +2881,7 @@ public class GospelLibrary {
         assertNoteOptionsMenu();
         ClickUIElementByText("Delete",false);
         assertRemoveAnnotationPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementNotPresentBy(WebElementsById("org.lds.ldssa.alpha:id/noteTitleTextView"));
         assertElementNotPresentBy(WebElementsById("org.lds.ldssa.alpha:id/noteMarkdownTextView"));
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
@@ -2734,7 +2896,7 @@ public class GospelLibrary {
         assertNoteOptionsMenu();
         ClickUIElementByText("Delete",false);
         assertRemoveAnnotationPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/noteTitleTextView"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/noteMarkdownTextView"));
 
@@ -2794,7 +2956,7 @@ public class GospelLibrary {
         ClickUIElementByText("All",true);
         ClickUIElementByID("org.lds.ldssa.alpha:id/annotationMenuImageButton");
         assertNoteOptionsMenu();
-        ClickUIElementByText("Move to Notebook",false);
+        ClickUIElementByText("Add to Notebook",false);
         ClickUIElementByResourceID("org.lds.ldssa.alpha:id/notebookCheckBox");
         ClickUIElementByAccessibilityID("Navigate up");
         ClickUIElementByText("Notebooks",true);
@@ -2814,7 +2976,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle2,"","","","",true);
@@ -2853,7 +3015,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle2,"","","","",true);
@@ -2921,8 +3083,7 @@ public class GospelLibrary {
 
     @Test
     public void NotesSectionUseBoldFormatting() throws Exception {
-        turnOnDeveloperSettings();
-        ClickUIElementByAccessibilityID("Navigate up");
+        skipLogin();
         verifyText("Notes",WebElementByText("Notes", false),false);
         ClickUIElementByText("Notes", false);
         assertTabs("Notes");
@@ -2933,7 +3094,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
@@ -2973,8 +3134,7 @@ public class GospelLibrary {
 
     @Test
     public void NotesSectionUseItalicFormatting() throws Exception {
-        turnOnDeveloperSettings();
-        ClickUIElementByAccessibilityID("Navigate up");
+        skipLogin();;
         verifyText("Notes",WebElementByText("Notes", false),false);
         ClickUIElementByText("Notes", false);
         assertTabs("Notes");
@@ -2985,7 +3145,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
@@ -3026,8 +3186,7 @@ public class GospelLibrary {
 
     @Test
     public void NotesSectionUseItalicAndBoldFormattingInSameNote() throws Exception {
-        turnOnDeveloperSettings();
-        ClickUIElementByAccessibilityID("Navigate up");
+        skipLogin();
         verifyText("Notes",WebElementByText("Notes", false),false);
         ClickUIElementByText("Notes", false);
         assertTabs("Notes");
@@ -3038,7 +3197,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
@@ -3082,8 +3241,7 @@ public class GospelLibrary {
 
     @Test
     public void NotesSectionUseItalicAndBoldFormattingOnSameWord() throws Exception {
-        turnOnDeveloperSettings();
-        ClickUIElementByAccessibilityID("Navigate up");
+        skipLogin();
         verifyText("Notes",WebElementByText("Notes", false),false);
         ClickUIElementByText("Notes", false);
         assertTabs("Notes");
@@ -3094,7 +3252,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
@@ -3137,8 +3295,7 @@ public class GospelLibrary {
 
     @Test
     public void NotesSectionUseNumberedAndBulletedLists() throws Exception {
-        turnOnDeveloperSettings();
-        ClickUIElementByAccessibilityID("Navigate up");
+        skipLogin();
         verifyText("Notes",WebElementByText("Notes", false),false);
         ClickUIElementByText("Notes", false);
         assertTabs("Notes");
@@ -3149,7 +3306,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
@@ -3190,8 +3347,7 @@ public class GospelLibrary {
 
     @Test
     public void NotesSectionUseBulletedList() throws Exception {
-        turnOnDeveloperSettings();
-        ClickUIElementByAccessibilityID("Navigate up");
+        skipLogin();
         verifyText("Notes",WebElementByText("Notes", false),false);
         ClickUIElementByText("Notes", false);
         assertTabs("Notes");
@@ -3202,7 +3358,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
@@ -3241,8 +3397,7 @@ public class GospelLibrary {
 
     @Test
     public void NotesSectionUseNumberedList() throws Exception {
-        turnOnDeveloperSettings();
-        ClickUIElementByAccessibilityID("Navigate up");
+        skipLogin();
         verifyText("Notes",WebElementByText("Notes", false),false);
         ClickUIElementByText("Notes", false);
         assertTabs("Notes");
@@ -3253,7 +3408,7 @@ public class GospelLibrary {
         verifyText("No Notes in This Notebook", WebElementById("org.lds.ldssa.alpha:id/emptyStateTitleTextView"),false);
         verifyText("Record notes to preserve your thoughts.", WebElementById("org.lds.ldssa.alpha:id/emptyStateSubTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks",true);
         assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
@@ -3297,8 +3452,8 @@ public class GospelLibrary {
     public void BookmarksLandingPageFromLibrary_NotSignedIn() throws Exception {
         //Skip Login
         skipLogin();
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
-        ClickUIElementByAccessibilityID("Bookmark");
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkScreen(true);
     }
 
@@ -3306,13 +3461,13 @@ public class GospelLibrary {
     public void BookmarksCreateBookmarkFromScripture() throws Exception{
         skipLogin();
         OpenScripture("Book of Mormon","Jacob","5","");
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
-        ClickUIElementByAccessibilityID("Bookmark");
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkScreen(true);
         ClickUIElementByID("org.lds.ldssa.alpha:id/locationsFab");
         assertAddBookmarkPopup("Jacob 5",BookmarkOneTitle,true);
         Backup(false);
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/titleTextView"));
         verifyText(BookmarkOneTitle,WebElementById("org.lds.ldssa.alpha:id/titleTextView"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/subTitleTextView"));
@@ -3325,8 +3480,8 @@ public class GospelLibrary {
     public void BookmarksCreateBookmarkFromScriptureCancel() throws Exception{
         skipLogin();
         OpenScripture("Book of Mormon","Jacob","5","");
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
-        ClickUIElementByAccessibilityID("Bookmark");
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertTabs("Bookmarks");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/locationsFab"));
         ClickUIElementByID("org.lds.ldssa.alpha:id/locationsFab");
@@ -3338,14 +3493,14 @@ public class GospelLibrary {
     public void BookmarksCreateBookmarkFromScriptureDefault() throws Exception{
         skipLogin();
         OpenScripture("Book of Mormon","Jacob","5","");
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
-        ClickUIElementByAccessibilityID("Bookmark");
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertTabs("Bookmarks");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/locationsFab"));
         ClickUIElementByID("org.lds.ldssa.alpha:id/locationsFab");
         assertAddBookmarkPopup("Jacob 5","Default",true);
         Backup(false);
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/titleTextView"));
         verifyText("Jacob 5",WebElementById("org.lds.ldssa.alpha:id/titleTextView"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/subTitleTextView"));
@@ -3358,11 +3513,11 @@ public class GospelLibrary {
     public void BookmarksDefaultBookmarkTitleUpdatesItself() throws Exception{
         BookmarksCreateBookmarkFromScriptureDefault();
         swipeRight();
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkItemOptions("Jacob 5",false);
         ClickUIElementByText("Update",false);
         assertNavBar("Jacob 6","Jacob","Book of Mormon","Scriptures","Library","",true);
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/titleTextView"));
         verifyText("Jacob 6",WebElementById("org.lds.ldssa.alpha:id/titleTextView"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/subTitleTextView"));
@@ -3374,11 +3529,11 @@ public class GospelLibrary {
     public void BookmarkMoveNamedBookmarkToNewChapter() throws Exception{
         BookmarksCreateBookmarkFromScripture();
         swipeRight();
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkItemOptions("Jacob 5",false);
         ClickUIElementByText("Update",false);
         assertNavBar("Jacob 6","Jacob","Book of Mormon","Scriptures","Library","",true);
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/titleTextView"));
         verifyText(BookmarkOneTitle,WebElementById("org.lds.ldssa.alpha:id/titleTextView"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/subTitleTextView"));
@@ -3389,7 +3544,7 @@ public class GospelLibrary {
     @Test
     public void BookmarksRenameABookmark() throws Exception{
         BookmarksCreateBookmarkFromScripture();
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkItemOptions(BookmarkOneTitle,false);
         ClickUIElementByText("Rename",false);
         assertRenameBookmarkPopup(BookmarkOneTitle,BookmarkTwoTitle,true);
@@ -3404,7 +3559,7 @@ public class GospelLibrary {
     @Test
     public void BookmarksRenameABookmarkCancel() throws Exception{
         BookmarksCreateBookmarkFromScripture();
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkItemOptions(BookmarkOneTitle,false);
         ClickUIElementByText("Rename",false);
         assertRenameBookmarkPopup(BookmarkOneTitle,BookmarkTwoTitle,false);
@@ -3419,7 +3574,7 @@ public class GospelLibrary {
     @Test
     public void BookmarksRenameABookmarkDefault() throws Exception{
         BookmarksCreateBookmarkFromScripture();
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkItemOptions(BookmarkOneTitle,false);
         ClickUIElementByText("Rename",false);
         assertRenameBookmarkPopup(BookmarkOneTitle,"Default",true);
@@ -3434,7 +3589,7 @@ public class GospelLibrary {
     @Test
     public void BookmarksRenameABookmarkDefaultBookmarkUpdatesToNewChapterTitle() throws Exception{
         BookmarksCreateBookmarkFromScripture();
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkItemOptions(BookmarkOneTitle,false);
         ClickUIElementByText("Rename",false);
         assertRenameBookmarkPopup(BookmarkOneTitle,"Default",true);
@@ -3445,11 +3600,11 @@ public class GospelLibrary {
         ClickUIElementByID("org.lds.ldssa.alpha:id/titleTextView");
         assertNavBar("Jacob 5","Jacob","Book of Mormon","Scriptures","Library","",true);
         swipeRight();
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkItemOptions("Jacob 5",false);
         ClickUIElementByText("Update",false);
         assertNavBar("Jacob 6","Jacob","Book of Mormon","Scriptures","Library","",true);
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/titleTextView"));
         verifyText("Jacob 6",WebElementById("org.lds.ldssa.alpha:id/titleTextView"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/subTitleTextView"));
@@ -3459,7 +3614,7 @@ public class GospelLibrary {
     @Test
     public void BookmarksDeleteBookmark() throws Exception{
         BookmarksCreateBookmarkFromScripture();
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkItemOptions(BookmarkOneTitle,false);
         ClickUIElementByText("Delete",false);
         assertDeleteBookmarkPopupAndTap(BookmarkOneTitle,true);
@@ -3469,7 +3624,7 @@ public class GospelLibrary {
     @Test
     public void BookmarksCancelDeleteBookmark() throws Exception{
         BookmarksCreateBookmarkFromScripture();
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkItemOptions(BookmarkOneTitle,false);
         ClickUIElementByText("Delete",false);
         assertDeleteBookmarkPopupAndTap(BookmarkOneTitle,false);
@@ -3484,7 +3639,7 @@ public class GospelLibrary {
     public void BookmarksHideAddAndUpdateButtonsWhenNotOnChapter() throws Exception{
         BookmarksCreateBookmarkFromScripture();
         ClickUIElementByAccessibilityID("Navigate up");
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         ClickUIElementByXpath("//android.widget.TextView[@text=\""+ BookmarkOneTitle +"\"]/../../android.widget.ImageButton");
         assertElementExistsBy(WebElementsByText("Rename", false));
         assertElementExistsBy(WebElementsByText("Delete", false));
@@ -3497,19 +3652,19 @@ public class GospelLibrary {
     public void BookmarksReorderBookmarks() throws Exception{
         BookmarksCreateBookmarkFromScripture();
         swipeRight();
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
-        ClickUIElementByAccessibilityID("Bookmark");
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertBookmarkScreen(false);
         ClickUIElementByID("org.lds.ldssa.alpha:id/locationsFab");
         assertAddBookmarkPopup("Jacob 6",BookmarkTwoTitle,true);
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.alpha:id/titleTextView\"])[1]"));
         verifyText(BookmarkTwoTitle,WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.alpha:id/titleTextView\"])[1]"),false);
         assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa.alpha:id/subTitleTextView\"])[1]"));
         verifyText("Jacob 6",WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.alpha:id/subTitleTextView\"])[1]"),false);
         ClickUIElementByXpath("(//*[@resource-id=\"org.lds.ldssa.alpha:id/titleTextView\"])[1]");
         assertNavBar("Jacob 6","Jacob","Book of Mormon","Scriptures","Library","",true);
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         verifyText(BookmarkTwoTitle,WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.alpha:id/titleTextView\"])[1]"),false);
         verifyText(BookmarkOneTitle,WebElementByXpath("(//*[@resource-id=\"org.lds.ldssa.alpha:id/titleTextView\"])[2]"),false);
         TapAndDrag(WebElementByXpath("//android.widget.TextView[@text=\""+ BookmarkOneTitle +"\"]/../../android.widget.ImageButton"),WebElementByXpath("//android.widget.TextView[@text=\""+ BookmarkTwoTitle +"\"]/../../android.widget.ImageButton"));
@@ -3529,7 +3684,7 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
         assertMoreOptionsMenu("Notes",true);
         assertTabs("Notes");
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         Thread.sleep(milliseconds_1);
 
         //verify all elements present on bookmarks screen
@@ -3561,7 +3716,7 @@ public class GospelLibrary {
         verifyText("Notes",WebElementById("org.lds.ldssa.alpha:id/screenTitleTextView"),false);
         //verify add screen fab
         ClickUIElementByID("org.lds.ldssa.alpha:id/locationsFab");
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         assertElementExistsBy(WebElementsByText("Library", false));
         assertElementExistsBy(WebElementsByText("Notes", false));
         assertMoreOptionsMenu("Screens",false);
@@ -3594,7 +3749,7 @@ public class GospelLibrary {
         skipLogin();
         ClickUIElementByText("Notes", false);
         Thread.sleep(milliseconds_1);
-        ClickUIElementByAccessibilityID("Bookmark");
+        ClickUIElementByAccessibilityID("Bookmarks");
         Thread.sleep(milliseconds_1);
 
         //verify all elements present on bookmarks screen
@@ -3613,8 +3768,8 @@ public class GospelLibrary {
     public void ScreensScreenFromLibrary() throws Exception {
         //Skip Login
         skipLogin();
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
-        ClickUIElementByAccessibilityID("Bookmark");
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
+        ClickUIElementByAccessibilityID("Bookmarks");
         Thread.sleep(milliseconds_1);
         assertTabs("Bookmarks");
         ClickUIElementByText("Screens",true);
@@ -3668,7 +3823,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Create LDS Account", false));
         assertElementExistsBy(WebElementsByText("Content", false));
         assertElementExistsBy(WebElementsByText("Downloaded Media", false));
-        assertElementExistsBy(WebElementsByText("None", false));
+        assertElementExistsBy(WebElementsByText("Manage or view downloaded audio and video.", false));
         assertElementExistsBy(WebElementsByText("Limit Mobile Network Use", false));
         assertElementExistsBy(WebElementsByText("Only Download and Stream on Wi-Fi", false));
 
@@ -3862,16 +4017,16 @@ public class GospelLibrary {
         skipLogin();
         OpenConference("October", "2017","General Women’s Session");
         ClickUIElementByXpath("//android.webkit.WebView[@text='General Women’s Session']/android.view.View/android.view.View/android.view.View/android.widget.Image[2]");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Download Video",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Download Video",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/titleView"));
         verifyText("General Women's Session",WebElementById("org.lds.ldssa.alpha:id/titleView"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/typeIcon"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         //assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/snackbar_text"));
         //verifyText("Downloading video for General Women's Session",WebElementById("org.lds.ldssa.alpha:id/snackbar_text"));
         //assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/snackbar_action"));
@@ -3907,17 +4062,17 @@ public class GospelLibrary {
 //        assertElementExistsBy(WebElementsByText("General Women’s Session"));
 //        ClickUIElementByText("General Women’s Session");
 //        ClickUIElementByXpath("//android.webkit.WebView[@text='General Women’s Session']/android.view.View/android.view.View/android.view.View/android.widget.Image[2]");
-//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
 //
-//        verifyText("Download Video",WebElementById("org.lds.ldssa.alpha:id/md_title"));
+//        verifyText("Download Video",WebElementById("org.lds.ldssa.alpha:id/md_text_title"));
 //        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/titleView"));
 //        verifyText("General Women's Session",WebElementById("org.lds.ldssa.alpha:id/titleView"));
 //        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/typeIcon"));
-//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-//        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-//        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-//        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+//        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+//        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"));
+//        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
 //        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/snackbar_text"));
 //        verifyText("Downloading video for General Women's Session",WebElementById("org.lds.ldssa.alpha:id/snackbar_text"));
 //        // assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/snackbar_action"));
@@ -3948,17 +4103,17 @@ public class GospelLibrary {
 //        assertElementExistsBy(WebElementsByText("General Women’s Session"));
 //        ClickUIElementByText("General Women’s Session");
 //        ClickUIElementByXpath("//android.webkit.WebView[@text='General Women’s Session']/android.view.View/android.view.View/android.view.View/android.widget.Image[2]");
-//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
 //
-//        verifyText("Download Video",WebElementById("org.lds.ldssa.alpha:id/md_title"));
+//        verifyText("Download Video",WebElementById("org.lds.ldssa.alpha:id/md_text_title"));
 //        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/titleView"));
 //        verifyText("General Women's Session",WebElementById("org.lds.ldssa.alpha:id/titleView"));
 //        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/typeIcon"));
-//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-//        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-//        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-//        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+//        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"));
+//        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+//        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"));
+//        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
 //        //snackbar almost always times out
 //        //assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/snackbar_text"));
 //        //verifyText("Downloading video for General Women's Session",WebElementById("org.lds.ldssa.alpha:id/snackbar_text"));
@@ -4011,16 +4166,16 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("General Women’s Session", false));
         ClickUIElementByText("General Women’s Session", false);
         ClickUIElementByXpath("//android.webkit.WebView[@text='General Women’s Session']/android.view.View/android.view.View/android.view.View/android.widget.Image[2]");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Download Video",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/titleView"));
-        verifyText("General Women's Session",WebElementById("org.lds.ldssa.alpha:id/titleView"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/typeIcon"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Download Video",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        verifyText("General Women’s Session 2 GB",WebElementById("org.lds.ldssa.alpha:id/md_text_message"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_icon"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Settings", false));
@@ -4041,17 +4196,17 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/downloadCancelImageView"));
         assertElementExistsBy(WebElementsByAccessibilityId("Cancel All"));
         ClickUIElementByAccessibilityID("Cancel All");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Cancel Download", WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Cancel Download", WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
         verifyText("All current downloads will be canceled.\n" +
                 "\n" +
-                "Cancel downloads?",WebElementById("org.lds.ldssa.alpha:id/md_content"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("NO",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("YES",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+                "Cancel downloads?",WebElementById("org.lds.ldssa.alpha:id/md_text_message"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("NO",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("YES",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementNotPresentBy(WebElementsById("org.lds.ldssa.alpha:id/downloadCancelImageView"));
         assertElementNotPresentBy(WebElementsById("Cancel All"));
         assertElementNotPresentBy(WebElementsById("org.lds.ldssa.alpha:id/installStatusTextView"));
@@ -4081,16 +4236,16 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Download Audio", false));
         ClickUIElementByText("Download Audio", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Download Audio",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/titleView"));
-        verifyText("Old Testament",WebElementById("org.lds.ldssa.alpha:id/titleView"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/typeIcon"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Download Audio",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        verifyText("Old Testament 2.1 GB",WebElementById("org.lds.ldssa.alpha:id/md_text_message"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_icon"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("DOWNLOAD",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Settings", false));
@@ -4104,17 +4259,17 @@ public class GospelLibrary {
         ClickUIElementByText("Current Downloads", false);
         assertElementExistsBy(WebElementsByAccessibilityId("Cancel All"));
         ClickUIElementByAccessibilityID("Cancel All");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Cancel Download", WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Cancel Download", WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
         verifyText("All current downloads will be canceled.\n" +
                 "\n" +
-                "Cancel downloads?",WebElementById("org.lds.ldssa.alpha:id/md_content"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("NO",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("YES",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+                "Cancel downloads?",WebElementById("org.lds.ldssa.alpha:id/md_text_message"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("NO",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("YES",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementNotPresentBy(WebElementsById("org.lds.ldssa.alpha:id/downloadCancelImageView"));
         assertElementNotPresentBy(WebElementsById("Cancel All"));
         assertElementNotPresentBy(WebElementsById("org.lds.ldssa.alpha:id/installStatusTextView"));
@@ -4300,17 +4455,17 @@ public class GospelLibrary {
         scrollDownTo("Text Size");
         assertElementExistsBy(WebElementsByText("Text Size", false));
         ClickUIElementByText("Text Size", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Text Size", WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Text Size", WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/sampleTextView"));
         verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementByResourceId("org.lds.ldssa.alpha:id/sampleTextView"),false);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/textSizeSeekbar"));
         ClickSeekBarAt(WebElementByResourceId("org.lds.ldssa.alpha:id/textSizeSeekbar"), 4);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),true);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("OK", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),true);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("OK", WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         ClickUIElementByAccessibilityID("Navigate up");
         OpenScripture("Book of Mormon", "Jacob", "1", "");
         Assert.assertEquals("21px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
@@ -4327,14 +4482,14 @@ public class GospelLibrary {
         scrollDownTo("Text Size");
         assertElementExistsBy(WebElementsByText("Text Size", false));
         ClickUIElementByText("Text Size", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Text Size", WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Text Size", WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/sampleTextView"));
         verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementByResourceId("org.lds.ldssa.alpha:id/sampleTextView"),false);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/textSizeSeekbar"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),true);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),true);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
         ClickUIElementByAccessibilityID("Navigate up");
         Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
     }
@@ -4350,15 +4505,15 @@ public class GospelLibrary {
         scrollDownTo("Text Size");
         assertElementExistsBy(WebElementsByText("Text Size", false));
         ClickUIElementByText("Text Size", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Text Size", WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Text Size", WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/sampleTextView"));
         verifyText("… behold I say unto you, that by small and simple things are great things brought to pass; and small means in many instances doth confound the wise.", WebElementByResourceId("org.lds.ldssa.alpha:id/sampleTextView"),false);
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/textSizeSeekbar"));
         ClickSeekBarAt(WebElementByResourceId("org.lds.ldssa.alpha:id/textSizeSeekbar"), 7);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),true);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("Cancel", WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),true);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
         ClickUIElementByAccessibilityID("Navigate up");
         Assert.assertEquals("18px",getComputedCssUsingXpath("//*[@id='p1']","font-size"));
     }
@@ -4637,7 +4792,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"));
         verifyText("Library", WebElementById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         int screenWidth = driver.manage().window().getSize().getWidth();
         scrollDownTo("Scriptures");
@@ -4699,9 +4854,6 @@ public class GospelLibrary {
         scrollDownTo("Self-Reliance");
         assertElementExistsBy(WebElementsByText("Self-Reliance", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Self-Reliance'])/..").getSize().getWidth());
-        scrollDownTo("Religious Freedom");
-        assertElementExistsBy(WebElementsByText("Religious Freedom", false));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Religious Freedom'])/..").getSize().getWidth());
         scrollDownTo("Church History");
         assertElementExistsBy(WebElementsByText("Other", true));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Other")+"\"])/../..").getSize().getWidth());
@@ -4741,7 +4893,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"));
         verifyText("Library", WebElementById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         int screenWidth = driver.manage().window().getSize().getWidth();
         scrollDownTo("Scriptures");
@@ -4827,7 +4979,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"));
         verifyText("Library", WebElementById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"),false);
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         int screenWidth = driver.manage().window().getSize().getWidth();
         scrollDownTo("Scriptures");
@@ -5348,71 +5500,7 @@ public class GospelLibrary {
         //Verify Send Feedback Option
         assertElementExistsBy(WebElementsByText("Send Feedback", false));
         ClickUIElementByText("Send Feedback", false);
-        //Verify Exit Button
-        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
-        //Verify Page Title
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"));
-        verifyText("Send Feedback", WebElementById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"),false);
-        //Verify Attach Image
-        assertElementExistsBy(WebElementsByAccessibilityId("Attach Image"));
-        WebElement test = WebElementByAccessibilityId("Attach Image");
-        //Verify Submit
-        assertElementExistsBy(WebElementsByAccessibilityId("Submit"));
-        //Verify Name Field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackNameTextInputLayout"));
-        verifyText("Name (Optional)", WebElementById("org.lds.ldssa.alpha:id/feedbackNameTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackNameTextInputEditText"));
-        //Verify Email field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackEmailTextInputLayout"));
-        verifyText("Email",WebElementById("org.lds.ldssa.alpha:id/feedbackEmailTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText"));
-        //Verify Category Spinner
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinnerTextView"));
-        verifyText("Category",WebElementById("org.lds.ldssa.alpha:id/feedbackCategorySpinnerTextView"),false);
-        //Verify Description Field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackDescriptionTextInputLayout"));
-        verifyText("Description", WebElementById("org.lds.ldssa.alpha:id/feedbackDescriptionTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackDescriptionEditText"));
-        //Verify text field counter
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/textinput_counter"));
-        verifyText("0 / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
-
-        //enter text into form
-        sendText("org.lds.ldssa.alpha:id/feedbackNameTextInputEditText", name);
-        sendText("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText", email);
-
-        //verify category wheel options
-        List category = new ArrayList();
-        category.add("How do I…?");
-        category.add("Compliment");
-        category.add("Feature request");
-        category.add("Functionality issue (Bug)");
-        category.add("Content issue");
-        category.add("Sign in or syncing issue");
-        category.add("Other");
-
-        for (int x = 0; x < category.size(); x++){
-            ClickUIElementByID("org.lds.ldssa.alpha:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
-            ClickUIElementByCheckedText((String) category.get(x), false);
-            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
-            verifyText((String) category.get(x), WebElementById("android:id/text1"),false);
-            Thread.sleep(milliseconds_1);
-
-        }
-
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        String description = ("sendto:"+ sendtoemail + " This is a test support email from automation sent on " + dateFormat.format(date) + " test: " + (new Exception().getStackTrace()[0].getMethodName()) + "");
-        sendText("org.lds.ldssa.alpha:id/feedbackDescriptionEditText",description);
-        int screenHeight = driver.manage().window().getSize().getHeight();
-        int screenWidth = driver.manage().window().getSize().getWidth();
-        driver.swipe(screenWidth / 2, screenHeight / 2, screenWidth / 2, screenHeight / 10 * 2, 2000);
-        verifyText("" + description.length() + " / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
-        Thread.sleep(milliseconds_1);
-        ClickUIElementByAccessibilityID("Submit");
-        Thread.sleep(milliseconds_5);
+        fillOutFeedbackFormAndAssert(name,email,"Compliment",true,"default",false,false, true);
         assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
@@ -5428,64 +5516,7 @@ public class GospelLibrary {
         //Verify Send Feedback Option
         assertElementExistsBy(WebElementsByText("Send Feedback", false));
         ClickUIElementByText("Send Feedback", false);
-        //Verify Exit Button
-        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
-        //Verify Page Title
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"));
-        verifyText("Send Feedback", WebElementById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"),false);
-        //Verify Attach Image
-        assertElementExistsBy(WebElementsByAccessibilityId("Attach Image"));
-        WebElement test = WebElementByAccessibilityId("Attach Image");
-        //Verify Submit
-        assertElementExistsBy(WebElementsByAccessibilityId("Submit"));
-        //Verify Name Field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackNameTextInputLayout"));
-        verifyText("Name (Optional)", WebElementById("org.lds.ldssa.alpha:id/feedbackNameTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackNameTextInputEditText"));
-        //Verify Email field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackEmailTextInputLayout"));
-        verifyText("Email",WebElementById("org.lds.ldssa.alpha:id/feedbackEmailTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText"));
-        //Verify Category Spinner
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinnerTextView"));
-        verifyText("Category",WebElementById("org.lds.ldssa.alpha:id/feedbackCategorySpinnerTextView"),false);
-        //Verify Description Field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackDescriptionTextInputLayout"));
-        verifyText("Description", WebElementById("org.lds.ldssa.alpha:id/feedbackDescriptionTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackDescriptionEditText"));
-        //Verify text field counter
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/textinput_counter"));
-        verifyText("0 / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
-
-        //enter text into form
-        sendText("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText", email);
-
-        //verify category wheel options
-        List category = new ArrayList();
-        category.add("Content issue");
-
-        for (int x = 0; x < category.size(); x++){
-            ClickUIElementByID("org.lds.ldssa.alpha:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
-            ClickUIElementByCheckedText((String) category.get(x), false);
-            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
-            verifyText((String) category.get(x), WebElementById("android:id/text1"),false);
-            Thread.sleep(milliseconds_1);
-
-        }
-
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        String description = ("sendto:"+ sendtoemail + " This is a test support email from automation sent on " + dateFormat.format(date) + " test: " + (new Exception().getStackTrace()[0].getMethodName()) + "");
-        sendText("org.lds.ldssa.alpha:id/feedbackDescriptionEditText",description);
-        int screenHeight = driver.manage().window().getSize().getHeight();
-        int screenWidth = driver.manage().window().getSize().getWidth();
-        driver.swipe(screenWidth / 2, screenHeight / 2, screenWidth / 2, screenHeight / 10 * 2, 2000);
-        verifyText("" + description.length() + " / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
-        Thread.sleep(milliseconds_1);
-        ClickUIElementByAccessibilityID("Submit");
-        Thread.sleep(milliseconds_5);
+        fillOutFeedbackFormAndAssert("",email,"Compliment",false,"default",false,false, true);
         assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
@@ -5501,77 +5532,7 @@ public class GospelLibrary {
         //Verify Send Feedback Option
         assertElementExistsBy(WebElementsByText("Send Feedback", false));
         ClickUIElementByText("Send Feedback", false);
-        //Verify Exit Button
-        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
-        //Verify Page Title
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"));
-        verifyText("Send Feedback", WebElementById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"),false);
-        //Verify Attach Image
-        assertElementExistsBy(WebElementsByAccessibilityId("Attach Image"));
-        WebElement test = WebElementByAccessibilityId("Attach Image");
-        //Verify Submit
-        assertElementExistsBy(WebElementsByAccessibilityId("Submit"));
-        //Verify Name Field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackNameTextInputLayout"));
-        verifyText("Name (Optional)", WebElementById("org.lds.ldssa.alpha:id/feedbackNameTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackNameTextInputEditText"));
-        //Verify Email field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackEmailTextInputLayout"));
-        verifyText("Email",WebElementById("org.lds.ldssa.alpha:id/feedbackEmailTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText"));
-        //Verify Category Spinner
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinnerTextView"));
-        verifyText("Category",WebElementById("org.lds.ldssa.alpha:id/feedbackCategorySpinnerTextView"),false);
-        //Verify Description Field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackDescriptionTextInputLayout"));
-        verifyText("Description", WebElementById("org.lds.ldssa.alpha:id/feedbackDescriptionTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackDescriptionEditText"));
-        //Verify text field counter
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/textinput_counter"));
-        verifyText("0 / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
-
-        //enter text into form
-        sendText("org.lds.ldssa.alpha:id/feedbackNameTextInputEditText", name);
-        sendText("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText", email);
-
-        //verify category wheel options
-        List category = new ArrayList();
-        category.add("Compliment");
-
-        for (int x = 0; x < category.size(); x++){
-            ClickUIElementByID("org.lds.ldssa.alpha:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
-            ClickUIElementByCheckedText((String) category.get(x), false);
-            assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
-            verifyText((String) category.get(x), WebElementById("android:id/text1"),false);
-            Thread.sleep(milliseconds_1);
-        }
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        String description = ("sendto:"+ sendtoemail + " This is a test support email from automation sent on " + dateFormat.format(date) + " test: " + (new Exception().getStackTrace()[0].getMethodName()) + "");
-        sendText("org.lds.ldssa.alpha:id/feedbackDescriptionEditText",description);
-        int screenHeight = driver.manage().window().getSize().getHeight();
-        int screenWidth = driver.manage().window().getSize().getWidth();
-        driver.swipe(screenWidth / 2, screenHeight / 2, screenWidth / 2, screenHeight / 10 * 2, 2000);
-        verifyText("" + description.length() + " / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
-        ClickUIElementByAccessibilityID("Attach Image");
-        ClickUIElementByAccessibilityID("More options");
-        if (WebElementsByText("List view", false).size() > 0){
-            ClickUIElementByText("List view", false);
-        } else {
-            TapCenterScreen();
-        }
-        String photoTitle = WebElementByXpath("//android.widget.ImageView/../android.widget.TextView").getText();
-        System.out.println(photoTitle);
-        ClickUIElementByXpath("//android.widget.ImageView");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleLayout"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleTextView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleDeleteImageView"));
-        verifyText(photoTitle, WebElementById("org.lds.ldssa.alpha:id/bubbleTextView"),false);
-        Thread.sleep(milliseconds_1);
-        ClickUIElementByAccessibilityID("Submit");
-        Thread.sleep(milliseconds_5);
+        fillOutFeedbackFormAndAssert("",email,"Compliment",false, "default",true,false,true);
         assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
@@ -5697,79 +5658,7 @@ public class GospelLibrary {
         //Verify Send Feedback Option
         assertElementExistsBy(WebElementsByText("Send Feedback", false));
         ClickUIElementByText("Send Feedback", false);
-        //Verify Exit Button
-        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
-        //Verify Page Title
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"));
-        verifyText("Send Feedback", WebElementById("org.lds.ldssa.alpha:id/mainToolbarTitleTextView"),false);
-        //Verify Attach Image
-        assertElementExistsBy(WebElementsByAccessibilityId("Attach Image"));
-        WebElement test = WebElementByAccessibilityId("Attach Image");
-        //Verify Submit
-        assertElementExistsBy(WebElementsByAccessibilityId("Submit"));
-        //Verify Name Field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackNameTextInputLayout"));
-        verifyText("Name (Optional)", WebElementById("org.lds.ldssa.alpha:id/feedbackNameTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackNameTextInputEditText"));
-        //Verify Email field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackEmailTextInputLayout"));
-        verifyText("Email",WebElementById("org.lds.ldssa.alpha:id/feedbackEmailTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText"));
-        //Verify Category Spinner
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackCategorySpinnerTextView"));
-        verifyText("Category",WebElementById("org.lds.ldssa.alpha:id/feedbackCategorySpinnerTextView"),false);
-        //Verify Description Field
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackDescriptionTextInputLayout"));
-        verifyText("Description", WebElementById("org.lds.ldssa.alpha:id/feedbackDescriptionTextInputLayout"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/feedbackDescriptionEditText"));
-        //Verify text field counter
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/textinput_counter"));
-        verifyText("0 / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
-
-        //enter text into form
-        sendText("org.lds.ldssa.alpha:id/feedbackNameTextInputEditText", name);
-        sendText("org.lds.ldssa.alpha:id/feedbackEmailTextInputEditText", email);
-
-        //verify category wheel options
-        List category = new ArrayList();
-        category.add("Compliment");
-
-        for (int x = 0; x < category.size(); x++){
-            ClickUIElementByID("org.lds.ldssa.alpha:id/feedbackCategorySpinner");
-            assertElementExistsBy(WebElementsByCheckedText((String) category.get(x), false));
-            ClickUIElementByCheckedText((String) category.get(x), false);
-            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/feedbackCategorySpinner"));
-            verifyText((String) category.get(x), WebElementById("android:id/text1"),false);
-            Thread.sleep(milliseconds_1);
-        }
-        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Date date = new Date();
-        String description = ("sendto:"+ sendtoemail + " This is a test support email from automation sent on " + dateFormat.format(date) + " test: " + (new Exception().getStackTrace()[0].getMethodName()) + "");
-        sendText("org.lds.ldssa.alpha:id/feedbackDescriptionEditText",description);
-        int screenHeight = driver.manage().window().getSize().getHeight();
-        int screenWidth = driver.manage().window().getSize().getWidth();
-        driver.swipe(screenWidth / 2, screenHeight / 2, screenWidth / 2, screenHeight / 10 * 2, 2000);
-        verifyText("" + description.length() + " / 1000", WebElementById("org.lds.ldssa.alpha:id/textinput_counter"),false);
-        ClickUIElementByAccessibilityID("Attach Image");
-        ClickUIElementByAccessibilityID("More options");
-        if (WebElementsByText("List view", false).size() > 0){
-            ClickUIElementByText("List view", false);
-        } else {
-            TapCenterScreen();
-        }
-        String photoTitle = WebElementByXpath("//android.widget.ImageView/../android.widget.TextView").getText();
-        System.out.println(photoTitle);
-        ClickUIElementByXpath("//android.widget.ImageView");
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleLayout"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleTextView"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleDeleteImageView"));
-        verifyText(photoTitle, WebElementById("org.lds.ldssa.alpha:id/bubbleTextView"),false);
-        Thread.sleep(milliseconds_1);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/bubbleDeleteImageView");
-        assertElementNotPresentBy(WebElementsById("org.lds.ldssa.alpha:id/bubbleLayout"));
-        ClickUIElementByAccessibilityID("Submit");
-        Thread.sleep(milliseconds_5);
+        fillOutFeedbackFormAndAssert("",email,"Compliment",false, "default",true,true,true);
         assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
@@ -6165,14 +6054,17 @@ public class GospelLibrary {
         int year = Integer.parseInt(RightsAndUse.substring(0,4));
         int day = Integer.parseInt(RightsAndUse.substring(8,10));
         int month = Integer.parseInt(RightsAndUse.substring(5,7));
+        String dayString = String.valueOf(day);
+        String monthString = String.valueOf(month);
+        // adds a leading Zero from day and month
         if (day < 10){
-            day = Integer.parseInt(String.valueOf(RightsAndUse.charAt(9)));
+            dayString = "0" + String.valueOf(day);
         }
         if (month < 10){
-            month = Integer.parseInt(String.valueOf(RightsAndUse.charAt(6)));
+            monthString = "0" + String.valueOf(month);
         }
         driver.navigate().back();
-        RightsAndUse = "Updated " + month + "/"+ day + "/" + year + "";
+        RightsAndUse = "Updated " + year + "-"+ monthString + "-" + dayString + "";
         System.out.println(RightsAndUse);
         verifyText(RightsAndUse,WebElementByXpath("//android.widget.TextView[@text='Rights and Use Information']/../android.widget.TextView[contains(@text, 'Updated')]"),false);
 
@@ -6187,14 +6079,17 @@ public class GospelLibrary {
         year = Integer.parseInt(PrivacyPolicy.substring(0,4));
         day = Integer.parseInt(PrivacyPolicy.substring(8,10));
         month = Integer.parseInt(PrivacyPolicy.substring(5,7));
+        dayString = String.valueOf(day);
+        monthString = String.valueOf(month);
+        // adds a leading Zero from day and month
         if (day < 10){
-            day = Integer.parseInt(String.valueOf(PrivacyPolicy.charAt(9)));
+            dayString = "0" + String.valueOf(day);
         }
         if (month < 10){
-            month = Integer.parseInt(String.valueOf(PrivacyPolicy.charAt(6)));
+            monthString = "0" + String.valueOf(month);
         }
         driver.navigate().back();
-        PrivacyPolicy = "Updated " + month + "/"+ day + "/" + year + "";
+        PrivacyPolicy = "Updated " + year + "-"+ monthString + "-" + dayString + "";
         System.out.println(PrivacyPolicy);
         verifyText(PrivacyPolicy,WebElementByXpath("//android.widget.TextView[@text='Privacy Policy']/../android.widget.TextView[contains(@text, 'Updated')]"),false);
 
@@ -6515,7 +6410,6 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/bubbleTextView"));
         verifyText("Jarom",WebElementByResourceId("org.lds.ldssa.alpha:id/bubbleTextView"),false);
         ClickUIElementByAccessibilityID("Navigate up");
-        ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
@@ -6578,16 +6472,16 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Add to Notebook");
         assertAddToNotebookScreen(true);
         ClickUIElementByResourceID("org.lds.ldssa.alpha:id/notebookSelectionFloatingActionButton");
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Create Notebook",WebElementByResourceId("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("android:id/input"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_minMax"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        assert !Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultPositive").getAttribute("enabled"));
-        sendText("android:id/input","Test Notebook");
-        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultPositive").getAttribute("enabled"));
-        ClickUIElementByResourceID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Create Notebook",WebElementByResourceId("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_input_message"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/textinput_counter"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_button_negative"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_button_positive"));
+        assert !Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.alpha:id/md_button_positive").getAttribute("enabled"));
+        sendText("org.lds.ldssa.alpha:id/md_input_message","Test Notebook");
+        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.alpha:id/md_button_positive").getAttribute("enabled"));
+        ClickUIElementByResourceID("org.lds.ldssa.alpha:id/md_button_positive");
         ClickUIElementByResourceID("org.lds.ldssa.alpha:id/notebookCheckBox");
         ClickUIElementByAccessibilityID("Navigate up");
         ClickUIElementByAccessibilityID("Navigate up");
@@ -6872,7 +6766,7 @@ public class GospelLibrary {
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
         assertRemoveAnnotationPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyNote')]");
     }
@@ -6885,7 +6779,7 @@ public class GospelLibrary {
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
         assertRemoveAnnotationPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
@@ -6899,7 +6793,7 @@ public class GospelLibrary {
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
         assertRemoveAnnotationPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyLink')]");
     }
@@ -6912,7 +6806,7 @@ public class GospelLibrary {
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
         assertRemoveAnnotationPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewExistsBy("//div[contains(@class,'stickyLink')]");
@@ -6926,7 +6820,7 @@ public class GospelLibrary {
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
         assertRemoveAnnotationPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyTag')]");
     }
@@ -6939,7 +6833,7 @@ public class GospelLibrary {
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
         assertRemoveAnnotationPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewExistsBy("//div[contains(@class,'stickyTag')]");
@@ -6954,7 +6848,7 @@ public class GospelLibrary {
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
         assertRemoveAnnotationPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyNote')]");
     }
@@ -6968,7 +6862,7 @@ public class GospelLibrary {
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]"),"Remove");
         assertRemoveAnnotationPopup();
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultNegative");
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_negative");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
         assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
@@ -6981,16 +6875,16 @@ public class GospelLibrary {
         OpenAnnotationMenu("p1","Add to");
         assertAddToNotebookScreen(true);
         ClickUIElementByResourceID("org.lds.ldssa.alpha:id/notebookSelectionFloatingActionButton");
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Create Notebook",WebElementByResourceId("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("android:id/input"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_minMax"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        assert !Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultPositive").getAttribute("enabled"));
-        sendText("android:id/input","Test Notebook");
-        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.alpha:id/md_buttonDefaultPositive").getAttribute("enabled"));
-        ClickUIElementByResourceID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Create Notebook",WebElementByResourceId("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_input_message"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/textinput_counter"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_button_negative"));
+        assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/md_button_positive"));
+        assert !Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.alpha:id/md_button_positive").getAttribute("enabled"));
+        sendText("org.lds.ldssa.alpha:id/md_input_message","Test Notebook");
+        assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa.alpha:id/md_button_positive").getAttribute("enabled"));
+        ClickUIElementByResourceID("org.lds.ldssa.alpha:id/md_button_positive");
         ClickUIElementByResourceID("org.lds.ldssa.alpha:id/notebookCheckBox");
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
@@ -7065,15 +6959,15 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Download All", false));
         ClickUIElementByText("Download All", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Download All",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        // Can't be sure of number of item to download verifyText("94 items will be downloaded. Download selected items?",WebElementById("org.lds.ldssa.alpha:id/md_content"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Download All",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        // Can't be sure of number of item to download verifyText("94 items will be downloaded. Download selected items?",WebElementById("org.lds.ldssa.alpha:id/md_text_message"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         String latestConference = getLatestConference();
@@ -7098,15 +6992,15 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Download All", false));
         ClickUIElementByText("Download All", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Download All",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        // Can't be sure of number of item to download verifyText("94 items will be downloaded. Download selected items?",WebElementById("org.lds.ldssa.alpha:id/md_content"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Download All",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        // Can't be sure of number of item to download verifyText("94 items will be downloaded. Download selected items?",WebElementById("org.lds.ldssa.alpha:id/md_text_message"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
@@ -7122,15 +7016,15 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("More options");
         assertElementExistsBy(WebElementsByText("Remove All", false));
         ClickUIElementByText("Remove All", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Remove All",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        verifyText("Are you sure you want to remove the selected items?",WebElementById("org.lds.ldssa.alpha:id/md_content"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("REMOVE ALL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Remove All",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        verifyText("Are you sure you want to remove the selected items?",WebElementById("org.lds.ldssa.alpha:id/md_text_message"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("REMOVE ALL",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         Thread.sleep(milliseconds_5);
         scrollDownTo( latestConference);
         assertElementExistsBy(WebElementsByText(latestConference, false));
@@ -7152,15 +7046,15 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Download All", false));
         assertElementExistsBy(WebElementsByText("Remove All", false));
         ClickUIElementByText("Download All", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Download All",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        // Can't be sure of number of item to download verifyText("94 items will be downloaded. Download selected items?",WebElementById("org.lds.ldssa.alpha:id/md_content"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Download All",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        // Can't be sure of number of item to download verifyText("94 items will be downloaded. Download selected items?",WebElementById("org.lds.ldssa.alpha:id/md_text_message"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         ClickUIElementByText("General Conference", false);
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
@@ -7186,15 +7080,15 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Download All", false));
         assertElementExistsBy(WebElementsByText("Remove All", false));
         ClickUIElementByText("Download All", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Download All",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        // Can't be sure of number of item to download verifyText("94 items will be downloaded. Download selected items?",WebElementById("org.lds.ldssa.alpha:id/md_content"));
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Download All",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        // Can't be sure of number of item to download verifyText("94 items will be downloaded. Download selected items?",WebElementById("org.lds.ldssa.alpha:id/md_text_message"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("DOWNLOAD ALL",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         ClickUIElementByText("General Conference", false);
         Thread.sleep(milliseconds_5);
         Thread.sleep(milliseconds_5);
@@ -7214,15 +7108,15 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Download All", false));
         assertElementExistsBy(WebElementsByText("Remove All", false));
         ClickUIElementByText("Remove All", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Remove All",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        verifyText("Are you sure you want to remove the selected items?",WebElementById("org.lds.ldssa.alpha:id/md_content"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("REMOVE ALL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
-        ClickUIElementByID("org.lds.ldssa.alpha:id/md_buttonDefaultPositive");
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Remove All",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        verifyText("Are you sure you want to remove the selected items?",WebElementById("org.lds.ldssa.alpha:id/md_text_message"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("REMOVE ALL",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
+        ClickUIElementByID("org.lds.ldssa.alpha:id/md_button_positive");
         assertElementExistsBy(WebElementsByText("General Conference", false));
         ClickUIElementByText("General Conference", false);
         Thread.sleep(milliseconds_5);
@@ -7254,14 +7148,14 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Remove", false));
         assertElementExistsBy(WebElementsByText("Add to…", false));
         ClickUIElementByText("Remove", false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_title"));
-        verifyText("Remove",WebElementById("org.lds.ldssa.alpha:id/md_title"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_content"));
-        verifyText("Are you sure you want to remove the selected items?",WebElementById("org.lds.ldssa.alpha:id/md_content"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"));
-        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultNegative"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"));
-        verifyText("REMOVE",WebElementById("org.lds.ldssa.alpha:id/md_buttonDefaultPositive"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
+        verifyText("Remove",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
+        verifyText("Are you sure you want to remove the selected items?",WebElementById("org.lds.ldssa.alpha:id/md_text_message"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
+        verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
+        verifyText("REMOVE",WebElementById("org.lds.ldssa.alpha:id/md_button_positive"),false);
         ClickUIElementByText("REMOVE", false);
         Thread.sleep(milliseconds_1);
         ClickUIElementByXpath("//*[@text=\""+latestConference+"\"]/../../android.widget.ImageView[2]");
@@ -7291,7 +7185,7 @@ public class GospelLibrary {
         verifyText("October 2017",WebElementById("org.lds.ldssa.alpha:id/mainToolbarSubTitleTextView"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/dropArrowImageView"));
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Bookmark"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
         assertElementExistsBy(WebElementsByAccessibilityId("More options"));
         //Play Button
         assertElementExistsBy(WebElementsByXpath("//*[@text = \"General Women’s Session\"]/android.view.View/android.view.View/android.view.View/android.widget.Image[1]"));
