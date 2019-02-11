@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e61195d5-5b6a-4293-81dc-73667731a79a" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/Test Runs/Test Results - GospelLibrary 11-16-18.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/APK/gospel-library-alpha.apk" beforeDir="false" afterPath="$PROJECT_DIR$/APK/gospel-library-alpha.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/AppiumService.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/AppiumService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/Strings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/Strings.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +23,11 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/GospelLibraryAppiumTestsAndroid$GospelLibrary_signInCreateAccount.coverage" NAME="GospelLibrary.signInCreateAccount Coverage Results" MODIFIED="1523547782743" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/GospelLibraryAppiumTestsAndroid$GospelLibrary.ic" NAME="GospelLibrary Coverage Results" MODIFIED="1540479132676" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>UI.*</FILTER>
+    </SUITE>
   </component>
-  <component name="ExportTestResults" exportFormat="Xml" outputFolder="$USER_HOME$/Desktop" openResultsInEditor="true" userTempatePath="" />
+  <component name="ExportTestResults" exportFormat="Xml" outputFolder="$PROJECT_DIR$/Test Runs" openResultsInEditor="true" userTempatePath="" />
   <component name="ExportToHTMLSettings">
     <option name="printScope" value="4" />
     <option name="OPEN_IN_BROWSER" value="true" />
@@ -33,11 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="1069" column="96" lean-forward="true" selection-start-line="1069" selection-start-column="96" selection-end-line="1069" selection-end-column="96" />
+            <state relative-caret-position="317">
+              <caret line="544" selection-start-line="544" selection-end-line="544" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -45,14 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppiumService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/AppiumService.java">
+      <file leaf-file-name="Strings.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="25" column="67" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="239">
+              <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -60,36 +62,6 @@
       <file leaf-file-name="hs_err_pid24465.log" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/hs_err_pid24465.log">
           <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="Method.java" pinned="false" current-in-tab="false">
-        <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/reflect/Method.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7740">
-              <caret line="590" column="17" selection-start-line="590" selection-start-column="17" selection-end-line="590" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Content.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Content.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Strings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="645">
-              <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-            </state>
-          </provider>
         </entry>
       </file>
       <file leaf-file-name="UI.java" pinned="false" current-in-tab="false">
@@ -124,25 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>more options</find>
-      <find>bookmarks</find>
-      <find>TapXYList</find>
-      <find>Mormon</find>
-      <find>…</find>
-      <find>org.lds.ldssa.dev:id/markdown_controls_ordered_list</find>
-      <find>WEBVIEW_org.lds.ldssa.dev</find>
-      <find>WEBVIEW_org.lds.ldssa.devtest</find>
-      <find>chrome</find>
-      <find>WEBVIEW_chrome</find>
-      <find>annotation</find>
-      <find>WEBVIEW_Terrace</find>
-      <find>lds.ldssa.alpha</find>
-      <find>More options</find>
-      <find>ByAccessibilityId(&quot;Bookmark&quot;)</find>
-      <find>&quot;Bookmark&quot;</find>
-      <find>&quot;Tags</find>
-      <find>&quot;Tags&quot;</find>
-      <find>&quot;Links&quot;</find>
       <find>@Be</find>
       <find>back</find>
       <find>move to Notebook</find>
@@ -154,6 +107,25 @@
       <find>assertmore</find>
       <find>note</find>
       <find>backup</find>
+      <find>catch</find>
+      <find>try</find>
+      <find>xpath</find>
+      <find>Neutral</find>
+      <find>org.lds.ldssa.alpha:id/md_buttonDefaultNeutral</find>
+      <find>annotationsSync</find>
+      <find>Backup</find>
+      <find>assertnote</find>
+      <find>clickUi</find>
+      <find>Create an LDS Account</find>
+      <find>Create an LDS Account&quot;</find>
+      <find>GB</find>
+      <find>Error</find>
+      <find>ignored</find>
+      <find>contentDrawerToolbar</find>
+      <find>Back Up Annotations</find>
+      <find>accessibilityID</find>
+      <find>bubble</find>
+      <find>webelementsBy</find>
     </findStrings>
     <replaceStrings>
       <replace>&quot; + idString + &quot;</replace>
@@ -181,6 +153,11 @@
       <replace>/ 1000</replace>
       <replace>org.lds.ldssa.alpha:id/md_button_positive</replace>
       <replace>org.lds.ldssa.alpha:id/md_text_message</replace>
+      <replace>org.lds.ldssa.alpha:id/md_button_neutral</replace>
+      <replace>AnnotationsSyncCheck(&quot;No Thanks&quot;);</replace>
+      <replace>failed</replace>
+      <replace>contentDrawerContainer</replace>
+      <replace>Back Up</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -199,13 +176,19 @@
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Content.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java" />
-        <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/AppiumService.Java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/AppiumService.java" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/AppiumService.java" />
+        <option value="$PROJECT_DIR$/Test Runs/Test Results 1-11-18 - GospelLibrary.xml" />
         <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" />
+        <option value="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" />
       </list>
     </option>
+  </component>
+  <component name="JavaAutoRunManager">
+    <enabled-run-configurations>
+      <run-configuration type="JUnit" name="GospelLibrary" />
+    </enabled-run-configurations>
   </component>
   <component name="MavenProjectNavigator">
     <treeState>
@@ -214,10 +197,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2257" />
+    <option name="x" value="2424" />
     <option name="y" value="-367" />
-    <option name="width" value="1983" />
-    <option name="height" value="1415" />
+    <option name="width" value="1816" />
+    <option name="height" value="1417" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -240,7 +223,33 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gospel-Library-Appium-Tests" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gospel-Library-Appium-Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gospel-Library-Appium-Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jar:///Users/dexterdrysdale/Documents/GitHub/Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableMap.class" />
@@ -249,7 +258,7 @@
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2710104" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -304,7 +313,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.SendFeedbackScreenAddPhotoThenRemove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.AnnotationMenuOpenTagInSidebarGoToTag" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -316,7 +325,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="SendFeedbackScreenAddPhotoThenRemove" />
+      <option name="METHOD_NAME" value="AnnotationMenuOpenTagInSidebarGoToTag" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -327,7 +336,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.SendFeedbackScreenSendFeedback" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.generalConferenceListenToAudioSessionAutoProgress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -339,7 +348,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="SendFeedbackScreenSendFeedback" />
+      <option name="METHOD_NAME" value="generalConferenceListenToAudioSessionAutoProgress" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -350,7 +359,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.SendFeedbackScreenSendFeedbackWithoutName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary,settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload and 13 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -362,8 +371,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="SendFeedbackScreenSendFeedbackWithoutName" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="pattern" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -371,9 +380,24 @@
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <patterns />
+      <patterns>
+        <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" />
+        <pattern testClass="UI.GospelLibrary,generalConferenceListenToAudioSessionAutoProgress" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuOpenTagInSidebarGoToTag" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenShowObsoleteContent" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenAutofillFields" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeNoteAndMark" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapSearch" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeLinkAndMark" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaLandingPage_Empty" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlights" />
+        <pattern testClass="UI.GospelLibrary,BookmarksLandingPageFromLibrary_NotSignedIn" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuCreateNoteAddtoNotebook" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenListModeLibraryContentScreenCategories" />
+      </patterns>
     </configuration>
-    <configuration name="GospelLibrary.SendFeedbackScreenSendFeedbackWithphoto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary,settingsScreenTextSizeAllSizesSameRelatedContentScripture and 33 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -385,8 +409,8 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="SendFeedbackScreenSendFeedbackWithphoto" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="pattern" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -394,7 +418,42 @@
       <option name="TEST_SEARCH_SCOPE">
         <value defaultName="singleModule" />
       </option>
-      <patterns />
+      <patterns>
+        <pattern testClass="UI.GospelLibrary,settingsScreenTextSizeAllSizesSameRelatedContentScripture" />
+        <pattern testClass="UI.GospelLibrary,AboutScreen" />
+        <pattern testClass="UI.GospelLibrary,generalConferenceDownloadLatestConferenceViaContextMenu" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeTagAndMark" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenSendFeedback" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenMissingRequiredFieldCategory" />
+        <pattern testClass="UI.GospelLibrary,allTips" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenInvalidEmail" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaOTDownloaded_CancelAll_MultipleDownloads" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenAddPhotoThenRemove" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenSendFeedbackWithphoto" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload" />
+        <pattern testClass="UI.GospelLibrary,troubleSigningIn" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenLoginInvalidLogin" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionUseItalicFormatting" />
+        <pattern testClass="UI.GospelLibrary,FeaturedAppsScreen" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaLandingPage_Empty_MoreOptionsMenu" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" />
+        <pattern testClass="UI.GospelLibrary,generalConferenceListenToAudioSessionAutoProgress" />
+        <pattern testClass="UI.GospelLibrary,invalidLogin" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuOpenTagInSidebarGoToTag" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionCancelMergeTwoNotebooks" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionMergeTwoNotebooks" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenAutofillFields" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeNoteAndMark" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeLinkAndMark" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaLandingPage_Empty" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenLoginTroubleSigningIn" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlights" />
+        <pattern testClass="UI.GospelLibrary,BookmarksLandingPageFromLibrary_NotSignedIn" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuCreateNoteAddtoNotebook" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionUseItalicAndBoldFormattingOnSameWord" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionUseBulletedList" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenListModeLibraryContentScreenCategories" />
+      </patterns>
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -436,18 +495,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.GospelLibrary" />
-      <item itemvalue="JUnit.GospelLibrary.SendFeedbackScreenSendFeedback" />
-      <item itemvalue="JUnit.GospelLibrary.SendFeedbackScreenSendFeedbackWithoutName" />
-      <item itemvalue="JUnit.GospelLibrary.SendFeedbackScreenSendFeedbackWithphoto" />
-      <item itemvalue="JUnit.GospelLibrary.SendFeedbackScreenAddPhotoThenRemove" />
+      <item itemvalue="JUnit.GospelLibrary,settingsScreenTextSizeAllSizesSameRelatedContentScripture and 33 more" />
+      <item itemvalue="JUnit.GospelLibrary.generalConferenceListenToAudioSessionAutoProgress" />
+      <item itemvalue="JUnit.GospelLibrary,settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload and 13 more" />
+      <item itemvalue="JUnit.GospelLibrary.AnnotationMenuOpenTagInSidebarGoToTag" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GospelLibrary" />
-        <item itemvalue="JUnit.GospelLibrary.SendFeedbackScreenAddPhotoThenRemove" />
-        <item itemvalue="JUnit.GospelLibrary.SendFeedbackScreenSendFeedbackWithphoto" />
-        <item itemvalue="JUnit.GospelLibrary.SendFeedbackScreenSendFeedbackWithoutName" />
-        <item itemvalue="JUnit.GospelLibrary.SendFeedbackScreenSendFeedback" />
+        <item itemvalue="JUnit.GospelLibrary.AnnotationMenuOpenTagInSidebarGoToTag" />
+        <item itemvalue="JUnit.GospelLibrary,settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload and 13 more" />
+        <item itemvalue="JUnit.GospelLibrary.generalConferenceListenToAudioSessionAutoProgress" />
+        <item itemvalue="JUnit.GospelLibrary,settingsScreenTextSizeAllSizesSameRelatedContentScripture and 33 more" />
       </list>
     </recent_temporary>
   </component>
@@ -465,34 +524,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GospelLibrary - 2018.10.04 at 14h 50m 04s.xml">
+    <history-entry file="GospelLibrary - 2019.02.07 at 17h 10m 49s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.10.04 at 15h 11m 00s.xml">
+    <history-entry file="GospelLibrary - 2019.02.08 at 09h 18m 27s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.10.05 at 08h 24m 27s.xml">
+    <history-entry file="GospelLibrary - 2019.02.08 at 09h 55m 07s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.10.05 at 08h 29m 08s.xml">
+    <history-entry file="GospelLibrary - 2019.02.08 at 11h 23m 56s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.10.08 at 08h 48m 22s.xml">
+    <history-entry file="GospelLibrary - 2019.02.08 at 12h 35m 50s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.10.08 at 09h 43m 19s.xml">
+    <history-entry file="GospelLibrary - 2019.02.08 at 12h 38m 07s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.10.08 at 13h 12m 26s.xml">
+    <history-entry file="GospelLibrary - 2019.02.08 at 12h 54m 17s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.10.09 at 10h 15m 23s.xml">
+    <history-entry file="GospelLibrary - 2019.02.08 at 13h 48m 47s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.10.15 at 13h 16m 08s.xml">
+    <history-entry file="GospelLibrary - 2019.02.08 at 13h 50m 30s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2018.10.15 at 14h 21m 10s.xml">
+    <history-entry file="GospelLibrary - 2019.02.08 at 13h 57m 35s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -506,23 +565,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2257" y="-367" width="1983" height="1415" extended-state="0" />
-    <editor active="true" />
+    <frame x="2424" y="-367" width="1816" height="1417" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3285985" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49574015" weight="0.20253165" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49574015" weight="0.20046261" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4074367" side_tool="true" weight="0.32992327" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.14179687" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.40939596" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.22667694" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32829046" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3285985" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48393196" weight="0.06875" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48393196" visible="true" weight="0.107102595" />
       <window_info id="Structure" order="1" sideWeight="0.4965035" side_tool="true" weight="0.19737887" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -530,7 +588,7 @@
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49574015" weight="0.39761728" />
       <window_info id="Favorites" order="2" sideWeight="0.51606804" side_tool="true" weight="0.1056394" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Coverage" order="4" side_tool="true" visible="true" weight="0.0" />
+      <window_info anchor="right" id="Coverage" order="4" side_tool="true" weight="0.33518666" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -541,7 +599,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.4087863" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32829046" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49574015" weight="0.20253165" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48393196" visible="true" weight="0.06875" />
@@ -549,7 +607,7 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3285985" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32829046" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.4087863" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -576,20 +634,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/CollectPreconditions.class" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/DelegatingMethodAccessorImpl.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java" />
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/DefaultGenericMobileDriver.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/openqa/selenium/remote/RemoteWebDriver.class" />
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableMap.class" />
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableMapEntry.class" />
     <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableEntry.class" />
@@ -719,6 +763,49 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="25" column="67" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Content.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/hs_err_pid24465.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/loader/BuiltinClassLoader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="89">
+          <caret line="581" selection-start-line="581" selection-end-line="581" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test Runs/Test Results - GospelLibrary 11-16-18.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test Runs/Test Results - GospelLibrary 12-14-18.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test Runs/failed tests - GospelLibrary.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test Runs/Test Results 1-11-18 - GospelLibrary.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="288" column="198" selection-start-line="288" selection-start-column="198" selection-end-line="288" selection-end-column="198" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Test Runs/Test Results - GospelLibrary 1-11-19.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="544" selection-start-line="544" selection-end-line="544" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -727,31 +814,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="43" column="31" selection-start-line="43" selection-start-column="31" selection-end-line="43" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Content.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/hs_err_pid24465.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="1069" column="96" lean-forward="true" selection-start-line="1069" selection-start-column="96" selection-end-line="1069" selection-end-column="96" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="239">
+          <caret line="16" column="46" lean-forward="true" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
         </state>
       </provider>
     </entry>
