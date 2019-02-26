@@ -7,14 +7,14 @@ public abstract class Strings {
     public static String wrongPassword = "ldssaldssaa";
 
     //Android version number
-    public static int AndroidVersion = 6;
+    public static int AndroidVersion = 7;
 
     //millisecond standards
 
     //for slower devices use 4600, for faster devices use 1600
     public static int milliseconds_1 = 1600;
 //    public static int milliseconds_1 = 2600;
-    //public static int milliseconds_1 = 4600;
+//    public static int milliseconds_1 = 8600;
     public static int milliseconds_2 = milliseconds_1 * 2;
     public static int milliseconds_3 = milliseconds_1 * 3;
     public static int milliseconds_4 = milliseconds_1 * 4;

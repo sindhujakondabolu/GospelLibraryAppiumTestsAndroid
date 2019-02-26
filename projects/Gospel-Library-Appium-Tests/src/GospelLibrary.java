@@ -165,8 +165,25 @@ public class GospelLibrary {
             swipeDown();
             tempElement = driver.findElements(By.xpath(xPathofText));
             if (tempElement.size() < 1){
-                System.out.println(text + " was not found on the screen. xpath was: " + xPathofText);
+                System.out.println("\n" + text + " was not found on the screen. xpath was: " + xPathofText);
             }
+        }
+        return tempElement;
+    }
+
+    //Create WebElements by text in a webview (List) (doesn't swipe if no element is found on the screen)
+    public List WebElementsByTextWebview(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized){
+            text = isAllCaps(text);
+        }
+        String xPathofText = "//android.widget.TextView[@text='" + text + "']";
+        if (AndroidVersion < 6){
+            xPathofText = "//android.widget.TextView[contains(@text, '" + text + "')]";
+        }
+        //System.out.println("Xpath of current item is: "+xPathofText+"");
+        List tempElement = driver.findElements(By.xpath(xPathofText));
+        if (tempElement.size() <1){
+                System.out.println("\n" + text + " was not found on the screen. xpath was: " + xPathofText);
         }
         return tempElement;
     }
@@ -180,7 +197,7 @@ public class GospelLibrary {
             swipeDown();
             tempElement = driver.findElements(By.xpath(xPathofText));
             if (tempElement.size() < 1){
-                System.out.println(text + " was not found on the screen. xpath was: " + xPathofText);
+                System.out.println("\n" + text + " was not found on the screen. xpath was: " + xPathofText);
             }
         }
         return tempElement;
@@ -201,7 +218,7 @@ public class GospelLibrary {
             swipeDown();
             tempElement = driver.findElements(By.xpath(xPathofText));
             if (tempElement.size() < 1){
-                System.out.println(CheckedText + " was not found on the screen. xpath was: " + xPathofText);
+                System.out.println("\n" + CheckedText + " was not found on the screen. xpath was: " + xPathofText);
             }
         }
         return tempElement;
@@ -214,8 +231,17 @@ public class GospelLibrary {
             swipeDown();
             tempElement = driver.findElementsById(id);
             if (tempElement.size() < 1){
-                System.out.println(id + " was not found on the screen.");
+                System.out.println("\n" + id + " was not found on the screen.");
             }
+        }
+        return tempElement;
+    }
+
+    //Create WebElements by id
+    public List WebElementsByIdExpectFalse(String id) throws Exception {
+        List tempElement = driver.findElementsById(id);
+        if (tempElement.size() <1){
+            System.out.println("\n" + id + " was not found on the screen.");
         }
         return tempElement;
     }
@@ -227,7 +253,7 @@ public class GospelLibrary {
             swipeDown();
             tempElement = WebElementsByXpath("//*[@resource-id=\""+id+"\"]");
             if (tempElement.size() < 1){
-                System.out.println(id + " was not found on the screen.");
+                System.out.println("\n" + id + " was not found on the screen.");
             }
         }
         return tempElement;
@@ -240,7 +266,7 @@ public class GospelLibrary {
             swipeDown();
             tempElement = driver.findElementsByAccessibilityId(id);
             if (tempElement.size() < 1){
-                System.out.println(id + " was not found on the screen.");
+                System.out.println("\n" + id + " was not found on the screen.");
             }
         }
         return tempElement;
@@ -255,8 +281,19 @@ public class GospelLibrary {
             swipeDown();
             tempElement = driver.findElements(By.xpath(xPathofText));
             if (tempElement.size() < 1){
-                System.out.println(xpath + " was not found on the screen. xpath was: " + xPathofText);
+                System.out.println("\n" + xpath + " was not found on the screen. xpath was: " + xPathofText);
             }
+        }
+        return tempElement;
+    }
+
+    //Create WebElements by xpath in webview (list)
+    public List WebElementsByXpathWebview(String xpath) throws Exception {
+        String xPathofText = xpath;
+        System.out.println("Xpath of current item is: "+xPathofText+"");
+        List tempElement = driver.findElements(By.xpath(xPathofText));
+        if (tempElement.size() <1){
+                System.out.println("\n" + xpath + " was not found on the screen. xpath was: " + xPathofText);
         }
         return tempElement;
     }
@@ -833,23 +870,23 @@ public class GospelLibrary {
         }
         if (close) {
             dismissDialog(WebElementByXpath("*//android.widget.FrameLayout"));
-            assertElementNotPresentBy(WebElementsByText("New Screen", false));
-            assertElementNotPresentBy(WebElementsByText("Cutsom Collections", false));
-            assertElementNotPresentBy(WebElementsByText("Download All", false));
-            assertElementNotPresentBy(WebElementsByText("Remove All", false));
-            assertElementNotPresentBy(WebElementsByText("Download Audio", false));
-            assertElementNotPresentBy(WebElementsByText("Related Content", false));
-            assertElementNotPresentBy(WebElementsByText("Share", false));
-            assertElementNotPresentBy(WebElementsByText("Play Audio", false));
-            assertElementNotPresentBy(WebElementsByText("Restore Journal", false));
-            assertElementNotPresentBy(WebElementsByText("Language", false));
-            assertElementNotPresentBy(WebElementsByText("Settings", false));
-            assertElementNotPresentBy(WebElementsByText("Screen Settings", false));
-            assertElementNotPresentBy(WebElementsByText("Close All Screens", false));
-            assertElementNotPresentBy(WebElementsByText("Clear History", false));
-            assertElementNotPresentBy(WebElementsByText("Sort by Size", false));
-            assertElementNotPresentBy(WebElementsByText("Sort by Item", false));
-            assertElementNotPresentBy(WebElementsByText("Current Downloads", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("New Screen", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Cutsom Collections", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Download All", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Remove All", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Download Audio", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Related Content", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Share", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Play Audio", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Restore Journal", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Language", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Settings", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Screen Settings", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Close All Screens", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Clear History", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Sort by Size", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Sort by Item", false));
+            assertElementNotPresentBy(WebElementsByTextWebview("Current Downloads", false));
         }
     }
 
@@ -1473,7 +1510,7 @@ public class GospelLibrary {
             System.out.println("Window handle is now: "+ window);
         }
 
-        Boolean tempElement = WebElementsByXpath(xPath).size() == 0;
+        Boolean tempElement = WebElementsByXpathWebview(xPath).size() == 0;
         System.out.println("assert element is not present. Expected: true [] Actual: " + tempElement + " Element: " + xPath.toString() + "");
         assert tempElement;
         driver.context("NATIVE_APP");
@@ -2507,7 +2544,7 @@ public class GospelLibrary {
         for (String window: windowHandles) {
             driver.switchTo().window(window);
             System.out.println("Window handle is now: "+ window);
-            if (WebElementsByXpath(xPath).size() > 0){
+            if (WebElementsByXpathWebview(xPath).size() > 0){
                 break;
             }
         }
@@ -2655,7 +2692,7 @@ public class GospelLibrary {
         if (attachImage){
             ClickUIElementByAccessibilityID("Attach Image");
             ClickUIElementByAccessibilityID("More options");
-            if (WebElementsByText("List view", false).size() > 0){
+            if (WebElementsByTextWebview("List view", false).size() > 0){
                 ClickUIElementByText("List view", false);
             } else {
                 TapCenterScreen();
@@ -3104,7 +3141,7 @@ public class GospelLibrary {
         assertNavBar("Notebooks",NotebookTitle1,"","","","",true);
 
         CreateNewNoteFromNotebook(NoteTitle, Note20000Character);
-        Thread.sleep(milliseconds_1);
+        Thread.sleep(milliseconds_2);
 
         //Check Note
         verifyText(NoteTitle, WebElementById("org.lds.ldssa.alpha:id/noteTitleTextView"),false);
@@ -3888,9 +3925,9 @@ public class GospelLibrary {
         ClickUIElementByXpath("//android.widget.TextView[@text=\""+ BookmarkOneTitle +"\"]/../../android.widget.ImageButton");
         assertElementExistsBy(WebElementsByText("Rename", false));
         assertElementExistsBy(WebElementsByText("Delete", false));
-        assertElementNotPresentBy(WebElementsByText("Update", false));
+        assertElementNotPresentBy(WebElementsByTextWebview("Update", false));
         dismissDialog(WebElementByXpath("*//android.widget.FrameLayout"));
-        assertElementNotPresentBy(WebElementsById("org.lds.ldssa.alpha:id/locationsFab"));
+        assertElementNotPresentBy(WebElementsByIdExpectFalse("org.lds.ldssa.alpha:id/locationsFab"));
     }
 
     @Test
@@ -4263,9 +4300,9 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_title"));
         verifyText("Download Video",WebElementById("org.lds.ldssa.alpha:id/md_text_title"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_text_message"));
-        verifyText("General Women’s Session" +
+        verifyText("General Women’s Session" + "\n" +
                 "2 GB",WebElementById("org.lds.ldssa.alpha:id/md_text_message"),false);
-        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/typeIcon"));
+        assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_icon_title"));
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_negative"));
         verifyText("CANCEL",WebElementById("org.lds.ldssa.alpha:id/md_button_negative"),false);
         assertElementExistsBy(WebElementsById("org.lds.ldssa.alpha:id/md_button_positive"));
