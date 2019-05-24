@@ -6,10 +6,8 @@
       <change beforePath="$PROJECT_DIR$/APK/gospel-library-alpha.apk" beforeDir="false" afterPath="$PROJECT_DIR$/APK/gospel-library-alpha.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/GospelLibrary.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/Strings.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/Strings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Gospel-Library-Appium-Tests/UI/UI.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" beforeDir="false" afterPath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,32 +37,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="1594" column="58" lean-forward="true" selection-start-line="1592" selection-start-column="12" selection-end-line="1594" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppiumDriver.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/AppiumDriver.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Strings.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="735">
-              <caret line="49" column="172" selection-start-line="49" selection-start-column="172" selection-end-line="49" selection-end-column="172" />
+            <state relative-caret-position="2145">
+              <caret line="143" column="58" selection-start-line="143" selection-start-column="58" selection-end-line="143" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -74,6 +51,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
               <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="534">
+              <caret line="7232" lean-forward="true" selection-start-line="7232" selection-end-line="7232" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -92,15 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>org.lds.ldssa.alpha:id/md_buttonDefaultPositive</find>
-      <find>org.lds.ldssa.alpha:id/md_content</find>
-      <find>sendto</find>
-      <find>assertmore</find>
-      <find>note</find>
-      <find>backup</find>
-      <find>catch</find>
-      <find>try</find>
-      <find>xpath</find>
       <find>Neutral</find>
       <find>org.lds.ldssa.alpha:id/md_buttonDefaultNeutral</find>
       <find>annotationsSync</find>
@@ -122,14 +102,17 @@
       <find>findElementsByAccessibilityID</find>
       <find>scriptures</find>
       <find>verifyNavBookTitle</find>
+      <find>navigate</find>
+      <find>2&amp;nbsp</find>
+      <find>Create an</find>
+      <find>create an</find>
+      <find>create a</find>
+      <find>Signing in with an LDS Account backs up all your personal data, keeping it safe and making it available on the web or any mobile device.</find>
+      <find>CreateAccountString</find>
+      <find>&quot;Create An Account&quot;</find>
+      <find>org.lds.ldssa.alpha:id/text1</find>
     </findStrings>
     <replaceStrings>
-      <replace>&quot; + idString + &quot;</replace>
-      <replace>WEBVIEW_org.lds.ldssa.dev</replace>
-      <replace>WEBVIEW_chrome</replace>
-      <replace>org.lds.ldssa.dev</replace>
-      <replace>name</replace>
-      <replace>&quot;sendto:&quot;+ sendtoemail</replace>
       <replace>Language…</replace>
       <replace>dark_blue</replace>
       <replace>scrollToById(&quot;p1&quot;);</replace>
@@ -154,6 +137,12 @@
       <replace>failed</replace>
       <replace>contentDrawerContainer</replace>
       <replace>Back Up</replace>
+      <replace>Create an</replace>
+      <replace>Create an</replace>
+      <replace>Signing in with a Church Account backs up all your personal data, keeping it safe and making it available on the web or any mobile device.</replace>
+      <replace>CreateAccountString</replace>
+      <replace>text1</replace>
+      <replace>android:id/text1</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -193,10 +182,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-1920" />
-    <option name="y" value="23" />
-    <option name="width" value="1920" />
-    <option name="height" value="1057" />
+    <option name="x" value="1679" />
+    <option name="y" value="-326" />
+    <option name="width" value="2560" />
+    <option name="height" value="1417" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -220,8 +209,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -245,7 +235,7 @@
               <item name="Gospel-Library-Appium-Tests" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
-              <item name="Content" type="1a9f42e2:ClassTreeNode" />
+              <item name="Strings" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
@@ -268,26 +258,18 @@
               <item name="java-client-3.2.0" type="70bed36:NamedLibraryElementNode" />
               <item name="java-client-3.2.0.jar" type="462c0819:PsiDirectoryNode" />
               <item name="java_client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="java-client-3.2.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="java-client-3.2.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="java_client" type="462c0819:PsiDirectoryNode" />
-              <item name="AppiumDriver" type="1a9f42e2:ClassTreeNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/dexterjohn/Documents/GitHub/GospelLibraryAppiumTestsAndroid/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java" />
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/ExternalJars" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2632184" />
@@ -517,34 +499,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GospelLibrary - 2019.04.12 at 12h 41m 33s.xml">
+    <history-entry file="GospelLibrary - 2019.05.21 at 10h 41m 47s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.04.12 at 12h 57m 23s.xml">
+    <history-entry file="GospelLibrary - 2019.05.21 at 11h 01m 54s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.04.12 at 12h 58m 40s.xml">
+    <history-entry file="GospelLibrary - 2019.05.21 at 11h 23m 29s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.04.12 at 13h 17m 03s.xml">
+    <history-entry file="GospelLibrary - 2019.05.21 at 11h 43m 22s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.04.12 at 14h 04m 25s.xml">
+    <history-entry file="GospelLibrary - 2019.05.21 at 11h 53m 38s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.04.12 at 14h 09m 51s.xml">
+    <history-entry file="GospelLibrary - 2019.05.21 at 13h 16m 12s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.04.12 at 15h 51m 08s.xml">
+    <history-entry file="GospelLibrary - 2019.05.21 at 15h 03m 47s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.04.12 at 15h 56m 13s.xml">
+    <history-entry file="GospelLibrary - 2019.05.22 at 14h 45m 35s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.04.12 at 15h 56m 36s.xml">
+    <history-entry file="GospelLibrary - 2019.05.23 at 12h 43m 16s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.04.16 at 10h 34m 24s.xml">
+    <history-entry file="GospelLibrary - 2019.05.23 at 14h 05m 06s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -558,22 +540,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1920" y="23" width="1920" height="1057" extended-state="6" />
+    <frame x="1679" y="-326" width="2560" height="1417" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3285985" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49574015" weight="0.1989206" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4074367" side_tool="true" weight="0.32992327" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.14179687" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5925633" weight="0.6851654" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.4548959" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32829046" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3285985" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48393196" visible="true" weight="0.21565495" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48393196" visible="true" weight="0.22875299" />
       <window_info id="Structure" order="1" sideWeight="0.4965035" side_tool="true" weight="0.19737887" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -587,21 +570,20 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32836932" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49574015" weight="0.1989206" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3285985" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32829046" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.4087863" />
       <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49574015" weight="0.20253165" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48393196" visible="true" weight="0.06875" />
       <window_info id="Structure" order="1" sideWeight="0.4965035" side_tool="true" weight="0.19737887" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3285985" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.4087863" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -611,10 +593,10 @@
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.4074367" side_tool="true" weight="0.32992327" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32829046" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49574015" weight="0.20253165" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3285985" />
       <window_info anchor="right" id="Maven Projects" order="7" visible="true" weight="0.14179687" />
       <window_info id="Favorites" order="6" sideWeight="0.51606804" side_tool="true" weight="0.1056394" />
     </layout-to-restore>
@@ -637,14 +619,17 @@
     <select />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableEntry.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/AbstractMapEntry.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/CollectPreconditions.class" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/DelegatingMethodAccessorImpl.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java" />
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="2145">
+          <caret line="143" column="58" selection-start-line="143" selection-start-column="58" selection-end-line="143" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -653,7 +638,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="40665">
+          <caret line="2711" lean-forward="true" selection-start-line="2711" selection-end-line="2711" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -662,87 +648,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="33795">
+          <caret line="2284" column="30" selection-start-line="2284" selection-start-column="30" selection-end-line="2284" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="735">
+          <caret line="49" column="172" selection-start-line="49" selection-start-column="172" selection-end-line="49" selection-end-column="172" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/junit/runner/JUnitCore.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/junit/runners/BlockJUnit4ClassRunner.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/junit/runners/ParentRunner.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/junit/internal/runners/statements/RunAfters.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/junit/internal/runners/statements/RunBefores.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/junit/internal/runners/statements/InvokeMethod.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/junit/internal/runners/model/ReflectiveCallable.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/junit/runners/model/FrameworkMethod.class" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/NativeMethodAccessorImpl.java" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/openqa/selenium/By.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/DefaultGenericMobileDriver.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/org/openqa/selenium/remote/RemoteWebDriver.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/CollectPreconditions.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableMap.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/AbstractMapEntry.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/AppiumDriver.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableMapEntry.class" />
-    <entry file="jar://$PROJECT_DIR$/../Appium-LDSTools-Master/ExternalJars/selenium-server-standalone-2.46.0.jar!/com/google/common/collect/ImmutableEntry.class" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/reflect/DelegatingMethodAccessorImpl.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-9.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/reflect/Method.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/src.zip!/java.base/java/lang/reflect/Method.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7740">
-          <caret line="590" column="17" selection-start-line="590" selection-start-column="17" selection-end-line="590" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/Test Results - GospelLibrary.xml" />
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/AppiumService.java" />
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -753,55 +673,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/AppiumService.java">
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="25" column="67" selection-start-line="25" selection-start-column="67" selection-end-line="25" selection-end-column="67" />
+        <state relative-caret-position="38205">
+          <caret line="2547" column="42" selection-start-line="2547" selection-start-column="42" selection-end-line="2547" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Content.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="51" selection-start-line="12" selection-start-column="51" selection-end-line="12" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/hs_err_pid24465.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/lib/src.zip!/java.base/jdk/internal/loader/BuiltinClassLoader.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="581" selection-start-line="581" selection-end-line="581" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test Runs/Test Results - GospelLibrary 11-16-18.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test Runs/Test Results - GospelLibrary 12-14-18.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test Runs/failed tests - GospelLibrary.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test Runs/Test Results 1-11-18 - GospelLibrary.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="288" column="198" selection-start-line="288" selection-start-column="198" selection-end-line="288" selection-end-column="198" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Test Runs/Test Results - GospelLibrary 1-11-19.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$USER_HOME$/Desktop/style_classic-scripture.css" />
-    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/UI.java" />
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="49" column="172" selection-start-line="49" selection-start-column="172" selection-end-line="49" selection-end-column="172" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37935">
+          <caret line="2529" column="21" selection-start-line="2529" selection-start-column="21" selection-end-line="2529" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -812,10 +717,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="49" column="172" selection-start-line="49" selection-start-column="172" selection-end-line="49" selection-end-column="172" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/AppiumDriver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2145">
+          <caret line="143" column="58" selection-start-line="143" selection-start-column="58" selection-end-line="143" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="1594" column="58" lean-forward="true" selection-start-line="1592" selection-start-column="12" selection-end-line="1594" selection-end-column="58" />
+        <state relative-caret-position="534">
+          <caret line="7232" lean-forward="true" selection-start-line="7232" selection-end-line="7232" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -140,6 +140,10 @@ public abstract class Strings {
     public static String BookmarkFourTitle = "My Fourth Bookmark";
 
 
+    //Account Strings
+    public static String CreateAccountString = "Create an Account";
+
+
 
 
 }
