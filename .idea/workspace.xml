@@ -40,8 +40,8 @@
       <file leaf-file-name="Strings.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2145">
-              <caret line="143" column="58" selection-start-line="143" selection-start-column="58" selection-end-line="143" selection-end-column="58" />
+            <state relative-caret-position="240">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -49,7 +49,7 @@
       <file leaf-file-name="mainFunctions.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
+            <state relative-caret-position="405">
               <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -61,8 +61,8 @@
       <file leaf-file-name="GospelLibrary.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="534">
-              <caret line="7232" lean-forward="true" selection-start-line="7232" selection-end-line="7232" />
+            <state relative-caret-position="130">
+              <caret line="3155" selection-start-line="3155" selection-end-line="3155" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,9 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Neutral</find>
-      <find>org.lds.ldssa.alpha:id/md_buttonDefaultNeutral</find>
-      <find>annotationsSync</find>
       <find>Backup</find>
       <find>assertnote</find>
       <find>clickUi</find>
@@ -111,6 +108,9 @@
       <find>CreateAccountString</find>
       <find>&quot;Create An Account&quot;</find>
       <find>org.lds.ldssa.alpha:id/text1</find>
+      <find>skiptip</find>
+      <find>ldssa.dev</find>
+      <find>featured</find>
     </findStrings>
     <replaceStrings>
       <replace>Language…</replace>
@@ -138,11 +138,11 @@
       <replace>contentDrawerContainer</replace>
       <replace>Back Up</replace>
       <replace>Create an</replace>
-      <replace>Create an</replace>
       <replace>Signing in with a Church Account backs up all your personal data, keeping it safe and making it available on the web or any mobile device.</replace>
       <replace>CreateAccountString</replace>
       <replace>text1</replace>
       <replace>android:id/text1</replace>
+      <replace>ldssa.alpha</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -181,10 +181,10 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1679" />
-    <option name="y" value="-326" />
-    <option name="width" value="2560" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="2340" />
+    <option name="y" value="-367" />
+    <option name="width" value="1900" />
     <option name="height" value="1417" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -210,8 +210,8 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -235,7 +235,20 @@
               <item name="Gospel-Library-Appium-Tests" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="UI" type="462c0819:PsiDirectoryNode" />
+              <item name="mainFunctions" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gospel-Library-Appium-Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="UI" type="462c0819:PsiDirectoryNode" />
               <item name="Strings" type="1a9f42e2:ClassTreeNode" />
+            </path>
+            <path>
+              <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Gospel-Library-Appium-Tests" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="GospelLibrary" type="1a9f42e2:ClassTreeNode" />
             </path>
             <path>
               <item name="GospelLibraryAppiumTestsAndroid" type="b2602c69:ProjectViewProjectNode" />
@@ -270,7 +283,7 @@
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="findjar.last.used.dir" value="$PROJECT_DIR$/ExternalJars" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2632184" />
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
@@ -328,6 +341,29 @@
       </option>
       <patterns />
     </configuration>
+    <configuration name="GospelLibrary.AnnotationChooseBetweenOverlappingHighlights" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Gospel-Library-Appium-Tests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="UI.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
+      <option name="METHOD_NAME" value="AnnotationChooseBetweenOverlappingHighlights" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <patterns />
+    </configuration>
     <configuration name="GospelLibrary.AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeNoteAndMark" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
@@ -351,30 +387,7 @@
       </option>
       <patterns />
     </configuration>
-    <configuration name="GospelLibrary.AnnotationMenuOpenTagInSidebarGoToTag" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Gospel-Library-Appium-Tests" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="UI.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="AnnotationMenuOpenTagInSidebarGoToTag" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <patterns />
-    </configuration>
-    <configuration name="GospelLibrary,CreateNew20000CharacterNoteInNewNotebook and 8 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary,AnnotationMenuTapMarkAndStyleGreenUnderlined and 122 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -396,18 +409,132 @@
         <value defaultName="singleModule" />
       </option>
       <patterns>
-        <pattern testClass="UI.GospelLibrary,CreateNew20000CharacterNoteInNewNotebook" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStyleGreenUnderlined" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenShowObsoleteContent" />
+        <pattern testClass="UI.GospelLibrary,generalConferenceRemoveAllFromMoreOptionsMenu" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapRemove" />
+        <pattern testClass="UI.GospelLibrary,AboutScreen" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionUseItalicAndBoldFormattingOnSameWord" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapNote" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuOpenTagInSidebarGoToTag" />
+        <pattern testClass="UI.GospelLibrary,BookmarksCancelDeleteBookmark" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStylePurpleUnderline" />
+        <pattern testClass="UI.GospelLibrary,BookmarksCreateBookmarkFromScripture" />
+        <pattern testClass="UI.GospelLibrary,launchTest" />
+        <pattern testClass="UI.GospelLibrary,allTips" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenTextSizeCancelSameContent" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenTextSizeFiveTitle_Subtitle_Body" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMark" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeTagAndMark" />
+        <pattern testClass="UI.GospelLibrary,CreateNewNoteInNewNotebook" />
+        <pattern testClass="UI.GospelLibrary,BookmarksRenameABookmark" />
+        <pattern testClass="UI.GospelLibrary,BookmarksRenameABookmarkDefault" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuAddToNotebook" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenSendFeedbackWithphoto" />
+        <pattern testClass="UI.GospelLibrary,ScreensScreenFromNotesScreenItemOptions" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenHideFootnotesInContentTextColor" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapDefine" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStyleOrangeUnderline" />
+        <pattern testClass="UI.GospelLibrary,turnOnDeveloperSettings" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStyleBrownUnderline" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuCreateTagAnnotationIndicatorIcon" />
+        <pattern testClass="UI.GospelLibrary,BookmarksLandingPageFromNotes_NotSignedIn" />
+        <pattern testClass="UI.GospelLibrary,AnnotationCancelDeleteHighlightWithNote" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenHideFootnotesInContentTextColorDCJumpLinks" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStyle" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionSortNotebooksByName" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenSendFeedback" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenListModeSwitchPersists" />
+        <pattern testClass="UI.GospelLibrary,AnnotationDeleteHighlightNoteWithLink" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenLoginTroubleSigningIn" />
         <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaGeneralConferenceDownloaded_CancelAllWithOneDownload" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenListModeScripturesContentScreenCategories" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionEditNote" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenInvalidEmail" />
+        <pattern testClass="UI.GospelLibrary,generalConferenceRemoveAllFromLibraryContextMenu" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStyleYellowUnderline" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenMissingRequiredFieldCategory" />
+        <pattern testClass="UI.GospelLibrary,generalConferenceDownloadAllFromLibraryContextMenu" />
+        <pattern testClass="UI.GospelLibrary,generalConferenceDownloadAllFromMoreOptionsMenu" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenShowScreensAsSeparateWindowsSwitchCheckTwoScreensOptionOnToOffFromMainScreen" />
+        <pattern testClass="UI.GospelLibrary,generalConferenceListenToAudioSessionAutoProgress" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenAddPhotoThenRemove" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuCreateLinkToSingleChapterBook" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenShowScreensAsSeparateWindowsSwitchPersists" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuCreateNoteAddtoNotebook" />
+        <pattern testClass="UI.GospelLibrary,AnnotationCancelDeleteHighlightWithLink" />
+        <pattern testClass="UI.GospelLibrary,troubleSigningIn" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionDeleteNote" />
         <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" />
-        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenAutofillFields" />
-        <pattern testClass="UI.GospelLibrary,NotesSectionAddNoteToNotebook" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStyleBlueSolid" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStylePinkUnderline" />
+        <pattern testClass="UI.GospelLibrary,BookmarksLandingPageFromLibrary_NotSignedIn" />
+        <pattern testClass="UI.GospelLibrary,AnnotationCancelDeleteHighlightWithTag" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaLandingPage_Empty_MoreOptionsMenu" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenDownloadedMediaLandingPage_Empty" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuCreateTag" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenShowObsoleteContentSwitch" />
+        <pattern testClass="UI.GospelLibrary,CancelDeleteANotebook" />
+        <pattern testClass="UI.GospelLibrary,AnnotationDeleteHighlightWithNote" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionCancelMergeTwoNotebooks" />
+        <pattern testClass="UI.GospelLibrary,BookmarksDeleteBookmark" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenListModeScripturesScripturesScreenCategories" />
+        <pattern testClass="UI.GospelLibrary,BookmarksRenameABookmarkDefaultBookmarkUpdatesToNewChapterTitle" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionUseItalicFormatting" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenShowScreensAsSeparateWindowsSwitchCheckOffAddScreen" />
         <pattern testClass="UI.GospelLibrary,skipLogin" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionSortNotebooksByCount" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeNoteAndMark" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapShare" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenTextSize" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenHideFootnotesSwitchPersists" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenCreateLDSAccount" />
+        <pattern testClass="UI.GospelLibrary,login" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenThemeRadioButtons" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStyleGrayUnderline" />
+        <pattern testClass="UI.GospelLibrary,BookmarksHideAddAndUpdateButtonsWhenNotOnChapter" />
+        <pattern testClass="UI.GospelLibrary,generalConferenceVerifyAll" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStyleRedUnderline" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenShowScreensAsSeparateWindowsSwitchCheckOffToOnAddScreen" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStylePurpleSolid" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeLinkAndMark" />
+        <pattern testClass="UI.GospelLibrary,FeaturedAppsScreen" />
+        <pattern testClass="UI.GospelLibrary,AnnotationDeleteHighlightWithLink" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapLink" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapAddTo" />
+        <pattern testClass="UI.GospelLibrary,AnnotationDeleteHighlightWithTag" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenLoginInvalidLogin" />
         <pattern testClass="UI.GospelLibrary,NotesSectionUseBulletedList" />
-        <pattern testClass="UI.GospelLibrary,settingsScreenListModeLibraryContentScreenCategories" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenListModeLibraryScreenScripturesWidth" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenHideFootnotesInContentThenShow" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenTextSizeThreeTitle_Subtitle_Body" />
+        <pattern testClass="UI.GospelLibrary,BookmarksReorderBookmarks" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapSearch" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenTextSizeFourTitle_Subtitle_Body" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionAddNoteToNotebook" />
+        <pattern testClass="UI.GospelLibrary,AnnotationChooseBetweenOverlappingHighlights" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuCreateNoteWithTag" />
         <pattern testClass="UI.GospelLibrary,skipTips" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenAutofillFields" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuCreateNoteAnnotationIndicatorIcon" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapCopy" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenListModeLibraryContentScreenCategories" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenHideFootnotesSwitch" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenAllowInAppNotificationsSwitchPersists" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStyleYellowSolid" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionSortNotebooksByRecent" />
+        <pattern testClass="UI.GospelLibrary,NotesSectionMergeTwoNotebooks" />
+        <pattern testClass="UI.GospelLibrary,CreateNew20000CharacterNoteInNewNotebook" />
+        <pattern testClass="UI.GospelLibrary,settingsScreenHideFootnotesInContentTextColorThenShow" />
+        <pattern testClass="UI.GospelLibrary,BookmarkMoveNamedBookmarkToNewChapter" />
+        <pattern testClass="UI.GospelLibrary,invalidLogin" />
+        <pattern testClass="UI.GospelLibrary,AnnotationCancelDeleteHighlightNoteWithLink" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuTapMarkAndStyleDarkBlueSolid" />
+        <pattern testClass="UI.GospelLibrary,AnnotationMenuAddToAnnotationIndicatorIcon" />
+        <pattern testClass="UI.GospelLibrary,SendFeedbackScreenSendFeedbackWithoutName" />
       </patterns>
     </configuration>
-    <configuration name="GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="GospelLibrary.Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Gospel-Library-Appium-Tests" />
       <extension name="coverage">
         <pattern>
@@ -419,7 +546,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="UI.GospelLibrary" />
-      <option name="METHOD_NAME" value="settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" />
+      <option name="METHOD_NAME" value="Test" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -470,18 +597,18 @@
     </configuration>
     <list>
       <item itemvalue="JUnit.GospelLibrary" />
-      <item itemvalue="JUnit.GospelLibrary.AnnotationMenuOpenTagInSidebarGoToTag" />
-      <item itemvalue="JUnit.GospelLibrary,CreateNew20000CharacterNoteInNewNotebook and 8 more" />
-      <item itemvalue="JUnit.GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" />
       <item itemvalue="JUnit.GospelLibrary.AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeNoteAndMark" />
+      <item itemvalue="JUnit.GospelLibrary,AnnotationMenuTapMarkAndStyleGreenUnderlined and 122 more" />
+      <item itemvalue="JUnit.GospelLibrary.Test" />
+      <item itemvalue="JUnit.GospelLibrary.AnnotationChooseBetweenOverlappingHighlights" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.GospelLibrary" />
+        <item itemvalue="JUnit.GospelLibrary.AnnotationChooseBetweenOverlappingHighlights" />
+        <item itemvalue="JUnit.GospelLibrary.Test" />
+        <item itemvalue="JUnit.GospelLibrary,AnnotationMenuTapMarkAndStyleGreenUnderlined and 122 more" />
         <item itemvalue="JUnit.GospelLibrary.AnnotationChooseBetweenOverlappingHighlightsOfDifferentTypeNoteAndMark" />
-        <item itemvalue="JUnit.GospelLibrary.settingsScreenDownloadedMediaGeneralConferenceDownloaded_AccessedThroughMoreOptionsMenu" />
-        <item itemvalue="JUnit.GospelLibrary,CreateNew20000CharacterNoteInNewNotebook and 8 more" />
-        <item itemvalue="JUnit.GospelLibrary.AnnotationMenuOpenTagInSidebarGoToTag" />
       </list>
     </recent_temporary>
   </component>
@@ -499,34 +626,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GospelLibrary - 2019.05.21 at 10h 41m 47s.xml">
+    <history-entry file="GospelLibrary - 2019.07.04 at 20h 47m 32s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.05.21 at 11h 01m 54s.xml">
+    <history-entry file="GospelLibrary - 2019.07.05 at 05h 50m 58s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.05.21 at 11h 23m 29s.xml">
+    <history-entry file="GospelLibrary - 2019.07.05 at 09h 58m 45s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.05.21 at 11h 43m 22s.xml">
+    <history-entry file="GospelLibrary - 2019.07.05 at 10h 07m 35s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.05.21 at 11h 53m 38s.xml">
+    <history-entry file="GospelLibrary - 2019.07.05 at 10h 21m 59s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.05.21 at 13h 16m 12s.xml">
+    <history-entry file="GospelLibrary - 2019.07.05 at 10h 25m 28s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.05.21 at 15h 03m 47s.xml">
+    <history-entry file="GospelLibrary - 2019.07.05 at 13h 27m 00s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.05.22 at 14h 45m 35s.xml">
+    <history-entry file="GospelLibrary - 2019.07.05 at 17h 04m 38s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.05.23 at 12h 43m 16s.xml">
+    <history-entry file="GospelLibrary - 2019.07.05 at 18h 27m 35s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GospelLibrary - 2019.05.23 at 14h 05m 06s.xml">
+    <history-entry file="GospelLibrary - 2019.07.05 at 20h 56m 24s.xml">
       <configuration name="GospelLibrary" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -540,23 +667,22 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1679" y="-326" width="2560" height="1417" extended-state="6" />
-    <editor active="true" />
+    <frame x="2340" y="-367" width="1900" height="1417" extended-state="0" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3285985" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49574015" weight="0.1989206" />
+      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49574015" weight="0.27107063" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.4074367" side_tool="true" weight="0.32992327" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.14179687" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.4548959" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.3384734" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32829046" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3285985" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48393196" visible="true" weight="0.22875299" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48393196" weight="0.40288264" />
       <window_info id="Structure" order="1" sideWeight="0.4965035" side_tool="true" weight="0.19737887" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -575,15 +701,15 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.4087863" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32829046" />
       <window_info anchor="right" id="Theme Preview" order="5" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49574015" weight="0.20253165" />
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48393196" visible="true" weight="0.06875" />
       <window_info id="Structure" order="1" sideWeight="0.4965035" side_tool="true" weight="0.19737887" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3285985" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.5925633" visible="true" weight="0.4087863" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
@@ -593,7 +719,7 @@
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" visible="true" weight="0.0" />
       <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.4074367" side_tool="true" weight="0.32992327" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32829046" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Capture Tool" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.3285985" />
@@ -619,6 +745,222 @@
     <select />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95880">
+          <caret line="6392" selection-start-line="6392" selection-end-line="6392" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37935">
+          <caret line="2529" column="16" selection-start-line="2529" selection-start-column="16" selection-end-line="2529" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="38" column="17" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75900">
+          <caret line="5060" column="16" selection-start-line="5060" selection-start-column="16" selection-end-line="5060" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75900">
+          <caret line="5060" column="16" selection-start-line="5060" selection-start-column="16" selection-end-line="5060" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="4" lean-forward="true" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38115">
+          <caret line="2541" column="51" selection-start-line="2541" selection-start-column="51" selection-end-line="2541" selection-end-column="51" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90780">
+          <caret line="6052" column="16" selection-start-line="6052" selection-start-column="16" selection-end-line="6052" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2145">
+          <caret line="143" column="58" selection-start-line="143" selection-start-column="58" selection-end-line="143" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108480">
+          <caret line="7232" lean-forward="true" selection-start-line="7232" selection-end-line="7232" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2145">
@@ -734,16 +1076,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$PROJECT_DIR$/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/AppiumDriver.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="91" column="16" selection-start-line="91" selection-start-column="16" selection-end-line="91" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/mainFunctions.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
+        <state relative-caret-position="405">
           <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -753,15 +1088,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/UI/Strings.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2145">
-          <caret line="143" column="58" selection-start-line="143" selection-start-column="58" selection-end-line="143" selection-end-column="58" />
+        <state relative-caret-position="240">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/ExternalJars/java-client-3.2.0.jar!/io/appium/java_client/AppiumDriver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="38" column="35" selection-start-line="38" selection-start-column="22" selection-end-line="38" selection-end-column="35" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/projects/Gospel-Library-Appium-Tests/src/GospelLibrary.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="7232" lean-forward="true" selection-start-line="7232" selection-end-line="7232" />
+        <state relative-caret-position="130">
+          <caret line="3155" selection-start-line="3155" selection-end-line="3155" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -825,7 +1167,6 @@
             <option name="proportions">
               <list>
                 <option value="0.2632184" />
-                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

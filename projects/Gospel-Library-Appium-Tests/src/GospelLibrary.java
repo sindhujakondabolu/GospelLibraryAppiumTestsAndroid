@@ -51,7 +51,7 @@ public class GospelLibrary {
         }
         capabilities.setCapability("chromedriverChromeMappingFile",System.getProperty("user.dir")+"/../../ChromeDriver/chromeDriverMappings.json");
         capabilities.setCapability("chromedriverExecutableDir",System.getProperty("user.dir")+"/../../ChromeDriver");
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:4724/wd/hub"), capabilities);
         setBooks();
 
     }
@@ -2873,7 +2873,7 @@ public class GospelLibrary {
         sendText("org.lds.ldssa.alpha:id/passwordEditText", wrongPassword);
         WebElement signInButton = driver.findElementById("org.lds.ldssa.alpha:id/ldsAccountSignInButton");
         signInButton.click();
-        Thread.sleep(milliseconds_1);
+        Thread.sleep(milliseconds_3);
         verifyText("Error", WebElementByText("Error", false),false);
         assertElementExistsBy(WebElementsById("android:id/button1"));
         verifyText("OK", WebElementById("android:id/button1"),true);
@@ -2893,7 +2893,7 @@ public class GospelLibrary {
         verifyText("HAVING TROUBLE SIGNING IN?",WebElementById("org.lds.ldssa.alpha:id/ldsAccountLoginForgotCredentialsButton"),false);
         ClickUIElementByID("org.lds.ldssa.alpha:id/ldsAccountLoginForgotCredentialsButton");
         Thread.sleep(milliseconds_5);
-        verifyText("https://account.lds.org/recovery", WebElementById("com.android.chrome:id/url_bar"),false);
+        verifyText("https://settings.churchofjesuschrist.org/recovery", WebElementById("com.android.chrome:id/url_bar"),false);
     }
 
     @Test
@@ -2903,7 +2903,7 @@ public class GospelLibrary {
         verifyText(CreateAccountString, WebElementById("org.lds.ldssa.alpha:id/ldsAccountLoginCreateAccountButton"),true);
         ClickUIElementByID("org.lds.ldssa.alpha:id/ldsAccountLoginCreateAccountButton");
         Thread.sleep(milliseconds_5);
-        verifyText("https://account.lds.org/register", WebElementById("com.android.chrome:id/url_bar"),false);
+        verifyText("https://settings.churchofjesuschrist.org/register", WebElementById("com.android.chrome:id/url_bar"),false);
     }
 
 
@@ -3067,6 +3067,16 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
         CreateNotebookandAssert(NotebookTitle1,true);
 
+    }
+
+    @Test
+    public void RenameANotebook() throws Exception{
+        fail("Test not written yet");
+    }
+
+    @Test
+    public void CancelRenamingANotebook() throws Exception{
+        fail("Test not written yet");
     }
 
     @Test
@@ -4207,7 +4217,7 @@ public class GospelLibrary {
         sendText("org.lds.ldssa.alpha:id/passwordEditText", wrongPassword);
         WebElement signInButton = driver.findElementById("org.lds.ldssa.alpha:id/ldsAccountSignInButton");
         signInButton.click();
-        Thread.sleep(milliseconds_1);
+        Thread.sleep(milliseconds_3);
         verifyText("Error", WebElementByText("Error", false),false);
         assertElementExistsBy(WebElementsById("android:id/button1"));
         verifyText("OK", WebElementById("android:id/button1"),true);
@@ -4230,7 +4240,7 @@ public class GospelLibrary {
 
         ClickUIElementByID("org.lds.ldssa.alpha:id/ldsAccountLoginForgotCredentialsButton");
         Thread.sleep(milliseconds_5);
-        verifyText("https://account.lds.org/recovery", WebElementById("com.android.chrome:id/url_bar"),false);
+        verifyText("https://settings.churchofjesuschrist.org/recovery", WebElementById("com.android.chrome:id/url_bar"),false);
     }
 
 
@@ -4243,7 +4253,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText(CreateAccountString, false));
         ClickUIElementByText(CreateAccountString, false);
         Thread.sleep(milliseconds_5);
-        verifyText("https://account.lds.org/register", WebElementById("com.android.chrome:id/url_bar"),false);
+        verifyText("https://settings.churchofjesuschrist.org/register", WebElementById("com.android.chrome:id/url_bar"),false);
     }
 
     @Test
@@ -5146,11 +5156,6 @@ public class GospelLibrary {
         scrollDownTo("Self-Reliance");
         assertElementExistsBy(WebElementsByText("Self-Reliance", false));
         assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Self-Reliance'])/..").getSize().getWidth());
-        scrollDownTo("Tips");
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Tips")+"\"])[1]"));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text=\""+isAllCaps("Tips")+"\"])[1]/../..").getSize().getWidth());
-        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Tips'])"+isAndroidVersion("[2]","[1]")));
-        assertEquals(screenWidth,WebElementByXpath("(//android.widget.TextView[@text='Tips'])"+isAndroidVersion("[2]","[1]")+"/..").getSize().getWidth());
 
 
         ClickUIElementByAccessibilityID("More options");
@@ -5738,6 +5743,15 @@ public class GospelLibrary {
     }
 
     @Test
+    public void Test() throws Exception{
+        skipLogin();
+        int screenHeight = driver.manage().window().getSize().getHeight();
+        int screenWidth = driver.manage().window().getSize().getWidth();
+        driver.swipe(screenWidth / 2, screenHeight / 1000, screenWidth / 2, screenHeight / 10 * 5, 2000);
+
+    }
+
+    @Test
     public void FeaturedAppsScreen() throws Exception {
         //Tests that each app redirects to the correct app in the google play store
         skipLogin();
@@ -5755,13 +5769,16 @@ public class GospelLibrary {
         appCheck("Bible Videos");
         appCheck("Book of Mormon");
         appCheck("Doctrinal Mastery");
+        appCheck("Facility Issue Reporting");
         appCheck("FamilySearch Memories");
         appCheck("FamilySearch Tree");
-        appCheck("LDS Media Library");
-        appCheck("LDS Music");
-        appCheck("LDS Tools");
+        appCheck("Gospel Media");
+        appCheck("JustServe");
         appCheck("LDS Youth");
+        appCheck("Member Tools");
         appCheck("Mormon Channel");
+        appCheck("Sacred Music");
+        appCheck("Seminary & Institute");
         appCheck("The Tabernacle Choir");
         ClickUIElementByAccessibilityID("Navigate up");
         assertElementExistsBy(WebElementsByText("Settings", false));
@@ -6007,7 +6024,7 @@ public class GospelLibrary {
 
     @Test
     public void SendFeedbackScreenAutofillFields() throws Exception {
-        SendFeedbackScreenSendFeedbackWithphoto();
+        SendFeedbackScreenSendFeedback();
         scrollDownTo("Send Feedback");
         //Verify Send Feedback Option
         assertElementExistsBy(WebElementsByText("Send Feedback", false));
@@ -6073,7 +6090,7 @@ public class GospelLibrary {
 
         //Verify Rights and Use Date
         ClickUIElementByText("Terms of Use", false);
-        verifyText("https://www.lds.org/legal/terms-of-use?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"),false);
+        verifyText("https://www.churchofjesuschrist.org/legal/terms-of-use?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"),false);
         String RightsAndUse = WebElementByXpath("//android.view.View[contains(@text, 'Updated')]").getText();
         System.out.println(RightsAndUse);
         RightsAndUse = RightsAndUse.replace("Terms of Use (Updated ","");
@@ -6097,7 +6114,7 @@ public class GospelLibrary {
 
         //Verify Privacy Notice Date
         ClickUIElementByText("Privacy Notice", false);
-        verifyText("https://www.lds.org/legal/privacy-notice?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"),false);
+        verifyText("https://www.churchofjesuschrist.org/legal/privacy-notice?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"),false);
         String PrivacyPolicy = WebElementByXpath("//android.view.View[contains(@text, 'Updated')]").getText();
         System.out.println(PrivacyPolicy);
         PrivacyPolicy = PrivacyPolicy.replace("Privacy Notice (Updated ","");
@@ -6717,7 +6734,7 @@ public class GospelLibrary {
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
-        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size())+"]");
         OpenAnnotationMenu("p1","Mark");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()-1)+"]");
@@ -7228,8 +7245,6 @@ public class GospelLibrary {
 
 
     }
-
-
 
     //********** Search Section **********
 
