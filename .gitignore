@@ -1,0 +1,7 @@
+.idea/**/workspace.xml
+.idea/**/libraries
+.idea/modules.xml
+*.class
+*.iml
+out/
+.DS_Store
