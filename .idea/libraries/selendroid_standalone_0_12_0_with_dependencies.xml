@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="selendroid-standalone-0.12.0-with-dependencies">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/ExternalJars/selendroid-standalone-0.12.0-with-dependencies.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
