@@ -9,6 +9,11 @@ public abstract class Strings {
     //Android version number
     public static int AndroidVersion = 7;
 
+    //Build of Gospel Library
+
+    //public static String GospelLibraryBuild = "alpha";
+    public static String GospelLibraryBuild = "preview";
+
     //millisecond standards
 
     //for slower devices use 4600, for faster devices use 1600
