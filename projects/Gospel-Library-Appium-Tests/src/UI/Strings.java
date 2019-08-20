@@ -11,8 +11,8 @@ public abstract class Strings {
 
     //Build of Gospel Library
 
-    //public static String GospelLibraryBuild = "alpha";
-    public static String GospelLibraryBuild = "preview";
+    public static String GospelLibraryBuild = "alpha";
+//    public static String GospelLibraryBuild = "preview";
 
     //millisecond standards
 
