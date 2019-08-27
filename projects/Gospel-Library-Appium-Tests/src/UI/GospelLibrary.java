@@ -45,7 +45,8 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_2);
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("deviceName", "AndroidTestDevice");
+        capabilities.setCapability("deviceName", "Android");
+        capabilities.setCapability("udid","05157df5a1394b1c");
         capabilities.setCapability("app", System.getProperty("user.dir") + "/../../APK/gospel-library-" + GospelLibraryBuild + ".apk");
         if (AndroidVersion > 5) {
             capabilities.setCapability("automationName", "UiAutomator2");
@@ -4572,7 +4573,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText(CreateAccountString, false));
         ClickUIElementByText(CreateAccountString, false);
         Thread.sleep(milliseconds_5);
-        verifyText("https://settings.churchofjesuschrist.org/register", WebElementById("com.android.chrome:id/url_bar"), false);
+        verifyText("https://account.churchofjesuschrist.org/register", WebElementById("com.android.chrome:id/url_bar"), false);
     }
 
     @Test
@@ -6588,9 +6589,9 @@ public class GospelLibrary {
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
-        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()) + "]");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
-        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]"), "Style");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()) + "]"), "Style");
         assertHighlightStyleScreen();
         assertHighlightStyleScreenStyleAndColor("solid", "yellow");
     }
@@ -7170,6 +7171,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]"), "Remove");
         assertRemoveAnnotationPopup();
         ClickUIElementByID(AppId("md_button_positive"));
