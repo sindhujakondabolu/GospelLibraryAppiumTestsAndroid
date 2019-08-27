@@ -3220,7 +3220,7 @@ public class GospelLibrary {
         verifyText(CreateAccountString, WebElementById(AppId("ldsAccountLoginCreateAccountButton")), true);
         ClickUIElementByID(AppId("ldsAccountLoginCreateAccountButton"));
         Thread.sleep(milliseconds_5);
-        verifyText("https://settings.churchofjesuschrist.org/register", WebElementById("com.android.chrome:id/url_bar"), false);
+        verifyText("https://account.churchofjesuschrist.org/register", WebElementById("com.android.chrome:id/url_bar"), false);
     }
 
 
@@ -6733,8 +6733,8 @@ public class GospelLibrary {
     public void AnnotationMenuCreateNoteAnnotationIndicatorIcon() throws Exception {
         AnnotationMenuCreateNote();
         ClickUIElementByAccessibilityID("Navigate up");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
-        assertEquals("url(\"file:///android_asset/images/annotation_note.png\")", getComputedCssUsingXpath("//div[contains(@class,'stickyNote')]", "background-image"));
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorNote')]");
+        assertEquals("url(\"file:///android_asset/images/annotation_note.png\")", getComputedCssUsingXpath("//div[contains(@class,'marginIndicatorNote')]", "background-image"));
 
     }
 
@@ -6751,7 +6751,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorNote')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
@@ -6780,7 +6780,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExactCount("//div[contains(@class, 'hl-yellow-box')]", 1);
-        assertElementInWebviewExactCount("//div[contains(@class,'stickyNote')]", 1);
+        assertElementInWebviewExactCount("//div[contains(@class,'marginIndicatorNote')]", 1);
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
@@ -6817,7 +6817,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorNote')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
@@ -6860,7 +6860,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorNote')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
@@ -6898,7 +6898,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyTag')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorTag')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
@@ -6912,8 +6912,8 @@ public class GospelLibrary {
     public void AnnotationMenuCreateTagAnnotationIndicatorIcon() throws Exception {
         AnnotationMenuCreateTag();
         ClickUIElementByAccessibilityID("Navigate up");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyTag')]");
-        assertEquals("url(\"file:///android_asset/images/annotation_tag.png\")", getComputedCssUsingXpath("//div[contains(@class,'stickyTag')]", "background-image"));
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorTag')]");
+        assertEquals("url(\"file:///android_asset/images/annotation_tag.png\")", getComputedCssUsingXpath("//div[contains(@class,'marginIndicatorTag')]", "background-image"));
 
     }
 
@@ -6923,7 +6923,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
-        ClickUIElementInWebviewByXPath("//div[contains(@class,'stickyTag')]");
+        ClickUIElementInWebviewByXPath("//div[contains(@class,'marginIndicatorTag')]");
 
         //assert sidebar
         assertSideBar("Tag", true, "Tag", "Test Tag");
@@ -6961,11 +6961,11 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNotebook')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorNotebook')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
-        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()) + "]");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
-        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]"), "Add to");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()) + "]"), "Add to");
         assert Boolean.parseBoolean(WebElementByResourceId("org.lds.ldssa." + GospelLibraryBuild + ":id/notebookCheckBox").getAttribute("checked"));
 
     }
@@ -6974,8 +6974,8 @@ public class GospelLibrary {
     public void AnnotationMenuAddToAnnotationIndicatorIcon() throws Exception {
         AnnotationMenuAddToNotebook();
         ClickUIElementByAccessibilityID("Navigate up");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNotebook')]");
-        assertEquals("url(\"file:///android_asset/images/annotation_notebook.png\")", getComputedCssUsingXpath("//div[contains(@class,'stickyNotebook')]", "background-image"));
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorNotebook')]");
+        assertEquals("url(\"file:///android_asset/images/annotation_notebook.png\")", getComputedCssUsingXpath("//div[contains(@class,'marginIndicatorNotebook')]", "background-image"));
 
     }
 
@@ -7010,8 +7010,8 @@ public class GospelLibrary {
     public void AnnotationMenuCreateLinkAnnotationIndicatorIcon() throws Exception {
         AnnotationMenuCreateLinkToSingleChapterBook();
         ClickUIElementByAccessibilityID("Navigate up");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyLink')]");
-        assertEquals("url(\"file:///android_asset/images/annotation_link.png\")", getComputedCssUsingXpath("//div[contains(@class,'stickyLink')]", "background-image"));
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorLink')]");
+        assertEquals("url(\"file:///android_asset/images/annotation_link.png\")", getComputedCssUsingXpath("//div[contains(@class,'marginIndicatorLink')]", "background-image"));
 
     }
 
@@ -7147,7 +7147,7 @@ public class GospelLibrary {
         assertRemoveAnnotationPopup();
         ClickUIElementByID(AppId("md_button_positive"));
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyNote')]");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'marginIndicatorNote')]");
     }
 
     @Test
@@ -7161,7 +7161,7 @@ public class GospelLibrary {
         ClickUIElementByID(AppId("md_button_negative"));
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorNote')]");
     }
 
     @Test
@@ -7174,7 +7174,7 @@ public class GospelLibrary {
         assertRemoveAnnotationPopup();
         ClickUIElementByID(AppId("md_button_positive"));
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyLink')]");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'marginIndicatorLink')]");
     }
 
     @Test
@@ -7188,7 +7188,7 @@ public class GospelLibrary {
         ClickUIElementByID(AppId("md_button_negative"));
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyLink')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorLink')]");
     }
 
     @Test
@@ -7201,7 +7201,7 @@ public class GospelLibrary {
         assertRemoveAnnotationPopup();
         ClickUIElementByID(AppId("md_button_positive"));
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyTag')]");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'marginIndicatorTag')]");
     }
 
     @Test
@@ -7215,7 +7215,7 @@ public class GospelLibrary {
         ClickUIElementByID(AppId("md_button_negative"));
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyTag')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorTag')]");
     }
 
     @Test
@@ -7229,7 +7229,7 @@ public class GospelLibrary {
         assertRemoveAnnotationPopup();
         ClickUIElementByID(AppId("md_button_positive"));
         assertElementInWebviewDoesNotExistBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'stickyNote')]");
+        assertElementInWebviewDoesNotExistBy("//div[contains(@class,'marginIndicatorNote')]");
     }
 
     @Test
@@ -7244,7 +7244,7 @@ public class GospelLibrary {
         ClickUIElementByID(AppId("md_button_negative"));
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNote')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorNote')]");
     }
 
     @Test
@@ -7258,7 +7258,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         AnnotationsSyncCheck("No Thanks");
         assertElementInWebviewExistsBy("//div[contains(@class, 'hl-yellow-box')]");
-        assertElementInWebviewExistsBy("//div[contains(@class,'stickyNotebook')]");
+        assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorNotebook')]");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
@@ -7272,9 +7272,9 @@ public class GospelLibrary {
         TestCheckAnnotationStyleAndColor("underline", "orange");
         ClickUIElementByAccessibilityID("Navigate up");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
-        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
+        ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()) + "]");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
-        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]"), "Remove");
+        OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()) + "]"), "Remove");
         OpenAnnotationMenu("p1", "Mark");
         templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size()) + "]");
