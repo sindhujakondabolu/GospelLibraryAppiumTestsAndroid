@@ -54,9 +54,6 @@ public class GospelLibrary {
         capabilities.setCapability("chromedriverChromeMappingFile", System.getProperty("user.dir") + "/../../ChromeDriver/chromeDriverMappings.json");
         capabilities.setCapability("chromedriverExecutableDir", System.getProperty("user.dir") + "/../../ChromeDriver");
 
-        capabilities.setCapability("chromedriverChromeMappingFile",System.getProperty("user.dir")+"/../../ChromeDriver/chromeDriverMappings.json");
-        capabilities.setCapability("chromedriverExecutableDir",System.getProperty("user.dir")+"/../../ChromeDriver");
-
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         setBooks();
 
@@ -7855,7 +7852,7 @@ public class GospelLibrary {
 
     }
 
-
+    
 
 }
 
