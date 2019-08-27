@@ -914,6 +914,9 @@ public class mainFunctions {
 
     }
 
+
+
+
     //Verify Object Exists Using WebElementsBy
     public void assertElementExistsBy(List webElementsBy) {
         Boolean tempElement = webElementsBy.size() > 0;
@@ -1835,10 +1838,6 @@ public class mainFunctions {
         System.out.println("Continuing Test…");
         Thread.sleep(milliseconds_2);
     }
-
-    //Durations
-
-
 
 
 
