@@ -53,6 +53,7 @@ public class GospelLibrary {
         }
         capabilities.setCapability("chromedriverChromeMappingFile", System.getProperty("user.dir") + "/../../ChromeDriver/chromeDriverMappings.json");
         capabilities.setCapability("chromedriverExecutableDir", System.getProperty("user.dir") + "/../../ChromeDriver");
+
         driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
         setBooks();
 
@@ -1587,6 +1588,12 @@ public class GospelLibrary {
 
     }
 
+    public void verifyAttributeWithBoolean(WebElement theElement, String theAttributeToCheck, Boolean theValue ) throws Exception{
+        Boolean theActualValue = Boolean.valueOf(theElement.getAttribute(theAttributeToCheck));
+        System.out.println("Checking the value of " + theAttributeToCheck + ". Expected: " + theValue + ", Actual: " + theActualValue);
+        assert theActualValue == theValue;
+    }
+
     //Verify Object Exists Using WebElementsBy
     public void assertElementExistsBy(List webElementsBy) {
         Boolean tempElement = webElementsBy.size() > 0;
@@ -2961,6 +2968,134 @@ public class GospelLibrary {
         }
         System.out.println("Continuing Test…");
     }
+
+        //***** Study Plans*******
+
+        public void assertStudyPlanScreen() throws Exception {
+            ClickUIElementByText("Study Plans",false);
+            assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+            assertElementExistsBy(WebElementsById(AppId("mainToolbarTitleTextView")));
+            assertElementExistsBy(WebElementsById(AppId("dropArrowImageView")));
+            assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+            assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
+            assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+            assertElementExistsBy(WebElementsById(AppId("emptyStateImageView")));
+            assertElementExistsBy(WebElementsById(AppId("emptyStateTitleTextView")));
+            assertElementExistsBy(WebElementsById(AppId("emptyStateSubTitleTextView")));
+            assertElementExistsBy(WebElementsByAccessibilityId("New study plan"));
+            ClickUIElementByAccessibilityID("New study plan");
+        }
+
+
+        public void assertStudyPlanWelcomePage(boolean Next) throws Exception{
+            assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+            assertElementExistsBy(WebElementsById(AppId("introTextView")));
+            assertElementExistsBy(WebElementsById(AppId("stepOneTextView")));
+            assertElementExistsBy(WebElementsById(AppId("stepTwoTextView")));
+            assertElementExistsBy(WebElementsById(AppId("stepThreeTextView")));
+            assertElementExistsBy(WebElementsById(AppId("rightTextButton")));
+            if (Next) {
+                ClickUIElementByID(AppId("rightTextButton"));
+            } else {
+                ClickUIElementByAccessibilityID("Navigate up");
+            }
+        }
+
+
+
+        public void SelectContent(String ContentType) throws Exception{
+            assertElementExistsBy(WebElementsByAccessibilityId("Back"));
+            assertElementExistsBy(WebElementsById(AppId("searchEditText")));
+            assertElementExistsBy(WebElementsByAccessibilityId("Voice search"));
+            assertElementExistsBy(WebElementsById(AppId("emptyStateImageView")));
+            assertElementExistsBy(WebElementsById(AppId("emptyStateTitleTextView")));
+            assertElementExistsBy(WebElementsById(AppId("emptyStateSubTitleTextView")));
+            if (ContentType == "Scriptures") {
+                sendText("searchEditText", "Book of Mormon");
+                ClickUIElementByText("Book of Mormon", false);
+            } else if (ContentType == "General Conference") {
+                sendText("searchEditText","General Conference");
+                ClickUIElementByText("April 2019",false);
+                ClickUIElementByID(AppId("md_button_positive"));
+                ClickUIElementByText("April 2019",false);
+            } else if (ContentType == "ComeFollowMe") {
+                sendText("searchEditText", "Come follow me");
+                ClickUIElementByText("Come, Follow Me—For Individuals and Families: New Testament 2019",false);
+                ClickUIElementByID(AppId("md_button_positive"));
+                ClickUIElementByText("Come, Follow Me—For Individuals and Families: New Testament 2019",false);
+            }
+
+        }
+
+        public void assertScheduleScreen () throws Exception {
+            assertElementExistsBy(WebElementsById(AppId("introTextView")));
+            assertElementExistsBy(WebElementsById(AppId("scheduleSwitch")));
+            assertElementExistsBy(WebElementsById(AppId("leftTextButton")));
+            assertElementExistsBy(WebElementsById(AppId("rightTextButton")));
+        }
+
+        public void assertSetScheduleScreen() throws Exception {
+            assertElementExistsBy(WebElementsById(AppId("introTextView")));
+            assertElementExistsBy(WebElementsById(AppId("scheduleSwitch")));
+            assertElementExistsBy(WebElementsById(AppId("dailyCheckBox")));
+            assertElementExistsBy(WebElementsById(AppId("startTitleTextView")));
+            assertElementExistsBy(WebElementsById(AppId("startValueTextView")));
+            assertElementExistsBy(WebElementsById(AppId("endTitleTextView")));
+            assertElementExistsBy(WebElementsById(AppId("endValueTextView")));
+            assertElementExistsBy(WebElementsById(AppId("splitChaptersCheckBox")));
+            assertElementExistsBy(WebElementsById(AppId("leftTextButton")));
+            verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",false);
+
+        }
+
+        public void assertAndSetRemainderScreen() throws Exception {
+            assertElementExistsBy(WebElementsById(AppId("introTextView")));
+            assertElementExistsBy(WebElementsById(AppId("reminderSwitch")));
+            assertElementExistsBy(WebElementsById(AppId("leftTextButton")));
+            assertElementExistsBy(WebElementsById(AppId("rightTextButton")));
+            assertElementExistsBy(WebElementsById(AppId("reminderSwitch")));
+            ClickUIElementByID(AppId("reminderSwitch"));
+            ClickUIElementByID(AppId("timeTextView"));
+            ClickUIElementByAccessibilityID("9");
+            ClickUIElementByResourceID("android:id/am_label");
+            ClickUIElementByResourceID("android:id/button1");
+            ClickUIElementByID(AppId("rightTextButton"));
+        }
+
+        public void assertScheduleSummaryScreen() throws Exception {
+            assertElementExistsBy(WebElementsById(AppId("titleTextView")));
+            assertElementExistsBy(WebElementsByText(("Schedule"),false));
+            assertElementExistsBy(WebElementsByText(("Reminder"),false));
+            assertElementExistsBy(WebElementsById(AppId("leftTextButton")));
+            assertElementExistsBy(WebElementsById(AppId("rightTextButton")));
+            ClickUIElementByID(AppId("rightTextButton"));
+        }
+
+        public void assertAndReturnStudyPlanSummaryScreen () throws Exception {
+            assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+            assertElementExistsBy(WebElementsById(AppId("mainToolbarTitleTextView")));
+            assertElementExistsBy(WebElementsById(AppId("mainToolbarSubTitleTextView")));
+            assertElementExistsBy(WebElementsById(AppId("dropArrowImageView")));
+            assertElementExistsBy(WebElementsByAccessibilityId("Edit"));
+            ClickUIElementByAccessibilityID("Navigate up");
+        }
+
+        public void assertStudyPlanSummaryScreen() throws Exception {
+            assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+            assertElementExistsBy(WebElementsById(AppId("mainToolbarTitleTextView")));
+            assertElementExistsBy(WebElementsById(AppId("dropArrowImageView")));
+            assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+            assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
+            assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+            assertElementExistsBy(WebElementsById(AppId("imageView")));
+            assertElementExistsBy(WebElementsById(AppId("titleTextView")));
+            assertElementExistsBy(WebElementsById(AppId("subtitleTextView")));
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/progressView"));
+            assertElementExistsBy(WebElementsByAccessibilityId("Toggle reminder"));
+            assertElementExistsBy(WebElementsByAccessibilityId("Options menu"));
+            ClickUIElementByAccessibilityID("Navigate up");
+        }
+
 
     //*************************************************************** Tests ***************************************************************
 
@@ -7452,6 +7587,272 @@ public class GospelLibrary {
         // Placeholder text
         verifyText("Search All Content", WebElementById(AppId("searchEditText")), false);
     }
+
+    // ******* Study Plans Section *********
+
+    @Test
+    public void StudyPlansCreateANewStudyPlanScriptures() throws Exception {
+        skipLogin();
+        assertStudyPlanScreen();
+        assertStudyPlanWelcomePage(true);
+        SelectContent("Scriptures");
+        assertScheduleScreen();
+        ClickUIElementByID(AppId("scheduleSwitch"));
+        assertSetScheduleScreen();
+        ClickUIElementByID(AppId("dailyCheckBox"));
+        ClickUIElementByID(AppId("startTitleTextView"));
+        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("endTitleTextView"));
+        ClickUIElementByAccessibilityID("Next month");
+        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("splitChaptersCheckBox"));
+        verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertAndSetRemainderScreen();
+        assertScheduleSummaryScreen();
+        assertAndReturnStudyPlanSummaryScreen();
+        assertStudyPlanSummaryScreen();
+    }
+
+    @Test
+    public void StudyPlansCreateANewStudyPlanFromContextMenuScriptures() throws Exception {
+        skipLogin();
+        ClickUIElementByText("Scriptures",false);
+        ClickUIElementByXpath("(//*[@text=\"Book of Mormon\"]/../../android.widget.ImageView)[2]");
+        ClickUIElementByText(("Create Study Plan"),false);
+        assertScheduleScreen();
+        ClickUIElementByID(AppId("scheduleSwitch"));
+        assertSetScheduleScreen();
+        ClickUIElementByID(AppId("dailyCheckBox"));
+        ClickUIElementByID(AppId("startTitleTextView"));
+        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("endTitleTextView"));
+        ClickUIElementByAccessibilityID("Next month");
+        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("splitChaptersCheckBox"));
+        verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertAndSetRemainderScreen();
+        assertScheduleSummaryScreen();
+        assertAndReturnStudyPlanSummaryScreen();
+        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
+        assertElementExistsBy(WebElementsById(AppId("mainToolbarTitleTextView")));
+        assertElementExistsBy(WebElementsById(AppId("dropArrowImageView")));
+        assertElementExistsBy(WebElementsByAccessibilityId("Search"));
+        assertElementExistsBy(WebElementsByAccessibilityId("Bookmarks"));
+        assertElementExistsBy(WebElementsByAccessibilityId("More options"));
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByText("Study Plans",false);
+        assertStudyPlanSummaryScreen();
+    }
+
+    @Test
+    public void StudyPlansEditStudyPlan() throws Exception {
+        StudyPlansCreateANewStudyPlanScriptures();
+        ClickUIElementByText("Study Plans",false);
+        ClickUIElementByAccessibilityID("Options menu");
+        ClickUIElementByText("Edit",false);
+        ClickUIElementByText("Schedule",false);
+        ClickUIElementByID(AppId("endTitleTextView"));
+        ClickUIElementByAccessibilityID("25 December 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("rightTextButton"));
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertStudyPlanSummaryScreen();
+
+    }
+
+    @Test
+    public void StudyPlansDeleteStudyPlanFromOptionsMenu() throws Exception {
+        StudyPlansCreateANewStudyPlanScriptures();
+        ClickUIElementByText("Study Plans",false);
+        ClickUIElementByAccessibilityID("Options menu");
+        ClickUIElementByText("Delete",false);
+        ClickUIElementByID(AppId("md_button_positive"));
+        assertStudyPlanScreen();
+    }
+
+    @Test
+    public void StudyPlansCreateNewStudyPlanComeFollowMe() throws Exception {
+        skipLogin();
+        assertStudyPlanScreen();
+        assertStudyPlanWelcomePage(true);
+        SelectContent("ComeFollowMe");
+        assertElementExistsBy(WebElementsById(AppId("introTextView")));
+        assertElementExistsBy(WebElementsById(AppId("reminderSwitch")));
+        assertElementExistsBy(WebElementsById(AppId("leftTextButton")));
+        assertElementExistsBy(WebElementsById(AppId("rightTextButton")));
+        ClickUIElementByID(AppId("reminderSwitch"));
+        verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",false);
+        ClickUIElementByID(AppId("dailyCheckBox"));
+        verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertElementExistsBy(WebElementsById(AppId("titleTextView")));
+        assertElementExistsBy(WebElementsById(AppId("primaryTextView")));
+        assertElementExistsBy(WebElementsById(AppId("mainSwitch")));
+        assertElementExistsBy(WebElementsById(AppId("leftTextButton")));
+        assertElementExistsBy(WebElementsById(AppId("rightTextButton")));
+        verifyAttributeWithBoolean(WebElementById("mainSwitch"),"enabled",true);
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertAndReturnStudyPlanSummaryScreen();
+        assertStudyPlanSummaryScreen();
+    }
+
+    @Test
+    public void StudyPlansCreateNewStudyPlanComeFollowMeFromContextMenu() throws Exception {
+        skipLogin();
+        ClickUIElementByText("Come, Follow Me",false);
+        ClickUIElementByText("Individuals and Families",false);
+        ClickUIElementByText("Come, Follow Me—For Individuals and Families",false);
+        ClickUIElementByXpath("(//*[@text=\"Come, Follow Me—For Individuals and Families\"]/../../android.widget.ImageView)[2]");
+        ClickUIElementByText("Create Study Plan",false);
+        assertElementExistsBy(WebElementsById(AppId("introTextView")));
+        assertElementExistsBy(WebElementsById(AppId("reminderSwitch")));
+        assertElementExistsBy(WebElementsById(AppId("leftTextButton")));
+        assertElementExistsBy(WebElementsById(AppId("rightTextButton")));
+        ClickUIElementByID(AppId("reminderSwitch"));
+        verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",false);
+        ClickUIElementByID(AppId("dailyCheckBox"));
+        verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertElementExistsBy(WebElementsById(AppId("titleTextView")));
+        assertElementExistsBy(WebElementsById(AppId("primaryTextView")));
+        assertElementExistsBy(WebElementsById(AppId("mainSwitch")));
+        assertElementExistsBy(WebElementsById(AppId("leftTextButton")));
+        assertElementExistsBy(WebElementsById(AppId("rightTextButton")));
+        verifyAttributeWithBoolean(WebElementById("mainSwitch"),"enabled",true);
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertAndReturnStudyPlanSummaryScreen();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByText("Study Plans",false);
+        assertStudyPlanSummaryScreen();
+
+
+    }
+
+
+    @Test
+    public void StudyPlansCreateNewStudyPlanGeneralConference() throws Exception {
+        skipLogin();
+        assertStudyPlanScreen();
+        assertStudyPlanWelcomePage(true);
+        SelectContent("General Conference");
+        assertScheduleScreen();
+        ClickUIElementByID(AppId("scheduleSwitch"));
+        assertSetScheduleScreen();
+        ClickUIElementByID(AppId("dailyCheckBox"));
+        ClickUIElementByID(AppId("startTitleTextView"));
+        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("endTitleTextView"));
+        ClickUIElementByAccessibilityID("Next month");
+        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("splitChaptersCheckBox"));
+        verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertAndSetRemainderScreen();
+        assertScheduleSummaryScreen();
+        assertAndReturnStudyPlanSummaryScreen();
+        assertStudyPlanSummaryScreen();
+    }
+
+    @Test
+    public void StudyPlansCreateNewStudyPlanGeneralConferenceFromContextMenu() throws Exception {
+        skipLogin();
+        ClickUIElementByText("General Conference",false);
+        ClickUIElementByText("April 2019",false);
+        ClickUIElementByXpath("(//*[@text=\"April 2019\"]/../../android.widget.ImageView)[2]");
+        ClickUIElementByText("Create Study Plan",false);
+        ClickUIElementByID(AppId("scheduleSwitch"));
+        assertSetScheduleScreen();
+        ClickUIElementByID(AppId("dailyCheckBox"));
+        ClickUIElementByID(AppId("startTitleTextView"));
+        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("endTitleTextView"));
+        ClickUIElementByAccessibilityID("Next month");
+        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("splitChaptersCheckBox"));
+        verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertAndSetRemainderScreen();
+        assertScheduleSummaryScreen();
+        assertAndReturnStudyPlanSummaryScreen();
+        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByText("Study Plans",false);
+        assertStudyPlanSummaryScreen();
+    }
+
+
+
+    @Test
+    public void StudyPlansAddNewStudyPlan() throws Exception {
+        StudyPlansCreateANewStudyPlanScriptures();
+        ClickUIElementByText("Study Plans",false);
+        assertElementExistsBy(WebElementsById(AppId("imageView")));
+        ClickUIElementByAccessibilityID("New study plan");
+        ClickUIElementByID(AppId("stepOneTextView"));
+        sendText("searchEditText","General Conference");
+        ClickUIElementByText("April 2019",false);
+        ClickUIElementByID(AppId("md_button_positive"));
+        ClickUIElementByText("April 2019",false);
+        assertScheduleScreen();
+        ClickUIElementByID(AppId("scheduleSwitch"));
+        assertSetScheduleScreen();
+        ClickUIElementByID(AppId("dailyCheckBox"));
+        ClickUIElementByID(AppId("startTitleTextView"));
+        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("endTitleTextView"));
+        ClickUIElementByAccessibilityID("Next month");
+        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("splitChaptersCheckBox"));
+        verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertAndSetRemainderScreen();
+        assertScheduleSummaryScreen();
+        assertAndReturnStudyPlanSummaryScreen();
+
+    }
+
+    @Test
+    public void StudyPlansCreateCustomStudyPlan() throws Exception {
+        skipLogin();
+        assertStudyPlanScreen();
+        assertStudyPlanWelcomePage(true);
+        SelectContent("Scriptures");
+        assertScheduleScreen();
+        ClickUIElementByID(AppId("scheduleSwitch"));
+        assertSetScheduleScreen();
+        ClickUIElementByText("M",false);
+        ClickUIElementByText("W",false);
+        ClickUIElementByText("F",false);
+        ClickUIElementByID(AppId("startTitleTextView"));
+        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("endTitleTextView"));
+        ClickUIElementByAccessibilityID("Next month");
+        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByResourceID("android:id/button1");
+        ClickUIElementByID(AppId("splitChaptersCheckBox"));
+        verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
+        ClickUIElementByID(AppId("rightTextButton"));
+        assertAndSetRemainderScreen();
+        assertScheduleSummaryScreen();
+        assertAndReturnStudyPlanSummaryScreen();
+        assertStudyPlanSummaryScreen();
+
+    }
+
+    
 
 }
 
