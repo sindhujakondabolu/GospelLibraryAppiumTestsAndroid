@@ -1,37 +1,12 @@
 package UI;
 
 public abstract class Strings {
+
+
     //log in with
     public static String user = "support2";
     public static String password = "ldssaldssa";
     public static String wrongPassword = "ldssaldssaa";
-
-    //Android version number
-    public static int AndroidVersion = 7;
-
-    //Build of Gospel Library
-
-    public static String GospelLibraryBuild = "alpha";
-
-//    public static String GospelLibraryBuild = "preview";
-
-    //public static String GospelLibraryBuild = "preview";
-
-    public static String WebView = "WEBVIEW_org.lds.ldssa." + GospelLibraryBuild + "";
-
-    //millisecond standards
-
-    //for slower devices use 4600, for faster devices use 1600
-    public static int milliseconds_1 = 1600;
-//    public static int milliseconds_1 = 2600;
-//    public static int milliseconds_1 = 8600;
-    public static int milliseconds_2 = milliseconds_1 * 2;
-    public static int milliseconds_3 = milliseconds_1 * 3;
-    public static int milliseconds_4 = milliseconds_1 * 4;
-    public static int milliseconds_5 = milliseconds_1 * 5;
-
-    //String idString = "org.lds.ldssa.dev";
-    public static String idString = "org.lds.ldssa";
 
     //New Notebook 1
     public static String NotebookTitle1 = "Spiritual Impressions 1";

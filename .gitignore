@@ -5,3 +5,4 @@
 *.iml
 out/
 .DS_Store
+projects/Gospel-Library-Appium-Tests/src/UI/EnvironmentConfig.java

@@ -29,6 +29,7 @@ import java.util.Set;
 
 import static UI.Content.setBooks;
 import static UI.Strings.*;
+import static UI.EnvironmentConfig.*;
 import static java.lang.Integer.parseInt;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -46,7 +47,7 @@ public class GospelLibrary {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName", "Android");
-        capabilities.setCapability("udid","05157df5a1394b1c");
+        capabilities.setCapability("udid",theUDID);
         capabilities.setCapability("app", System.getProperty("user.dir") + "/../../APK/gospel-library-" + GospelLibraryBuild + ".apk");
         if (AndroidVersion > 5) {
             capabilities.setCapability("automationName", "UiAutomator2");
@@ -54,7 +55,7 @@ public class GospelLibrary {
         capabilities.setCapability("chromedriverChromeMappingFile", System.getProperty("user.dir") + "/../../ChromeDriver/chromeDriverMappings.json");
         capabilities.setCapability("chromedriverExecutableDir", System.getProperty("user.dir") + "/../../ChromeDriver");
 
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver = new AndroidDriver(new URL("http://127.0.0.1:" + theAppiumPort + "/wd/hub"), capabilities);
         setBooks();
 
     }

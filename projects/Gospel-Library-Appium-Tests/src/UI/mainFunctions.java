@@ -16,6 +16,7 @@ package UI;
         import java.util.Set;
 
         import static UI.Strings.*;
+        import static UI.EnvironmentConfig.*;
         import static java.lang.Integer.parseInt;
         import static org.junit.jupiter.api.Assertions.fail;
 
