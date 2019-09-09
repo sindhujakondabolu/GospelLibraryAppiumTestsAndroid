@@ -7142,6 +7142,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]"), "Remove");
         assertRemoveAnnotationPopup();
         ClickUIElementByID(AppId("md_button_positive"));
@@ -7239,6 +7240,7 @@ public class GospelLibrary {
         ClickUIElementByAccessibilityID("Navigate up");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[\" + (templist.size()-1)+\"]");
+        templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         OpenAnnotationMenuFromAnnotation(WebElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]"), "Remove");
         assertRemoveAnnotationPopup();
         ClickUIElementByID(AppId("md_button_negative"));
