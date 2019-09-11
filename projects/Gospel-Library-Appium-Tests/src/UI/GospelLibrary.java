@@ -370,6 +370,19 @@ public class GospelLibrary {
         Thread.sleep(milliseconds_1);
     }
 
+//    Click Element by Text of Xpath view.view
+    public void ClickUIElementByViewText(String text, Boolean isCapitalized) throws Exception {
+        if (isCapitalized) {
+            text = isAllCaps(text);
+        }
+        String xPathofText = "//android.view.View[@text='" + text + "']";
+        //System.out.println("Xpath of current item is: "+xPathofText+"");
+        WebElement itemToClick = driver.findElement(By.xpath(xPathofText));
+        itemToClick.click();
+        System.out.println("Clicking: '" + text + "' using text by xPath with TextView");
+        Thread.sleep(milliseconds_1);
+    }
+
     //Click Element by Text
     public void ClickUIElementByTextContains(String text, Boolean isCapitalized) throws Exception {
         if (isCapitalized) {
@@ -504,6 +517,13 @@ public class GospelLibrary {
     public void sendText(String elementID, String text) throws Exception {
         WebElement textfield = driver.findElementById(elementID);
         textfield.clear();
+        textfield.sendKeys(text);
+        System.out.println("Sending Text: '" + text + "'");
+        Thread.sleep(milliseconds_1);
+    }
+
+    public void sendTextWithoutclear(String elementID, String text) throws Exception {
+        WebElement textfield = driver.findElementById(elementID);
         textfield.sendKeys(text);
         System.out.println("Sending Text: '" + text + "'");
         Thread.sleep(milliseconds_1);
@@ -1588,6 +1608,19 @@ public class GospelLibrary {
 
 
     }
+
+    public void verifyTextContains(String expectedText, WebElement webelementActual, boolean isCapitalized) throws Exception {
+        if (isCapitalized) {
+            expectedText = isAllCaps(expectedText);
+        }
+        String webelementActualAsText = webelementActual.getText();
+        System.out.println("Validating text Expected: '" + expectedText + "' Actual: '" + webelementActualAsText + "'");
+        System.out.println("Android version is less than Android 6. Verifying that element contains expected text instead of verifying exact string.");
+        Assert.assertTrue(webelementActualAsText.contains(expectedText));
+
+
+    }
+
 
     public void verifyAttributeWithBoolean(WebElement theElement, String theAttributeToCheck, Boolean theValue ) throws Exception{
         Boolean theActualValue = Boolean.valueOf(theElement.getAttribute(theAttributeToCheck));
@@ -3209,7 +3242,7 @@ public class GospelLibrary {
         verifyText("HAVING TROUBLE SIGNING IN?", WebElementById(AppId("ldsAccountLoginForgotCredentialsButton")), false);
         ClickUIElementByID(AppId("ldsAccountLoginForgotCredentialsButton"));
         Thread.sleep(milliseconds_5);
-        verifyText("https://settings.churchofjesuschrist.org/recovery", WebElementById("com.android.chrome:id/url_bar"), false);
+        verifyTextContains("ident.churchofjesuschrist.org/sso/UI/Login?realm=%2Fchurch&service=twoStepConditional&goto=https%3A%2F%2Fident.churchofjesuschrist.org%2Fsso%2Foauth2%2Fauthorize%3Fclient_id%3Dvx3Je3bU9Xoioffq%26redirect_uri%3Dhttps%253A%252F%252Faccount.churchofjesuschrist.org%252Flogin%26scope%3Dopenid%2520profile%26response_type%3Dcode%26state%3D%26acr_values%3D210", WebElementById("com.android.chrome:id/url_bar"), false);
     }
 
     @Test
@@ -3219,7 +3252,7 @@ public class GospelLibrary {
         verifyText(CreateAccountString, WebElementById(AppId("ldsAccountLoginCreateAccountButton")), true);
         ClickUIElementByID(AppId("ldsAccountLoginCreateAccountButton"));
         Thread.sleep(milliseconds_5);
-        verifyText("https://account.churchofjesuschrist.org/register", WebElementById("com.android.chrome:id/url_bar"), false);
+        verifyTextContains("ident.churchofjesuschrist.org/sso/UI/Login?realm=%2Fchurch&service=twoStepConditional&goto=https%3A%2F%2Fident.churchofjesuschrist.org%2Fsso%2Foauth2%2Fauthorize%3Fclient_id%3Dvx3Je3bU9Xoioffq%26redirect_uri%3Dhttps%253A%252F%252Faccount.churchofjesuschrist.org%252Flogin%26scope%3Dopenid%2520profile%26response_type%3Dcode%26state%3D%26acr_values%3D210", WebElementById("com.android.chrome:id/url_bar"), false);
     }
 
 
@@ -3249,8 +3282,6 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Magazines", false));
         scrollDownTo("Seminaries and Institutes");
         assertElementExistsBy(WebElementsByText("Seminaries and Institutes", false));
-        scrollDownTo("Teachings of Presidents");
-        assertElementExistsBy(WebElementsByText("Teachings of Presidents", false));
         scrollDownTo("Videos");
         assertElementExistsBy(WebElementsByText("Videos", false));
         scrollDownTo("Topics");
@@ -3271,6 +3302,8 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Leaders", false));
         scrollDownTo("Church History");
         assertElementExistsBy(WebElementsByText("Church History", false));
+        scrollDownTo("Teachings of Presidents");
+        assertElementExistsBy(WebElementsByText("Teachings of Presidents", false));
         scrollDownTo("Temple and Family History");
         assertElementExistsBy(WebElementsByText("Temple and Family History", false));
         scrollDownTo("Life Help");
@@ -3388,12 +3421,28 @@ public class GospelLibrary {
 
     @Test
     public void RenameANotebook() throws Exception {
-        fail("Test not written yet");
+        CreateNewNotebook();
+        ClickUIElementByID(AppId("menuButton"));
+        assertElementExistsBy(WebElementsByText("Rename",false));
+        assertElementExistsBy(WebElementsByText("Delete",false));
+        ClickUIElementByText("Rename",false);
+        sendText("md_input_message", NotebookTitle2);
+        ClickUIElementByID(AppId("md_button_positive"));
+        verifyText("Spiritual Impressions 2",WebElementById(AppId("titleView")), false );
     }
+
 
     @Test
     public void CancelRenamingANotebook() throws Exception {
-        fail("Test not written yet");
+        CreateNewNotebook();
+        ClickUIElementByID(AppId("menuButton"));
+        assertElementExistsBy(WebElementsByText("Rename",false));
+        assertElementExistsBy(WebElementsByText("Delete",false));
+        ClickUIElementByText("Rename",false);
+        sendText("md_input_message", NotebookTitle2);
+        ClickUIElementByID(AppId("md_button_negative"));
+        verifyText("Spiritual Impressions 1",WebElementById(AppId("titleView")), false );
+
     }
 
     @Test
@@ -3469,20 +3518,19 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
         assertMoreOptionsMenu("Notebooks", true);
         assertNavBar("Notebooks", NotebookTitle1, "", "", "", "", true);
-
-        CreateNewNoteFromNotebook(NoteTitle, Note20000Character);
+        ClickUIElementByID(AppId("newFloatingActionButton"));
+        sendText("noteTitleEditText", "New Note");
+        sendText("markdownEditText",Note10000Character1String);
+        sendTextWithoutclear("markdownEditText",Note10000Character2String);
+        ClickUIElementByAccessibilityID("Navigate up");
         Thread.sleep(milliseconds_2);
-
         //Check Note
-        verifyText(NoteTitle, WebElementById(AppId("noteTitleTextView")), false);
-        verifyText(Note20000Character, WebElementById(AppId("noteMarkdownTextView")), false);
+        verifyText("New Note", WebElementById(AppId("noteTitleTextView")), false);
         ClickUIElementByID(AppId("noteTitleTextView"));
-        Thread.sleep(milliseconds_1);
-        scrollUp();
-        verifyText(NoteTitle, WebElementById(AppId("noteTitleEditText")), false);
-        verifyText(Note20000Character, WebElementById(AppId("markdownEditText")), false);
-        Thread.sleep(milliseconds_1);
+        verifyText(Note10000Character1String, WebElementById(AppId("markdownEditText")), false);
+        ClickUIElementByAccessibilityID("Navigate up");
     }
+
 
     @Test
     public void NotesSectionDeleteNote() throws Exception {
@@ -4555,11 +4603,11 @@ public class GospelLibrary {
         ClickUIElementByText("Settings", false);
         assertElementExistsBy(WebElementsByText("Sign In", false));
         ClickUIElementByText("Sign In", false);
-
         ClickUIElementByID(AppId("ldsAccountLoginForgotCredentialsButton"));
         Thread.sleep(milliseconds_5);
-        verifyText("https://settings.churchofjesuschrist.org/recovery", WebElementById("com.android.chrome:id/url_bar"), false);
+        verifyText("ident.churchofjesuschrist.org/sso/UI/Login?realm=%2Fchurch&service=twoStepConditional&goto=https%3A%2F%2Fident.churchofjesuschrist.org%2Fsso%2Foauth2%2Fauthorize%3Fclient_id%3Dvx3Je3bU9Xoioffq%26redirect_uri%3Dhttps%253A%252F%252Faccount.churchofjesuschrist.org%252Flogin%26scope%3Dopenid%2520profile%26response_type%3Dcode%26state%3D%26acr_values%3D210", WebElementById("com.android.chrome:id/url_bar"), false);
     }
+
 
 
     @Test
@@ -4571,7 +4619,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText(CreateAccountString, false));
         ClickUIElementByText(CreateAccountString, false);
         Thread.sleep(milliseconds_5);
-        verifyText("https://account.churchofjesuschrist.org/register", WebElementById("com.android.chrome:id/url_bar"), false);
+        verifyText("ident.churchofjesuschrist.org/sso/UI/Login?realm=%2Fchurch&service=twoStepConditional&goto=https%3A%2F%2Fident.churchofjesuschrist.org%2Fsso%2Foauth2%2Fauthorize%3Fclient_id%3Dvx3Je3bU9Xoioffq%26redirect_uri%3Dhttps%253A%252F%252Faccount.churchofjesuschrist.org%252Flogin%26scope%3Dopenid%2520profile%26response_type%3Dcode%26state%3D%26acr_values%3D210", WebElementById("com.android.chrome:id/url_bar"), false);
     }
 
     @Test
@@ -5429,9 +5477,6 @@ public class GospelLibrary {
         scrollDownTo("Seminaries and Institutes");
         assertElementExistsBy(WebElementsByText("Seminaries and Institutes", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Seminaries and Institutes'])/..").getSize().getWidth());
-        scrollDownTo("Teachings of Presidents");
-        assertElementExistsBy(WebElementsByText("Teachings of Presidents", false));
-        assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Teachings of Presidents'])/..").getSize().getWidth());
         scrollDownTo("Videos");
         assertElementExistsBy(WebElementsByText("Videos", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Videos'])/..").getSize().getWidth());
@@ -5468,6 +5513,9 @@ public class GospelLibrary {
         scrollDownTo("Church History");
         assertElementExistsBy(WebElementsByText("Church History", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Church History'])/..").getSize().getWidth());
+        scrollDownTo("Teachings of Presidents");
+        assertElementExistsBy(WebElementsByText("Teachings of Presidents", false));
+        assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Teachings of Presidents'])/..").getSize().getWidth());
         scrollDownTo("Temple and Family History");
         assertElementExistsBy(WebElementsByText("Temple and Family History", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Temple and Family History'])/..").getSize().getWidth());
@@ -5477,8 +5525,6 @@ public class GospelLibrary {
         scrollDownTo("Self-Reliance");
         assertElementExistsBy(WebElementsByText("Self-Reliance", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Self-Reliance'])/..").getSize().getWidth());
-
-
         ClickUIElementByAccessibilityID("More options");
         Thread.sleep(milliseconds_1);
         assertElementExistsBy(WebElementsByText("New Screen", false));
@@ -5486,6 +5532,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Language", false));
         assertElementExistsBy(WebElementsByText("Settings", false));
     }
+
 
     @Test
     public void settingsScreenListModeScripturesContentScreenCategories() throws Exception {
@@ -5499,7 +5546,6 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("List Mode", false));
         assertSettingsSwitchExpectedStateAndToggle("List Mode", false);
         ClickUIElementByAccessibilityID("Navigate up");
-
         assertElementExistsBy(WebElementsById(AppId("mainToolbarTitleTextView")));
         verifyText("Library", WebElementById(AppId("mainToolbarTitleTextView")), false);
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
@@ -5530,7 +5576,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Pearl of Great Price", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Pearl of Great Price'])/..").getSize().getWidth());
         scrollDownTo(isAllCaps("Study Helps"));
-        assertElementExistsBy(WebElementsByText("Study Helps", true));
+        assertElementExistsBy(WebElementsByText("Study Helps", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text=\"" + isAllCaps("Study Helps") + "\"])/../..").getSize().getWidth());
         scrollDownTo("Guide to the Scriptures");
         assertElementExistsBy(WebElementsByText("Guide to the Scriptures", false));
@@ -5572,6 +5618,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("About the Scriptures", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='About the Scriptures'])/..").getSize().getWidth());
     }
+
 
     @Test
     public void settingsScreenListModeScripturesScripturesScreenCategories() throws Exception {
@@ -5617,7 +5664,7 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Pearl of Great Price", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Pearl of Great Price'])/..").getSize().getWidth());
         scrollDownTo(isAllCaps("Study Helps"));
-        assertElementExistsBy(WebElementsByText("Study Helps", true));
+        assertElementExistsBy(WebElementsByText("Study Helps", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text=\"" + isAllCaps("Study Helps") + "\"])/../..").getSize().getWidth());
         scrollDownTo("Guide to the Scriptures");
         assertElementExistsBy(WebElementsByText("Guide to the Scriptures", false));
@@ -6408,10 +6455,9 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Acknowledgements", false));
         assertElementExistsBy(WebElementsById(AppId("aboutLogo")));
         assertElementExistsBy(WebElementsById(AppId("aboutCopyright")));
-
         //Verify Rights and Use Date
         ClickUIElementByText("Terms of Use", false);
-        verifyText("https://www.churchofjesuschrist.org/legal/terms-of-use?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"), false);
+        verifyText("churchofjesuschrist.org/legal/terms-of-use?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"), false);
         String RightsAndUse = WebElementByXpath("//android.view.View[contains(@text, 'Updated')]").getText();
         System.out.println(RightsAndUse);
         RightsAndUse = RightsAndUse.replace("Terms of Use (Updated ", "");
@@ -6432,10 +6478,9 @@ public class GospelLibrary {
         RightsAndUse = "Updated " + year + "-" + monthString + "-" + dayString + "";
         System.out.println(RightsAndUse);
         verifyText(RightsAndUse, WebElementByXpath("//android.widget.TextView[@text='Terms of Use']/../android.widget.TextView[contains(@text, 'Updated')]"), false);
-
         //Verify Privacy Notice Date
         ClickUIElementByText("Privacy Notice", false);
-        verifyText("https://www.churchofjesuschrist.org/legal/privacy-notice?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"), false);
+        verifyText("churchofjesuschrist.org/legal/privacy-notice?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"), false);
         String PrivacyPolicy = WebElementByXpath("//android.view.View[contains(@text, 'Updated')]").getText();
         System.out.println(PrivacyPolicy);
         PrivacyPolicy = PrivacyPolicy.replace("Privacy Notice (Updated ", "");
@@ -6457,25 +6502,20 @@ public class GospelLibrary {
         PrivacyPolicy = "Updated " + year + "-" + monthString + "-" + dayString + "";
         System.out.println(PrivacyPolicy);
         verifyText(PrivacyPolicy, WebElementByXpath("//android.widget.TextView[@text='Privacy Notice']/../android.widget.TextView[contains(@text, 'Updated')]"), false);
-
         //verify Acknowledgements
         ClickUIElementByText("Acknowledgements", false);
-        assertElementExistsBy(WebElementsByText("Acknowledgements", false));
+        assertElementExistsBy(WebElementsByXpath("(//*/android.view.View[1]/android.view.View[1]"));
         assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
         assertElementExistsBy(WebElementsById(AppId("aboutLibrariesRecyclerView")));
         ClickUIElementByAccessibilityID("Navigate up");
         verifyText("About", WebElementById(AppId("mainToolbarTitleTextView")), false);
-
-
         //verify year in copyright
         DateFormat dateFormat = new SimpleDateFormat("yyyy");
         Date date = new Date();
         String Copyright = "© " + dateFormat.format(date) + " by Intellectual Reserve, Inc. All rights reserved.";
         verifyText(Copyright, WebElementById(AppId("aboutCopyright")), false);
-
         driver.navigate().back();
         assertElementExistsBy(WebElementsByText("Settings", false));
-
 
     }
 
@@ -7604,11 +7644,11 @@ public class GospelLibrary {
         assertSetScheduleScreen();
         ClickUIElementByID(AppId("dailyCheckBox"));
         ClickUIElementByID(AppId("startTitleTextView"));
-        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("endTitleTextView"));
         ClickUIElementByAccessibilityID("Next month");
-        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("splitChaptersCheckBox"));
         verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
@@ -7630,11 +7670,11 @@ public class GospelLibrary {
         assertSetScheduleScreen();
         ClickUIElementByID(AppId("dailyCheckBox"));
         ClickUIElementByID(AppId("startTitleTextView"));
-        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("endTitleTextView"));
         ClickUIElementByAccessibilityID("Next month");
-        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("splitChaptersCheckBox"));
         verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
@@ -7661,7 +7701,7 @@ public class GospelLibrary {
         ClickUIElementByText("Edit",false);
         ClickUIElementByText("Schedule",false);
         ClickUIElementByID(AppId("endTitleTextView"));
-        ClickUIElementByAccessibilityID("25 December 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("rightTextButton"));
         ClickUIElementByID(AppId("rightTextButton"));
@@ -7672,11 +7712,12 @@ public class GospelLibrary {
     @Test
     public void StudyPlansDeleteStudyPlanFromOptionsMenu() throws Exception {
         StudyPlansCreateANewStudyPlanScriptures();
-        ClickUIElementByText("Study Plans",false);
+        ClickUIElementByText("Study Plans", false);
         ClickUIElementByAccessibilityID("Options menu");
-        ClickUIElementByText("Delete",false);
+        ClickUIElementByText("Delete", false);
         ClickUIElementByID(AppId("md_button_positive"));
         assertStudyPlanScreen();
+
     }
 
     @Test
@@ -7750,11 +7791,11 @@ public class GospelLibrary {
         assertSetScheduleScreen();
         ClickUIElementByID(AppId("dailyCheckBox"));
         ClickUIElementByID(AppId("startTitleTextView"));
-        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("endTitleTextView"));
         ClickUIElementByAccessibilityID("Next month");
-        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("splitChaptersCheckBox"));
         verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
@@ -7776,11 +7817,11 @@ public class GospelLibrary {
         assertSetScheduleScreen();
         ClickUIElementByID(AppId("dailyCheckBox"));
         ClickUIElementByID(AppId("startTitleTextView"));
-        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("endTitleTextView"));
         ClickUIElementByAccessibilityID("Next month");
-        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("splitChaptersCheckBox"));
         verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
@@ -7795,7 +7836,6 @@ public class GospelLibrary {
 
 
 
-    @Test
     public void StudyPlansAddNewStudyPlan() throws Exception {
         StudyPlansCreateANewStudyPlanScriptures();
         ClickUIElementByText("Study Plans",false);
@@ -7811,11 +7851,11 @@ public class GospelLibrary {
         assertSetScheduleScreen();
         ClickUIElementByID(AppId("dailyCheckBox"));
         ClickUIElementByID(AppId("startTitleTextView"));
-        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("endTitleTextView"));
         ClickUIElementByAccessibilityID("Next month");
-        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("splitChaptersCheckBox"));
         verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
@@ -7825,6 +7865,7 @@ public class GospelLibrary {
         assertAndReturnStudyPlanSummaryScreen();
 
     }
+
 
     @Test
     public void StudyPlansCreateCustomStudyPlan() throws Exception {
@@ -7839,11 +7880,11 @@ public class GospelLibrary {
         ClickUIElementByText("W",false);
         ClickUIElementByText("F",false);
         ClickUIElementByID(AppId("startTitleTextView"));
-        ClickUIElementByAccessibilityID("14 August 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("endTitleTextView"));
         ClickUIElementByAccessibilityID("Next month");
-        ClickUIElementByAccessibilityID("15 December 2019");
+        ClickUIElementByViewText("14",false);
         ClickUIElementByResourceID("android:id/button1");
         ClickUIElementByID(AppId("splitChaptersCheckBox"));
         verifyAttributeWithBoolean(WebElementById("rightTextButton"),"enabled",true);
@@ -7855,7 +7896,7 @@ public class GospelLibrary {
 
     }
 
-    
+
 
 }
 
