@@ -5580,7 +5580,8 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Pearl of Great Price", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Pearl of Great Price'])/..").getSize().getWidth());
         scrollDownTo("Study Helps");
-        assertElementExistsBy(WebElementsByText("Study Helps", false));
+        assertElementExistsBy(WebElementsByText("Study Helps",false));
+        assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Study Helps'])/..").getSize().getWidth());
         //These were moved inside the "Study Helps" section
 //        assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text=\"" + isAllCaps("Study Helps") + "\"])/../..").getSize().getWidth());
 //        scrollDownTo("Guide to the Scriptures");
@@ -5637,7 +5638,6 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("List Mode", false));
         assertSettingsSwitchExpectedStateAndToggle("List Mode", false);
         ClickUIElementByAccessibilityID("Navigate up");
-
         assertElementExistsBy(WebElementsById(AppId("mainToolbarTitleTextView")));
         verifyText("Library", WebElementById(AppId("mainToolbarTitleTextView")), false);
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
@@ -5669,8 +5669,8 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Pearl of Great Price", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Pearl of Great Price'])/..").getSize().getWidth());
         scrollDownTo("Study Helps");
-        assertElementExistsBy(WebElementsByText("Study Helps", false));
-        assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text=\"" + isAllCaps("Study Helps") + "\"])/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Study Helps'])/.."));
+        assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Study Helps'])/..").getSize().getWidth());
         // These were moved inside a "Study Helps" section
 //        scrollDownTo("Guide to the Scriptures");
 //        assertElementExistsBy(WebElementsByText("Guide to the Scriptures", false));
@@ -6494,7 +6494,7 @@ public class GospelLibrary {
         verifyText(RightsAndUse, WebElementByXpath("//android.widget.TextView[@text='Terms of Use']/../android.widget.TextView[contains(@text, 'Updated')]"), false);
         //Verify Privacy Notice Date
         ClickUIElementByText("Privacy Notice", false);
-        verifyText("https://www.churchofjesuschrist.org/legal/privacy-notice?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"), false);
+        verifyText("churchofjesuschrist.org/legal/privacy-notice?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"), false);
         String PrivacyPolicy = WebElementByXpath("//android.view.View[contains(@text, 'Updated')]").getText();
         System.out.println(PrivacyPolicy);
         PrivacyPolicy = PrivacyPolicy.replace("Privacy Notice (Updated ", "");
@@ -6518,10 +6518,10 @@ public class GospelLibrary {
         verifyText(PrivacyPolicy, WebElementByXpath("//android.widget.TextView[@text='Privacy Notice']/../android.widget.TextView[contains(@text, 'Updated')]"), false);
         //verify Acknowledgements
         ClickUIElementByText("Acknowledgements", false);
-        assertElementExistsBy(WebElementsByXpath("(//*/android.view.View[1]/android.view.View[1]"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
-        assertElementExistsBy(WebElementsById(AppId("aboutLibrariesRecyclerView")));
-        ClickUIElementByAccessibilityID("Navigate up");
+        assertElementExistsBy(WebElementsByXpath("(//*/android.webkit.WebView/android.view.View[1]/android.view.View)[4]"));
+        ClickUIElementByXpath("(//*/android.webkit.WebView/android.view.View[1]/android.view.View)[4]");
+        driver.navigate().back();
+        driver.navigate().back();
         verifyText("About", WebElementById(AppId("mainToolbarTitleTextView")), false);
         //verify year in copyright
         DateFormat dateFormat = new SimpleDateFormat("yyyy");
