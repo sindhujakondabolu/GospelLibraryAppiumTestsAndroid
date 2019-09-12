@@ -2915,7 +2915,11 @@ public class GospelLibrary {
         if (attachImage) {
             ClickUIElementByAccessibilityID("Attach Image");
             ClickUIElementByID("com.android.packageinstaller:id/permission_allow_button");
-            ClickUIElementByText("Gallery", false);
+            ClickUIElementByAccessibilityID("Show roots");
+            ClickUIElementByText("Images",false);
+            ClickUIElementByID("android:id/title");
+            ClickUIElementByXpath("(//*/android.widget.ImageView)[2]");
+//            ClickUIElementByText("Gallery", false);
 //            ClickUIElementByAccessibilityID("More options");
 //            if (WebElementsByTextWebview("List view", false).size() > 0){
 //                ClickUIElementByText("List view", false);
@@ -2924,14 +2928,14 @@ public class GospelLibrary {
 //            }
 //            String photoTitle = WebElementByXpath("//android.widget.ImageView/../android.widget.TextView").getText();
 //            System.out.println(photoTitle);
-            ClickUIElementByXpath("//android.widget.ImageView");
-            assertElementExistsBy(WebElementsById(AppId("bubbleLayout")));
-            assertElementExistsBy(WebElementsById(AppId("bubbleTextView")));
-            assertElementExistsBy(WebElementsById(AppId("bubbleDeleteImageView")));
+//            ClickUIElementByXpath("//android.widget.ImageView");
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/bubbleLayout"));
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/bubbleTextView"));
+            assertElementExistsBy(WebElementsByAccessibilityId("Remove tag"));
 //            verifyText(photoTitle, WebElementById(AppId("bubbleTextView"),false);
 
             if (deletePhoto) {
-                ClickUIElementByID(AppId("bubbleDeleteImageView"));
+                ClickUIElementByAccessibilityID("Remove tag");
                 assertElementNotPresentBy(WebElementsById(AppId("bubbleLayout")));
             }
             ;
@@ -6071,6 +6075,11 @@ public class GospelLibrary {
         skipLogin();
         scrollDownTo("Come, Follow Me");
         ClickUIElementByText("Come, Follow Me", false);
+//        ClickUIElementByAccessibilityID("More options");
+//        ClickUIElementByText("Settings",false);
+//        scrollDownTo("List Mode");
+//        ClickUIElementByText("List Mode",false);
+//        ClickUIElementByAccessibilityID("Navigate up");
         scrollDownTo("Other Resources");
         ClickUIElementByText("Other Resources", false);
         assertElementNotPresentBy(WebElementsByText("Instructions for Curriculum 2018", false));
@@ -6325,7 +6334,10 @@ public class GospelLibrary {
         //Verify Send Feedback Option
         assertElementExistsBy(WebElementsByText("Send Feedback", false));
         ClickUIElementByText("Send Feedback", false);
-        fillOutFeedbackFormAndAssert("", email, "Compliment", false, "default", true, true, true);
+        fillOutFeedbackFormAndAssert(name, email, "Compliment", false, "default", true, false, false);
+        Thread.sleep(milliseconds_5);
+        ClickUIElementByAccessibilityID("Remove tag");
+        ClickUIElementByAccessibilityID("Submit");
         assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
@@ -6480,7 +6492,7 @@ public class GospelLibrary {
         verifyText(RightsAndUse, WebElementByXpath("//android.widget.TextView[@text='Terms of Use']/../android.widget.TextView[contains(@text, 'Updated')]"), false);
         //Verify Privacy Notice Date
         ClickUIElementByText("Privacy Notice", false);
-        verifyText("churchofjesuschrist.org/legal/privacy-notice?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"), false);
+        verifyText("https://www.churchofjesuschrist.org/legal/privacy-notice?lang=eng&country=go", WebElementById("com.android.chrome:id/url_bar"), false);
         String PrivacyPolicy = WebElementByXpath("//android.view.View[contains(@text, 'Updated')]").getText();
         System.out.println(PrivacyPolicy);
         PrivacyPolicy = PrivacyPolicy.replace("Privacy Notice (Updated ", "");
