@@ -2915,7 +2915,11 @@ public class GospelLibrary {
         if (attachImage) {
             ClickUIElementByAccessibilityID("Attach Image");
             ClickUIElementByID("com.android.packageinstaller:id/permission_allow_button");
-            ClickUIElementByText("Gallery", false);
+            ClickUIElementByAccessibilityID("Show roots");
+            ClickUIElementByText("Images",false);
+            ClickUIElementByID("android:id/title");
+            ClickUIElementByXpath("(//*/android.widget.ImageView)[2]");
+//            ClickUIElementByText("Gallery", false);
 //            ClickUIElementByAccessibilityID("More options");
 //            if (WebElementsByTextWebview("List view", false).size() > 0){
 //                ClickUIElementByText("List view", false);
@@ -2924,14 +2928,14 @@ public class GospelLibrary {
 //            }
 //            String photoTitle = WebElementByXpath("//android.widget.ImageView/../android.widget.TextView").getText();
 //            System.out.println(photoTitle);
-            ClickUIElementByXpath("//android.widget.ImageView");
-            assertElementExistsBy(WebElementsById(AppId("bubbleLayout")));
-            assertElementExistsBy(WebElementsById(AppId("bubbleTextView")));
-            assertElementExistsBy(WebElementsById(AppId("bubbleDeleteImageView")));
+//            ClickUIElementByXpath("//android.widget.ImageView");
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/bubbleLayout"));
+            assertElementExistsBy(WebElementsByResourceId("org.lds.ldssa.alpha:id/bubbleTextView"));
+            assertElementExistsBy(WebElementsByAccessibilityId("Remove tag"));
 //            verifyText(photoTitle, WebElementById(AppId("bubbleTextView"),false);
 
             if (deletePhoto) {
-                ClickUIElementByID(AppId("bubbleDeleteImageView"));
+                ClickUIElementByAccessibilityID("Remove tag");
                 assertElementNotPresentBy(WebElementsById(AppId("bubbleLayout")));
             }
             ;
@@ -5576,7 +5580,8 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Pearl of Great Price", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Pearl of Great Price'])/..").getSize().getWidth());
         scrollDownTo("Study Helps");
-        assertElementExistsBy(WebElementsByText("Study Helps", false));
+        assertElementExistsBy(WebElementsByText("Study Helps",false));
+        assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Study Helps'])/..").getSize().getWidth());
         //These were moved inside the "Study Helps" section
 //        assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text=\"" + isAllCaps("Study Helps") + "\"])/../..").getSize().getWidth());
 //        scrollDownTo("Guide to the Scriptures");
@@ -5633,7 +5638,6 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("List Mode", false));
         assertSettingsSwitchExpectedStateAndToggle("List Mode", false);
         ClickUIElementByAccessibilityID("Navigate up");
-
         assertElementExistsBy(WebElementsById(AppId("mainToolbarTitleTextView")));
         verifyText("Library", WebElementById(AppId("mainToolbarTitleTextView")), false);
         assertElementExistsBy(WebElementsByAccessibilityId("Search"));
@@ -5665,8 +5669,8 @@ public class GospelLibrary {
         assertElementExistsBy(WebElementsByText("Pearl of Great Price", false));
         assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Pearl of Great Price'])/..").getSize().getWidth());
         scrollDownTo("Study Helps");
-        assertElementExistsBy(WebElementsByText("Study Helps", false));
-        assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text=\"" + isAllCaps("Study Helps") + "\"])/../..").getSize().getWidth());
+        assertElementExistsBy(WebElementsByXpath("(//android.widget.TextView[@text='Study Helps'])/.."));
+        assertEquals(screenWidth, WebElementByXpath("(//android.widget.TextView[@text='Study Helps'])/..").getSize().getWidth());
         // These were moved inside a "Study Helps" section
 //        scrollDownTo("Guide to the Scriptures");
 //        assertElementExistsBy(WebElementsByText("Guide to the Scriptures", false));
@@ -6073,6 +6077,11 @@ public class GospelLibrary {
         skipLogin();
         scrollDownTo("Come, Follow Me");
         ClickUIElementByText("Come, Follow Me", false);
+//        ClickUIElementByAccessibilityID("More options");
+//        ClickUIElementByText("Settings",false);
+//        scrollDownTo("List Mode");
+//        ClickUIElementByText("List Mode",false);
+//        ClickUIElementByAccessibilityID("Navigate up");
         scrollDownTo("Other Resources");
         ClickUIElementByText("Other Resources", false);
         assertElementNotPresentBy(WebElementsByText("Instructions for Curriculum 2018", false));
@@ -6327,7 +6336,10 @@ public class GospelLibrary {
         //Verify Send Feedback Option
         assertElementExistsBy(WebElementsByText("Send Feedback", false));
         ClickUIElementByText("Send Feedback", false);
-        fillOutFeedbackFormAndAssert("", email, "Compliment", false, "default", true, true, true);
+        fillOutFeedbackFormAndAssert(name, email, "Compliment", false, "default", true, false, false);
+        Thread.sleep(milliseconds_5);
+        ClickUIElementByAccessibilityID("Remove tag");
+        ClickUIElementByAccessibilityID("Submit");
         assertElementExistsBy(WebElementsByText("Settings", false));
 
     }
@@ -6506,10 +6518,10 @@ public class GospelLibrary {
         verifyText(PrivacyPolicy, WebElementByXpath("//android.widget.TextView[@text='Privacy Notice']/../android.widget.TextView[contains(@text, 'Updated')]"), false);
         //verify Acknowledgements
         ClickUIElementByText("Acknowledgements", false);
-        assertElementExistsBy(WebElementsByXpath("(//*/android.view.View[1]/android.view.View[1]"));
-        assertElementExistsBy(WebElementsByAccessibilityId("Navigate up"));
-        assertElementExistsBy(WebElementsById(AppId("aboutLibrariesRecyclerView")));
-        ClickUIElementByAccessibilityID("Navigate up");
+        assertElementExistsBy(WebElementsByXpath("(//*/android.webkit.WebView/android.view.View[1]/android.view.View)[4]"));
+        ClickUIElementByXpath("(//*/android.webkit.WebView/android.view.View[1]/android.view.View)[4]");
+        driver.navigate().back();
+        driver.navigate().back();
         verifyText("About", WebElementById(AppId("mainToolbarTitleTextView")), false);
         //verify year in copyright
         DateFormat dateFormat = new SimpleDateFormat("yyyy");
