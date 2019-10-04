@@ -3150,7 +3150,7 @@ public class GospelLibrary {
     public void skipTips() throws Exception {
         SplashScreenWait();
         System.out.println("Skipping Tips");
-        driver.findElement(By.id("org.lds.ldssa." + GospelLibraryBuild + ":id/skip")).click();
+//        driver.findElement(By.id("org.lds.ldssa." + GospelLibraryBuild + ":id/skip")).click();
         Thread.sleep(milliseconds_1);
 
     }
@@ -3949,7 +3949,7 @@ public class GospelLibrary {
         System.out.println("noteTitleOffset is " + noteTitleOffset);
         String noteBody = theAnnotationInfo.substring(noteBodyOffset, noteTitleOffset);
         System.out.println(noteBody);
-        Assert.assertEquals("This is a note\\\\. **_This should be Italic and Bold_** This should not be Italic or Bold", noteBody);
+        Assert.assertEquals("This is a note\\\\. _**This should be Italic and Bold**_ This should not be Italic or Bold", noteBody);
     }
 
 
@@ -7026,7 +7026,7 @@ public class GospelLibrary {
     @Test
     public void AnnotationMenuAddToAnnotationIndicatorIcon() throws Exception {
         AnnotationMenuAddToNotebook();
-        ClickUIElementByAccessibilityID("Navigate up");
+        ClickUIElementByAccessibilityID("Naaqvigate up");
         assertElementInWebviewExistsBy("//div[contains(@class,'marginIndicatorNotebook')]");
         assertEquals("url(\"file:///android_asset/images/annotation_notebook.png\")", getComputedCssUsingXpath("//div[contains(@class,'marginIndicatorNotebook')]", "background-image"));
 
@@ -7159,6 +7159,7 @@ public class GospelLibrary {
         OpenAnnotationMenu("p1", "Mark");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
+        templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 2) + "]");
         assertChooseHighlightScreen();
         assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa." + GospelLibraryBuild + ":id/marginIndicatorImageView\"])[1]"));
@@ -7178,6 +7179,7 @@ public class GospelLibrary {
         OpenAnnotationMenu("p1", "Mark");
         List templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 1) + "]");
+        templist = WebElementsByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)");
         ClickUIElementByXpath("(//*[@resource-id=\"p1\"]/../android.view.View/android.view.View)[" + (templist.size() - 2) + "]");
         assertChooseHighlightScreen();
         assertElementExistsBy(WebElementsByXpath("(//*[@resource-id=\"org.lds.ldssa." + GospelLibraryBuild + ":id/marginIndicatorImageView\"])[1]"));
