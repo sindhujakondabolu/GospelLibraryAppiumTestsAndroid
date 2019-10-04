@@ -8,7 +8,7 @@ public class EnvironmentConfigExample {
     public static String theAppiumPort = "4723";
 
     //Android Device UDID
-    public static String theUDID = "05157df5a1394b1c";
+    public static String theUDID = "9887a8465245333337";
 
     //Android version number
     public static int AndroidVersion = 7;
